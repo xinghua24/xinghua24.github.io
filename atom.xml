@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xing&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://xinghua24.github.io/"/>
+  <updated>2019-07-19T04:19:11.318Z</updated>
+  <id>http://xinghua24.github.io/</id>
+  
+  <author>
+    <name>Xinghua Zhang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java - repeat a String n times</title>
+    <link href="http://xinghua24.github.io/Java-repeat-a-String-n-times/"/>
+    <id>http://xinghua24.github.io/Java-repeat-a-String-n-times/</id>
+    <published>2019-07-19T04:09:55.000Z</published>
+    <updated>2019-07-19T04:19:11.318Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Different ways to repeat a String n times&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Dockerizing Spring Boot App</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Dockerizing-Spring-Boot-App/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Dockerizing-Spring-Boot-App/</id>
+    <published>2019-05-28T02:55:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s learn how to dockerize a Spring Boot Application.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Actuator</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Actuator/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Actuator/</id>
+    <published>2019-05-26T22:39:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Boot Actuator provides metrics and app monitoring to our application.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - JPA</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-JPA/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-JPA/</id>
+    <published>2019-05-26T05:39:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s learn how to use Java Persistence API(JPA) to map objects to relational databases using an example project.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DevOps</title>
+    <link href="http://xinghua24.github.io/Devops/"/>
+    <id>http://xinghua24.github.io/Devops/</id>
+    <published>2019-05-22T07:56:00.000Z</published>
+    <updated>2019-07-18T21:57:55.439Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s learn DevOps basics.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="uncategorized" scheme="http://xinghua24.github.io/categories/uncategorized/"/>
+    
+    
+      <category term="devops" scheme="http://xinghua24.github.io/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Install Jdk on Ubuntu</title>
+    <link href="http://xinghua24.github.io/Install-Jdk-on-Ubuntu/"/>
+    <id>http://xinghua24.github.io/Install-Jdk-on-Ubuntu/</id>
+    <published>2019-05-20T02:46:00.000Z</published>
+    <updated>2019-07-18T21:57:55.439Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Learn about how to install Jdk on Ubuntu&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java Keytool</title>
+    <link href="http://xinghua24.github.io/Java-Keytool/"/>
+    <id>http://xinghua24.github.io/Java-Keytool/</id>
+    <published>2019-05-11T19:37:00.000Z</published>
+    <updated>2019-07-18T21:57:55.443Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The keytool command is a key and certificate management utility.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
+    
+    
+      <category term="Security" scheme="http://xinghua24.github.io/tags/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Openssl Usage</title>
+    <link href="http://xinghua24.github.io/openssl-usage/"/>
+    <id>http://xinghua24.github.io/openssl-usage/</id>
+    <published>2019-05-10T02:35:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;OpenSSL is a toolkit for TLS and SSL protocols. It is also a general-purpose cryptography library.&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Security" scheme="http://xinghua24.github.io/tags/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Certificate Basics</title>
+    <link href="http://xinghua24.github.io/Certificate-Basics/"/>
+    <id>http://xinghua24.github.io/Certificate-Basics/</id>
+    <published>2019-05-08T06:54:00.000Z</published>
+    <updated>2019-07-18T21:57:55.439Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Basics about Certificate&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Security" scheme="http://xinghua24.github.io/tags/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - DataSource</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-DataSource/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-DataSource/</id>
+    <published>2019-05-08T05:11:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Configuring DataSource in a Spring Boot Project.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Handling Date Request Parameter</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Handling-Date-Request-Parameter/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Handling-Date-Request-Parameter/</id>
+    <published>2019-05-07T03:55:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Handling Date types in the Spring Boot Controller&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - RestTemplate</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-RestTemplate/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-RestTemplate/</id>
+    <published>2019-05-07T03:51:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;RestTemplate Explained.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Filters and Interceptors</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/</id>
+    <published>2019-05-05T06:28:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s learn about Filters and Interceptors&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Swagger 2 Set up</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Swagger-2-set-up/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Swagger-2-set-up/</id>
+    <published>2019-05-04T15:04:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lets learn how to set up Swagger for a Spring Boot application.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Web Application</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Web-Application/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Web-Application/</id>
+    <published>2019-05-04T02:28:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s learn basic web application using Spring Boot.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Logging</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Logging/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Logging/</id>
+    <published>2019-05-03T04:13:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lets look at the Logging options for Spring Boot.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Runners</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Runners/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Runners/</id>
+    <published>2019-05-02T09:17:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ApplicationRunner&lt;/a&gt; and &lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CommandLineRunner&lt;/a&gt; interfaces lets you to execute the code after the Spring Boot application is started.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Non-static vs Static Nested class</title>
+    <link href="http://xinghua24.github.io/Non-static-vs-Static-Nested-class/"/>
+    <id>http://xinghua24.github.io/Non-static-vs-Static-Nested-class/</id>
+    <published>2019-04-26T05:03:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A class can be defined within another class. These classes are known as nested classes. They allow you to logically group related classes in one place.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Configuration</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Configuration/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Configuration/</id>
+    <published>2019-04-16T05:21:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;There are many ways to set configuration to a Spring Boot application.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Code Structure</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Code-Structure/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Code-Structure/</id>
+    <published>2019-04-15T05:12:00.000Z</published>
+    <updated>2019-07-18T21:57:55.447Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Recommended Spring Boot Project code structure.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+</feed>

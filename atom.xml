@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-07-19T04:19:11.318Z</updated>
+  <updated>2019-07-21T02:37:49.230Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,17 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Intellij IDEA Shortcuts and Tips</title>
+    <link href="http://xinghua24.github.io/Intellij-IDEA-Shortcuts-and-Tips/"/>
+    <id>http://xinghua24.github.io/Intellij-IDEA-Shortcuts-and-Tips/</id>
+    <published>2019-07-21T01:38:00.000Z</published>
+    <updated>2019-07-21T02:37:49.230Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Intellij IDEA Shortcuts and Tips&lt;br&gt;
+    
+    </summary>
+    
+      <category term="uncategorized" scheme="http://xinghua24.github.io/categories/uncategorized/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Java - repeat a String n times</title>
     <link href="http://xinghua24.github.io/Java-repeat-a-String-n-times/"/>
     <id>http://xinghua24.github.io/Java-repeat-a-String-n-times/</id>
-    <published>2019-07-19T04:09:55.000Z</published>
-    <updated>2019-07-19T04:19:11.318Z</updated>
+    <published>2019-07-19T04:09:00.000Z</published>
+    <updated>2019-07-19T04:22:18.598Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;Different ways to repeat a String n times&lt;br&gt;
     
     </summary>
+    
+      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
     
     
   </entry>
@@ -352,24 +372,6 @@
     <summary type="html">
     
       &lt;p&gt;There are many ways to set configuration to a Spring Boot application.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Code Structure</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Code-Structure/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Code-Structure/</id>
-    <published>2019-04-15T05:12:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Recommended Spring Boot Project code structure.&lt;/p&gt;
     
     </summary>
     

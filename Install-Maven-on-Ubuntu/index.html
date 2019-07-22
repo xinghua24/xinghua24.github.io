@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="Let’s learn about Filters and Interceptors">
+  <meta name="description" content="Download and Install Maven on Ubuntu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot - Filters and Interceptors">
-<meta property="og:url" content="http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/index.html">
+<meta property="og:title" content="Install Maven on Ubuntu">
+<meta property="og:url" content="http://xinghua24.github.io/Install-Maven-on-Ubuntu/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Let’s learn about Filters and Interceptors">
+<meta property="og:description" content="Download and Install Maven on Ubuntu">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.447Z">
+<meta property="og:updated_time" content="2019-07-22T01:19:11.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot - Filters and Interceptors">
-<meta name="twitter:description" content="Let’s learn about Filters and Interceptors">
+<meta name="twitter:title" content="Install Maven on Ubuntu">
+<meta name="twitter:description" content="Download and Install Maven on Ubuntu">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/">
+  <link rel="canonical" href="http://xinghua24.github.io/Install-Maven-on-Ubuntu/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Spring Boot - Filters and Interceptors | Xing's Blog</title>
+  <title>Install Maven on Ubuntu | Xing's Blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Install-Maven-on-Ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Boot - Filters and Interceptors
+          <h1 class="post-title" itemprop="name headline">Install Maven on Ubuntu
 
               
             
@@ -385,24 +385,12 @@
                 
               
 
-              <time title="Created: 2019-05-05 02:28:00" itemprop="dateCreated datePublished" datetime="2019-05-05T02:28:00-04:00">2019-05-05</time>
+              <time title="Created: 2019-07-21 20:52:00 / Modified: 21:19:11" itemprop="dateCreated datePublished" datetime="2019-07-21T20:52:00-04:00">2019-07-21</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
               
             
           </span>
@@ -419,7 +407,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -434,9 +422,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Spring-Boot-Filters-and-Interceptors/#comments" itemprop="discussionUrl">
+                <a href="/Install-Maven-on-Ubuntu/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Spring-Boot-Filters-and-Interceptors/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Install-Maven-on-Ubuntu/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -464,31 +452,12 @@
       
 
       
-        <p>Let’s learn about Filters and Interceptors<br><a id="more"></a></p>
-<p>Filters works in the web layer, so you can’t use it outside of the web context. Interceptors can work outside of web layer.</p>
-<p>Filters are great for login authentication and work on request/response. Interceptors works on the method execution.</p>
-<h1 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h1><p>Filter Example<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestResponseLoggingFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(RequestResponseLoggingFilter.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        HttpServletRequest req = (HttpServletRequest) request;</span><br><span class="line">        HttpServletResponse res = (HttpServletResponse) response;</span><br><span class="line"></span><br><span class="line">        LOG.info(<span class="string">"Logging Request  &#123;&#125; : &#123;&#125;"</span>, req.getMethod(), req.getRequestURI());</span><br><span class="line"></span><br><span class="line">        chain.doFilter(request, response);</span><br><span class="line"></span><br><span class="line">        LOG.info(<span class="string">"Logging Response :&#123;&#125;"</span>, res.getContentType());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Interceptor"><a href="#Interceptor" class="headerlink" title="Interceptor"></a>Interceptor</h1><p>All interceptors implement <code>HandlerInterceptor</code> interface. </p>
-<p><code>HandlerInterceptor</code> can be registered for only certain request paths. use <code>/**</code> for all URL path.</p>
-<p><code>HandlerInterceptor</code> contains three methods: </p>
-<ul>
-<li>preHandle() : called before a request is handled. The default returns true to proceed the request.</li>
-<li>postHandle() : called after request is handled. It also has access to ModelAndView object.</li>
-<li>afterCompletion() : after all processing is completed. e.g. view is render</li>
-</ul>
-<p>Spring provides <code>HandlerInterceptorAdapter</code> abstract class that provides simplified implementation of<br>pre-only/post-only interceptors.</p>
-<p>ProcessTimeInterceptor logs the process time for the incoming request<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProcessTimeInterceptor</span> <span class="keyword">extends</span> <span class="title">HandlerInterceptorAdapter</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(ProcessTimeInterceptor.class);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> startTime = System.currentTimeMillis();</span><br><span class="line">        request.setAttribute(<span class="string">"startTime"</span>, startTime);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * sample log output: Request Processing Time: 4ms for path /</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler,</span></span></span><br><span class="line"><span class="function"><span class="params">            ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> startTime = (Long) request.getAttribute(<span class="string">"startTime"</span>);</span><br><span class="line">        request.removeAttribute(<span class="string">"startTime"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">long</span> endTime = System.currentTimeMillis();</span><br><span class="line">        </span><br><span class="line">        String path = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isEmpty(request.getQueryString())) &#123;</span><br><span class="line">            path = request.getServletPath();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            path = request.getServletPath() + <span class="string">"?"</span> + request.getQueryString();</span><br><span class="line">        &#125;</span><br><span class="line">        LOG.info(<span class="string">"Request Processing Time: "</span> + (endTime - startTime) + <span class="string">"ms for path "</span> </span><br><span class="line">                + path);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Then add the interceptor to the interceptors list.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebConfiguration</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ProcessTimeInterceptor processTimeInterceptor;</span><br><span class="line">    </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">		registry.addInterceptor(processTimeInterceptor).addPathPatterns(<span class="string">"/**"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Sample output for the above Filter and Interceptor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2019-05-06 23:25:40.862  INFO 5722 --- [nio-8080-exec-8] c.e.demo.RequestResponseLoggingFilter    : Logging Request  GET : /hello</span><br><span class="line">2019-05-06 23:25:40.865  INFO 5722 --- [nio-8080-exec-8] com.example.demo.ProcessTimeInterceptor  : Request Processing Time: 2ms for path /hello</span><br><span class="line">2019-05-06 23:25:40.865  INFO 5722 --- [nio-8080-exec-8] c.e.demo.RequestResponseLoggingFilter    : Logging Response :text/html;charset=UTF-8</span><br></pre></td></tr></table></figure></p>
-<p>Reference</p>
-<ul>
-<li><a href="https://www.baeldung.com/spring-boot-add-filter" target="_blank" rel="noopener">Baeldung Spring Boot Filter</a></li>
-<li><a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html" target="_blank" rel="noopener">HandlerInterceptor Documentation</a></li>
-<li><a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/handler/HandlerInterceptorAdapter.html" target="_blank" rel="noopener">HandlerInterceptorAdapter Documentation</a></li>
-<li><a href="https://www.mkyong.com/spring-mvc/spring-mvc-handler-interceptors-example/" target="_blank" rel="noopener">Spring MVC handler interceptors example - Mkyong</a></li>
-<li><a href="https://howtodoinjava.com/spring-mvc/spring-intercepting-requests-using-handlerinterceptor-with-example/" target="_blank" rel="noopener">Spring HandlerInterceptor Example</a></li>
-</ul>
-<p>source code - <a href="https://github.com/xinghua24/SpringBootExamples/tree/master/filter-and-interceptor" target="_blank" rel="noopener">SpringBootExamples - filter-and-interceptor</a></p>
+        <p>Download and Install Maven on Ubuntu<br><a id="more"></a></p>
+<p>Download Binary<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.reverse.net/pub/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz -P /tmp</span><br></pre></td></tr></table></figure></p>
+<p>extract to /usr/local folder<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt</span><br></pre></td></tr></table></figure></p>
+<p>rename the folder<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">mv apache-maven-* apache-maven</span><br></pre></td></tr></table></figure></p>
+<p>set environment variable(can be in ~/.bashrc file)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export M3_HOME=/opt/apache-maven</span><br><span class="line">export MAVEN_HOME=/opt/apache-maven</span><br><span class="line">export PATH=$&#123;MAVEN_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Check maven version<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ mvn -version</span><br><span class="line">Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-04T15:00:29-04:00)</span><br><span class="line">Maven home: /opt/apache-maven</span><br><span class="line">Java version: 11.0.3, vendor: Ubuntu, runtime: /usr/lib/jvm/java-11-openjdk-amd64</span><br><span class="line">Default locale: en_US, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;linux&quot;, version: &quot;5.0.0-20-generic&quot;, arch: &quot;amd64&quot;, family: &quot;unix&quot;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -519,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Spring-Boot-Swagger-2-set-up/" rel="next" title="Spring Boot - Swagger 2 Set up">
-                <i class="fa fa-chevron-left"></i> Spring Boot - Swagger 2 Set up
+              <a href="/Intellij-IDEA-Shortcuts-and-Tips/" rel="next" title="Intellij IDEA Shortcuts and Tips">
+                <i class="fa fa-chevron-left"></i> Intellij IDEA Shortcuts and Tips
               </a>
             
           </div>
@@ -528,10 +497,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Spring-Boot-RestTemplate/" rel="prev" title="Spring Boot - RestTemplate">
-                Spring Boot - RestTemplate <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -583,17 +548,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -721,23 +677,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Filter"><span class="nav-number">1.</span> <span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interceptor"><span class="nav-number">2.</span> <span class="nav-text">Interceptor</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -887,9 +826,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/";
-        this.page.identifier = "Spring-Boot-Filters-and-Interceptors/";
-        this.page.title = 'Spring Boot - Filters and Interceptors';
+        this.page.url = "http://xinghua24.github.io/Install-Maven-on-Ubuntu/";
+        this.page.identifier = "Install-Maven-on-Ubuntu/";
+        this.page.title = 'Install Maven on Ubuntu';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

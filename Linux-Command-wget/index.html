@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="wget - download files from the web. It supports HTTP , HTTPS , and FTP protocols, as well as retrieval through HTTP proxies. It is non-interactive.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.447Z">
+<meta property="og:updated_time" content="2019-07-22T01:18:06.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - wget">
 <meta name="twitter:description" content="wget - download files from the web. It supports HTTP , HTTPS , and FTP protocols, as well as retrieval through HTTP proxies. It is non-interactive.">
@@ -403,7 +403,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
+                <time title="Modified: 2019-07-21 21:18:06" itemprop="dateModified" datetime="2019-07-21T21:18:06-04:00">2019-07-21</time>
               
             
           </span>
@@ -496,6 +496,10 @@
 <td>turn off wget’s output</td>
 </tr>
 <tr>
+<td>-P prefix</td>
+<td>sets directory. default is <strong>.</strong></td>
+</tr>
+<tr>
 <td>–help</td>
 <td>display help info</td>
 </tr>
@@ -503,6 +507,7 @@
 </table>
 <h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Download-a-file"><a href="#Download-a-file" class="headerlink" title="Download a file"></a>Download a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
 <p>This will download Octocats.zip</p>
+<h2 id="Download-a-file-to-a-specific-directory"><a href="#Download-a-file-to-a-specific-directory" class="headerlink" title="Download a file to a specific directory"></a>Download a file to a specific directory</h2><p>Download maven to /tmp directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.reverse.net/pub/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz -P /tmp</span><br></pre></td></tr></table></figure></p>
 <h2 id="Display-only"><a href="#Display-only" class="headerlink" title="Display only"></a>Display only</h2><p>use <code>-qO-</code> or <code>-qO -</code> to print the result in standard output only<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://jsonplaceholder.typicode.com/users</span><br></pre></td></tr></table></figure></p>
 <h2 id="Specify-file-name"><a href="#Specify-file-name" class="headerlink" title="Specify file name"></a>Specify file name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O github-octcats.zip https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
 <p>This will download file and rename file to be github-octcats.zip</p>
@@ -638,7 +643,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-count">114</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -762,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-a-file"><span class="nav-number">3.1.</span> <span class="nav-text">Download a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-only"><span class="nav-number">3.2.</span> <span class="nav-text">Display only</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specify-file-name"><span class="nav-number">3.3.</span> <span class="nav-text">Specify file name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resume-a-partially-downloaded-file"><span class="nav-number">3.4.</span> <span class="nav-text">Resume a partially downloaded file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-timeout"><span class="nav-number">3.5.</span> <span class="nav-text">Set timeout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-a-file"><span class="nav-number">3.1.</span> <span class="nav-text">Download a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-a-file-to-a-specific-directory"><span class="nav-number">3.2.</span> <span class="nav-text">Download a file to a specific directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-only"><span class="nav-number">3.3.</span> <span class="nav-text">Display only</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specify-file-name"><span class="nav-number">3.4.</span> <span class="nav-text">Specify file name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resume-a-partially-downloaded-file"><span class="nav-number">3.5.</span> <span class="nav-text">Resume a partially downloaded file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-timeout"><span class="nav-number">3.6.</span> <span class="nav-text">Set timeout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

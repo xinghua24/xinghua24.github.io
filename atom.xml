@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-07-22T01:19:11.672Z</updated>
+  <updated>2019-07-22T18:01:22.413Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>MicroServices</title>
+    <link href="http://xinghua24.github.io/MicroSservices/"/>
+    <id>http://xinghua24.github.io/MicroSservices/</id>
+    <published>2019-07-22T05:44:00.000Z</published>
+    <updated>2019-07-22T18:01:22.413Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;What is Microservices?&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Microservices" scheme="http://xinghua24.github.io/categories/Microservices/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Install Maven on Ubuntu</title>
     <link href="http://xinghua24.github.io/Install-Maven-on-Ubuntu/"/>
     <id>http://xinghua24.github.io/Install-Maven-on-Ubuntu/</id>
     <published>2019-07-22T00:52:00.000Z</published>
-    <updated>2019-07-22T01:19:11.672Z</updated>
+    <updated>2019-07-22T03:43:31.205Z</updated>
     
     <summary type="html">
     
@@ -39,7 +57,7 @@
     <link href="http://xinghua24.github.io/Intellij-IDEA-Shortcuts-and-Tips/"/>
     <id>http://xinghua24.github.io/Intellij-IDEA-Shortcuts-and-Tips/</id>
     <published>2019-07-21T01:38:00.000Z</published>
-    <updated>2019-07-21T02:37:49.230Z</updated>
+    <updated>2019-07-22T03:08:24.636Z</updated>
     
     <summary type="html">
     
@@ -358,24 +376,6 @@
     </summary>
     
       <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Non-static vs Static Nested class</title>
-    <link href="http://xinghua24.github.io/Non-static-vs-Static-Nested-class/"/>
-    <id>http://xinghua24.github.io/Non-static-vs-Static-Nested-class/</id>
-    <published>2019-04-26T05:03:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;A class can be defined within another class. These classes are known as nested classes. They allow you to logically group related classes in one place.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
     
     
   </entry>

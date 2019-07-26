@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-07-22T19:32:23.192Z</updated>
+  <updated>2019-07-26T19:20:04.522Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux Command - Run Command in the Background</title>
+    <link href="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/"/>
+    <id>http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/</id>
+    <published>2019-07-26T19:00:00.000Z</published>
+    <updated>2019-07-26T19:20:04.522Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux-Command" scheme="http://xinghua24.github.io/categories/Linux-Command/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Microservices</title>
     <link href="http://xinghua24.github.io/MicroServices/"/>
     <id>http://xinghua24.github.io/MicroServices/</id>
     <published>2019-07-22T05:44:00.000Z</published>
-    <updated>2019-07-22T19:32:23.192Z</updated>
+    <updated>2019-07-23T06:58:15.918Z</updated>
     
     <summary type="html">
     
@@ -354,24 +372,6 @@
     <summary type="html">
     
       &lt;p&gt;Lets look at the Logging options for Spring Boot.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Runners</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Runners/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Runners/</id>
-    <published>2019-05-02T09:17:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ApplicationRunner&lt;/a&gt; and &lt;a href=&quot;https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CommandLineRunner&lt;/a&gt; interfaces lets you to execute the code after the Spring Boot application is started.&lt;/p&gt;
     
     </summary>
     

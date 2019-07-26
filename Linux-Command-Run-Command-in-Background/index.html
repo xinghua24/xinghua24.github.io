@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="chgrp change group ownership for files and directories">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - chgrp">
-<meta property="og:url" content="http://xinghua24.github.io/Linux-Command-chgrp/index.html">
+<meta property="og:title" content="Linux Command - Run Command in the Background">
+<meta property="og:url" content="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="chgrp change group ownership for files and directories">
+<meta property="og:description" content="Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.443Z">
+<meta property="og:updated_time" content="2019-07-26T19:20:04.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command - chgrp">
-<meta name="twitter:description" content="chgrp change group ownership for files and directories">
+<meta name="twitter:title" content="Linux Command - Run Command in the Background">
+<meta name="twitter:description" content="Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux-Command-chgrp/">
+  <link rel="canonical" href="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Linux Command - chgrp | Xing's Blog</title>
+  <title>Linux Command - Run Command in the Background | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux-Command-chgrp/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command - chgrp
+          <h1 class="post-title" itemprop="name headline">Linux Command - Run Command in the Background
 
               
             
@@ -386,24 +385,12 @@
                 
               
 
-              <time title="Created: 2018-12-25 13:25:00" itemprop="dateCreated datePublished" datetime="2018-12-25T13:25:00-05:00">2018-12-25</time>
+              <time title="Created: 2019-07-26 15:00:00 / Modified: 15:20:04" itemprop="dateCreated datePublished" datetime="2019-07-26T15:00:00-04:00">2019-07-26</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
               
             
           </span>
@@ -435,9 +422,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux-Command-chgrp/#comments" itemprop="discussionUrl">
+                <a href="/Linux-Command-Run-Command-in-Background/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux-Command-chgrp/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux-Command-Run-Command-in-Background/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -465,35 +452,10 @@
       
 
       
-        <p><code>chgrp</code> change group ownership for files and directories<br><a id="more"></a></p>
-<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp [OPTION] GROUP FILE</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-R, –recursive</td>
-<td>change files and directories recursively</td>
-</tr>
-<tr>
-<td>-v, –verbose</td>
-<td>verbose mode</td>
-</tr>
-<tr>
-<td>–reference=RFILE</td>
-<td>use RFILE’s owner and group rather than specifying OWNER:GROUP values</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="change-a-file’s-group-to-be-‘adm’"><a href="#change-a-file’s-group-to-be-‘adm’" class="headerlink" title="change a file’s group to be ‘adm’"></a>change a file’s group to be ‘adm’</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp adm file1</span><br></pre></td></tr></table></figure>
-<h2 id="change-a-directory-and-its-files’-group-to-be-‘root’"><a href="#change-a-directory-and-its-files’-group-to-be-‘root’" class="headerlink" title="change a directory and its files’ group to be ‘root’"></a>change a directory and its files’ group to be ‘root’</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp -R root dir</span><br></pre></td></tr></table></figure>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://linux.die.net/man/1/chgrp" target="_blank" rel="noopener">chgrp online man page</a></li>
-</ul>
+        <p>Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.<br><a id="more"></a></p>
+<p>To run the command in the background, just add ‘&amp;’ at the end of the command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command &amp;</span><br></pre></td></tr></table></figure></p>
+<p>However, when the terminal closes, the command will exit, to prevent the program from closing, append <code>&amp;&gt;/dev/null &amp;</code> at the end.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup command &gt;/dev/null &amp;</span><br></pre></td></tr></table></figure></p>
+<p><code>nohup</code> is short for “No Hangups”. It is a POSIX command to ignore the HUP (hangup) signal. By default nohup creates Nohup.out to output any messages or error. The redirect will prevent nohup from creating a <code>nohup.out</code> file. </p>
 
       
     </div>
@@ -515,12 +477,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
 
       
       
@@ -530,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux-Command-chown/" rel="next" title="Linux Command - chown">
-                <i class="fa fa-chevron-left"></i> Linux Command - chown
+              <a href="/MicroServices/" rel="next" title="Microservices">
+                <i class="fa fa-chevron-left"></i> Microservices
               </a>
             
           </div>
@@ -539,10 +495,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Linux-Command-tar/" rel="prev" title="Linux Command - tar">
-                Linux Command - tar <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -594,17 +546,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -736,23 +679,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#change-a-file’s-group-to-be-‘adm’"><span class="nav-number">2.1.</span> <span class="nav-text">change a file’s group to be ‘adm’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#change-a-directory-and-its-files’-group-to-be-‘root’"><span class="nav-number">2.2.</span> <span class="nav-text">change a directory and its files’ group to be ‘root’</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -902,9 +828,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux-Command-chgrp/";
-        this.page.identifier = "Linux-Command-chgrp/";
-        this.page.title = 'Linux Command - chgrp';
+        this.page.url = "http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/";
+        this.page.identifier = "Linux-Command-Run-Command-in-Background/";
+        this.page.title = 'Linux Command - Run Command in the Background';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

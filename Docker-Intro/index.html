@@ -112,7 +112,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xinghua24.github.io/Docker-Intro/VM-vs-Docker.png">
 <meta property="og:image" content="https://docs.docker.com/engine/images/architecture.svg">
-<meta property="og:updated_time" content="2019-07-20T16:41:49.675Z">
+<meta property="og:updated_time" content="2019-07-27T02:20:30.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker Intro">
 <meta name="twitter:description" content="Docker is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Conta">
@@ -406,7 +406,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-20 12:41:49" itemprop="dateModified" datetime="2019-07-20T12:41:49-04:00">2019-07-20</time>
+                <time title="Modified: 2019-07-26 22:20:30" itemprop="dateModified" datetime="2019-07-26T22:20:30-04:00">2019-07-26</time>
               
             
           </span>
@@ -469,21 +469,22 @@
 
       
         <p><strong>Docker</strong> is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Containers. Docker is widely used as a tool for application deployment.<br><a id="more"></a></p>
-<p><strong>Containers</strong> is a standardized box that contains the application, libraries and other dependencies. Containers can run on other machines regardless of settings. Containers in the same host are kept separated from each other.</p>
 <img src="/Docker-Intro/VM-vs-Docker.png" title="VM-vs-Docker">
 <p>Compare Docker to VM </p>
 <p><br></p>
-<p>Docker has two segments</p>
-<ul>
-<li>Community Edition(CE) - open source and free</li>
-<li>Enterprise Edition(EE) - close source and needs to be licensed yearly. provides 24x7 support.</li>
-</ul>
 <h1 id="Benefits-of-Docker"><a href="#Benefits-of-Docker" class="headerlink" title="Benefits of Docker"></a>Benefits of Docker</h1><ul>
 <li>fast deployment</li>
 <li>lightweight. Docker images are small</li>
 <li>performant compared to VM</li>
 <li>require mimimal runtime requirements</li>
 <li>portable. minimize environment issue</li>
+<li>ability to version control the containers</li>
+</ul>
+<p>Benefits to use Docker for Devops</p>
+<ul>
+<li>Developers don’t have to setup local environment</li>
+<li>Operations team can set up environment easily</li>
+<li>Works with DevOps tools such as Ansible, Puppet and Chef</li>
 </ul>
 <h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><p><img src="https://docs.docker.com/engine/images/architecture.svg" alt="Docker architecture"></p>
 <p>Docker uses a client-server(CS) architecture. The <strong>Docker client</strong> talks to the <strong>Docker daemon</strong>, which does the heavy lifting of building, running, and distributing your Docker containers.</p>
@@ -491,14 +492,22 @@
 <p>A <strong>Docker registry</strong> stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default. </p>
 <p><strong>Docker Machine</strong> is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands.You can use Machine to create Docker hosts on your local Mac or Windows box, on your company network, in your data center, or on cloud providers like Azure, AWS, or Digital Ocean.</p>
 <p><strong>Docker Swarm</strong> is native clustering for Docker. It turns a pool of Docker hosts into a single, virtual host.</p>
+<p>Docker has two segments</p>
+<ul>
+<li>Community Edition(CE) - open source and free</li>
+<li>Enterprise Edition(EE) - close source and needs to be licensed yearly. provides 24x7 support.</li>
+</ul>
 <h1 id="Important-Concepts"><a href="#Important-Concepts" class="headerlink" title="Important Concepts"></a>Important Concepts</h1><h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><p>Image is a read-only template for creating Docker Containers.</p>
 <h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><p>A container is a runnable instance of an image. You can manage container using the Docker API or CLI.</p>
 <h2 id="Registry-and-Repository"><a href="#Registry-and-Repository" class="headerlink" title="Registry and Repository"></a>Registry and Repository</h2><p>Docker images are stored in Docker Registry. Docker Registry is a service. The default Docker Registry is Docker Hub.</p>
 <p>Repository is a collection of related images. Provide versioning for images. Usually it is the image with the same name but different tags.</p>
-<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Install docker-ce on Ubuntu.<br><!--more--></p>
-<p>execute the foolowing command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable&quot;</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure></p>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Execute the foolowing command to install docker-ce. see <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a> for the detail instructions.</p>
+<p>Uninstall old versions<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure></p>
+<p>Install new version<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure></p>
 <p>To see docker version after installation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line"># or</span><br><span class="line">docker info</span><br></pre></td></tr></table></figure></p>
+<p>add current user to the docker group. without this step, you will need to type <code>sudo</code> everytime you execute a docker command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -a -G docker $USER</span><br></pre></td></tr></table></figure></p>
 <p>To test installation, run the following command.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure></p>
+<p>If you want more fun, run a dwhalesay container<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run docker/whalesay cowsay hello docker</span><br></pre></td></tr></table></figure></p>
 <h1 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h1><ul>
 <li><a href="https://www.aquasec.com/wiki" target="_blank" rel="noopener">Container Technology Wiki(contains Docker 101 and K8s 101</a></li>
 <li><a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b" target="_blank" rel="noopener">Learn Enough Docker to be Useful part1 by Jeff Hale</a></li>
@@ -509,6 +518,7 @@
 <li><a href="https://towardsdatascience.com/pump-up-the-volumes-data-in-docker-a21950a8cd8" target="_blank" rel="noopener">Pump up the Volumes: Data in Docker by Jeff Hale</a></li>
 <li><a href="https://towardsdatascience.com/key-kubernetes-concepts-62939f4bc08e" target="_blank" rel="noopener">Key Kubernetes Concepts by Jeff Hale</a></li>
 <li><a href="https://towardsdatascience.com/key-kubernetes-commands-741fe61fde8" target="_blank" rel="noopener">Key Kubernetes Commands by Jeff Hale</a></li>
+<li><a href="https://github.com/wsargent/docker-cheat-sheet" target="_blank" rel="noopener">Docker Cheat Sheet</a></li>
 </ul>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://docs.docker.com/engine/docker-overview/" target="_blank" rel="noopener">Docker Overview</a></li>
@@ -640,7 +650,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">116</span>
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -669,7 +679,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>

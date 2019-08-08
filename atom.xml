@@ -57,11 +57,11 @@
     <link href="http://xinghua24.github.io/Spring-Cloud-Eureka/"/>
     <id>http://xinghua24.github.io/Spring-Cloud-Eureka/</id>
     <published>2019-07-23T03:48:00.000Z</published>
-    <updated>2019-08-08T02:10:37.200Z</updated>
+    <updated>2019-08-08T06:53:17.102Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Eureka is a REST based service that is primarily used in the AWS cloud for locating services for the purpose of load balancing and failover of middle-tier servers.&lt;br&gt;
+      &lt;p&gt;Let’s learn Service Discovery and use Eureka as a service registry.&lt;br&gt;
     
     </summary>
     

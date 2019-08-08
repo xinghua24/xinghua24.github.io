@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Setup Kubectl and Minikube and use Minikube">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-27T07:18:07.274Z">
+<meta property="og:updated_time" content="2019-07-27T14:29:55.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Setup">
 <meta name="twitter:description" content="Setup Kubectl and Minikube and use Minikube">
@@ -402,7 +402,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-27 03:18:07" itemprop="dateModified" datetime="2019-07-27T03:18:07-04:00">2019-07-27</time>
+                <time title="Modified: 2019-07-27 10:29:55" itemprop="dateModified" datetime="2019-07-27T10:29:55-04:00">2019-07-27</time>
               
             
           </span>
@@ -464,8 +464,7 @@
       
 
       
-        <p>Setup Kubectl and Minikube and use Minikube<br><a id="more"></a></p>
-<p>Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.</p>
+        <p>Setup Kubectl and Minikube and use Minikube<br><a id="more"></a><br>Kubernetes is a very popular container orchestration platform.</p>
 <h1 id="Install-Kubectl"><a href="#Install-Kubectl" class="headerlink" title="Install Kubectl"></a>Install Kubectl</h1><p>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. Installation instruction is in <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux</a>. </p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl</span><br><span class="line">chmod +x ./kubectl</span><br><span class="line">sudo mv ./kubectl /usr/<span class="built_in">local</span>/bin/kubectl</span><br><span class="line">kubectl version</span><br></pre></td></tr></table></figure>
 <p>To check kubectl installation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl version</span><br></pre></td></tr></table></figure></p>
@@ -485,6 +484,11 @@
 <p>8 - Delete the deployment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete deployment hello-minikube</span><br></pre></td></tr></table></figure></p>
 <p>9 - Stop the local Minikube cluster<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube stop</span><br></pre></td></tr></table></figure></p>
 <p>10 - Delete minikube cluster<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube delete</span><br></pre></td></tr></table></figure></p>
+<p>Reference</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank" rel="noopener">Install and Set Up kubectl</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank" rel="noopener">Install Minikube</a></li>
+</ul>
 
       
     </div>
@@ -600,7 +604,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-count">118</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -631,7 +635,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>

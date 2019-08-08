@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="hostname - show or set the system’s host name or domain name">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.443Z">
+<meta property="og:updated_time" content="2019-07-28T08:22:03.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - hostname">
 <meta name="twitter:description" content="hostname - show or set the system’s host name or domain name">
@@ -403,7 +403,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
+                <time title="Modified: 2019-07-28 04:22:03" itemprop="dateModified" datetime="2019-07-28T04:22:03-04:00">2019-07-28</time>
               
             
           </span>
@@ -485,14 +485,21 @@
 </tr>
 <tr>
 <td>-i</td>
-<td>display IP address(es) of the host</td>
+<td>display IP address(es) of the host. This works only if the host name can be resolved. Avoid using this option.</td>
+</tr>
+<tr>
+<td>-I</td>
+<td>display all network addresses of the host. loopback interface and IPv6 link-local addresses are omitted. Do not make any assumptions about the order of the output.</td>
 </tr>
 </tbody>
 </table>
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Show-host-name"><a href="#Show-host-name" class="headerlink" title="Show host name"></a>Show host name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname</span><br></pre></td></tr></table></figure>
 <h2 id="Show-domain-name"><a href="#Show-domain-name" class="headerlink" title="Show domain name"></a>Show domain name</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname -d</span><br></pre></td></tr></table></figure>
 <h2 id="Show-FQDN"><a href="#Show-FQDN" class="headerlink" title="Show FQDN"></a>Show FQDN</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname -f</span><br></pre></td></tr></table></figure>
-<h2 id="show-ip-address"><a href="#show-ip-address" class="headerlink" title="show ip address"></a>show ip address</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname -i</span><br></pre></td></tr></table></figure>
+<h2 id="show-all-ip-address"><a href="#show-all-ip-address" class="headerlink" title="show all ip address"></a>show all ip address</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname -I</span><br></pre></td></tr></table></figure>
+<p>Sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.208</span><br></pre></td></tr></table></figure></p>
+<p>To show the ip address, you can use <code>ifconfig</code> command. By default, it display the information for all network interfaces. </p>
+<p>You can also show the ip address using the <code>ip addr show</code> command.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://linux.die.net/man/1/hostname" target="_blank" rel="noopener">hostname online man page</a></li>
 </ul>
@@ -621,7 +628,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-count">118</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -652,7 +659,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -751,7 +758,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">1.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-host-name"><span class="nav-number">2.1.</span> <span class="nav-text">Show host name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-domain-name"><span class="nav-number">2.2.</span> <span class="nav-text">Show domain name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-FQDN"><span class="nav-number">2.3.</span> <span class="nav-text">Show FQDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-ip-address"><span class="nav-number">2.4.</span> <span class="nav-text">show ip address</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">1.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-host-name"><span class="nav-number">2.1.</span> <span class="nav-text">Show host name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-domain-name"><span class="nav-number">2.2.</span> <span class="nav-text">Show domain name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-FQDN"><span class="nav-number">2.3.</span> <span class="nav-text">Show FQDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-all-ip-address"><span class="nav-number">2.4.</span> <span class="nav-text">show all ip address</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-07-27T14:29:55.346Z</updated>
+  <updated>2019-08-09T05:30:33.854Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot - MongoDB</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-MongoDB/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-MongoDB/</id>
+    <published>2019-08-09T04:49:00.000Z</published>
+    <updated>2019-08-09T05:30:33.854Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Boot Integration with mongoDB&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Kubernetes Setup</title>
@@ -75,7 +93,7 @@
     <link href="http://xinghua24.github.io/MicroServices/"/>
     <id>http://xinghua24.github.io/MicroServices/</id>
     <published>2019-07-22T05:44:00.000Z</published>
-    <updated>2019-08-08T00:42:51.091Z</updated>
+    <updated>2019-08-08T12:56:07.724Z</updated>
     
     <summary type="html">
     
@@ -354,24 +372,6 @@
     <summary type="html">
     
       &lt;p&gt;Let’s learn about Filters and Interceptors&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Swagger 2 Set up</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Swagger-2-set-up/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Swagger-2-set-up/</id>
-    <published>2019-05-04T15:04:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Lets learn how to set up Swagger for a Spring Boot application.&lt;br&gt;
     
     </summary>
     

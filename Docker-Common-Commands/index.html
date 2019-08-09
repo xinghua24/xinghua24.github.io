@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Most common Docker commands.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.439Z">
+<meta property="og:updated_time" content="2019-08-08T22:21:01.571Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker Common Commands">
 <meta name="twitter:description" content="Most common Docker commands.">
@@ -403,7 +403,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
+                <time title="Modified: 2019-08-08 18:21:01" itemprop="dateModified" datetime="2019-08-08T18:21:01-04:00">2019-08-08</time>
               
             
           </span>
@@ -475,16 +475,20 @@
 </thead>
 <tbody>
 <tr>
+<td>docker build -t <em>image_name</em> <em>directory_path</em></td>
+<td>build a Docker image from Dockerfile</td>
+</tr>
+<tr>
+<td>docker run <em>image_name</em></td>
+<td>run a container from image</td>
+</tr>
+<tr>
 <td>docker ps</td>
 <td>list running containers</td>
 </tr>
 <tr>
 <td>docker ps -a</td>
 <td>list all containers</td>
-</tr>
-<tr>
-<td>docker run <em>image_name</em></td>
-<td>run a container from image</td>
 </tr>
 <tr>
 <td>docker stop <em>container_name/container_id</em></td>
@@ -522,10 +526,6 @@
 <td>docker rmi <em>image_name/image_id</em></td>
 <td>remove image by name or id</td>
 </tr>
-<tr>
-<td>docker build -t <em>image_name</em> <em>directory_path</em></td>
-<td>build a Docker image and provide a name</td>
-</tr>
 </tbody>
 </table>
 <p>use <code>--help</code> option to search for help. If you need to find the usage for <code>docker run</code>. execute <code>docker run --help</code>.</p>
@@ -556,7 +556,7 @@
 </tr>
 </tbody>
 </table>
-<p>Example to run nginx container with name ‘some-nginx’ on port 8080<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -d -p 8080:80 --name some-nginx  nginx:alpine</span><br></pre></td></tr></table></figure></p>
+<p>Example to run nginx container with name ‘some-nginx’ on port 8080<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -d -p 8080:80 --name nginx-test  nginx:alpine</span><br></pre></td></tr></table></figure></p>
 <p>Example to start an alpine container in interactive mode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name alpine-test --rm -it alpine /bin/sh</span><br></pre></td></tr></table></figure></p>
 <p>Reference</p>
 <ul>
@@ -688,7 +688,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">118</span>
+                    <span class="site-state-item-count">119</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

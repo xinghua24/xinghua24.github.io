@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-08-09T05:30:33.854Z</updated>
+  <updated>2019-08-10T22:35:00.286Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Git</title>
+    <link href="http://xinghua24.github.io/Git/"/>
+    <id>http://xinghua24.github.io/Git/</id>
+    <published>2019-08-10T22:20:00.000Z</published>
+    <updated>2019-08-10T22:35:00.286Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Git Introduction&lt;br&gt;
+    
+    </summary>
+    
+      <category term="uncategorized" scheme="http://xinghua24.github.io/categories/uncategorized/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Spring Boot - MongoDB</title>
     <link href="http://xinghua24.github.io/Spring-Boot-MongoDB/"/>
     <id>http://xinghua24.github.io/Spring-Boot-MongoDB/</id>
     <published>2019-08-09T04:49:00.000Z</published>
-    <updated>2019-08-09T05:30:33.854Z</updated>
+    <updated>2019-08-10T00:54:54.470Z</updated>
     
     <summary type="html">
     
@@ -30,6 +48,24 @@
     </summary>
     
       <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python Introduction</title>
+    <link href="http://xinghua24.github.io/Python-Introduction/"/>
+    <id>http://xinghua24.github.io/Python-Introduction/</id>
+    <published>2019-08-06T22:00:00.000Z</published>
+    <updated>2019-08-10T22:18:37.987Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python Introduction&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://xinghua24.github.io/categories/Python/"/>
     
     
   </entry>
@@ -336,42 +372,6 @@
     <summary type="html">
     
       &lt;p&gt;Handling Date types in the Spring Boot Controller&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - RestTemplate</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-RestTemplate/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-RestTemplate/</id>
-    <published>2019-05-07T03:51:00.000Z</published>
-    <updated>2019-07-21T17:37:10.884Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;RestTemplate Explained.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Filters and Interceptors</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Filters-and-Interceptors/</id>
-    <published>2019-05-05T06:28:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let’s learn about Filters and Interceptors&lt;br&gt;
     
     </summary>
     

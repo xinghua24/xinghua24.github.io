@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Let’s learn how to dockerize a Spring Boot Application.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.447Z">
+<meta property="og:updated_time" content="2019-08-12T22:05:23.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot - Dockerizing Spring Boot App">
 <meta name="twitter:description" content="Let’s learn how to dockerize a Spring Boot Application.">
@@ -402,7 +402,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
+                <time title="Modified: 2019-08-12 18:05:23" itemprop="dateModified" datetime="2019-08-12T18:05:23-04:00">2019-08-12</time>
               
             
           </span>
@@ -467,8 +467,8 @@
         <p>Let’s learn how to dockerize a Spring Boot Application.</p>
 <a id="more"></a>
 <h1 id="Adding-Dockerfile"><a href="#Adding-Dockerfile" class="headerlink" title="Adding Dockerfile"></a>Adding Dockerfile</h1><p>First set the final jar file name in pom.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;finalName&gt;DemoSpringBootApp&lt;/finalName&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Add Dockerfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM openjdk:8-jre-alpine</span><br><span class="line">VOLUME /tmp</span><br><span class="line">EXPOSE 8080</span><br><span class="line">ADD /target/DemoSpringBootApp.jar app.jar</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;app.jar&quot;]</span><br></pre></td></tr></table></figure></p>
-<p>use openjdk:8-jre-alpine instead of java:8. alpine container is smaller and faster. There is no need to use jdk, jre will be enough to run java applciation. use <code>VOLUME /tmp</code>to mount volume.</p>
+<p>Add Dockerfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM openjdk:8-jre-alpine</span><br><span class="line">EXPOSE 8080</span><br><span class="line">ADD /target/DemoSpringBootApp.jar /app/</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app/DemoSpringBootApp.jar&quot;]</span><br></pre></td></tr></table></figure></p>
+<p>Use openjdk:8-jre-alpine instead of java:8. alpine container is smaller and faster. There is no need to use jdk, jre will be enough to run java applciation. </p>
 <p><code>-Djava.security.egd=file:/dev/./urandom</code> is less secure on Linux but allows faster startup. see <a href="http://ruleoftech.com/2016/avoiding-jvm-delays-caused-by-random-number-generation" target="_blank" rel="noopener">Avoiding JVM delays caused by random number generation - by Marko</a></p>
 <h1 id="Dockerize-Application-Manually"><a href="#Dockerize-Application-Manually" class="headerlink" title="Dockerize Application Manually"></a>Dockerize Application Manually</h1><p>Navigate to project folder and execute commands to build and run application. image name is xinghua24/demospringbootapp.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package</span><br><span class="line">docker build -f Dockerfile -t xinghua24/demospringbootapp .</span><br><span class="line">docker run -p 8080:8080 -t xinghua24/demospringbootapp</span><br></pre></td></tr></table></figure></p>
 <h1 id="dockerfile-maven-Plugin"><a href="#dockerfile-maven-Plugin" class="headerlink" title="dockerfile-maven Plugin"></a>dockerfile-maven Plugin</h1><p>Use Maven plugin dockerfile-maven-plugin is more convenient than manually build the container.</p>
@@ -604,7 +604,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">121</span>
+                    <span class="site-state-item-count">123</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -637,7 +637,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>

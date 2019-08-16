@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-08-12T00:09:18.420Z</updated>
+  <updated>2019-08-16T02:14:02.527Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot Security - Basics</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Security-Basics/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Security-Basics/</id>
+    <published>2019-08-14T22:37:00.000Z</published>
+    <updated>2019-08-16T02:14:02.527Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Adding Spring Security to Spring Boot application.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot Security" scheme="http://xinghua24.github.io/categories/SpringBoot-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Error Handling</title>
+    <link href="http://xinghua24.github.io/Spring-Boot-Error-Handling/"/>
+    <id>http://xinghua24.github.io/Spring-Boot-Error-Handling/</id>
+    <published>2019-08-14T03:09:00.000Z</published>
+    <updated>2019-08-14T04:11:54.037Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Boot Error Handling&lt;br&gt;
+    
+    </summary>
+    
+      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Git</title>
@@ -129,7 +165,7 @@
     <link href="http://xinghua24.github.io/MicroServices/"/>
     <id>http://xinghua24.github.io/MicroServices/</id>
     <published>2019-07-22T05:44:00.000Z</published>
-    <updated>2019-08-08T12:56:07.724Z</updated>
+    <updated>2019-08-13T08:22:51.076Z</updated>
     
     <summary type="html">
     
@@ -201,7 +237,7 @@
     <link href="http://xinghua24.github.io/Spring-Boot-Dockerizing-Spring-Boot-App/"/>
     <id>http://xinghua24.github.io/Spring-Boot-Dockerizing-Spring-Boot-App/</id>
     <published>2019-05-28T02:55:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
+    <updated>2019-08-12T22:05:23.844Z</updated>
     
     <summary type="html">
     
@@ -341,42 +377,6 @@
     
     
       <category term="Security" scheme="http://xinghua24.github.io/tags/Security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - DataSource</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-DataSource/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-DataSource/</id>
-    <published>2019-05-08T05:11:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Configuring DataSource in a Spring Boot Project.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Handling Date Request Parameter</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Handling-Date-Request-Parameter/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Handling-Date-Request-Parameter/</id>
-    <published>2019-05-07T03:55:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Handling Date types in the Spring Boot Controller&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
     
   </entry>
   

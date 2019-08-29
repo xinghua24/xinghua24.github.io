@@ -104,14 +104,14 @@
 
   <meta name="description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu stop password prompt">
-<meta property="og:url" content="http://xinghua24.github.io/Ubuntu-stop-password-prompt/index.html">
+<meta property="og:title" content="Stop password prompt in Ubuntu">
+<meta property="og:url" content="http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-29T21:11:59.183Z">
+<meta property="og:updated_time" content="2019-08-29T21:58:08.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu stop password prompt">
+<meta name="twitter:title" content="Stop password prompt in Ubuntu">
 <meta name="twitter:description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Ubuntu-stop-password-prompt/">
+  <link rel="canonical" href="http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Ubuntu stop password prompt | Xing's Blog</title>
+  <title>Stop password prompt in Ubuntu | Xing's Blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Ubuntu-stop-password-prompt/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu stop password prompt
+          <h1 class="post-title" itemprop="name headline">Stop password prompt in Ubuntu
 
               
             
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-08-29 13:22:00 / Modified: 17:11:59" itemprop="dateCreated datePublished" datetime="2019-08-29T13:22:00-04:00">2019-08-29</time>
+              <time title="Created: 2019-08-29 13:22:00 / Modified: 17:58:08" itemprop="dateCreated datePublished" datetime="2019-08-29T13:22:00-04:00">2019-08-29</time>
             
 
             
@@ -422,9 +422,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Ubuntu-stop-password-prompt/#comments" itemprop="discussionUrl">
+                <a href="/Stop-password-prompt-in-Ubuntu/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Ubuntu-stop-password-prompt/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Stop-password-prompt-in-Ubuntu/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -456,7 +456,8 @@
 <p>open /etc/sudoers file<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sudoers</span><br></pre></td></tr></table></figure></p>
 <p>change this line<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL) ALL</span><br></pre></td></tr></table></figure></p>
 <p>into<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure></p>
-<p>That is all you need!</p>
+<p>to allow assuming any group as well as any user, change the following line<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure></p>
+<p>into<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL:ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -496,6 +497,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Enable-SSH-in-Ubuntu/" rel="prev" title="Enable SSH in Ubuntu">
+                Enable SSH in Ubuntu <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -563,7 +568,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">124</span>
+                    <span class="site-state-item-count">125</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -837,9 +842,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Ubuntu-stop-password-prompt/";
-        this.page.identifier = "Ubuntu-stop-password-prompt/";
-        this.page.title = 'Ubuntu stop password prompt';
+        this.page.url = "http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/";
+        this.page.identifier = "Stop-password-prompt-in-Ubuntu/";
+        this.page.title = 'Stop password prompt in Ubuntu';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

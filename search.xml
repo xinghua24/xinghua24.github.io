@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Ubuntu stop password prompt]]></title>
-    <url>%2FUbuntu-stop-password-prompt%2F</url>
-    <content type="text"><![CDATA[Password prompt can be annoying. However, there is a quick way to stop it for all. open /etc/sudoers file1sudo vi /etc/sudoers change this line1%sudo ALL=(ALL) ALL into1%sudo ALL=(ALL) NOPASSWD:ALL That is all you need!]]></content>
+    <title><![CDATA[Enable SSH in Ubuntu]]></title>
+    <url>%2FEnable-SSH-in-Ubuntu%2F</url>
+    <content type="text"><![CDATA[Enable SSH in Ubuntu First need to install openssh server12sudo apt updatesudo apt install openssh-server Check the sevice to make sure it is running1sudo systemctl status ssh Then connect to the server1ssh username@ip_address To find the ip_address, use ifconfig command. If network is not enabled, then run dhclient command to configure an interface to Dynamic Host Configuration Protocol.]]></content>
+      <categories>
+        <category>Linux-Command</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Stop password prompt in Ubuntu]]></title>
+    <url>%2FStop-password-prompt-in-Ubuntu%2F</url>
+    <content type="text"><![CDATA[Password prompt can be annoying. However, there is a quick way to stop it for all. open /etc/sudoers file1sudo vi /etc/sudoers change this line1%sudo ALL=(ALL) ALL into1%sudo ALL=(ALL) NOPASSWD:ALL to allow assuming any group as well as any user, change the following line1%sudo ALL=(ALL:ALL) ALL into1%sudo ALL=(ALL:ALL) NOPASSWD:ALL]]></content>
       <categories>
         <category>Linux-Command</category>
       </categories>

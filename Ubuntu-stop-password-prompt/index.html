@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="Docker Volume is the perfered way to persist data.">
-<meta name="keywords" content="Docker">
+  <meta name="description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker Volume">
-<meta property="og:url" content="http://xinghua24.github.io/Docker-Volume/index.html">
+<meta property="og:title" content="Ubuntu stop password prompt">
+<meta property="og:url" content="http://xinghua24.github.io/Ubuntu-stop-password-prompt/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Docker Volume is the perfered way to persist data.">
+<meta property="og:description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.439Z">
+<meta property="og:updated_time" content="2019-08-29T21:11:59.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker Volume">
-<meta name="twitter:description" content="Docker Volume is the perfered way to persist data.">
+<meta name="twitter:title" content="Ubuntu stop password prompt">
+<meta name="twitter:description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Docker-Volume/">
+  <link rel="canonical" href="http://xinghua24.github.io/Ubuntu-stop-password-prompt/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Docker Volume | Xing's Blog</title>
+  <title>Ubuntu stop password prompt | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Docker-Volume/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Ubuntu-stop-password-prompt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker Volume
+          <h1 class="post-title" itemprop="name headline">Ubuntu stop password prompt
 
               
             
@@ -386,24 +385,12 @@
                 
               
 
-              <time title="Created: 2019-01-09 02:25:00" itemprop="dateCreated datePublished" datetime="2019-01-09T02:25:00-05:00">2019-01-09</time>
+              <time title="Created: 2019-08-29 13:22:00 / Modified: 17:11:59" itemprop="dateCreated datePublished" datetime="2019-08-29T13:22:00-04:00">2019-08-29</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
               
             
           </span>
@@ -420,7 +407,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a></span>
 
                 
                 
@@ -435,9 +422,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Docker-Volume/#comments" itemprop="discussionUrl">
+                <a href="/Ubuntu-stop-password-prompt/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Docker-Volume/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Ubuntu-stop-password-prompt/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -465,37 +452,11 @@
       
 
       
-        <p>Docker Volume is the perfered way to persist data.<br><a id="more"></a><br>There are three types of mount</p>
-<ul>
-<li>volume - create and managed by Docker</li>
-<li>bind mount - mount file or directory in host to a container</li>
-<li>tmpfs mount - only for Docker on Linux</li>
-</ul>
-<p>When a container is stopped, the data in the container layer is lost forever. Docker uses Volume to persist data so that applications like database, nosql database can keep their data.</p>
-<p>All Docker volumes are stored in /var/lib/docker/volumes/ in the host filesystem. Docker Volume is stored as normal directories and files on the host system.</p>
-<p>You can share volume between containers, just mount the volume to different container.</p>
-<h1 id="Create-Volume"><a href="#Create-Volume" class="headerlink" title="Create Volume"></a>Create Volume</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create a  volume, new directory is created in /var/lib/docker/volumes/</span></span><br><span class="line">docker volume create myVol</span><br></pre></td></tr></table></figure>
-<p>To inspect the volume<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume inspect myVol</span><br></pre></td></tr></table></figure></p>
-<h1 id="List-Volumes"><a href="#List-Volumes" class="headerlink" title="List Volumes"></a>List Volumes</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume ls</span><br></pre></td></tr></table></figure>
-<h1 id="Mount-a-volume"><a href="#Mount-a-volume" class="headerlink" title="Mount a volume"></a>Mount a volume</h1><p>We can mount a volume to a container using <code>-v</code> option of <code>docker run</code> command</p>
-<p>Example to mount a volume<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --name volumetest -it -v myVol:/data alpine /bin/sh</span><br></pre></td></tr></table></figure></p>
-<p>Changes made to the volume in the running container are persisted<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /data</span><br><span class="line">echo &quot;foo&quot; &gt; file1</span><br></pre></td></tr></table></figure></p>
-<p>You can verify the changes are made by printing the file in the myVol volume<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/lib/docker/volumes/myVol/_data/file1</span><br></pre></td></tr></table></figure></p>
-<h1 id="Remove-Volumes"><a href="#Remove-Volumes" class="headerlink" title="Remove Volumes"></a>Remove Volumes</h1><p>remvoe a volume<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume rm myVol</span><br></pre></td></tr></table></figure></p>
-<p>remove volumes not being used<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker volume prune</span><br></pre></td></tr></table></figure></p>
-<h1 id="Mount-Host-File-or-Folder-to-Container"><a href="#Mount-Host-File-or-Folder-to-Container" class="headerlink" title="Mount Host File or Folder to Container"></a>Mount Host File or Folder to Container</h1><p><strong>bind mount</strong> allows you to mount a host file or directory to a running container.</p>
-<p>Example to bind myData directory to a running container’s /data directory<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --name mounttest -it -v $(pwd)/myData:/data alpine /bin/sh</span><br></pre></td></tr></table></figure></p>
-<p>Example. mount a site directory to a running nginx container. Nginx container will serve the site at host port 8000<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name myNginx -v $(pwd)/site:/usr/share/nginx/html -p 8000:80 -d nginx:alpine</span><br></pre></td></tr></table></figure></p>
-<h1 id="Define-volume-in-Dockerfile"><a href="#Define-volume-in-Dockerfile" class="headerlink" title="Define volume in Dockerfile"></a>Define volume in Dockerfile</h1><p>If an application wants to persist data, the application must define the absolute path(s) in the container to be used as volume. This allows the container and host to share volumes. </p>
-<p>Example to use <code>VOLUME</code> instruction to define a mount point /data/db in the container’s filesystem.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VOLUME [&quot;/data/db&quot;]</span><br></pre></td></tr></table></figure></p>
-<p>Note that if you don’t use <code>-v</code> option to provide a volume or bind mount, Docker automatically create a volume.</p>
-<p>You can check the mount point of the container using <code>docker image inspect</code> command.</p>
-<p>example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker image inspect  --format=&apos;&#123;&#123;json .ContainerConfig.Volumes&#125;&#125;&apos; couchdb:latest | jq</span><br></pre></td></tr></table></figure></p>
-<p>result<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"/opt/couchdb/data"</span>: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://docs.docker.com/storage/volumes/" target="_blank" rel="noopener">Volume Reference</a></li>
-<li><a href="https://docs.docker.com/storage/bind-mounts/" target="_blank" rel="noopener">Bind mounts Reference</a></li>
-</ul>
+        <p>Password prompt can be annoying. However, there is a quick way to stop it for all.<br><a id="more"></a></p>
+<p>open /etc/sudoers file<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sudoers</span><br></pre></td></tr></table></figure></p>
+<p>change this line<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL) ALL</span><br></pre></td></tr></table></figure></p>
+<p>into<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure></p>
+<p>That is all you need!</p>
 
       
     </div>
@@ -517,12 +478,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Docker/" rel="tag"># Docker</a>
-          
-        </div>
-      
 
       
       
@@ -532,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux-Command-diff/" rel="next" title="Linux Command - diff">
-                <i class="fa fa-chevron-left"></i> Linux Command - diff
+              <a href="/Spring-Boot-Security-Basics/" rel="next" title="Spring Boot Security - Basics">
+                <i class="fa fa-chevron-left"></i> Spring Boot Security - Basics
               </a>
             
           </div>
@@ -541,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Linux-Command-wget/" rel="prev" title="Linux Command - wget">
-                Linux Command - wget <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,17 +547,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -746,23 +688,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Volume"><span class="nav-number">1.</span> <span class="nav-text">Create Volume</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-Volumes"><span class="nav-number">2.</span> <span class="nav-text">List Volumes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mount-a-volume"><span class="nav-number">3.</span> <span class="nav-text">Mount a volume</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-Volumes"><span class="nav-number">4.</span> <span class="nav-text">Remove Volumes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mount-Host-File-or-Folder-to-Container"><span class="nav-number">5.</span> <span class="nav-text">Mount Host File or Folder to Container</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Define-volume-in-Dockerfile"><span class="nav-number">6.</span> <span class="nav-text">Define volume in Dockerfile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -912,9 +837,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Docker-Volume/";
-        this.page.identifier = "Docker-Volume/";
-        this.page.title = 'Docker Volume';
+        this.page.url = "http://xinghua24.github.io/Ubuntu-stop-password-prompt/";
+        this.page.identifier = "Ubuntu-stop-password-prompt/";
+        this.page.title = 'Ubuntu stop password prompt';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

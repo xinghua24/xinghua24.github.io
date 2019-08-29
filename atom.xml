@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-08-23T01:45:19.805Z</updated>
+  <updated>2019-08-29T21:11:59.183Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu stop password prompt</title>
+    <link href="http://xinghua24.github.io/Ubuntu-stop-password-prompt/"/>
+    <id>http://xinghua24.github.io/Ubuntu-stop-password-prompt/</id>
+    <published>2019-08-29T17:22:00.000Z</published>
+    <updated>2019-08-29T21:11:59.183Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Password prompt can be annoying. However, there is a quick way to stop it for all.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Linux-Command" scheme="http://xinghua24.github.io/categories/Linux-Command/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Spring Boot Security - Basics</title>
@@ -125,11 +143,11 @@
   </entry>
   
   <entry>
-    <title>Linux Command - Run Command in the Background</title>
-    <link href="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/"/>
-    <id>http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/</id>
+    <title>Run Command in the Background</title>
+    <link href="http://xinghua24.github.io/Run-Command-in-Background/"/>
+    <id>http://xinghua24.github.io/Run-Command-in-Background/</id>
     <published>2019-07-26T19:00:00.000Z</published>
-    <updated>2019-07-26T19:20:04.522Z</updated>
+    <updated>2019-08-29T21:12:47.258Z</updated>
     
     <summary type="html">
     
@@ -354,24 +372,6 @@
     <summary type="html">
     
       &lt;p&gt;OpenSSL is a toolkit for TLS and SSL protocols. It is also a general-purpose cryptography library.&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="Security" scheme="http://xinghua24.github.io/tags/Security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Certificate Basics</title>
-    <link href="http://xinghua24.github.io/Certificate-Basics/"/>
-    <id>http://xinghua24.github.io/Certificate-Basics/</id>
-    <published>2019-05-08T06:54:00.000Z</published>
-    <updated>2019-07-18T21:57:55.439Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Basics about Certificate&lt;/p&gt;
     
     </summary>
     

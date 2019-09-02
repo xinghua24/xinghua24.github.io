@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-08-29T21:57:48.891Z</updated>
+  <updated>2019-09-02T01:18:28.379Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Maven - Deploy Artifacts to Nexus3</title>
+    <link href="http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/"/>
+    <id>http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/</id>
+    <published>2019-09-02T00:41:00.000Z</published>
+    <updated>2019-09-02T01:18:28.379Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;We will learn how to deploy a artifact to Nexus3 server using maven.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Enable SSH in Ubuntu</title>
     <link href="http://xinghua24.github.io/Enable-SSH-in-Ubuntu/"/>
     <id>http://xinghua24.github.io/Enable-SSH-in-Ubuntu/</id>
     <published>2019-08-29T21:52:00.000Z</published>
-    <updated>2019-08-29T21:57:48.891Z</updated>
+    <updated>2019-09-02T00:35:08.533Z</updated>
     
     <summary type="html">
     
@@ -29,7 +47,7 @@
     
     </summary>
     
-      <category term="Linux-Command" scheme="http://xinghua24.github.io/categories/Linux-Command/"/>
+      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
     
     
   </entry>
@@ -39,7 +57,7 @@
     <link href="http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/"/>
     <id>http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/</id>
     <published>2019-08-29T17:22:00.000Z</published>
-    <updated>2019-08-29T21:58:08.634Z</updated>
+    <updated>2019-09-02T00:35:20.409Z</updated>
     
     <summary type="html">
     
@@ -47,7 +65,7 @@
     
     </summary>
     
-      <category term="Linux-Command" scheme="http://xinghua24.github.io/categories/Linux-Command/"/>
+      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
     
     
   </entry>
@@ -143,15 +161,15 @@
   </entry>
   
   <entry>
-    <title>Kubernetes Setup</title>
+    <title>Kubernetes Set up</title>
     <link href="http://xinghua24.github.io/Kubernetes-Setup/"/>
     <id>http://xinghua24.github.io/Kubernetes-Setup/</id>
     <published>2019-07-27T02:26:00.000Z</published>
-    <updated>2019-08-30T08:43:39.350Z</updated>
+    <updated>2019-08-31T09:08:15.445Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Setup Kubectl and Minikube and use Minikube&lt;br&gt;
+      &lt;p&gt;Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.&lt;br&gt;
     
     </summary>
     
@@ -219,7 +237,7 @@
     <link href="http://xinghua24.github.io/Install-Maven-on-Ubuntu/"/>
     <id>http://xinghua24.github.io/Install-Maven-on-Ubuntu/</id>
     <published>2019-07-22T00:52:00.000Z</published>
-    <updated>2019-07-22T03:43:31.205Z</updated>
+    <updated>2019-09-02T00:34:23.345Z</updated>
     
     <summary type="html">
     
@@ -357,26 +375,6 @@
     
       <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Java Keytool</title>
-    <link href="http://xinghua24.github.io/Java-Keytool/"/>
-    <id>http://xinghua24.github.io/Java-Keytool/</id>
-    <published>2019-05-11T19:37:00.000Z</published>
-    <updated>2019-07-18T21:57:55.443Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;The keytool command is a key and certificate management utility.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
-    
-    
-      <category term="Security" scheme="http://xinghua24.github.io/tags/Security/"/>
     
   </entry>
   

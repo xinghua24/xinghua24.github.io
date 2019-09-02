@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="Setup Kubectl and Minikube and use Minikube">
+  <meta name="description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kubernetes Setup">
+<meta property="og:title" content="Kubernetes Set up">
 <meta property="og:url" content="http://xinghua24.github.io/Kubernetes-Setup/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Setup Kubectl and Minikube and use Minikube">
+<meta property="og:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-30T08:43:39.350Z">
+<meta property="og:updated_time" content="2019-08-31T09:08:15.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kubernetes Setup">
-<meta name="twitter:description" content="Setup Kubectl and Minikube and use Minikube">
+<meta name="twitter:title" content="Kubernetes Set up">
+<meta name="twitter:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Kubernetes Setup | Xing's Blog</title>
+  <title>Kubernetes Set up | Xing's Blog</title>
   
 
 
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kubernetes Setup
+          <h1 class="post-title" itemprop="name headline">Kubernetes Set up
 
               
             
@@ -402,7 +402,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-30 04:43:39" itemprop="dateModified" datetime="2019-08-30T04:43:39-04:00">2019-08-30</time>
+                <time title="Modified: 2019-08-31 05:08:15" itemprop="dateModified" datetime="2019-08-31T05:08:15-04:00">2019-08-31</time>
               
             
           </span>
@@ -464,7 +464,7 @@
       
 
       
-        <p>Setup Kubectl and Minikube and use Minikube<br><a id="more"></a><br>Kubernetes is a very popular container orchestration platform.</p>
+        <p>Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.<br><a id="more"></a></p>
 <h1 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h1><p>Download and install VirtualBox. see Download page <a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="noopener">https://www.virtualbox.org/wiki/Linux_Downloads</a></p>
 <h1 id="Install-Kubectl"><a href="#Install-Kubectl" class="headerlink" title="Install Kubectl"></a>Install Kubectl</h1><p>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. Installation instruction is in <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux</a>. </p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl</span><br><span class="line">chmod +x ./kubectl</span><br><span class="line">sudo mv ./kubectl /usr/<span class="built_in">local</span>/bin/kubectl</span><br><span class="line">kubectl version</span><br></pre></td></tr></table></figure>
@@ -480,6 +480,7 @@
 <p>To view the nodes, use <code>kubectl get nodes</code> command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get nodes</span><br><span class="line">NAME       STATUS   ROLES    AGE     VERSION</span><br><span class="line">minikube   Ready    master   5m33s   v1.15.2</span><br></pre></td></tr></table></figure></p>
 <p>2 - create a deployment<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.10 --port=8080</span><br></pre></td></tr></table></figure></p>
 <p>The output should look like<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deployment.apps/hello-minikube created</span><br></pre></td></tr></table></figure></p>
+<p>You can use <code>kubectl get deployments</code> to list deployments and <code>ubectl describe deployments/hello-minikube</code> to get details of a particular deployment.</p>
 <p>3 - Expose deployment as a service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl expose deployment hello-minikube --type=NodePort</span><br></pre></td></tr></table></figure></p>
 <p>4 - If you check the pods, it should return a pod<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods</span><br><span class="line">NAME                              READY   STATUS    RESTARTS   AGE</span><br><span class="line">hello-minikube-856979d68c-hjkfs   1/1     Running   0          82s</span><br></pre></td></tr></table></figure></p>
 <p>5 - Get the url of the exposed service<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube service hello-minikube --url</span><br></pre></td></tr></table></figure></p>
@@ -617,7 +618,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">125</span>
+                    <span class="site-state-item-count">126</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -654,7 +655,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -910,7 +913,7 @@
       var disqus_config = function () {
         this.page.url = "http://xinghua24.github.io/Kubernetes-Setup/";
         this.page.identifier = "Kubernetes-Setup/";
-        this.page.title = 'Kubernetes Setup';
+        this.page.title = 'Kubernetes Set up';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

@@ -111,7 +111,7 @@
 <meta property="og:description" content="setting up a new hexo blog and deploy to github pages.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xinghua24.github.io/set-up-a-new-hexo-blog/RSS.png">
-<meta property="og:updated_time" content="2019-08-08T02:11:43.455Z">
+<meta property="og:updated_time" content="2019-09-02T12:28:00.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Set up a new hexo blog">
 <meta name="twitter:description" content="setting up a new hexo blog and deploy to github pages.">
@@ -392,22 +392,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-07 22:11:43" itemprop="dateModified" datetime="2019-08-07T22:11:43-04:00">2019-08-07</time>
-              
-            
           </span>
 
           
@@ -495,6 +479,7 @@
 <h2 id="Github-Pages-Deployment"><a href="#Github-Pages-Deployment" class="headerlink" title="Github Pages Deployment"></a>Github Pages Deployment</h2><p>install hexo git deployer<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 <p>edit _config.yml<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span>   </span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:&lt;user/xinghua24.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="Generate-read-more"><a href="#Generate-read-more" class="headerlink" title="Generate read more"></a>Generate read more</h2><p>To create summary for a post. add <code>&lt;!-- more --&gt;</code></p>
+<p>You can also enable automatically Excerpt, but it is not recommended.</p>
 <h2 id="Insert-Image"><a href="#Insert-Image" class="headerlink" title="Insert Image"></a>Insert Image</h2><p>You can use the image path. path is relative to _posts directory. There are a couple of ways to do<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/image/path/image.jpg"</span>  /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/image/path/image.jpg"</span> <span class="attr">width</span>=<span class="string">"500px"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% img /image/path/image.png %&#125;</span><br></pre></td></tr></table></figure>
 <p>markdown style<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/image/path/image.png)</span><br></pre></td></tr></table></figure></p>
@@ -535,15 +520,16 @@
 <h1 id="Next-Theme"><a href="#Next-Theme" class="headerlink" title="Next Theme"></a>Next Theme</h1><p><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">Next Theme Homepage</a></p>
 <h2 id="Install-Next-theme"><a href="#Install-Next-theme" class="headerlink" title="Install Next theme"></a>Install Next theme</h2><p>The easiest way to install Next theme is to clone the theme into themes directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next.git</span><br></pre></td></tr></table></figure></p>
 <p>then change the theme in _config.yml<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-next</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="select-schemes"><a href="#select-schemes" class="headerlink" title="select schemes"></a>select schemes</h2><p>select the scheme you like<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment"># scheme: Muse</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Mist</span></span><br><span class="line"><span class="comment"># scheme: Pisces</span></span><br><span class="line"><span class="comment"># scheme: Gemini</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="Add-Tags-Page"><a href="#Add-Tags-Page" class="headerlink" title="Add Tags Page"></a>Add Tags Page</h2><p>add tags page to the blog<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure></p>
 <p>Edit source/tags/index.md page<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">All</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2014</span><span class="bullet">-12</span><span class="bullet">-22</span> <span class="number">12</span><span class="string">:39:04</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"tags"</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
 <p>Then uncomment tags menu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  tags: /tags/ || tags</span><br></pre></td></tr></table></figure></p>
-<h2 id="Add-Categories-Page"><a href="#Add-Categories-Page" class="headerlink" title="Add Categories Page"></a>Add Categories Page</h2><p>add categories page to the blog<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Add-Categories-Page"><a href="#Add-Categories-Page" class="headerlink" title="Add Categories Page"></a>Add Categories Page</h2><p>add categories page to the blog. This is similar to adding tags page.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"categories"</span></span><br></pre></td></tr></table></figure></p>
 <p>Edit source/categories/index.md page<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">All</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2014</span><span class="bullet">-12</span><span class="bullet">-22</span> <span class="number">12</span><span class="string">:39:04</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"categories"</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></p>
 <p>then uncomment categories menu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">    categories: /categories/ || th</span><br></pre></td></tr></table></figure></p>
-<h2 id="select-schemes"><a href="#select-schemes" class="headerlink" title="select schemes"></a>select schemes</h2><p>select the scheme you like<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment"># scheme: Muse</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Mist</span></span><br><span class="line"><span class="comment"># scheme: Pisces</span></span><br><span class="line"><span class="comment"># scheme: Gemini</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="Set-Code-font-family-and-size"><a href="#Set-Code-font-family-and-size" class="headerlink" title="Set Code font family and size"></a>Set Code font family and size</h2><p>The default font for the code block is too big. You can set code block’s font in themes/next/source/css/_variables/base.styl.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// Code &amp; Code Blocks</span><br><span class="line">// --------------------------------------------------</span><br><span class="line">$code-font-family               = $font-family-monospace</span><br><span class="line">$code-font-size                 = 12px</span><br></pre></td></tr></table></figure></p>
 <h2 id="Set-post-text-alignment"><a href="#Set-post-text-alignment" class="headerlink" title="Set post text alignment"></a>Set post text alignment</h2><p>The default text alignment for a post is <code>justify</code>. You may want to change the alignment to be <code>left</code>. change can be made in post-expand.styl<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.posts-expand .post-body &#123;</span><br><span class="line">  +desktop() &#123; text-align: left; &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Enable-copy-code-button"><a href="#Enable-copy-code-button" class="headerlink" title="Enable copy code button"></a>Enable copy code button</h2><p>You can enable the button to copy code block in themes/_config.yml.<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Manual define the border radius in codeblock</span></span><br><span class="line">  <span class="comment"># Leave it empty for the default 1</span></span><br><span class="line"><span class="attr">  border_radius:</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line"><span class="attr">  copy_button:</span></span><br><span class="line"><span class="attr">    enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Show text copy result</span></span><br><span class="line"><span class="attr">    show_result:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo Docs</a></li>
 <li><a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">Next theme</a></li>
@@ -811,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick start</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-URL"><span class="nav-number">1.1.</span> <span class="nav-text">Config URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-Language"><span class="nav-number">1.2.</span> <span class="nav-text">Config Language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-Documentation"><span class="nav-number">1.3.</span> <span class="nav-text">Hexo Documentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-Pages-Deployment"><span class="nav-number">1.4.</span> <span class="nav-text">Github Pages Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-read-more"><span class="nav-number">1.5.</span> <span class="nav-text">Generate read more</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insert-Image"><span class="nav-number">1.6.</span> <span class="nav-text">Insert Image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insert-Note"><span class="nav-number">1.7.</span> <span class="nav-text">Insert Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-RSS"><span class="nav-number">1.8.</span> <span class="nav-text">Setup RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enable-Local-Search"><span class="nav-number">1.9.</span> <span class="nav-text">Enable Local Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Admin-Plugin"><span class="nav-number">1.10.</span> <span class="nav-text">Admin Plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commenting-with-Disqus"><span class="nav-number">1.11.</span> <span class="nav-text">Commenting with Disqus</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next-Theme"><span class="nav-number">2.</span> <span class="nav-text">Next Theme</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Next-theme"><span class="nav-number">2.1.</span> <span class="nav-text">Install Next theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-Tags-Page"><span class="nav-number">2.2.</span> <span class="nav-text">Add Tags Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-Categories-Page"><span class="nav-number">2.3.</span> <span class="nav-text">Add Categories Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-schemes"><span class="nav-number">2.4.</span> <span class="nav-text">select schemes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-Code-font-family-and-size"><span class="nav-number">2.5.</span> <span class="nav-text">Set Code font family and size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-post-text-alignment"><span class="nav-number">2.6.</span> <span class="nav-text">Set post text alignment</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quick-start"><span class="nav-number">1.</span> <span class="nav-text">Quick start</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-URL"><span class="nav-number">1.1.</span> <span class="nav-text">Config URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config-Language"><span class="nav-number">1.2.</span> <span class="nav-text">Config Language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-Documentation"><span class="nav-number">1.3.</span> <span class="nav-text">Hexo Documentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-Pages-Deployment"><span class="nav-number">1.4.</span> <span class="nav-text">Github Pages Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-read-more"><span class="nav-number">1.5.</span> <span class="nav-text">Generate read more</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insert-Image"><span class="nav-number">1.6.</span> <span class="nav-text">Insert Image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insert-Note"><span class="nav-number">1.7.</span> <span class="nav-text">Insert Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-RSS"><span class="nav-number">1.8.</span> <span class="nav-text">Setup RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enable-Local-Search"><span class="nav-number">1.9.</span> <span class="nav-text">Enable Local Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Admin-Plugin"><span class="nav-number">1.10.</span> <span class="nav-text">Admin Plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commenting-with-Disqus"><span class="nav-number">1.11.</span> <span class="nav-text">Commenting with Disqus</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next-Theme"><span class="nav-number">2.</span> <span class="nav-text">Next Theme</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Next-theme"><span class="nav-number">2.1.</span> <span class="nav-text">Install Next theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#select-schemes"><span class="nav-number">2.2.</span> <span class="nav-text">select schemes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-Tags-Page"><span class="nav-number">2.3.</span> <span class="nav-text">Add Tags Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add-Categories-Page"><span class="nav-number">2.4.</span> <span class="nav-text">Add Categories Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-Code-font-family-and-size"><span class="nav-number">2.5.</span> <span class="nav-text">Set Code font family and size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-post-text-alignment"><span class="nav-number">2.6.</span> <span class="nav-text">Set post text alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enable-copy-code-button"><span class="nav-number">2.7.</span> <span class="nav-text">Enable copy code button</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -1343,6 +1329,83 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('Copied');
+          else $(this).text('Copy failed');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
 
   
 

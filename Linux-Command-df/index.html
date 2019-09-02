@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="df - report file system disk space usage.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.443Z">
+<meta property="og:updated_time" content="2019-09-02T13:30:32.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - df">
 <meta name="twitter:description" content="df - report file system disk space usage.">
@@ -390,22 +390,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-18 17:57:55" itemprop="dateModified" datetime="2019-07-18T17:57:55-04:00">2019-07-18</time>
-              
-            
           </span>
 
           
@@ -508,15 +492,22 @@
 <td>print file system type</td>
 </tr>
 <tr>
+<td>-x</td>
+<td>exclude a file system type</td>
+</tr>
+<tr>
+<td>--total</td>
+<td>produce a grand total</td>
+</tr>
+<tr>
 <td>--help</td>
 <td>display help info</td>
 </tr>
 </tbody>
 </table>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><p><strong>Display all file systems and their disk usage</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure></p>
-<p>Sample Output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Filesystem     1K-blocks     Used Available Use% Mounted on</span><br><span class="line">overlay        229184876 42278240 175194996  20% /</span><br><span class="line">tmpfs              65536        0     65536   0% /dev</span><br><span class="line">tmpfs            4035496        0   4035496   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda2      229184876 42278240 175194996  20% /etc/hosts</span><br><span class="line">shm                65536        0     65536   0% /dev/shm</span><br><span class="line">tmpfs            4035496        0   4035496   0% /proc/asound</span><br><span class="line">tmpfs            4035496        0   4035496   0% /proc/acpi</span><br><span class="line">tmpfs            4035496        0   4035496   0% /proc/scsi</span><br><span class="line">tmpfs            4035496        0   4035496   0% /sys/firmware</span><br></pre></td></tr></table></figure></p>
-<p><strong>Display all file systems and their disk usage in human readable form</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure></p>
-<p><strong>Display all file systems and their disk usage and file system type</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -T</span><br></pre></td></tr></table></figure></p>
+<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><p><strong>Display all file systems and their disk usage in human readable form</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h --total</span><br></pre></td></tr></table></figure></p>
+<p>Sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">udev            3.9G     0  3.9G   0% /dev</span><br><span class="line">tmpfs           788M  1.4M  787M   1% /run</span><br><span class="line">/dev/sda2       228G   66G  151G  31% /</span><br><span class="line">tmpfs           3.9G  147M  3.8G   4% /dev/shm</span><br><span class="line">tmpfs           5.0M  4.0K  5.0M   1% /run/lock</span><br><span class="line">tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup</span><br><span class="line">/dev/loop0       89M   89M     0 100% /snap/core/7396</span><br><span class="line">/dev/sda1       511M  7.6M  504M   2% /boot/efi</span><br><span class="line">tmpfs           788M   16K  788M   1% /run/user/1000</span><br><span class="line">total           242G   67G  164G  29% -</span><br></pre></td></tr></table></figure></p>
+<p><strong>Exclude a file system type</strong><br>display file system excluding tmpfs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ df -h -T --total -x tmpfs</span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">udev           devtmpfs  3.9G     0  3.9G   0% /dev</span><br><span class="line">/dev/sda2      ext4      228G   66G  151G  31% /</span><br><span class="line">/dev/loop0     squashfs   89M   89M     0 100% /snap/core/7396</span><br><span class="line">/dev/sda1      vfat      511M  7.6M  504M   2% /boot/efi</span><br><span class="line">total          -         233G   67G  155G  30% -</span><br></pre></td></tr></table></figure></p>
 <p><strong>Display all file systems and their disk usage where the file locates</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df /root</span><br></pre></td></tr></table></figure></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://linux.die.net/man/1/df" target="_blank" rel="noopener">df online man page</a></li>
@@ -1316,6 +1307,83 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('Copied');
+          else $(this).text('Copy failed');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
 
   
 

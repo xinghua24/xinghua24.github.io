@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-31T09:08:15.445Z">
+<meta property="og:updated_time" content="2019-09-02T07:39:18.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Set up">
 <meta name="twitter:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
@@ -402,7 +402,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-31 05:08:15" itemprop="dateModified" datetime="2019-08-31T05:08:15-04:00">2019-08-31</time>
+                <time title="Modified: 2019-09-02 03:39:18" itemprop="dateModified" datetime="2019-09-02T03:39:18-04:00">2019-09-02</time>
               
             
           </span>
@@ -483,8 +483,9 @@
 <p>You can use <code>kubectl get deployments</code> to list deployments and <code>ubectl describe deployments/hello-minikube</code> to get details of a particular deployment.</p>
 <p>3 - Expose deployment as a service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl expose deployment hello-minikube --type=NodePort</span><br></pre></td></tr></table></figure></p>
 <p>4 - If you check the pods, it should return a pod<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods</span><br><span class="line">NAME                              READY   STATUS    RESTARTS   AGE</span><br><span class="line">hello-minikube-856979d68c-hjkfs   1/1     Running   0          82s</span><br></pre></td></tr></table></figure></p>
+<p>You can use <code>kubectl scale deployments/hello-minikube --replicas=3</code> to scale the deployment to 3 replicas</p>
 <p>5 - Get the url of the exposed service<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube service hello-minikube --url</span><br></pre></td></tr></table></figure></p>
-<p>sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.99.101:31777</span><br></pre></td></tr></table></figure></p>
+<p>sample output. note that the port number is randomly assigned<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.99.101:31777</span><br></pre></td></tr></table></figure></p>
 <p>6 - View the web page using the URL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://192.168.99.101:31777</span><br><span class="line"></span><br><span class="line">Hostname: hello-minikube-856979d68c-rndtw</span><br><span class="line"></span><br><span class="line">Pod Information:</span><br><span class="line">	-no pod information available-</span><br><span class="line"></span><br><span class="line">Server values:</span><br><span class="line">	server_version=nginx: 1.13.3 - lua: 10008</span><br><span class="line"></span><br><span class="line">Request Information:</span><br><span class="line">	client_address=172.17.0.1</span><br><span class="line">	method=GET</span><br><span class="line">	real path=/</span><br><span class="line">	query=</span><br><span class="line">	request_version=1.1</span><br><span class="line">	request_scheme=http</span><br><span class="line">	request_uri=http://192.168.99.101:8080/</span><br><span class="line"></span><br><span class="line">Request Headers:</span><br><span class="line">	accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span><br><span class="line">	accept-encoding=gzip, deflate</span><br><span class="line">	accept-language=en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7,zh-TW;q=0.6</span><br><span class="line">	cache-control=max-age=0</span><br><span class="line">	connection=keep-alive</span><br><span class="line">	host=192.168.99.101:31777</span><br><span class="line">	upgrade-insecure-requests=1</span><br><span class="line">	user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36</span><br><span class="line"></span><br><span class="line">Request Body:</span><br><span class="line">	-no body in request-</span><br></pre></td></tr></table></figure></p>
 <p>7 open dashboard</p>
 <p>Dashboard is a web-based Kubernetes user interface. You can use Dashboard to deploy containerized applications to a Kubernetes cluster, troubleshoot your containerized application, and manage the cluster resources. </p>
@@ -618,7 +619,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">126</span>
+                    <span class="site-state-item-count">127</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

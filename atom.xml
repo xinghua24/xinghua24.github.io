@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-09-02T01:18:28.379Z</updated>
+  <updated>2019-09-02T08:04:23.668Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kubernetes Concepts</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Concepts/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Concepts/</id>
+    <published>2019-09-03T00:41:00.000Z</published>
+    <updated>2019-09-02T08:04:23.668Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Key Kubernetes concetps.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Maven - Deploy Artifacts to Nexus3</title>
     <link href="http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/"/>
     <id>http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/</id>
     <published>2019-09-02T00:41:00.000Z</published>
-    <updated>2019-09-02T01:18:28.379Z</updated>
+    <updated>2019-09-02T01:39:08.469Z</updated>
     
     <summary type="html">
     
@@ -165,7 +183,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Setup/"/>
     <id>http://xinghua24.github.io/Kubernetes-Setup/</id>
     <published>2019-07-27T02:26:00.000Z</published>
-    <updated>2019-08-31T09:08:15.445Z</updated>
+    <updated>2019-09-02T07:39:18.670Z</updated>
     
     <summary type="html">
     
@@ -357,24 +375,6 @@
     
     
       <category term="devops" scheme="http://xinghua24.github.io/tags/devops/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Install Jdk on Ubuntu</title>
-    <link href="http://xinghua24.github.io/Install-Jdk-on-Ubuntu/"/>
-    <id>http://xinghua24.github.io/Install-Jdk-on-Ubuntu/</id>
-    <published>2019-05-20T02:46:00.000Z</published>
-    <updated>2019-08-27T06:13:20.080Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Learn about how to install Jdk on Ubuntu&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
-    
     
   </entry>
   

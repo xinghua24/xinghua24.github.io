@@ -111,12 +111,14 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/nexus.png">
 <meta property="og:image" content="http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/nexus-artifact.png">
-<meta property="og:updated_time" content="2019-09-02T01:18:28.379Z">
+<meta property="og:updated_time" content="2019-09-02T01:39:08.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven - Deploy Artifacts to Nexus3">
 <meta name="twitter:description" content="We will learn how to deploy a artifact to Nexus3 server using maven.">
 <meta name="twitter:image" content="http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/nexus.png">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="Xing's Blog" type="application/atom+xml">
@@ -388,7 +390,7 @@
                 
               
 
-              <time title="Created: 2019-09-01 20:41:00 / Modified: 21:18:28" itemprop="dateCreated datePublished" datetime="2019-09-01T20:41:00-04:00">2019-09-01</time>
+              <time title="Created: 2019-09-01 20:41:00 / Modified: 21:39:08" itemprop="dateCreated datePublished" datetime="2019-09-01T20:41:00-04:00">2019-09-01</time>
             
 
             
@@ -463,6 +465,7 @@
 <p>You can check the status of nexus server using <code>docker-compose ps</code> command. Status will be ‘up’ when the server is ready.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose ps</span><br><span class="line">    Name                   Command               State           Ports         </span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">nexus_nexus_1   sh -c $&#123;SONATYPE_DIR&#125;/star ...   Up      0.0.0.0:8081-&gt;8081/tcp</span><br></pre></td></tr></table></figure></p>
 <p>Now broser to <a href="http://localhost:8081" target="_blank" rel="noopener">http://localhost:8081</a>, You should be able to view the Nexus page. From this page, you should be able to get the repository urls. The repository url for maven snapshots should be <a href="http://localhost:8081/repository/maven-snapshots/" target="_blank" rel="noopener">http://localhost:8081/repository/maven-snapshots/</a>. The repository url for maven releases should be<br><a href="http://localhost:8081/repository/maven-releases/" target="_blank" rel="noopener">http://localhost:8081/repository/maven-releases/</a>.</p>
 <p><img src="nexus.png"></p>
+<p>An alternative way is to run nexus3 docker image from command line. However, you need to use <code>docker exec</code> to go into the docker contains to grab the password in nexus-data/admin.password file.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8081:8081 --name nexus sonatype/nexus3</span><br></pre></td></tr></table></figure></p>
 <h1 id="Maven-Configuration"><a href="#Maven-Configuration" class="headerlink" title="Maven Configuration"></a>Maven Configuration</h1><p>Then we need to set the maven configuration. It can be change at the global level or user level. The user level configuration file is located at ~/.m2/settings.xml. You will need to create the file if it doesn’t exist yet. This configuration file should contain credentials to connect to the nexus server. The default user is ‘admin’ and password is store admin.password under the data folder. </p>
 <p>~/.m2/settings.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/SETTINGS/1.0.0"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">password</span>&gt;</span>4f26a39c-e723-4356-acf6-0ca9a02dced5<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">password</span>&gt;</span>4f26a39c-e723-4356-acf6-0ca9a02dced5<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="Project-Deployment"><a href="#Project-Deployment" class="headerlink" title="Project Deployment"></a>Project Deployment</h1><p>The maven projects needs to specify the repository where the artifacts will be deployed. The repository information is provided in the distributionManagement section of the pom file. If you don’t specify distributionManagement section, the deployment will fail.</p>
@@ -514,6 +517,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Kubernetes-Concepts/" rel="prev" title="Kubernetes Concepts">
+                Kubernetes Concepts <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -590,7 +597,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">126</span>
+                    <span class="site-state-item-count">127</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

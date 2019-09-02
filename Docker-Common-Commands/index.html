@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Most common Docker commands.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-08T22:21:01.571Z">
+<meta property="og:updated_time" content="2019-09-02T01:44:48.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker Common Commands">
 <meta name="twitter:description" content="Most common Docker commands.">
@@ -403,7 +403,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-08-08 18:21:01" itemprop="dateModified" datetime="2019-08-08T18:21:01-04:00">2019-08-08</time>
+                <time title="Modified: 2019-09-01 21:44:48" itemprop="dateModified" datetime="2019-09-01T21:44:48-04:00">2019-09-01</time>
               
             
           </span>
@@ -556,8 +556,9 @@
 </tr>
 </tbody>
 </table>
-<p>Example to run nginx container with name ‘some-nginx’ on port 8080<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -d -p 8080:80 --name nginx-test  nginx:alpine</span><br></pre></td></tr></table></figure></p>
+<p>Example to run nginx container with name ‘nginx-test’ on host’s port 8080<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -d -p 8080:80 --name nginx-test  nginx:alpine</span><br></pre></td></tr></table></figure></p>
 <p>Example to start an alpine container in interactive mode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name alpine-test --rm -it alpine /bin/sh</span><br></pre></td></tr></table></figure></p>
+<p>It is also very common to use <code>docker exec</code> to connect to a running container.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it fd8a3021e976 /bin/sh</span><br></pre></td></tr></table></figure></p>
 <p>Reference</p>
 <ul>
 <li><a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">docker commands</a></li>
@@ -688,7 +689,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">126</span>
+                    <span class="site-state-item-count">127</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

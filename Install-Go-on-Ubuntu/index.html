@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="Install Go and set up paths on Ubuntu">
+  <meta name="description" content="Install Go and set up paths on Ubuntu.">
 <meta name="keywords" content="golang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install Go on Ubuntu">
 <meta property="og:url" content="http://xinghua24.github.io/Install-Go-on-Ubuntu/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Install Go and set up paths on Ubuntu">
+<meta property="og:description" content="Install Go and set up paths on Ubuntu.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.439Z">
+<meta property="og:updated_time" content="2019-09-04T03:23:59.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install Go on Ubuntu">
-<meta name="twitter:description" content="Install Go and set up paths on Ubuntu">
+<meta name="twitter:description" content="Install Go and set up paths on Ubuntu.">
 
 
 
@@ -431,15 +431,24 @@
       
 
       
-        <p>Install Go and set up paths on Ubuntu</p>
+        <p>Install Go and set up paths on Ubuntu. </p>
 <a id="more"></a>
-<h1 id="Download-latest-package-for-Go"><a href="#Download-latest-package-for-Go" class="headerlink" title="Download latest package for Go"></a>Download latest package for Go</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-<h1 id="Extract-archive-to-usr-local"><a href="#Extract-archive-to-usr-local" class="headerlink" title="Extract archive to /usr/local"></a>Extract archive to /usr/local</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -C /usr/<span class="built_in">local</span> -xzf go1.11.2.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
-<h1 id="Path-Setup"><a href="#Path-Setup" class="headerlink" title="Path Setup"></a>Path Setup</h1><p>First create $HOME/go if it is not exist<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir go</span><br></pre></td></tr></table></figure></p>
-<p>Then set Go Paths in ~/.bashrc. <code>GOPATH</code> environment variable specifies the location of your workspace.<br>It contains go source code and binaries. By default, the value of <code>GOPATH</code> is $HOME/go.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Go installation</span></span><br><span class="line"><span class="built_in">export</span> GOROOT=/usr/<span class="built_in">local</span>/go</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment"># Go path</span></span><br><span class="line"><span class="built_in">export</span> GOPATH=<span class="variable">$HOME</span>/go</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin</span><br></pre></td></tr></table></figure></p>
-<p>Finally Test Go Version<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure></p>
+<p>Go, also known as Golang, is a statically typed, compiled programming language.</p>
+<blockquote>
+<p> Go is expressive, concise, clean, and efficient. Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines, while its novel type system enables flexible and modular program construction. Go compiles quickly to machine code yet has the convenience of garbage collection and the power of run-time reflection. It’s a fast, statically typed, compiled language that feels like a dynamically typed, interpreted language.</p>
+</blockquote>
+<h1 id="Download-latest-package-for-Go"><a href="#Download-latest-package-for-Go" class="headerlink" title="Download latest package for Go"></a>Download latest package for Go</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://dl.google.com/go/go1.12.9.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="Extract-archive-to-usr-local"><a href="#Extract-archive-to-usr-local" class="headerlink" title="Extract archive to /usr/local"></a>Extract archive to /usr/local</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -C /usr/<span class="built_in">local</span> -xzf go1.12.9.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+<h1 id="Path-Setup"><a href="#Path-Setup" class="headerlink" title="Path Setup"></a>Path Setup</h1><p>Add /usr/local/go/bin to the PATH environment variable so that you can execute go command at any path. You can do this by adding this line to your /etc/profile (for a system-wide installation) or $HOME/.profile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$PATH:/usr/local/go/bin</span><br></pre></td></tr></table></figure>
+<p>Then we need to setup GOPATH. This is where all the go modules are downloaded. Add the following command to system path.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOPATH=$HOME/go</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br></pre></td></tr></table></figure></p>
+<h1 id="Run-Hello-World"><a href="#Run-Hello-World" class="headerlink" title="Run Hello World"></a>Run Hello World</h1><p>create and go to src/hello directory. Then create hello.go file</p>
+<p>hello.go<br><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"hello, world\n"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>use <code>go build</code> command to build the binary<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd $HOME/go/src/hello</span><br><span class="line">$ go build</span><br></pre></td></tr></table></figure></p>
+<p>Now execute the binary file. <code>hello, world</code> should be printed on the console.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ./hello</span><br><span class="line">hello, world</span><br></pre></td></tr></table></figure></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://www.linode.com/docs/development/go/install-go-on-ubuntu/" target="_blank" rel="noopener">How to Install Go on Ubuntu</a></li>
+<li><a href="https://golang.org/doc/install?download=go1.12.9.linux-amd64.tar.gz" target="_blank" rel="noopener">golang getting started</a></li>
+<li><a href="https://golang.org/doc/" target="_blank" rel="noopener">golang doc</a></li>
 </ul>
 
       
@@ -704,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Download-latest-package-for-Go"><span class="nav-number">1.</span> <span class="nav-text">Download latest package for Go</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Extract-archive-to-usr-local"><span class="nav-number">2.</span> <span class="nav-text">Extract archive to /usr/local</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Path-Setup"><span class="nav-number">3.</span> <span class="nav-text">Path Setup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Download-latest-package-for-Go"><span class="nav-number">1.</span> <span class="nav-text">Download latest package for Go</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Extract-archive-to-usr-local"><span class="nav-number">2.</span> <span class="nav-text">Extract archive to /usr/local</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Path-Setup"><span class="nav-number">3.</span> <span class="nav-text">Path Setup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Run-Hello-World"><span class="nav-number">4.</span> <span class="nav-text">Run Hello World</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

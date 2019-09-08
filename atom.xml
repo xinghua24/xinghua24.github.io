@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-09-05T07:25:50.053Z</updated>
+  <updated>2019-09-07T23:00:32.023Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Concepts/"/>
     <id>http://xinghua24.github.io/Kubernetes-Concepts/</id>
     <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2019-09-05T07:25:50.053Z</updated>
+    <updated>2019-09-07T23:00:32.023Z</updated>
     
     <summary type="html">
     
@@ -179,11 +179,11 @@
   </entry>
   
   <entry>
-    <title>Kubernetes Set up</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Setup/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Setup/</id>
+    <title>Kubernetes Getting Started</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
     <published>2019-07-27T02:26:00.000Z</published>
-    <updated>2019-09-02T07:39:18.670Z</updated>
+    <updated>2019-09-07T17:48:02.489Z</updated>
     
     <summary type="html">
     

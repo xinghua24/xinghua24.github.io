@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="ln - create hard link or symbolic(soft) link to files and directories.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.443Z">
+<meta property="og:updated_time" content="2019-09-21T01:05:31.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - ln">
 <meta name="twitter:description" content="ln - create hard link or symbolic(soft) link to files and directories.">
@@ -473,8 +473,9 @@
 </tbody>
 </table>
 <h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Create-a-hard-link-to-a-file"><a href="#Create-a-hard-link-to-a-file" class="headerlink" title="Create a hard link to a file"></a>Create a hard link to a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln file1 link1</span><br></pre></td></tr></table></figure>
+<p>file1 and link1 has the same inode number.</p>
 <h2 id="Create-a-symbolic-link-to-a-file"><a href="#Create-a-symbolic-link-to-a-file" class="headerlink" title="Create a symbolic link to a file"></a>Create a symbolic link to a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s file1 link2</span><br></pre></td></tr></table></figure>
-<p>if you execute <code>ls -li</code> command, the output looks like this. notice the symbolic link has a different inode number than the target file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">13901482 -rw-r--r-- 2 xing xing   11 Jan  4 01:54 file1</span><br><span class="line">13901482 -rw-r--r-- 2 xing xing   11 Jan  4 01:54 link1</span><br><span class="line">13901487 lrwxrwxrwx 1 xing xing    5 Jan  4 02:10 link2 -&gt; file1</span><br></pre></td></tr></table></figure></p>
+<p>if you execute <code>ls -li</code> command, the output looks like this. notice the symbolic link has a different inode number than the target file. it also has an arrow to show its target.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">13901482 -rw-r--r-- 2 xing xing   11 Jan  4 01:54 file1</span><br><span class="line">13901482 -rw-r--r-- 2 xing xing   11 Jan  4 01:54 link1</span><br><span class="line">13901487 lrwxrwxrwx 1 xing xing    5 Jan  4 02:10 link2 -&gt; file1</span><br></pre></td></tr></table></figure></p>
 <h2 id="Create-a-symbolic-link-to-a-directory"><a href="#Create-a-symbolic-link-to-a-directory" class="headerlink" title="Create a symbolic link to a directory"></a>Create a symbolic link to a directory</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s ~/Documents/ ~/Desktop/Docs</span><br></pre></td></tr></table></figure>
 <p>Create a symbolic link call Docs in ~/Desktop. The destination is /home/username/Documents/</p>
 <h2 id="Force-existing-link-to-point-to-a-new-target"><a href="#Force-existing-link-to-point-to-a-new-target" class="headerlink" title="Force existing link to point to a new target"></a>Force existing link to point to a new target</h2><p>force a existing symbolic(soft) link to point to a new target, dir in this case<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf dir link2</span><br></pre></td></tr></table></figure></p>
@@ -607,7 +608,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

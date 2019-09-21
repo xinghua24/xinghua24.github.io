@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-09-07T23:00:32.023Z</updated>
+  <updated>2019-09-21T05:32:35.242Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,15 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kubernetes - Running Applications</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Running-Applications/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Running-Applications/</id>
+    <published>2019-09-04T22:55:00.000Z</published>
+    <updated>2019-09-21T05:32:35.242Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s learn how to deploy, scale and roll back application in Kubernetes&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Kubernetes Concepts</title>
     <link href="http://xinghua24.github.io/Kubernetes-Concepts/"/>
     <id>http://xinghua24.github.io/Kubernetes-Concepts/</id>
-    <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2019-09-07T23:00:32.023Z</updated>
+    <published>2019-09-04T00:41:00.000Z</published>
+    <updated>2019-09-21T04:15:54.672Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;Key Kubernetes concetps.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Getting Started</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
+    <published>2019-09-03T00:41:00.000Z</published>
+    <updated>2019-09-21T04:21:55.680Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.&lt;br&gt;
     
     </summary>
     
@@ -129,7 +163,7 @@
     <link href="http://xinghua24.github.io/Git/"/>
     <id>http://xinghua24.github.io/Git/</id>
     <published>2019-08-10T22:20:00.000Z</published>
-    <updated>2019-08-28T04:02:44.069Z</updated>
+    <updated>2019-09-20T03:55:49.267Z</updated>
     
     <summary type="html">
     
@@ -165,7 +199,7 @@
     <link href="http://xinghua24.github.io/Python-Introduction/"/>
     <id>http://xinghua24.github.io/Python-Introduction/</id>
     <published>2019-08-06T22:00:00.000Z</published>
-    <updated>2019-08-26T07:40:18.652Z</updated>
+    <updated>2019-09-16T01:22:40.071Z</updated>
     
     <summary type="html">
     
@@ -174,24 +208,6 @@
     </summary>
     
       <category term="Python" scheme="http://xinghua24.github.io/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes Getting Started</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
-    <published>2019-07-27T02:26:00.000Z</published>
-    <updated>2019-09-08T04:02:49.578Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
     
     
   </entry>
@@ -355,26 +371,6 @@
     
       <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>DevOps</title>
-    <link href="http://xinghua24.github.io/Devops/"/>
-    <id>http://xinghua24.github.io/Devops/</id>
-    <published>2019-05-22T07:56:00.000Z</published>
-    <updated>2019-07-18T21:57:55.439Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let’s learn DevOps basics.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="uncategorized" scheme="http://xinghua24.github.io/categories/uncategorized/"/>
-    
-    
-      <category term="devops" scheme="http://xinghua24.github.io/tags/devops/"/>
     
   </entry>
   

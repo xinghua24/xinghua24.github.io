@@ -111,7 +111,7 @@
 <meta property="og:description" content="The Filesystem Hierarchy Standard (FHS) defines the directory structure and directory contents in Linux distributions.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xinghua24.github.io/Linux-Command-Linux-Directory-Structure/Linux%20Directory%20Structure.png">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.443Z">
+<meta property="og:updated_time" content="2019-09-21T01:08:35.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - Linux Directory Structure">
 <meta name="twitter:description" content="The Filesystem Hierarchy Standard (FHS) defines the directory structure and directory contents in Linux distributions.">
@@ -460,8 +460,8 @@
 <h2 id="bin-Essential-command-binaries"><a href="#bin-Essential-command-binaries" class="headerlink" title="/bin    - Essential command binaries"></a>/bin    - Essential command binaries</h2><ul>
 <li>/bin contains essential programs used by system admins and users.</li>
 <li>no subdirectories allowed in /bin</li>
-<li>some of the most used commands are here.(e.g. ls, rm, cat)</li>
 </ul>
+<p>In Ubuntu /bin is a symbolic link to usr/bin</p>
 <h2 id="boot-Static-files-of-the-boot-loader"><a href="#boot-Static-files-of-the-boot-loader" class="headerlink" title="/boot-     Static files of the boot loader"></a>/boot-     Static files of the boot loader</h2><p>contains files used to boot the system. e.g. the GRUB boot loader.</p>
 <h2 id="dev-Device-files"><a href="#dev-Device-files" class="headerlink" title="/dev    - Device files"></a>/dev    - Device files</h2><p>The /dev directory is the location of special or device files. virtual device are also here.<br>Some of the most important files are /dev/null, /dev/tty,  /dev/random.</p>
 <h2 id="etc-Host-specific-system-configuration"><a href="#etc-Host-specific-system-configuration" class="headerlink" title="/etc    - Host-specific system configuration"></a>/etc    - Host-specific system configuration</h2><p>/etc directory contains config files. all files must be static and cannot be executable binary.<br>important files are /etc/hosts. /etc/init.d/ is the directory that contains all the service init script.</p>
@@ -473,6 +473,7 @@
 <h2 id="root-Home-directory-for-the-root-user"><a href="#root-Home-directory-for-the-root-user" class="headerlink" title="/root - Home directory for the root user"></a>/root - Home directory for the root user</h2><p>/root directory is optional. It is the recommended home directory for the root user.</p>
 <h2 id="run-Run-time-variable-data"><a href="#run-Run-time-variable-data" class="headerlink" title="/run    - Run-time variable data"></a>/run    - Run-time variable data</h2><p>This directory contains system information data describing the system since it was booted.</p>
 <h2 id="sbin-Essential-system-binaries"><a href="#sbin-Essential-system-binaries" class="headerlink" title="/sbin - Essential system binaries"></a>/sbin - Essential system binaries</h2><p>/sbin is similar to /bin directory. contains essential binaries for admin user.</p>
+<p>In Ubuntu /sbin is a symbolic link to usr/sbin</p>
 <h2 id="srv-Service-Data"><a href="#srv-Service-Data" class="headerlink" title="/srv    - Service Data"></a>/srv    - Service Data</h2><p>/srv contains site-specific data which is served by this system. Use it if serving a website.</p>
 <h2 id="tmp-Temporary-files"><a href="#tmp-Temporary-files" class="headerlink" title="/tmp    - Temporary files"></a>/tmp    - Temporary files</h2><p>For storing temporary files. files in /tmp will be deleted when system is restarted</p>
 <h2 id="usr-User-Binaries-amp-Read-Only-Data"><a href="#usr-User-Binaries-amp-Read-Only-Data" class="headerlink" title="/usr    - User Binaries &amp; Read-Only Data"></a>/usr    - User Binaries &amp; Read-Only Data</h2><p>usr is for Unix Software Resource. It contains Read-Only data. </p>
@@ -488,7 +489,7 @@
 <tbody>
 <tr>
 <td>/usr/bin</td>
-<td>primary directory of executable commands on the system.</td>
+<td>primary directory of executable commands on the system. In Ubuntu, commonly used commands such as ls, ps, tar, less… are installed here</td>
 </tr>
 <tr>
 <td>/usr/sbin</td>
@@ -508,6 +509,7 @@
 </tr>
 </tbody>
 </table>
+<p>/usr/local/bin and usr/local/sbin are are both added to the system path. Executables local to the site are installed here.</p>
 <h2 id="var-Variable-data"><a href="#var-Variable-data" class="headerlink" title="/var    - Variable data"></a>/var    - Variable data</h2><p>/var is the writable counterpart to the /usr directory. log files, cache files are here.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="http://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html" target="_blank" rel="noopener">Filesystem Hierarchy Standard</a></li>
@@ -641,7 +643,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

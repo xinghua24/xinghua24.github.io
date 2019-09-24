@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Before Java 8, you can only declare public abstract methods in an Interface. With Java 8, Interface can have static method and default method.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.439Z">
+<meta property="og:updated_time" content="2019-09-24T15:23:42.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 8 Interface Default and Static Method">
 <meta name="twitter:description" content="Before Java 8, you can only declare public abstract methods in an Interface. With Java 8, Interface can have static method and default method.">
@@ -453,7 +453,7 @@
 <h1 id="Interface-with-Static-Method-and-Default-Method"><a href="#Interface-with-Static-Method-and-Default-Method" class="headerlink" title="Interface with Static Method and Default Method"></a>Interface with Static Method and Default Method</h1><p>MyInterface interface has a default method <code>foo()</code> and static method <code>bar()</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"foo()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"bar()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Implementation<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterfaceImpl</span> <span class="keyword">implements</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>static method and default method demo<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// call static method</span></span><br><span class="line">    MyInterface.bar();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// call default method</span></span><br><span class="line">    MyInterface myInterfaceImpl = <span class="keyword">new</span> MyInterfaceImpl();</span><br><span class="line">    myInterfaceImpl.foo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
 <li><a href="https://www.baeldung.com/java-8-new-features" target="_blank" rel="noopener">New Features in Java 8 by Baeldung</a></li>
 </ul>
 
@@ -620,8 +620,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
@@ -721,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface-with-Static-Method-and-Default-Method"><span class="nav-number">1.</span> <span class="nav-text">Interface with Static Method and Default Method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Interface-with-Static-Method-and-Default-Method"><span class="nav-number">1.</span> <span class="nav-text">Interface with Static Method and Default Method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>

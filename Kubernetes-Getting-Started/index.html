@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-21T04:21:55.680Z">
+<meta property="og:updated_time" content="2019-09-22T06:18:10.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Getting Started">
 <meta name="twitter:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
@@ -484,7 +484,11 @@
 <h1 id="More-on-Minikube"><a href="#More-on-Minikube" class="headerlink" title="More on Minikube"></a>More on Minikube</h1><p>By Default. Minikube creates node on Virtualbox VM. the default settings is CPUs=2, Memory=2000MB, Disk=20000MB. You can override the default settings:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube start --memory=16384 --cpus=4 --disk-size=20000</span><br></pre></td></tr></table></figure></p>
 <p>For more options, see <a href="https://minikube.sigs.k8s.io/docs/reference/commands/start/" target="_blank" rel="noopener">start command</a></p>
 <p>Other minikube commands<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check minikube status</span></span><br><span class="line">minikube states</span><br><span class="line"></span><br><span class="line"><span class="comment"># retrieves the IP address of the running cluster</span></span><br><span class="line">minikube ip</span><br><span class="line"></span><br><span class="line"><span class="comment"># gets the logs of the running instance, used for debugging minikube</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Log into or run a command on a machine with SSH</span></span><br><span class="line">minikube ssh</span><br></pre></td></tr></table></figure></p>
-<p>For more information on Minikube, see <a href="https://minikube.sigs.k8s.io/docs/" target="_blank" rel="noopener">Minikube documentation</a></p>
+<p>For more information on Minikube, see [Minikube documentation](<a href="https://minikube.sigs.k8s.io/docs/" target="_blank" rel="noopener">https://minikube.sigs.k8s.io/docs/</a></p>
+<h1 id="Other-Ways-to-setup-a-Cluster"><a href="#Other-Ways-to-setup-a-Cluster" class="headerlink" title="Other Ways to setup a Cluster"></a>Other Ways to setup a Cluster</h1><p>Minikube creates a single node cluster. If you want to create a multi-node cluster, checkout<br><strong><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/" target="_blank" rel="noopener">kubeadm</a></strong>.</p>
+<p>A more convenient way to run a multi-node cluster is <strong><a href="https://github.com/kubernetes-sigs/kind" target="_blank" rel="noopener">kind</a></strong>. With kindl you can easily setup local Kubernetes clusters using Docker container </p>
+<p>There is also online option to play with Kubernetes. <strong><a href="https://www.katacoda.com/courses/kubernetes/playground" target="_blank" rel="noopener">Katacoda Playground</a></strong> sets up a two node cluster cluster for you to play with. Another online kubernetes playgound is <a href="https://labs.play-with-k8s.com/" target="_blank" rel="noopener">play-with-k8s</a></p>
+<p>)</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank" rel="noopener">Install and Set Up kubectl</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank" rel="noopener">Install Minikube</a></li>
@@ -646,8 +650,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
@@ -747,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prerequisite"><span class="nav-number">1.</span> <span class="nav-text">Prerequisite</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Kubectl"><span class="nav-number">2.</span> <span class="nav-text">Install Kubectl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Minikube"><span class="nav-number">3.</span> <span class="nav-text">Install Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-Up-a-Cluster-with-Minikube"><span class="nav-number">4.</span> <span class="nav-text">Set Up a Cluster with Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More-on-Minikube"><span class="nav-number">5.</span> <span class="nav-text">More on Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prerequisite"><span class="nav-number">1.</span> <span class="nav-text">Prerequisite</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Kubectl"><span class="nav-number">2.</span> <span class="nav-text">Install Kubectl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Minikube"><span class="nav-number">3.</span> <span class="nav-text">Install Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-Up-a-Cluster-with-Minikube"><span class="nav-number">4.</span> <span class="nav-text">Set Up a Cluster with Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More-on-Minikube"><span class="nav-number">5.</span> <span class="nav-text">More on Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other-Ways-to-setup-a-Cluster"><span class="nav-number">6.</span> <span class="nav-text">Other Ways to setup a Cluster</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

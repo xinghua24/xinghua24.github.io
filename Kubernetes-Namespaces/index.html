@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="wc - print newline, word, and byte counts for each file">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="Kubernetes Namespaces">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - wc">
-<meta property="og:url" content="http://xinghua24.github.io/Linux-Command-wc/index.html">
+<meta property="og:title" content="Kubernetes - Namespaces">
+<meta property="og:url" content="http://xinghua24.github.io/Kubernetes-Namespaces/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="wc - print newline, word, and byte counts for each file">
+<meta property="og:description" content="Kubernetes Namespaces">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.447Z">
+<meta property="og:updated_time" content="2019-09-29T06:28:41.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command - wc">
-<meta name="twitter:description" content="wc - print newline, word, and byte counts for each file">
+<meta name="twitter:title" content="Kubernetes - Namespaces">
+<meta name="twitter:description" content="Kubernetes Namespaces">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux-Command-wc/">
+  <link rel="canonical" href="http://xinghua24.github.io/Kubernetes-Namespaces/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Linux Command - wc | Xing's Blog</title>
+  <title>Kubernetes - Namespaces | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux-Command-wc/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Kubernetes-Namespaces/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command - wc
+          <h1 class="post-title" itemprop="name headline">Kubernetes - Namespaces
 
               
             
@@ -386,7 +385,7 @@
                 
               
 
-              <time title="Created: 2018-12-26 22:00:42" itemprop="dateCreated datePublished" datetime="2018-12-26T22:00:42-05:00">2018-12-26</time>
+              <time title="Created: 2019-09-10 23:19:00" itemprop="dateCreated datePublished" datetime="2019-09-10T23:19:00-04:00">2019-09-10</time>
             
 
             
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a></span>
 
                 
                 
@@ -419,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux-Command-wc/#comments" itemprop="discussionUrl">
+                <a href="/Kubernetes-Namespaces/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux-Command-wc/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Kubernetes-Namespaces/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,41 +448,24 @@
       
 
       
-        <p><code>wc</code> - print newline, word, and byte counts for each file<br><a id="more"></a></p>
-<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc [OPTION] [FILE]...</span><br></pre></td></tr></table></figure>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Print newline, word, and byte counts for each FILE, and a total line if more than one FILE is specified. With no FILE, or when FILE is -, read standard input.</p>
-<h1 id="Option"><a href="#Option" class="headerlink" title="Option"></a>Option</h1><table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c</td>
-<td>print byte counts</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>print line counts</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>print character counts</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>print word counts</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="count-bytes-in-a-file"><a href="#count-bytes-in-a-file" class="headerlink" title="count bytes in a file"></a>count bytes in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -c file1</span><br></pre></td></tr></table></figure>
-<h2 id="count-words-in-a-file"><a href="#count-words-in-a-file" class="headerlink" title="count words in a file"></a>count words in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -w file1</span><br></pre></td></tr></table></figure>
-<h2 id="count-lines-in-a-file"><a href="#count-lines-in-a-file" class="headerlink" title="count lines in a file"></a>count lines in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -l file1</span><br></pre></td></tr></table></figure>
-<h2 id="count-characters-in-a-file"><a href="#count-characters-in-a-file" class="headerlink" title="count characters in a file"></a>count characters in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -m file1</span><br></pre></td></tr></table></figure>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://linux.die.net/man/1/wc" target="_blank" rel="noopener">wc online man page</a></li>
+        <p>Kubernetes Namespaces<br><a id="more"></a></p>
+<h1 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h1><p>Namespace is used to group resources for multiple teams and projects. Kubernetes provides isolation between different namespaces.</p>
+<p>Kubernetes starts with three initial namespaces:</p>
+<ul>
+<li><strong>default</strong> The default namespace for objects with no other namespace</li>
+<li><strong>kube-system</strong> The namespace for objects created by the Kubernetes system</li>
+<li><strong>kube-public</strong> This namespace is created automatically and is readable by all users (including those not authenticated). This namespace is mostly reserved for cluster usage, in case that some resources should be visible and readable publicly throughout the whole cluster. The public aspect of this namespace is only a convention, not a requirement.</li>
+</ul>
+<h1 id="Create-a-Namespace"><a href="#Create-a-Namespace" class="headerlink" title="Create a Namespace"></a>Create a Namespace</h1><p>namespace-dev.yaml<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Namespace</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">  labels:</span> </span><br><span class="line"><span class="attr">    name:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure></p>
+<p>use <code>kubectl apply</code> to create the namespace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f namespace-dev.yaml </span><br><span class="line">namespace/dev created</span><br></pre></td></tr></table></figure></p>
+<p>use <code>kubectl get namespaces</code> command to get all available namespace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get namespaces</span><br><span class="line">NAME              STATUS   AGE</span><br><span class="line">default           Active   12d</span><br><span class="line">dev               Active   89s</span><br><span class="line">kube-node-lease   Active   12d</span><br><span class="line">kube-public       Active   12d</span><br><span class="line">kube-system       Active   12d</span><br></pre></td></tr></table></figure></p>
+<h1 id="Create-Resource-in-a-namespace"><a href="#Create-Resource-in-a-namespace" class="headerlink" title="Create Resource in a namespace"></a>Create Resource in a namespace</h1><p>myapp.yaml: Example to create a deployment in dev namespace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: myapp</span><br><span class="line">  namespace: dev</span><br><span class="line">spec:</span><br><span class="line">  replicas: 2</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: myapp</span><br><span class="line">  template:</span><br><span class="line">     ...</span><br></pre></td></tr></table></figure></p>
+<p>To list the deployname in dev namespace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get deployment -n dev</span><br><span class="line">NAME    READY   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">myapp   2/2     2            2           37s</span><br></pre></td></tr></table></figure></p>
+<h1 id="Delete-a-Namespace"><a href="#Delete-a-Namespace" class="headerlink" title="Delete a Namespace"></a>Delete a Namespace</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete namespace dev</span><br><span class="line">namespace &quot;dev&quot; deleted</span><br></pre></td></tr></table></figure>
+<p>Resources under namespace dev will be deleted.</p>
+<p>Reference</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/" target="_blank" rel="noopener">Namespaces</a></li>
 </ul>
 
       
@@ -506,12 +488,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
 
       
       
@@ -521,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux-Command-ps/" rel="next" title="Linux Command - ps">
-                <i class="fa fa-chevron-left"></i> Linux Command - ps
+              <a href="/Kubernetes-Jobs/" rel="next" title="Kubernetes - Jobs">
+                <i class="fa fa-chevron-left"></i> Kubernetes - Jobs
               </a>
             
           </div>
@@ -530,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Linux-Command-top/" rel="prev" title="Linux Command - top">
-                Linux Command - top <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -746,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Option"><span class="nav-number">3.</span> <span class="nav-text">Option</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">4.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#count-bytes-in-a-file"><span class="nav-number">4.1.</span> <span class="nav-text">count bytes in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#count-words-in-a-file"><span class="nav-number">4.2.</span> <span class="nav-text">count words in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#count-lines-in-a-file"><span class="nav-number">4.3.</span> <span class="nav-text">count lines in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#count-characters-in-a-file"><span class="nav-number">4.4.</span> <span class="nav-text">count characters in a file</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">1.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-Namespace"><span class="nav-number">2.</span> <span class="nav-text">Create a Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Resource-in-a-namespace"><span class="nav-number">3.</span> <span class="nav-text">Create Resource in a namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Delete-a-Namespace"><span class="nav-number">4.</span> <span class="nav-text">Delete a Namespace</span></a></li></ol></div>
             
 
           </div>
@@ -901,9 +873,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux-Command-wc/";
-        this.page.identifier = "Linux-Command-wc/";
-        this.page.title = 'Linux Command - wc';
+        this.page.url = "http://xinghua24.github.io/Kubernetes-Namespaces/";
+        this.page.identifier = "Kubernetes-Namespaces/";
+        this.page.title = 'Kubernetes - Namespaces';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

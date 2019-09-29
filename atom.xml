@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-09-23T04:35:13.914Z</updated>
+  <updated>2019-09-29T06:28:41.353Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kubernetes - Namespaces</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Namespaces/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Namespaces/</id>
+    <published>2019-09-11T03:19:00.000Z</published>
+    <updated>2019-09-29T06:28:41.353Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kubernetes Namespaces&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes - Jobs</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Jobs/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Jobs/</id>
+    <published>2019-09-06T14:00:00.000Z</published>
+    <updated>2019-09-29T04:25:52.906Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kubernetes jobs&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes - Services</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Services/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Services/</id>
+    <published>2019-09-06T12:22:00.000Z</published>
+    <updated>2019-09-29T06:14:40.268Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kubernetes Service&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Kubernetes - Running Applications</title>
     <link href="http://xinghua24.github.io/Kubernetes-Running-Applications/"/>
     <id>http://xinghua24.github.io/Kubernetes-Running-Applications/</id>
     <published>2019-09-04T22:55:00.000Z</published>
-    <updated>2019-09-23T04:35:13.914Z</updated>
+    <updated>2019-09-29T06:15:00.008Z</updated>
     
     <summary type="html">
     
@@ -39,7 +93,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Concepts/"/>
     <id>http://xinghua24.github.io/Kubernetes-Concepts/</id>
     <published>2019-09-04T00:41:00.000Z</published>
-    <updated>2019-09-27T06:44:00.800Z</updated>
+    <updated>2019-09-29T06:17:11.205Z</updated>
     
     <summary type="html">
     
@@ -57,7 +111,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
     <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
     <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2019-09-22T06:18:10.509Z</updated>
+    <updated>2019-09-29T04:03:56.380Z</updated>
     
     <summary type="html">
     
@@ -318,60 +372,6 @@
     </summary>
     
       <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Dockerizing Spring Boot App</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Dockerizing-Spring-Boot-App/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Dockerizing-Spring-Boot-App/</id>
-    <published>2019-05-28T02:55:00.000Z</published>
-    <updated>2019-08-12T22:05:23.844Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let’s learn how to dockerize a Spring Boot Application.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Actuator</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Actuator/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Actuator/</id>
-    <published>2019-05-26T22:39:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Spring Boot Actuator provides metrics and app monitoring to our application.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - JPA</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-JPA/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-JPA/</id>
-    <published>2019-05-26T05:39:00.000Z</published>
-    <updated>2019-07-18T21:57:55.447Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let’s learn how to use Java Persistence API(JPA) to map objects to relational databases using an example project.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
     
     
   </entry>

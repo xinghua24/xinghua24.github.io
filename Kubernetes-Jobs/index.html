@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="wc - print newline, word, and byte counts for each file">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="Kubernetes jobs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - wc">
-<meta property="og:url" content="http://xinghua24.github.io/Linux-Command-wc/index.html">
+<meta property="og:title" content="Kubernetes - Jobs">
+<meta property="og:url" content="http://xinghua24.github.io/Kubernetes-Jobs/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="wc - print newline, word, and byte counts for each file">
+<meta property="og:description" content="Kubernetes jobs">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.447Z">
+<meta property="og:updated_time" content="2019-09-29T04:25:52.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command - wc">
-<meta name="twitter:description" content="wc - print newline, word, and byte counts for each file">
+<meta name="twitter:title" content="Kubernetes - Jobs">
+<meta name="twitter:description" content="Kubernetes jobs">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux-Command-wc/">
+  <link rel="canonical" href="http://xinghua24.github.io/Kubernetes-Jobs/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Linux Command - wc | Xing's Blog</title>
+  <title>Kubernetes - Jobs | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux-Command-wc/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Kubernetes-Jobs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command - wc
+          <h1 class="post-title" itemprop="name headline">Kubernetes - Jobs
 
               
             
@@ -386,7 +385,7 @@
                 
               
 
-              <time title="Created: 2018-12-26 22:00:42" itemprop="dateCreated datePublished" datetime="2018-12-26T22:00:42-05:00">2018-12-26</time>
+              <time title="Created: 2019-09-06 10:00:00" itemprop="dateCreated datePublished" datetime="2019-09-06T10:00:00-04:00">2019-09-06</time>
             
 
             
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a></span>
 
                 
                 
@@ -419,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux-Command-wc/#comments" itemprop="discussionUrl">
+                <a href="/Kubernetes-Jobs/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux-Command-wc/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Kubernetes-Jobs/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,41 +448,23 @@
       
 
       
-        <p><code>wc</code> - print newline, word, and byte counts for each file<br><a id="more"></a></p>
-<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc [OPTION] [FILE]...</span><br></pre></td></tr></table></figure>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Print newline, word, and byte counts for each FILE, and a total line if more than one FILE is specified. With no FILE, or when FILE is -, read standard input.</p>
-<h1 id="Option"><a href="#Option" class="headerlink" title="Option"></a>Option</h1><table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c</td>
-<td>print byte counts</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>print line counts</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>print character counts</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>print word counts</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="count-bytes-in-a-file"><a href="#count-bytes-in-a-file" class="headerlink" title="count bytes in a file"></a>count bytes in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -c file1</span><br></pre></td></tr></table></figure>
-<h2 id="count-words-in-a-file"><a href="#count-words-in-a-file" class="headerlink" title="count words in a file"></a>count words in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -w file1</span><br></pre></td></tr></table></figure>
-<h2 id="count-lines-in-a-file"><a href="#count-lines-in-a-file" class="headerlink" title="count lines in a file"></a>count lines in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -l file1</span><br></pre></td></tr></table></figure>
-<h2 id="count-characters-in-a-file"><a href="#count-characters-in-a-file" class="headerlink" title="count characters in a file"></a>count characters in a file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -m file1</span><br></pre></td></tr></table></figure>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://linux.die.net/man/1/wc" target="_blank" rel="noopener">wc online man page</a></li>
+        <p>Kubernetes jobs<br><a id="more"></a></p>
+<p>In Kubernetes, A job is use to execute a finite task. Some examples are sending emails, transcoding files, scanning database keys, etc.</p>
+<h1 id="Job"><a href="#Job" class="headerlink" title="Job"></a>Job</h1><p>job.yaml - a sample job<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: batch/v1</span><br><span class="line">kind: Job</span><br><span class="line">metadata:</span><br><span class="line">  name: hellojob</span><br><span class="line">spec:</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      name: hellojob</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: hello</span><br><span class="line">        image: busybox</span><br><span class="line">        args:</span><br><span class="line">        - /bin/sh</span><br><span class="line">        - -c</span><br><span class="line">        - date; echo Hello from the Kubernetes cluster</span><br><span class="line">      restartPolicy: Never</span><br></pre></td></tr></table></figure></p>
+<p>Jobs are executed using <code>kubectl apply</code> command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f job.yaml</span><br></pre></td></tr></table></figure></p>
+<p>use <code>kubectl get pod</code> command to get the pod name and then use <code>kubectl logs</code> command to see the output.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pod</span><br><span class="line">NAME                     READY   STATUS      RESTARTS   AGE</span><br><span class="line">hellojob-hfc2h           0/1     Completed   0          10s</span><br><span class="line"></span><br><span class="line">$ kubectl logs hellojob-hfc2h</span><br><span class="line">Sat Sep 28 20:23:47 UTC 2019</span><br><span class="line">Hello from the Kubernetes cluster</span><br></pre></td></tr></table></figure></p>
+<p>use <code>kubectl delete cron hellojob</code> to delete the job.</p>
+<h2 id="Parallel-Jobs"><a href="#Parallel-Jobs" class="headerlink" title="Parallel Jobs"></a>Parallel Jobs</h2><p>The above job execute only once. You can have the job execute multiple times in parallel.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: batch/v1</span><br><span class="line">kind: Job</span><br><span class="line">metadata:</span><br><span class="line">  name: hellojob</span><br><span class="line">spec:</span><br><span class="line">  parallelism: 2</span><br><span class="line">  completions: 3</span><br><span class="line">  template:</span><br><span class="line">    metadata:</span><br><span class="line">      name: hellojob</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line">      - name: hello</span><br><span class="line">        image: busybox</span><br><span class="line">        args:</span><br><span class="line">        - /bin/sh</span><br><span class="line">        - -c</span><br><span class="line">        - date; echo Hello from the Kubernetes cluster</span><br><span class="line">      restartPolicy: Never</span><br></pre></td></tr></table></figure></p>
+<p>Here the job is execute 3 times with 2 pods executing in parallel.</p>
+<p>We can examine the jobs that is completed.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get jobs</span><br><span class="line">NAME       COMPLETIONS   DURATION   AGE</span><br><span class="line">hellojob   3/3           4s         26s</span><br></pre></td></tr></table></figure></p>
+<p>use <code>kubectl delete cron hellojob</code> to delete the job.</p>
+<h1 id="CronJob"><a href="#CronJob" class="headerlink" title="CronJob"></a>CronJob</h1><p>CronJob runs on a schedule.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">batch/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">CronJob</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">hellojob</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  schedule:</span> <span class="string">"*/1 * * * *"</span></span><br><span class="line"><span class="attr">  jobTemplate:</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      template:</span></span><br><span class="line"><span class="attr">        metadata:</span></span><br><span class="line"><span class="attr">          name:</span> <span class="string">hellojob</span></span><br><span class="line"><span class="attr">        spec:</span></span><br><span class="line"><span class="attr">          containers:</span></span><br><span class="line"><span class="attr">          - name:</span> <span class="string">hello</span></span><br><span class="line"><span class="attr">            image:</span> <span class="string">busybox</span></span><br><span class="line"><span class="attr">            args:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">/bin/sh</span></span><br><span class="line"><span class="bullet">            -</span> <span class="bullet">-c</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">date;</span> <span class="string">echo</span> <span class="string">Hello</span> <span class="string">from</span> <span class="string">the</span> <span class="string">Kubernetes</span> <span class="string">cluster</span></span><br><span class="line"><span class="attr">          restartPolicy:</span> <span class="string">Never</span></span><br></pre></td></tr></table></figure>
+<p>A pod is spin up to run the cronjob every minute.</p>
+<p>Use <code>kubectl get cronjobs</code> command to see the cronjob<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get cronjobs</span><br><span class="line">NAME       SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE</span><br><span class="line">hellojob   */1 * * * *   False     0        &lt;none&gt;          11s</span><br></pre></td></tr></table></figure></p>
+<p>use <code>kubectl delete cronjob hellojob</code> to delete the cronjob.</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a href="https://kubernetes.io/docs/tasks/job/" target="_blank" rel="noopener">Running Automated Tasks with a CronJob</a></li>
 </ul>
 
       
@@ -506,12 +487,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
 
       
       
@@ -521,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux-Command-ps/" rel="next" title="Linux Command - ps">
-                <i class="fa fa-chevron-left"></i> Linux Command - ps
+              <a href="/Kubernetes-Services/" rel="next" title="Kubernetes - Services">
+                <i class="fa fa-chevron-left"></i> Kubernetes - Services
               </a>
             
           </div>
@@ -531,8 +506,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Linux-Command-top/" rel="prev" title="Linux Command - top">
-                Linux Command - top <i class="fa fa-chevron-right"></i>
+              <a href="/Kubernetes-Namespaces/" rel="prev" title="Kubernetes - Namespaces">
+                Kubernetes - Namespaces <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -746,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Option"><span class="nav-number">3.</span> <span class="nav-text">Option</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">4.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#count-bytes-in-a-file"><span class="nav-number">4.1.</span> <span class="nav-text">count bytes in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#count-words-in-a-file"><span class="nav-number">4.2.</span> <span class="nav-text">count words in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#count-lines-in-a-file"><span class="nav-number">4.3.</span> <span class="nav-text">count lines in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#count-characters-in-a-file"><span class="nav-number">4.4.</span> <span class="nav-text">count characters in a file</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Job"><span class="nav-number">1.</span> <span class="nav-text">Job</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Parallel-Jobs"><span class="nav-number">1.1.</span> <span class="nav-text">Parallel Jobs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CronJob"><span class="nav-number">2.</span> <span class="nav-text">CronJob</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
@@ -901,9 +876,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux-Command-wc/";
-        this.page.identifier = "Linux-Command-wc/";
-        this.page.title = 'Linux Command - wc';
+        this.page.url = "http://xinghua24.github.io/Kubernetes-Jobs/";
+        this.page.identifier = "Kubernetes-Jobs/";
+        this.page.title = 'Kubernetes - Jobs';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Kubernetes Service">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T06:14:40.268Z">
+<meta property="og:updated_time" content="2019-09-30T00:53:56.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes - Services">
 <meta name="twitter:description" content="Kubernetes Service">
@@ -450,7 +450,7 @@
       
         <p>Kubernetes Service<br><a id="more"></a></p>
 <p>Service is an abstract way to expose an application running on a set of Pods as a network service. </p>
-<p>A Pod’s IP address are not stable because the pod can failed and replaced. Service has a stable and reliable IP address. </p>
+<p>Every pod has an IP address. A Pod’s IP address is ephemeral because the pods can failed and replaced in a different node. Service has a stable and reliable IP address that you can use to access the pods. </p>
 <h1 id="Service-Types"><a href="#Service-Types" class="headerlink" title="Service Types"></a>Service Types</h1><p>There are three Service Typs to choose from.</p>
 <ul>
 <li><strong>ClusterIP</strong>: Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the clluster. This is the default ServiceType</li>
@@ -462,6 +462,7 @@
 <p>Delete a service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete service &lt;service-name&gt;</span><br></pre></td></tr></table></figure></p>
 <h1 id="ClusterIP"><a href="#ClusterIP" class="headerlink" title="ClusterIP"></a>ClusterIP</h1><p>You can only access this service while inside the cluster. ClusterIP is usually used by backend service and data store service. </p>
 <p>Sample service with ClusterIP type<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">ClusterIP</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">  - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure></p>
+<p>A service use selectors to select the pods with specific labels.</p>
 <p>Here there are two ports defined</p>
 <ul>
 <li>targetPort - the port to access on the pods targeted by the service</li>

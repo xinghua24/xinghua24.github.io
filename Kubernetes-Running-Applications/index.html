@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Let’s learn how to deploy, scale and roll back application in Kubernetes">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T06:15:00.008Z">
+<meta property="og:updated_time" content="2019-09-30T05:41:42.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes - Running Applications">
 <meta name="twitter:description" content="Let’s learn how to deploy, scale and roll back application in Kubernetes">
@@ -449,6 +449,18 @@
 
       
         <p>Let’s learn how to deploy, scale and roll back application in Kubernetes<br><a id="more"></a></p>
+<h1 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h1><p>A <strong>Pod</strong> is the basic execution unit of a Kubernetes application. A Pod encapsulates an application’s container, storage resources, a unique network IP, and options that govern how the containwers should run.</p>
+<p>You don’t usually create individual Pods directly. Instead, you use a higher level abstraction, call Controllers to create pods. </p>
+<p>Common Controllers are</p>
+<ul>
+<li>Deployment</li>
+<li>Job</li>
+<li>StatefulSet</li>
+<li>DaemonSet</li>
+</ul>
+<p>Controllers use Pod Template to create the pods.</p>
+<p><strong>Pod Templates</strong> are pod specifications which are included in other objects, such as Replication Controllers, Jobs, and DaemonSets. Controllers use Pod Templates to make actual pods. </p>
+<h1 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h1><p>A Deployment declares what the desired state of the application should look like. It creates ReplicaSet. Then let the ReplicaSet creates and manages the Pods.</p>
 <h1 id="Deployment-File"><a href="#Deployment-File" class="headerlink" title="Deployment File"></a>Deployment File</h1><p>Sample Yaml file myapp-deployment.yaml<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  replicas:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    matchLabels:</span></span><br><span class="line"><span class="attr">      app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">  template:</span></span><br><span class="line"><span class="attr">    metadata:</span></span><br><span class="line"><span class="attr">      labels:</span></span><br><span class="line"><span class="attr">        app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      containers:</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">        image:</span> <span class="attr">nginx:1.7.9</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="attr">        - containerPort:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure></p>
 <p>All Kubernetes yaml files has four elements</p>
 <ul>
@@ -458,11 +470,10 @@
 <li>spec - contains nested fields specific to that object. </li>
 </ul>
 <p>You can use the Kubernetes API to read and write Kubernetes resource objects. The definition for a deployment object is <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#deploymentspec-v1-apps" target="_blank" rel="noopener">here</a></p>
-<p>The file myapp-deployment.yaml creates a deployment with name <em>myapp-deployment</em>. </p>
-<p>The replicas field sets the number of desired pods to be 2. </p>
-<p>Selector is the label selector for pods. Replicaset uses this selector to select pods. Selected pods will be affected by this deployment. This field must match pod template’s labels.</p>
-<p>To create an object in Kubernetes, you must provide a spec of the object in yaml file. kubectl converts the information to JSON and makes the API Request.</p>
-<p>Template section describes the pods to be created. The pods should have label <em>app: myapp</em> and is using image <em>nginx:1.7.9</em> and expose container port 80. A pod’s label is very important. Deployment and Service both select the pods based on the pod’s label.</p>
+<p>The above YAML file creates a Deployment with name <em>myapp</em>. </p>
+<p>A Deployment includes the numebr of replicas and the Pod Template to used to create Pods.</p>
+<p>The Deployment’s selector selects Pods base on labels. Selected pods will be affected by this deployment. This field must match pod template’s labels.</p>
+<p>The pods created will have label <em>app: myapp</em>. A pod’s label is very important. Deployment and Service both select the pods based on the pod’s label. A pod’s containers section defines what the container to be used.</p>
 <p><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#-strong-api-overview-strong-" target="_blank" rel="noopener">Kubernetes API</a> defines the specification for all resources. Deployment’s specification is <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#deployment-v1-apps" target="_blank" rel="noopener">here</a>.</p>
 <h1 id="Run-a-Deployment-Using-YAML-File"><a href="#Run-a-Deployment-Using-YAML-File" class="headerlink" title="Run a Deployment Using YAML File"></a>Run a Deployment Using YAML File</h1><p>Use <code>kubectl apply -f &lt;resource-name&gt;.yaml</code> command to create the deployment. <code>kubectl apply</code> can be used to create any Kubernetes resource.  lets create myapp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f myapp-deployment.yaml</span><br><span class="line">deployment.apps/myapp created</span><br></pre></td></tr></table></figure></p>
 <p>You can also use <code>kubectl apply</code> to update the deployment.</p>
@@ -480,7 +491,9 @@
 <p>To check a specific revision, add –revision option to the command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl rollout history deployment/myapp --revision=1</span><br><span class="line">deployment.extensions/myapp with revision #1</span><br><span class="line">Pod Template:</span><br><span class="line">  Labels:       app=myapp</span><br><span class="line">        pod-template-hash=5dcf6cc75</span><br><span class="line">  Containers:</span><br><span class="line">   nginx-container:</span><br><span class="line">    Image:      nginx</span><br><span class="line">    Port:       &lt;none&gt;</span><br><span class="line">    Host Port:  &lt;none&gt;</span><br><span class="line">    Environment:        &lt;none&gt;</span><br><span class="line">    Mounts:     &lt;none&gt;</span><br><span class="line">  Volumes:      &lt;none&gt;</span><br></pre></td></tr></table></figure></p>
 <p>use <code>kubectl rollout undo</code> to roll back the resource to version 1. <code>--to-revision</code> set the version to rollback to. Default to 0(last revision)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl rollout undo deployment/myapp --to-revision=1  --record</span><br><span class="line">deployment.extensions/myapp rolled back</span><br></pre></td></tr></table></figure></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="[here](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#deployment-v1-apps">Deployment API</a>)</li>
+<li><a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview" target="_blank" rel="noopener">Pod Overview</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/" target="_blank" rel="noopener">Deployment</a></li>
+<li><a href="[here](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#deployment-v1-apps">Deployment API</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment" target="_blank" rel="noopener">Scaling a Deployment</a></li>
 </ul>
 
@@ -738,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment-File"><span class="nav-number">1.</span> <span class="nav-text">Deployment File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Run-a-Deployment-Using-YAML-File"><span class="nav-number">2.</span> <span class="nav-text">Run a Deployment Using YAML File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scale-Up-and-Scale-Down"><span class="nav-number">3.</span> <span class="nav-text">Scale Up and Scale Down</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Roll-Back"><span class="nav-number">4.</span> <span class="nav-text">Roll Back</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pod"><span class="nav-number">1.</span> <span class="nav-text">Pod</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment"><span class="nav-number">2.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment-File"><span class="nav-number">3.</span> <span class="nav-text">Deployment File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Run-a-Deployment-Using-YAML-File"><span class="nav-number">4.</span> <span class="nav-text">Run a Deployment Using YAML File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scale-Up-and-Scale-Down"><span class="nav-number">5.</span> <span class="nav-text">Scale Up and Scale Down</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Roll-Back"><span class="nav-number">6.</span> <span class="nav-text">Roll Back</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

@@ -109,12 +109,12 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Key Kubernetes concetps.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://xinghua24.github.io/Kubernetes-Concepts/architecture.png">
-<meta property="og:updated_time" content="2019-09-29T06:17:11.205Z">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png">
+<meta property="og:updated_time" content="2019-10-06T04:01:05.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Concepts">
 <meta name="twitter:description" content="Key Kubernetes concetps.">
-<meta name="twitter:image" content="http://xinghua24.github.io/Kubernetes-Concepts/architecture.png">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png">
 
 
 
@@ -453,6 +453,14 @@
         <p>Key Kubernetes concetps.<br><a id="more"></a></p>
 <h1 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h1><p>Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.</p>
 <p>Kubernetes makes it easy to scale application, reduce downtime and increase security.</p>
+<p>Key Features of Kubernetes</p>
+<ul>
+<li>Horizontal Scaling</li>
+<li>Self Healing</li>
+<li>Automated Rollouts and Rollbacks</li>
+<li>Built-in Service Discovery</li>
+<li>Built-in Load-Balancer</li>
+</ul>
 <h1 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h1><p>A Kubernetes cluster consists of at least one master and multiple workers called nodes.</p>
 <h2 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h2><p>The cluster master runs the Kubernetes control plane processes, including the Kubernetes API server, scheduler, and core resource controllers.</p>
 <p>Users interact with Kubernetes using Kubernetes API calls. Master runs <strong>API Server</strong> to handle the request.</p>
@@ -461,12 +469,9 @@
 <h2 id="Node-Pools"><a href="#Node-Pools" class="headerlink" title="Node Pools"></a>Node Pools</h2><p>A <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools" target="_blank" rel="noopener">node pool</a> is a group of nodes within a cluster that all have the same configuration. </p>
 <p>Custom node pools are useful when you need to schedule Pods that require more resources than others, such as more memory or more local disk space.</p>
 <h1 id="Workloads"><a href="#Workloads" class="headerlink" title="Workloads"></a>Workloads</h1><h2 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h2><p><strong><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/pod" target="_blank" rel="noopener">Pods</a></strong> are the smallest, most basic deployable objects in Kubernetes. A Pod represents a single instance of a running process in your cluster. </p>
-<p>one-container-per-Pod model is the most common Kubernetes use case. When two application containers are closely related, then they can run on the same pod. </p>
-<p><strong>Pods contain one or more containers. Containers in a Pod share storage and network.</strong></p>
-<ul>
-<li>A Pod can specify a set of shared storage Volumes . All containers in the Pod can access the shared volumes. </li>
-<li>Each Pod is assigned a unique IP address. </li>
-</ul>
+<p>Pods contain one or more containers. one-container-per-Pod model is the most basic Kubernetes use case. Containers in a Pod share storage and network. A sidecar container can be added to the pod. The sidecar container can provide log forwarding and proxying to other service.</p>
+<p>A Pod can specify a set of shared storage Volumes . All containers in the Pod can access the shared volumes. </p>
+<p>Each Pod is assigned a unique IP address. However, these IP addresses are not stable.</p>
 <h2 id="ReplicaSet"><a href="#ReplicaSet" class="headerlink" title="ReplicaSet"></a>ReplicaSet</h2><p>A Deployment creates ReplicaSet. <strong><a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/" target="_blank" rel="noopener">ReplicaSet</a></strong> manages groups of identical, replicated pods. It creates and deletes Pods to reach a specified number.</p>
 <p>It is possible to create ReplicaSet directly, but it is not recommended. Deployment will automatically create replicaset. </p>
 <h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><p><strong><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/deployment" target="_blank" rel="noopener">Deployments</a></strong> represent a set of multiple, identical Pods with no unique identities. A Deployment runs multiple replicas of your application and automatically replaces any instances that fail or become unresponsive.</p>
@@ -500,12 +505,12 @@
 <li><strong>kube-public</strong> </li>
 </ul>
 <h1 id="Label-and-Selector"><a href="#Label-and-Selector" class="headerlink" title="Label and Selector"></a>Label and Selector</h1><p><strong>Labels</strong> are key/value pairs that are attached to objects, such as pods. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but do not directly imply semantics to the core system. </p>
-<p>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">labels:</span><br><span class="line">    environment: production</span><br><span class="line">    app: nginx</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">labels:</span><br><span class="line">    app: nginx</span><br><span class="line">    environment: production</span><br><span class="line">    version: 1.0</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
 <p><strong>Selectors</strong> select the matched resources from query. The API currently supports two types of selectors: equality-based and set-based. </p>
 <p>Equality- or inequality-based requirements allow filtering by label keys and values. Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment = production</span><br><span class="line">tier != frontend</span><br></pre></td></tr></table></figure></p>
 <p>Set-based label requirements allow filtering keys according to a set of values. Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">environment in (production, qa)</span><br><span class="line">tier notin (frontend, backend)</span><br><span class="line">partition</span><br><span class="line">!partition</span><br></pre></td></tr></table></figure></p>
 <p>Not all concepts are listed. For details of a concept, see <a href="https://kubernetes.io/docs/concepts/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/</a></p>
-<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><p><img src="architecture.png"></p>
+<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><p><img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png"><br>By Khtan66 - <a href="https://commons.wikimedia.org/wiki/File:Kubernetes.png" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:Kubernetes.png</a></p>
 <h2 id="Master-1"><a href="#Master-1" class="headerlink" title="Master"></a>Master</h2><p>Master is the node that manages others nodes.</p>
 <p>It runs the following components</p>
 <ul>
@@ -531,6 +536,7 @@
 <li><a href="https://towardsdatascience.com/key-kubernetes-concepts-62939f4bc08e" target="_blank" rel="noopener">Key Kubernetes Concepts by Jeff Hale</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/" target="_blank" rel="noopener">Namespaces</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/" target="_blank" rel="noopener">Labels</a></li>
+<li>Khtan66 [CC BY-SA 4.0 (<a href="https://creativecommons.org/licenses/by-sa/4.0)]" target="_blank" rel="noopener">https://creativecommons.org/licenses/by-sa/4.0)]</a></li>
 </ul>
 
       
@@ -651,7 +657,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">131</span>
+                    <span class="site-state-item-count">134</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

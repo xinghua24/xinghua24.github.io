@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Kubernetes Namespaces">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T06:28:41.353Z">
+<meta property="og:updated_time" content="2019-10-05T03:43:12.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes - Namespaces">
 <meta name="twitter:description" content="Kubernetes Namespaces">
@@ -461,8 +461,11 @@
 <p>use <code>kubectl get namespaces</code> command to get all available namespace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get namespaces</span><br><span class="line">NAME              STATUS   AGE</span><br><span class="line">default           Active   12d</span><br><span class="line">dev               Active   89s</span><br><span class="line">kube-node-lease   Active   12d</span><br><span class="line">kube-public       Active   12d</span><br><span class="line">kube-system       Active   12d</span><br></pre></td></tr></table></figure></p>
 <h1 id="Create-Resource-in-a-namespace"><a href="#Create-Resource-in-a-namespace" class="headerlink" title="Create Resource in a namespace"></a>Create Resource in a namespace</h1><p>myapp.yaml: Example to create a deployment in dev namespace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: myapp</span><br><span class="line">  namespace: dev</span><br><span class="line">spec:</span><br><span class="line">  replicas: 2</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: myapp</span><br><span class="line">  template:</span><br><span class="line">     ...</span><br></pre></td></tr></table></figure></p>
 <p>To list the deployname in dev namespace<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get deployment -n dev</span><br><span class="line">NAME    READY   UP-TO-DATE   AVAILABLE   AGE</span><br><span class="line">myapp   2/2     2            2           37s</span><br></pre></td></tr></table></figure></p>
+<p>To list resources for all namespaces, use <code>--all-namespaces</code> option<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get deployment --all-namespaces</span><br></pre></td></tr></table></figure></p>
 <h1 id="Delete-a-Namespace"><a href="#Delete-a-Namespace" class="headerlink" title="Delete a Namespace"></a>Delete a Namespace</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete namespace dev</span><br><span class="line">namespace &quot;dev&quot; deleted</span><br></pre></td></tr></table></figure>
 <p>Resources under namespace dev will be deleted.</p>
+<h1 id="kubens"><a href="#kubens" class="headerlink" title="kubens"></a>kubens</h1><p>ubens is a utility to quickly switch between Kubernetes namespaces. You can download kubens from <a href="https://github.com/ahmetb/kubectx" target="_blank" rel="noopener">https://github.com/ahmetb/kubectx</a> and then add kubens to system PATH.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">USAGE:</span><br><span class="line">  kubens                    : list the namespaces</span><br><span class="line">  kubens &lt;NAME&gt;             : change the active namespace</span><br></pre></td></tr></table></figure>
 <p>Reference</p>
 <ul>
 <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/" target="_blank" rel="noopener">Namespaces</a></li>
@@ -506,6 +509,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Kubernetes-Volumes/" rel="prev" title="Kubernetes - Volumes">
+                Kubernetes - Volumes <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -582,7 +589,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">131</span>
+                    <span class="site-state-item-count">134</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -718,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">1.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-Namespace"><span class="nav-number">2.</span> <span class="nav-text">Create a Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Resource-in-a-namespace"><span class="nav-number">3.</span> <span class="nav-text">Create Resource in a namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Delete-a-Namespace"><span class="nav-number">4.</span> <span class="nav-text">Delete a Namespace</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">1.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-Namespace"><span class="nav-number">2.</span> <span class="nav-text">Create a Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Resource-in-a-namespace"><span class="nav-number">3.</span> <span class="nav-text">Create Resource in a namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Delete-a-Namespace"><span class="nav-number">4.</span> <span class="nav-text">Delete a Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kubens"><span class="nav-number">5.</span> <span class="nav-text">kubens</span></a></li></ol></div>
             
 
           </div>

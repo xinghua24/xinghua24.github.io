@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-09-29T06:28:41.353Z</updated>
+  <updated>2019-10-06T18:18:13.324Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kubernetes - ConfigMap</title>
+    <link href="http://xinghua24.github.io/Kubernetes-ConfigMap/"/>
+    <id>http://xinghua24.github.io/Kubernetes-ConfigMap/</id>
+    <published>2019-09-25T07:19:00.000Z</published>
+    <updated>2019-10-06T18:18:13.324Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kubernetes ConfigMap&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes - Liveness and Readiness</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Liveness-And-Readiness/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Liveness-And-Readiness/</id>
+    <published>2019-09-22T04:21:00.000Z</published>
+    <updated>2019-10-06T06:16:14.983Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;configure liveness, readiness and startup probes for Containers&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes - Volumes</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Volumes/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Volumes/</id>
+    <published>2019-09-15T05:18:00.000Z</published>
+    <updated>2019-10-06T06:16:03.798Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Kubernetes - Namespaces</title>
     <link href="http://xinghua24.github.io/Kubernetes-Namespaces/"/>
     <id>http://xinghua24.github.io/Kubernetes-Namespaces/</id>
     <published>2019-09-11T03:19:00.000Z</published>
-    <updated>2019-09-29T06:28:41.353Z</updated>
+    <updated>2019-10-05T03:43:12.870Z</updated>
     
     <summary type="html">
     
@@ -75,7 +129,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Running-Applications/"/>
     <id>http://xinghua24.github.io/Kubernetes-Running-Applications/</id>
     <published>2019-09-04T22:55:00.000Z</published>
-    <updated>2019-09-30T05:41:42.857Z</updated>
+    <updated>2019-10-06T02:14:11.807Z</updated>
     
     <summary type="html">
     
@@ -93,7 +147,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Concepts/"/>
     <id>http://xinghua24.github.io/Kubernetes-Concepts/</id>
     <published>2019-09-04T00:41:00.000Z</published>
-    <updated>2019-09-29T06:17:11.205Z</updated>
+    <updated>2019-10-06T04:01:05.949Z</updated>
     
     <summary type="html">
     
@@ -111,7 +165,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
     <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
     <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2019-09-30T05:03:58.533Z</updated>
+    <updated>2019-10-06T03:32:09.955Z</updated>
     
     <summary type="html">
     
@@ -318,60 +372,6 @@
     </summary>
     
       <category term="Microservices" scheme="http://xinghua24.github.io/categories/Microservices/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Install Maven on Ubuntu</title>
-    <link href="http://xinghua24.github.io/Install-Maven-on-Ubuntu/"/>
-    <id>http://xinghua24.github.io/Install-Maven-on-Ubuntu/</id>
-    <published>2019-07-22T00:52:00.000Z</published>
-    <updated>2019-09-02T00:34:23.345Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Download and Install Maven on Ubuntu&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Intellij IDEA Shortcuts and Tips</title>
-    <link href="http://xinghua24.github.io/Intellij-IDEA-Shortcuts-and-Tips/"/>
-    <id>http://xinghua24.github.io/Intellij-IDEA-Shortcuts-and-Tips/</id>
-    <published>2019-07-21T01:38:00.000Z</published>
-    <updated>2019-08-11T21:56:35.706Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Intellij IDEA Shortcuts and Tips&lt;br&gt;
-    
-    </summary>
-    
-      <category term="uncategorized" scheme="http://xinghua24.github.io/categories/uncategorized/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Java - repeat a String n times</title>
-    <link href="http://xinghua24.github.io/Java-repeat-a-String-n-times/"/>
-    <id>http://xinghua24.github.io/Java-repeat-a-String-n-times/</id>
-    <published>2019-07-19T04:09:00.000Z</published>
-    <updated>2019-07-19T04:22:18.598Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Different ways to repeat a String n times&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
     
     
   </entry>

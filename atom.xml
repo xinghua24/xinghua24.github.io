@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-10-06T18:18:13.324Z</updated>
+  <updated>2019-10-08T06:57:34.724Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,15 +17,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kubernetes - Helm</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Helm/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Helm/</id>
+    <published>2019-09-28T21:34:00.000Z</published>
+    <updated>2019-10-08T06:57:34.724Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Helm - The Kubernetes Package Manager.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes - Secret</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Secret/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Secret/</id>
+    <published>2019-09-25T16:18:00.000Z</published>
+    <updated>2019-10-06T18:59:11.101Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kubernetes secret object let you store and mange sensitive information, such as passwords, OAuth tokens and SSH Keys. It is better to store this kind of secret in Kubernetes secret than in a container image.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Kubernetes - ConfigMap</title>
     <link href="http://xinghua24.github.io/Kubernetes-ConfigMap/"/>
     <id>http://xinghua24.github.io/Kubernetes-ConfigMap/</id>
     <published>2019-09-25T07:19:00.000Z</published>
-    <updated>2019-10-06T18:18:13.324Z</updated>
+    <updated>2019-10-07T02:43:40.498Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;Kubernetes ConfigMap&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes - Environment Variable</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Environment-Variable/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Environment-Variable/</id>
+    <published>2019-09-25T02:42:00.000Z</published>
+    <updated>2019-10-07T02:43:54.960Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kubernetes Environment Variable&lt;br&gt;
     
     </summary>
     
@@ -75,7 +129,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Namespaces/"/>
     <id>http://xinghua24.github.io/Kubernetes-Namespaces/</id>
     <published>2019-09-11T03:19:00.000Z</published>
-    <updated>2019-10-05T03:43:12.870Z</updated>
+    <updated>2019-10-06T22:05:10.285Z</updated>
     
     <summary type="html">
     
@@ -111,11 +165,11 @@
     <link href="http://xinghua24.github.io/Kubernetes-Services/"/>
     <id>http://xinghua24.github.io/Kubernetes-Services/</id>
     <published>2019-09-06T12:22:00.000Z</published>
-    <updated>2019-09-30T00:53:56.546Z</updated>
+    <updated>2019-10-08T06:16:48.845Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Kubernetes Service&lt;br&gt;
+      &lt;p&gt;Kubernetes Service&lt;/p&gt;
     
     </summary>
     
@@ -165,7 +219,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
     <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
     <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2019-10-06T03:32:09.955Z</updated>
+    <updated>2019-10-06T21:14:50.122Z</updated>
     
     <summary type="html">
     
@@ -318,60 +372,6 @@
     </summary>
     
       <category term="Python" scheme="http://xinghua24.github.io/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Run Command in the Background</title>
-    <link href="http://xinghua24.github.io/Run-Command-in-Background/"/>
-    <id>http://xinghua24.github.io/Run-Command-in-Background/</id>
-    <published>2019-07-26T19:00:00.000Z</published>
-    <updated>2019-08-29T21:12:47.258Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Linux-Command" scheme="http://xinghua24.github.io/categories/Linux-Command/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Cloud - Eureka</title>
-    <link href="http://xinghua24.github.io/Spring-Cloud-Eureka/"/>
-    <id>http://xinghua24.github.io/Spring-Cloud-Eureka/</id>
-    <published>2019-07-23T03:48:00.000Z</published>
-    <updated>2019-08-24T07:49:48.612Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let’s learn Service Discovery and use Eureka as a service registry.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="SpringCloud" scheme="http://xinghua24.github.io/categories/SpringCloud/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Microservices</title>
-    <link href="http://xinghua24.github.io/MicroServices/"/>
-    <id>http://xinghua24.github.io/MicroServices/</id>
-    <published>2019-07-22T05:44:00.000Z</published>
-    <updated>2019-08-13T08:22:51.076Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Microservices is the method to build application as a collection of loosely coupled services.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Microservices" scheme="http://xinghua24.github.io/categories/Microservices/"/>
     
     
   </entry>

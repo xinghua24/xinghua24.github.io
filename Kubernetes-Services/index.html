@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Kubernetes Service">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-30T00:53:56.546Z">
+<meta property="og:updated_time" content="2019-10-08T06:16:48.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes - Services">
 <meta name="twitter:description" content="Kubernetes Service">
@@ -448,7 +448,9 @@
       
 
       
-        <p>Kubernetes Service<br><a id="more"></a></p>
+        <p>Kubernetes Service</p>
+<a id="more"></a>
+
 <p>Service is an abstract way to expose an application running on a set of Pods as a network service. </p>
 <p>Every pod has an IP address. A Pod’s IP address is ephemeral because the pods can failed and replaced in a different node. Service has a stable and reliable IP address that you can use to access the pods. </p>
 <h1 id="Service-Types"><a href="#Service-Types" class="headerlink" title="Service Types"></a>Service Types</h1><p>There are three Service Typs to choose from.</p>
@@ -457,57 +459,94 @@
 <li><strong>NodePort</strong>: Exposes the service on each Node’s IP at a static port(the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You will be able to contact the NodePort Service, from outside the cluster, by requesting &lt;NodeIP&gt;:&lt;NodePort&gt;. The drawback of NodePort is you need to know the node’s ip address to access the service.</li>
 <li><strong>LoadBalancer</strong>: Exposes the service externally using a cloud provider’s load balancer. If the cluster is not run on the cloud, then LoadBalancer type is probably not supported.</li>
 </ul>
-<h1 id="Service-Commands"><a href="#Service-Commands" class="headerlink" title="Service Commands"></a>Service Commands</h1><p>To get a list of services exposed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get services</span><br></pre></td></tr></table></figure></p>
-<p>TO Describe a service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe service &lt;service-name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Delete a service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete service &lt;service-name&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Service-Commands"><a href="#Service-Commands" class="headerlink" title="Service Commands"></a>Service Commands</h1><p>To get a list of services exposed</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get services</span><br></pre></td></tr></table></figure>
+
+<p>TO Describe a service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe service &lt;service-name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Delete a service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete service &lt;service-name&gt;</span><br></pre></td></tr></table></figure>
+
 <h1 id="ClusterIP"><a href="#ClusterIP" class="headerlink" title="ClusterIP"></a>ClusterIP</h1><p>You can only access this service while inside the cluster. ClusterIP is usually used by backend service and data store service. </p>
-<p>Sample service with ClusterIP type<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">ClusterIP</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">  - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure></p>
+<p>Sample service with ClusterIP type</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">ClusterIP</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">  - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+
 <p>A service use selectors to select the pods with specific labels.</p>
 <p>Here there are two ports defined</p>
 <ul>
 <li>targetPort - the port to access on the pods targeted by the service</li>
 <li>port - the port that wil be exposed by this service</li>
 </ul>
-<p>Use <code>kubectl get services</code> to list service info<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE</span><br><span class="line">kubernetes   ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP    103m</span><br><span class="line">myapp        ClusterIP   10.101.67.7   &lt;none&gt;        8080/TCP   15s</span><br></pre></td></tr></table></figure></p>
+<p>Use <code>kubectl get services</code> to list service info</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE</span><br><span class="line">kubernetes   ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP    103m</span><br><span class="line">myapp        ClusterIP   10.101.67.7   &lt;none&gt;        8080/TCP   15s</span><br></pre></td></tr></table></figure>
+
 <p>When inside the cluster, you can access this service suing the following</p>
 <ul>
 <li>clusterIP:port</li>
 </ul>
-<p>Example to access the service inside the cluster<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 10.101.67.7:8080</span><br></pre></td></tr></table></figure></p>
-<h1 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h1><p>myapp-service.yml<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">NodePort</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">  - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">    nodePort:</span> <span class="number">30003</span></span><br></pre></td></tr></table></figure></p>
+<p>Example to access the service inside the cluster</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 10.101.67.7:8080</span><br></pre></td></tr></table></figure>
+
+<h1 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h1><p>myapp-service.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">NodePort</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">  - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">    nodePort:</span> <span class="number">30003</span></span><br></pre></td></tr></table></figure>
+
 <p>Here there are three ports defined</p>
 <ul>
 <li>targetPort - the port to access on the pods targeted by the service</li>
 <li>port - the port that wil be exposed by this service</li>
 <li>nodePort - The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. </li>
 </ul>
-<p>Use <code>kubectl get services</code> to list service info<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">kubernetes   ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP          106m</span><br><span class="line">myapp        NodePort    10.101.67.7   &lt;none&gt;        8080:30003/TCP   3m3s</span><br></pre></td></tr></table></figure></p>
+<p>Use <code>kubectl get services</code> to list service info</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">kubernetes   ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP          106m</span><br><span class="line">myapp        NodePort    10.101.67.7   &lt;none&gt;        8080:30003/TCP   3m3s</span><br></pre></td></tr></table></figure>
+
 <p>You can access this service using the following</p>
 <ul>
 <li>clusterIP:port</li>
 <li>nodeIP:nodePort</li>
 </ul>
-<p>In addition to accessing the service using clusterIP, you can access the service outside of the cluster using node’s external IP.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.44:30003</span><br></pre></td></tr></table></figure></p>
+<p>In addition to accessing the service using clusterIP, you can access the service outside of the cluster using node’s external IP.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.44:30003</span><br></pre></td></tr></table></figure>
+
 <p>You can get a node’s ip using <code>kubectl get nodes -o wide</code> command</p>
-<h1 id="LoadBalancer"><a href="#LoadBalancer" class="headerlink" title="LoadBalancer"></a>LoadBalancer</h1><p>Sample LoadBalancer type service<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: myapp</span><br><span class="line">spec:</span><br><span class="line">  type: LoadBalancer</span><br><span class="line">  selector:</span><br><span class="line">    app: myapp</span><br><span class="line">  ports:</span><br><span class="line">  - protocol: TCP</span><br><span class="line">    targetPort: 80</span><br><span class="line">    port: 8080</span><br><span class="line">    nodePort: 30003</span><br></pre></td></tr></table></figure></p>
+<h1 id="LoadBalancer"><a href="#LoadBalancer" class="headerlink" title="LoadBalancer"></a>LoadBalancer</h1><p>Loadbalancer exposes the service to the outside world.</p>
+<p>Sample LoadBalancer type service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: myapp</span><br><span class="line">spec:</span><br><span class="line">  type: LoadBalancer</span><br><span class="line">  selector:</span><br><span class="line">    app: myapp</span><br><span class="line">  ports:</span><br><span class="line">  - protocol: TCP</span><br><span class="line">    targetPort: 80</span><br><span class="line">    port: 8080</span><br><span class="line">    nodePort: 30003</span><br></pre></td></tr></table></figure>
+
 <p>Here there are three ports defined</p>
 <ul>
 <li>targetPort - the port to access on the pods targeted by the service</li>
 <li>port - the port that wil be exposed by this service</li>
 <li>nodePort - The port on each node on which this service is exposed when type=NodePort or LoadBalancer. Usually assigned by the system. </li>
 </ul>
-<p>Use <code>kubectl get services</code> to list service info<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">kubernetes   ClusterIP      10.96.0.1     &lt;none&gt;        443/TCP          109m</span><br><span class="line">myapp        LoadBalancer   10.101.67.7   172.17.0.22   8080:30003/TCP   6m18s</span><br></pre></td></tr></table></figure></p>
+<p>Use <code>kubectl get services</code> to list service info</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">kubernetes   ClusterIP      10.96.0.1     &lt;none&gt;        443/TCP          109m</span><br><span class="line">myapp        LoadBalancer   10.101.67.7   172.17.0.22   8080:30003/TCP   6m18s</span><br></pre></td></tr></table></figure>
+
 <p>You can access this service using the following</p>
 <ul>
 <li>clusterIP:port</li>
 <li>nodeIP:nodePort</li>
 <li>loadBalancerIp:port</li>
 </ul>
-<p>Example to access the service using loadbalancerIP outside of the cluster. Kubernetes routes request to a nodePort, then routes to the clusterIP port.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.22:8080</span><br></pre></td></tr></table></figure></p>
+<p>Example to access the service using loadbalancerIP outside of the cluster. Kubernetes routes request to a nodePort, then routes to the clusterIP port. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.22:8080</span><br></pre></td></tr></table></figure>
+
+<h1 id="Service-Discovery-via-DNS"><a href="#Service-Discovery-via-DNS" class="headerlink" title="Service Discovery via DNS"></a>Service Discovery via DNS</h1><p>As of Kubernetes v1.12, CoreDNS is the recommended DNS Server, replacing kube-dns. However, kube-dns may still be installed by default with certain Kubernetes installer tools. Both the CoreDNS and kube-dns Service are named kube-dns in the metadata.name field.</p>
+<p>When inside a Kubernetes cluster, you can use ClusterIP or DNS to visit the service. DNS Service will resolve the DNS name. </p>
+<p>Every Service defined in the cluster is assigned a DNS A Record. The record is of format  <strong>&lt;Service-name&gt;.&lt;Namespace&gt;.svc.&lt;Cluster-Domain&gt;</strong>. You can often use <strong>&lt;Service-name&gt;.&lt;Namespace&gt;</strong> to refer to the service.</p>
+<p>So in the application code, use url <a href="http://service-name.namespace/" target="_blank" rel="noopener">http://service-name.namespace/</a> to visit the service. Kubernetes will resolve the hostname using dns service.</p>
+<p>servicediscovery.yml: A pod that uses DNS name to visit myapp service.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">servicetest</span></span><br><span class="line"><span class="attr">  labels:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">servicetest</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  restartPolicy:</span> <span class="string">Never</span></span><br><span class="line"><span class="attr">  containers:</span></span><br><span class="line"><span class="attr">  - name:</span> <span class="string">servicetest</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">byrnedo/alpine-curl</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">[</span> <span class="string">"/bin/sh"</span><span class="string">,</span> <span class="string">"-c"</span><span class="string">,</span> <span class="string">"curl http://myapp.default:8080;"</span><span class="string">]</span></span><br></pre></td></tr></table></figure>
+
+<p>This pod refers to myapp service in default namespace using hostname myapp.default. The complete dns name for myapp service is myapp.default.svc.cluster.local. cluster.local is the default  Namespace can be omitted if the service provider and consumer are in the same namespace. </p>
+<p>Execute the following command to see how the pod visit the service using DNS name.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f servicediscovery.yml </span><br><span class="line">$ kubectl logs servicetest</span><br></pre></td></tr></table></figure>
+
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#service-v1-core" target="_blank" rel="noopener">Service API</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types" target="_blank" rel="noopener">ServiceType</a></li>
 <li><a href="https://stackoverflow.com/questions/41509439/whats-the-difference-between-clusterip-nodeport-and-loadbalancer-service-types" target="_blank" rel="noopener">Diff between ClusterIP, NodePort and LoadBalancer service types in Kubernetes</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/" target="_blank" rel="noopener">Kubernetes - DNS for Services and Pods</a></li>
 </ul>
 
       
@@ -628,7 +667,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">134</span>
+                    <span class="site-state-item-count">137</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -764,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Types"><span class="nav-number">1.</span> <span class="nav-text">Service Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Commands"><span class="nav-number">2.</span> <span class="nav-text">Service Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClusterIP"><span class="nav-number">3.</span> <span class="nav-text">ClusterIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NodePort"><span class="nav-number">4.</span> <span class="nav-text">NodePort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LoadBalancer"><span class="nav-number">5.</span> <span class="nav-text">LoadBalancer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Types"><span class="nav-number">1.</span> <span class="nav-text">Service Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Commands"><span class="nav-number">2.</span> <span class="nav-text">Service Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClusterIP"><span class="nav-number">3.</span> <span class="nav-text">ClusterIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NodePort"><span class="nav-number">4.</span> <span class="nav-text">NodePort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LoadBalancer"><span class="nav-number">5.</span> <span class="nav-text">LoadBalancer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Discovery-via-DNS"><span class="nav-number">6.</span> <span class="nav-text">Service Discovery via DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

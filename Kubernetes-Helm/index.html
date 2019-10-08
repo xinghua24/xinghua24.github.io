@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.">
+  <meta name="description" content="Helm - The Kubernetes Package Manager.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - Run Command in the Background">
-<meta property="og:url" content="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/index.html">
+<meta property="og:title" content="Kubernetes - Helm">
+<meta property="og:url" content="http://xinghua24.github.io/Kubernetes-Helm/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.">
+<meta property="og:description" content="Helm - The Kubernetes Package Manager.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-26T19:20:04.522Z">
+<meta property="og:updated_time" content="2019-10-08T06:57:34.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command - Run Command in the Background">
-<meta name="twitter:description" content="Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.">
+<meta name="twitter:title" content="Kubernetes - Helm">
+<meta name="twitter:description" content="Helm - The Kubernetes Package Manager.">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/">
+  <link rel="canonical" href="http://xinghua24.github.io/Kubernetes-Helm/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Linux Command - Run Command in the Background | Xing's Blog</title>
+  <title>Kubernetes - Helm | Xing's Blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Kubernetes-Helm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command - Run Command in the Background
+          <h1 class="post-title" itemprop="name headline">Kubernetes - Helm
 
               
             
@@ -385,13 +385,9 @@
                 
               
 
-              <time title="Created: 2019-07-26 15:00:00 / Modified: 15:20:04" itemprop="dateCreated datePublished" datetime="2019-07-26T15:00:00-04:00">2019-07-26</time>
+              <time title="Created: 2019-09-28 17:34:00" itemprop="dateCreated datePublished" datetime="2019-09-28T17:34:00-04:00">2019-09-28</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -407,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a></span>
 
                 
                 
@@ -422,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux-Command-Run-Command-in-Background/#comments" itemprop="discussionUrl">
+                <a href="/Kubernetes-Helm/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux-Command-Run-Command-in-Background/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Kubernetes-Helm/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,10 +448,76 @@
       
 
       
-        <p>Command executed in the foreground will exit when the terminal is close. To prevent the program from closing, you need to run the command  in the background.<br><a id="more"></a></p>
-<p>To run the command in the background, just add ‘&amp;’ at the end of the command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command &amp;</span><br></pre></td></tr></table></figure></p>
-<p>However, when the terminal closes, the command will exit, to prevent the program from closing, append <code>&amp;&gt;/dev/null &amp;</code> at the end.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup command &gt;/dev/null &amp;</span><br></pre></td></tr></table></figure></p>
-<p><code>nohup</code> is short for “No Hangups”. It is a POSIX command to ignore the HUP (hangup) signal. By default nohup creates Nohup.out to output any messages or error. The redirect will prevent nohup from creating a <code>nohup.out</code> file. </p>
+        <p>Helm - The Kubernetes Package Manager.</p>
+<a id="more"></a>
+
+<p>Use Helm to:</p>
+<ul>
+<li>Find and use popular software packaged as Helm charts to run in Kubernetes</li>
+<li>Share your own applications as Helm charts</li>
+<li>Create reproducible builds of your Kubernetes applications</li>
+<li>Intelligently manage your Kubernetes manifest files</li>
+<li>Manage releases of Helm packages</li>
+</ul>
+<p>Helm is similar to maven, npm and apt except it manages Kubernetes resources.</p>
+<h1 id="Key-Concepts"><a href="#Key-Concepts" class="headerlink" title="Key Concepts"></a>Key Concepts</h1><h2 id="Tiller-Server-and-Helm-Client"><a href="#Tiller-Server-and-Helm-Client" class="headerlink" title="Tiller Server and Helm Client"></a>Tiller Server and Helm Client</h2><p>Tiller Server: Tiller is the in-cluster component of Helm. It interacts directly with the Kubernetes API server to install, upgrade, query, and remove Kubernetes resources. It also stores the objects that represent releases.</p>
+<p>Helm Client: CLI tool for users to work with Helm Charts. </p>
+<h2 id="Chart"><a href="#Chart" class="headerlink" title="Chart"></a>Chart</h2><p>Charts are packages of pre-configured Kubernetes resources. </p>
+<h2 id="Release"><a href="#Release" class="headerlink" title="Release"></a>Release</h2><p>When a chart is installed, Tiller (the Helm server) creates a release to track that installation. Release is an running instance of Chart. You can think of it as an application.</p>
+<h1 id="Install-Helm"><a href="#Install-Helm" class="headerlink" title="Install Helm"></a>Install Helm</h1><p>Helm is composed of two parts: Helm (the client) and Tiller (the server)</p>
+<h2 id="Install-Helm-Client"><a href="#Install-Helm-Client" class="headerlink" title="Install Helm Client"></a>Install Helm Client</h2><p>run <code>kubectl config current-context</code> or <code>kubectl cluster-info</code> to see the current cluster. Make sure it is currently running.</p>
+<p>Install Helm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get &gt; get_helm.sh</span><br><span class="line">chmod 700 get_helm.sh</span><br><span class="line">./get_helm.sh</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>helm version</code> to check Helm version. Output should look like this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ helm version</span><br><span class="line">Client: &amp;version.Version&#123;SemVer:&quot;v2.14.3&quot;, GitCommit:&quot;0e7f3b6637f7af8fcfddb3d2941fcc7cbebb0085&quot;, GitTreeState:&quot;clean&quot;&#125;</span><br><span class="line">Error: could not find tiller</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-Tiller-Server"><a href="#Install-Tiller-Server" class="headerlink" title="Install Tiller Server"></a>Install Tiller Server</h2><p>initialize the local CLI and also install Tiller into your Kubernetes cluster in one step using <code>helm init</code> command.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ helm init</span><br><span class="line">$HELM_HOME has been configured at /home/xing/.helm.</span><br><span class="line"></span><br><span class="line">Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.</span><br><span class="line"></span><br><span class="line">Please note: by default, Tiller is deployed with an insecure &apos;allow unauthenticated users&apos; policy.</span><br><span class="line">To prevent this, run `helm init` with the --tiller-tls-verify flag.</span><br><span class="line">For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation</span><br></pre></td></tr></table></figure>
+
+<h1 id="Helm-Install-Default-Charts"><a href="#Helm-Install-Default-Charts" class="headerlink" title="Helm Install Default Charts"></a>Helm Install Default Charts</h1><p>get latest list of charts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm repo update</span><br></pre></td></tr></table></figure>
+
+<p>Install a chart. Mysql in this case. The notes from the output should tell you what resources are installed and how to interact with the release. In this case MySQL.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm install stable/mysql --name my-release</span><br></pre></td></tr></table></figure>
+
+<p>add service account if helm install fail because of permission issue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl create serviceaccount --namespace kube-system tiller</span><br><span class="line">kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller</span><br><span class="line">kubectl patch deploy --namespace kube-system tiller-deploy -p &apos;&#123;&quot;spec&quot;:&#123;&quot;template&quot;:&#123;&quot;spec&quot;:&#123;&quot;serviceAccount&quot;:&quot;tiller&quot;&#125;&#125;&#125;&#125;&apos;</span><br></pre></td></tr></table></figure>
+
+<p>Delete Tiller and reinstall if Tiller is not working</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete deployment tiller-deploy -n kube-system</span><br><span class="line">kubectl delete service tiller-deploy -n kube-system</span><br></pre></td></tr></table></figure>
+
+<p>To see what is release</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm ls</span><br></pre></td></tr></table></figure>
+
+<p>To delete a release </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm delete my-release</span><br></pre></td></tr></table></figure>
+
+<h1 id="Create-and-Install-Customized-Chart"><a href="#Create-and-Install-Customized-Chart" class="headerlink" title="Create and Install Customized Chart"></a>Create and Install Customized Chart</h1><p>Let’s learn to create a customized chart for httpd</p>
+<p>To create a chart for httpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm create httpdchart</span><br></pre></td></tr></table></figure>
+
+<p>The default chart created use nginx. Modify values.yaml to use httpd</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">image:</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="string">httpd</span></span><br><span class="line"><span class="attr">  tag:</span> <span class="string">latest</span></span><br><span class="line"><span class="attr">  pullPolicy:</span> <span class="string">IfNotPresent</span></span><br></pre></td></tr></table></figure>
+
+<p>use <code>helm lint httpchart</code> to check errors. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm lint httpchart</span><br></pre></td></tr></table></figure>
+
+<p>Dry run to get the yaml to be generate</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm install --dry-run httpdchart --debug</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>helm install</code> to install the chart. This will create deployment, pod and service. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ helm install httpdchart </span><br><span class="line">NAME:   yucky-squirrel</span><br><span class="line">LAST DEPLOYED: Tue Oct  8 02:43:13 2019</span><br><span class="line">NAMESPACE: default</span><br><span class="line">STATUS: DEPLOYED</span><br><span class="line"></span><br><span class="line">RESOURCES:</span><br><span class="line">==&gt; v1/Deployment</span><br><span class="line">NAME                       READY  UP-TO-DATE  AVAILABLE  AGE</span><br><span class="line">yucky-squirrel-httpdchart  0/1    1           0          0s</span><br><span class="line"></span><br><span class="line">==&gt; v1/Pod(related)</span><br><span class="line">NAME                                       READY  STATUS             RESTARTS  AGE</span><br><span class="line">yucky-squirrel-httpdchart-bbf7477c9-pxfb9  0/1    ContainerCreating  0         0s</span><br><span class="line"></span><br><span class="line">==&gt; v1/Service</span><br><span class="line">NAME                       TYPE          CLUSTER-IP     EXTERNAL-IP  PORT(S)       AGE</span><br><span class="line">yucky-squirrel-httpdchart  LoadBalancer  10.102.225.67  &lt;pending&gt;    80:31672/TCP  0s</span><br></pre></td></tr></table></figure>
+
+<p>Test the service just created.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl $(minikube ip):$(kubectl get service/yucky-squirrel-httpdchart -o jsonpath=&quot;&#123;.spec.ports[*].nodePort&#125;&quot;)</span><br><span class="line">&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a href="https://github.com/helm/helm" target="_blank" rel="noopener">Helm project in Github</a></li>
+<li><a href="https://helm.sh/docs/install/" target="_blank" rel="noopener">Install Helm</a></li>
+<li><a href="https://www.baeldung.com/kubernetes-helm" target="_blank" rel="noopener">Using Helm and Kubernetes by Kumar Chandrakant</a></li>
+<li><a href="https://helm.sh/docs/glossary/" target="_blank" rel="noopener">Helm glossary</a></li>
+</ul>
 
       
     </div>
@@ -486,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Spring-Cloud-Eureka/" rel="next" title="Spring Cloud - Eureka">
-                <i class="fa fa-chevron-left"></i> Spring Cloud - Eureka
+              <a href="/Kubernetes-Secret/" rel="next" title="Kubernetes - Secret">
+                <i class="fa fa-chevron-left"></i> Kubernetes - Secret
               </a>
             
           </div>
@@ -495,10 +557,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Kubernetes-Setup/" rel="prev" title="Kubernetes Setup">
-                Kubernetes Setup <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,8 +608,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -566,7 +633,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">123</span>
+                    <span class="site-state-item-count">137</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -601,7 +668,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -689,6 +758,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Key-Concepts"><span class="nav-number">1.</span> <span class="nav-text">Key Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tiller-Server-and-Helm-Client"><span class="nav-number">1.1.</span> <span class="nav-text">Tiller Server and Helm Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chart"><span class="nav-number">1.2.</span> <span class="nav-text">Chart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Release"><span class="nav-number">1.3.</span> <span class="nav-text">Release</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Helm"><span class="nav-number">2.</span> <span class="nav-text">Install Helm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Helm-Client"><span class="nav-number">2.1.</span> <span class="nav-text">Install Helm Client</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Tiller-Server"><span class="nav-number">2.2.</span> <span class="nav-text">Install Tiller Server</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Helm-Install-Default-Charts"><span class="nav-number">3.</span> <span class="nav-text">Helm Install Default Charts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-and-Install-Customized-Chart"><span class="nav-number">4.</span> <span class="nav-text">Create and Install Customized Chart</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -838,9 +924,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux-Command-Run-Command-in-Background/";
-        this.page.identifier = "Linux-Command-Run-Command-in-Background/";
-        this.page.title = 'Linux Command - Run Command in the Background';
+        this.page.url = "http://xinghua24.github.io/Kubernetes-Helm/";
+        this.page.identifier = "Kubernetes-Helm/";
+        this.page.title = 'Kubernetes - Helm';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
@@ -1215,6 +1301,83 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('Copied');
+          else $(this).text('Copy failed');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
 
   
 

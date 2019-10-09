@@ -110,7 +110,7 @@
 <meta property="og:description" content="Key Kubernetes concetps.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png">
-<meta property="og:updated_time" content="2019-10-06T04:01:05.949Z">
+<meta property="og:updated_time" content="2019-10-09T01:28:45.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Concepts">
 <meta name="twitter:description" content="Key Kubernetes concetps.">
@@ -450,7 +450,9 @@
       
 
       
-        <p>Key Kubernetes concetps.<br><a id="more"></a></p>
+        <p>Key Kubernetes concetps.</p>
+<a id="more"></a>
+
 <h1 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h1><p>Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.</p>
 <p>Kubernetes makes it easy to scale application, reduce downtime and increase security.</p>
 <p>Key Features of Kubernetes</p>
@@ -505,16 +507,29 @@
 <li><strong>kube-public</strong> </li>
 </ul>
 <h1 id="Label-and-Selector"><a href="#Label-and-Selector" class="headerlink" title="Label and Selector"></a>Label and Selector</h1><p><strong>Labels</strong> are key/value pairs that are attached to objects, such as pods. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but do not directly imply semantics to the core system. </p>
-<p>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">labels:</span><br><span class="line">    app: nginx</span><br><span class="line">    environment: production</span><br><span class="line">    version: 1.0</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">      app: nginx</span><br><span class="line">      environment: production</span><br><span class="line">      version: 1.0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
 <p><strong>Selectors</strong> select the matched resources from query. The API currently supports two types of selectors: equality-based and set-based. </p>
-<p>Equality- or inequality-based requirements allow filtering by label keys and values. Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment = production</span><br><span class="line">tier != frontend</span><br></pre></td></tr></table></figure></p>
-<p>Set-based label requirements allow filtering keys according to a set of values. Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">environment in (production, qa)</span><br><span class="line">tier notin (frontend, backend)</span><br><span class="line">partition</span><br><span class="line">!partition</span><br></pre></td></tr></table></figure></p>
+<p>Equality- or inequality-based requirements allow filtering by label keys and values. Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment = production</span><br><span class="line">tier != frontend</span><br></pre></td></tr></table></figure>
+
+<p>Set-based label requirements allow filtering keys according to a set of values. Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">environment in (production, qa)</span><br><span class="line">tier notin (frontend, backend)</span><br><span class="line">partition</span><br><span class="line">!partition</span><br></pre></td></tr></table></figure>
+
 <p>Not all concepts are listed. For details of a concept, see <a href="https://kubernetes.io/docs/concepts/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/</a></p>
-<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><p><img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png"><br>By Khtan66 - <a href="https://commons.wikimedia.org/wiki/File:Kubernetes.png" target="_blank" rel="noopener">https://commons.wikimedia.org/wiki/File:Kubernetes.png</a></p>
+<h1 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h1><p>You can use Kubernetes <strong>annotations</strong> to attach arbitrary non-identifying metadata to objects. Clients such as tools and libraries can retrieve this metadata.</p>
+<p>Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">      key1: value1</span><br><span class="line">      key2&quot;: value2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png">
+By Khtan66 - https://commons.wikimedia.org/wiki/File:Kubernetes.png
+
+
 <h2 id="Master-1"><a href="#Master-1" class="headerlink" title="Master"></a>Master</h2><p>Master is the node that manages others nodes.</p>
 <p>It runs the following components</p>
 <ul>
-<li><strong><a href="https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver" target="_blank" rel="noopener">kube-apiserver</a></strong> - exposes the Kubernetes API. It is the front-end for the Kubernetes control plane.</li>
+<li><strong><a href="https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver" target="_blank" rel="noopener">kube-apiserver</a></strong> - exposes the Kubernetes API. It is the front-end for the Kubernetes control plane. Kubernetes API is a Restful API for user to interact with its components.</li>
 <li><strong><a href="https://kubernetes.io/docs/concepts/overview/components/#etcd" target="_blank" rel="noopener">etcd</a></strong> - consistent and highly-available key value store used as Kubernetes’s backing store for all cluster data.</li>
 <li><strong><a href="https://kubernetes.io/docs/concepts/overview/components/#kube-scheduler" target="_blank" rel="noopener">kube-scheduler</a></strong> - component on the master that watches newly created pods that have no node assigned, and selects a node for them to run on</li>
 <li><strong><a href="https://kubernetes.io/docs/concepts/overview/components/#kube-controller-manager" target="_blank" rel="noopener">kube-controller-manager</a></strong> - component on the master that runs controllers</li>
@@ -536,6 +551,7 @@
 <li><a href="https://towardsdatascience.com/key-kubernetes-concepts-62939f4bc08e" target="_blank" rel="noopener">Key Kubernetes Concepts by Jeff Hale</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/" target="_blank" rel="noopener">Namespaces</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/" target="_blank" rel="noopener">Labels</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/" target="_blank" rel="noopener">Kubernetes Concept - Annotations</a></li>
 <li>Khtan66 [CC BY-SA 4.0 (<a href="https://creativecommons.org/licenses/by-sa/4.0)]" target="_blank" rel="noopener">https://creativecommons.org/licenses/by-sa/4.0)]</a></li>
 </ul>
 
@@ -578,8 +594,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Kubernetes-Running-Applications/" rel="prev" title="Kubernetes - Running Applications">
-                Kubernetes - Running Applications <i class="fa fa-chevron-right"></i>
+              <a href="/Kubernetes-Running-Applications/" rel="prev" title="Kubernetes - Running Application Using Deployment">
+                Kubernetes - Running Application Using Deployment <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -657,7 +673,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">137</span>
+                    <span class="site-state-item-count">138</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -793,7 +809,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kubernetes"><span class="nav-number">1.</span> <span class="nav-text">Kubernetes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cluster"><span class="nav-number">2.</span> <span class="nav-text">Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Master"><span class="nav-number">2.1.</span> <span class="nav-text">Master</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node"><span class="nav-number">2.2.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-Pools"><span class="nav-number">2.3.</span> <span class="nav-text">Node Pools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Workloads"><span class="nav-number">3.</span> <span class="nav-text">Workloads</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod"><span class="nav-number">3.1.</span> <span class="nav-text">Pod</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReplicaSet"><span class="nav-number">3.2.</span> <span class="nav-text">ReplicaSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deployment"><span class="nav-number">3.3.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StatefulSet"><span class="nav-number">3.4.</span> <span class="nav-text">StatefulSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaemonSet"><span class="nav-number">3.5.</span> <span class="nav-text">DaemonSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Job"><span class="nav-number">3.6.</span> <span class="nav-text">Job</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CronJob"><span class="nav-number">3.7.</span> <span class="nav-text">CronJob</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Networking"><span class="nav-number">4.</span> <span class="nav-text">Networking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Service"><span class="nav-number">4.1.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ingress"><span class="nav-number">4.2.</span> <span class="nav-text">Ingress</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConfigMaps-and-Secrets"><span class="nav-number">5.</span> <span class="nav-text">ConfigMaps and Secrets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">6.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Label-and-Selector"><span class="nav-number">7.</span> <span class="nav-text">Label and Selector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture"><span class="nav-number">8.</span> <span class="nav-text">Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Master-1"><span class="nav-number">8.1.</span> <span class="nav-text">Master</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-1"><span class="nav-number">8.2.</span> <span class="nav-text">Node</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">9.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kubernetes"><span class="nav-number">1.</span> <span class="nav-text">Kubernetes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cluster"><span class="nav-number">2.</span> <span class="nav-text">Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Master"><span class="nav-number">2.1.</span> <span class="nav-text">Master</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node"><span class="nav-number">2.2.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-Pools"><span class="nav-number">2.3.</span> <span class="nav-text">Node Pools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Workloads"><span class="nav-number">3.</span> <span class="nav-text">Workloads</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod"><span class="nav-number">3.1.</span> <span class="nav-text">Pod</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReplicaSet"><span class="nav-number">3.2.</span> <span class="nav-text">ReplicaSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deployment"><span class="nav-number">3.3.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StatefulSet"><span class="nav-number">3.4.</span> <span class="nav-text">StatefulSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaemonSet"><span class="nav-number">3.5.</span> <span class="nav-text">DaemonSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Job"><span class="nav-number">3.6.</span> <span class="nav-text">Job</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CronJob"><span class="nav-number">3.7.</span> <span class="nav-text">CronJob</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Networking"><span class="nav-number">4.</span> <span class="nav-text">Networking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Service"><span class="nav-number">4.1.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ingress"><span class="nav-number">4.2.</span> <span class="nav-text">Ingress</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConfigMaps-and-Secrets"><span class="nav-number">5.</span> <span class="nav-text">ConfigMaps and Secrets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">6.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Label-and-Selector"><span class="nav-number">7.</span> <span class="nav-text">Label and Selector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Annotations"><span class="nav-number">8.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture"><span class="nav-number">9.</span> <span class="nav-text">Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Master-1"><span class="nav-number">9.1.</span> <span class="nav-text">Master</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-1"><span class="nav-number">9.2.</span> <span class="nav-text">Node</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">10.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

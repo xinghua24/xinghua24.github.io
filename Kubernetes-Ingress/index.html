@@ -102,21 +102,17 @@
 
 
 
-  <meta name="description" content="Docker is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Conta">
-<meta name="keywords" content="Docker">
+  <meta name="description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker Intro">
-<meta property="og:url" content="http://xinghua24.github.io/Docker-Intro/index.html">
+<meta property="og:title" content="Kubernetes - Ingress">
+<meta property="og:url" content="http://xinghua24.github.io/Kubernetes-Ingress/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Docker is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Conta">
+<meta property="og:description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://xinghua24.github.io/Docker-Intro/VM-vs-Docker.png">
-<meta property="og:image" content="https://docs.docker.com/engine/images/architecture.svg">
-<meta property="og:updated_time" content="2019-09-08T15:52:07.918Z">
+<meta property="og:updated_time" content="2019-10-09T06:43:25.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker Intro">
-<meta name="twitter:description" content="Docker is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Conta">
-<meta name="twitter:image" content="http://xinghua24.github.io/Docker-Intro/VM-vs-Docker.png">
+<meta name="twitter:title" content="Kubernetes - Ingress">
+<meta name="twitter:description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a">
 
 
 
@@ -125,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Docker-Intro/">
+  <link rel="canonical" href="http://xinghua24.github.io/Kubernetes-Ingress/">
 
 
 
@@ -135,7 +131,7 @@
   };
 </script>
 
-  <title>Docker Intro | Xing's Blog</title>
+  <title>Kubernetes - Ingress | Xing's Blog</title>
   
 
 
@@ -346,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Docker-Intro/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Kubernetes-Ingress/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -363,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker Intro
+          <h1 class="post-title" itemprop="name headline">Kubernetes - Ingress
 
               
             
@@ -389,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-01-10 01:00:00" itemprop="dateCreated datePublished" datetime="2019-01-10T01:00:00-05:00">2019-01-10</time>
+              <time title="Created: 2019-09-08 02:26:00" itemprop="dateCreated datePublished" datetime="2019-09-08T02:26:00-04:00">2019-09-08</time>
             
 
             
@@ -407,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a></span>
 
                 
                 
@@ -422,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Docker-Intro/#comments" itemprop="discussionUrl">
+                <a href="/Kubernetes-Ingress/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Docker-Intro/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Kubernetes-Ingress/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,68 +448,38 @@
       
 
       
-        <p><strong>Docker</strong> is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Containers. Docker is widely used as a tool for application deployment.<br><a id="more"></a></p>
-<img src="/Docker-Intro/VM-vs-Docker.png" title="VM-vs-Docker">
-<p>Compare Docker to VM </p>
-<p><br></p>
-<h1 id="Benefits-of-Docker"><a href="#Benefits-of-Docker" class="headerlink" title="Benefits of Docker"></a>Benefits of Docker</h1><ul>
-<li>fast deployment</li>
-<li>lightweight. Docker images are small</li>
-<li>performant compared to VM</li>
-<li>require mimimal runtime requirements</li>
-<li>portable. minimize environment issue</li>
-<li>ability to version control the containers</li>
-</ul>
-<p>Benefits to use Docker for Devops</p>
-<ul>
-<li>Developers don’t have to setup local environment</li>
-<li>Operations team can set up environment easily</li>
-<li>Works with DevOps tools such as Ansible, Puppet and Chef</li>
-</ul>
-<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><p><img src="https://docs.docker.com/engine/images/architecture.svg" alt="Docker architecture"></p>
-<p>Docker uses a client-server(CS) architecture. The <strong>Docker client</strong> talks to the <strong>Docker daemon</strong>.</p>
-<p><strong>Docker Daemon</strong> listens to the Docker API and process all the requests. constantly managing containers and images.</p>
-<p>The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. </p>
-<p>A <strong>Docker registry</strong> stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default. </p>
-<p><strong>Docker Machine</strong> is a tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands.You can use Machine to create Docker hosts on your local Mac or Windows box, on your company network, in your data center, or on cloud providers like Azure, AWS, or Digital Ocean.</p>
-<p><strong>Docker Swarm</strong> is native clustering for Docker. It turns a pool of Docker hosts into a single, virtual host.</p>
-<p>Docker has two segments</p>
-<ul>
-<li>Community Edition(CE) - open source and free</li>
-<li>Enterprise Edition(EE) - close source and needs to be licensed yearly. provides 24x7 support.</li>
-</ul>
-<h1 id="Important-Concepts"><a href="#Important-Concepts" class="headerlink" title="Important Concepts"></a>Important Concepts</h1><h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><p>Image is a read-only template for creating Containers. The Open Containers Initiative (OCI) defines a Container Image Format Specification. This is the most commonly used image format.</p>
-<h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><p>A container is a runnable instance of an image.</p>
-<h2 id="Registry"><a href="#Registry" class="headerlink" title="Registry"></a>Registry</h2><p>Images are stored in  Registry. Docker Registry is a service. </p>
-<p>Docker’s default registry is Docker Hub(docker.io). There are other public registries maintained such as quay.io. Cloud providers like Amazon, Google and Microsoft also provide registry.  You can also host private registries to better integrated with CI/CD pipeline.</p>
-<h2 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h2><p>Repository is a collection of related images. Provide versioning for images. Usually it is the image with the same name but different tags.</p>
-<h2 id="Container-Runtime"><a href="#Container-Runtime" class="headerlink" title="Container Runtime"></a>Container Runtime</h2><p>Lowlevel runtime for the container. The reference implementation for Open Containers Initiative (OCI) Runtime is runc.</p>
-<p>lxc, runc and rkt are the most popular runtimes. Docker Engine runs on runc container runtime.</p>
-<h2 id="Container-Engine"><a href="#Container-Engine" class="headerlink" title="Container Engine"></a>Container Engine</h2><p>A Container Engine can handles user request. Allowing the user to interact with container runtime. When we refer to Docker, we often mean Docker Engine. rkt is also a container engine.</p>
-<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Execute the foolowing command to install docker-ce. see <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a> for the detail instructions.</p>
-<p>Uninstall old versions<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure></p>
-<p>Install new version<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y docker-ce</span><br></pre></td></tr></table></figure></p>
-<p>To see docker version after installation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line"># or</span><br><span class="line">docker info</span><br></pre></td></tr></table></figure></p>
-<p>add current user to the docker group. without this step, you will need to type <code>sudo</code> everytime you execute a docker command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -a -G docker $USER</span><br></pre></td></tr></table></figure></p>
-<p>You may need to restart after adding current user to docker group.</p>
-<p>To test installation, run the following command.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure></p>
-<p>If you want more fun, run a dwhalesay container<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run docker/whalesay cowsay hello docker</span><br></pre></td></tr></table></figure></p>
-<h1 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h1><ul>
-<li><a href="https://www.aquasec.com/wiki" target="_blank" rel="noopener">Container Technology Wiki(contains Docker 101 and K8s 101</a></li>
-<li><a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b" target="_blank" rel="noopener">Learn Enough Docker to be Useful part1 by Jeff Hale</a></li>
-<li><a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-1c40ea269fa8" target="_blank" rel="noopener">Learn Enough Docker to be Useful part2 by Jeff Hale</a></li>
-<li><a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-b0b44222eef5" target="_blank" rel="noopener">Learn Enough Docker to be Useful part3 by Jeff Hale</a></li>
-<li><a href="https://towardsdatascience.com/slimming-down-your-docker-images-275f0ca9337e" target="_blank" rel="noopener">Learn Enough Docker to be Useful part4 by Jeff Hale</a></li>
-<li><a href="https://towardsdatascience.com/15-docker-commands-you-should-know-970ea5203421" target="_blank" rel="noopener">15 Docker Commands You Should Know by Jeff Hale</a></li>
-<li><a href="https://towardsdatascience.com/pump-up-the-volumes-data-in-docker-a21950a8cd8" target="_blank" rel="noopener">Pump up the Volumes: Data in Docker by Jeff Hale</a></li>
-<li><a href="https://towardsdatascience.com/key-kubernetes-concepts-62939f4bc08e" target="_blank" rel="noopener">Key Kubernetes Concepts by Jeff Hale</a></li>
-<li><a href="https://towardsdatascience.com/key-kubernetes-commands-741fe61fde8" target="_blank" rel="noopener">Key Kubernetes Commands by Jeff Hale</a></li>
-<li><a href="https://github.com/wsargent/docker-cheat-sheet" target="_blank" rel="noopener">Docker Cheat Sheet</a></li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://docs.docker.com/engine/docker-overview/" target="_blank" rel="noopener">Docker Overview</a></li>
-<li><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">Get Docker CE for ubuntu</a></li>
-<li><a href="https://unix.stackexchange.com/questions/363048/unable-to-locate-package-docker-ce-on-a-64bit-ubuntu" target="_blank" rel="noopener">install docker-ce on a 64bit ubuntu</a></li>
+        <p>Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a collection of rules to define how inbound connection reach the service. </p>
+<a id="more"></a>
+
+<h1 id="Ingress-Demo"><a href="#Ingress-Demo" class="headerlink" title="Ingress Demo"></a>Ingress Demo</h1><p>Enable Nginx Ingress controller</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ minikube addons enable ingress</span><br></pre></td></tr></table></figure>
+
+<p>Create deployment with name ‘web’ and expose it as a service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl run web --image=gcr.io/google-samples/hello-app:1.0 --port=8080</span><br><span class="line">$ kubectl expose deployment web --target-port=8080 --type=NodePort</span><br></pre></td></tr></table></figure>
+
+<p>Create deployment with name ‘web2’ and expose it as a service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl run web2 --image=gcr.io/google-samples/hello-app:2.0 --port=8080</span><br><span class="line">$ kubectl expose deployment web2 --target-port=8080 --type=NodePort</span><br></pre></td></tr></table></figure>
+
+<p>Execute <code>kubectl get services</code> to verify both services are created.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">web                  NodePort       10.107.251.151   &lt;none&gt;        8080:31454/TCP   7m</span><br><span class="line">web2                 NodePort       10.101.159.81    &lt;none&gt;        8080:32296/TCP   7m</span><br></pre></td></tr></table></figure>
+
+<p>Create Ingress.yaml that defines an Ingress. Path /v1/* routes to the first service. Path /v2/* routes to the second service.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Ingress</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">example-ingress</span></span><br><span class="line"><span class="attr">  annotations:</span></span><br><span class="line">    <span class="string">nginx.ingress.kubernetes.io/rewrite-target:</span> <span class="string">/$1</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  rules:</span></span><br><span class="line"><span class="attr">  - host:</span> <span class="string">hello-world.info</span></span><br><span class="line"><span class="attr">    http:</span></span><br><span class="line"><span class="attr">      paths:</span></span><br><span class="line"><span class="attr">      - path:</span> <span class="string">/v1/*</span></span><br><span class="line"><span class="attr">        backend:</span></span><br><span class="line"><span class="attr">          serviceName:</span> <span class="string">web</span></span><br><span class="line"><span class="attr">          servicePort:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">      - path:</span> <span class="string">/v2/*</span></span><br><span class="line"><span class="attr">        backend:</span></span><br><span class="line"><span class="attr">          serviceName:</span> <span class="string">web2</span></span><br><span class="line"><span class="attr">          servicePort:</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+
+<p>get minikube cluster ip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$minikube ip</span><br><span class="line">192.168.99.112</span><br></pre></td></tr></table></figure>
+
+<p>add the following route to /etc/hosts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.99.112 hello-world.info</span><br></pre></td></tr></table></figure>
+
+<p>access services ‘web’ with url <a href="http://hello-world.info/v1" target="_blank" rel="noopener">http://hello-world.info/v1</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://hello-world.info/v1</span><br><span class="line">Hello, world!</span><br><span class="line">Version: 1.0.0</span><br><span class="line">Hostname: web-6d4657545d-hrjtv</span><br></pre></td></tr></table></figure>
+
+<p>access service ‘web2’ with url <a href="http://hello-world.info/v2" target="_blank" rel="noopener">http://hello-world.info/v2</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl  http://hello-world.info/v2</span><br><span class="line">Hello, world!</span><br><span class="line">Version: 2.0.0</span><br><span class="line">Hostname: web2-674dd45977-xh72p</span><br></pre></td></tr></table></figure>
+
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a href="https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/" target="_blank" rel="noopener">Set up Ingress on Minikube with the NGINX Ingress Controller</a></li>
 </ul>
 
       
@@ -536,12 +502,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Docker/" rel="tag"># Docker</a>
-          
-        </div>
-      
 
       
       
@@ -551,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux-Command-curl/" rel="next" title="Linux Command - curl">
-                <i class="fa fa-chevron-left"></i> Linux Command - curl
+              <a href="/Kubernetes-Services/" rel="next" title="Kubernetes - Services">
+                <i class="fa fa-chevron-left"></i> Kubernetes - Services
               </a>
             
           </div>
@@ -561,8 +521,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Docker-Common-Commands/" rel="prev" title="Docker Common Commands">
-                Docker Common Commands <i class="fa fa-chevron-right"></i>
+              <a href="/Kubernetes-Jobs/" rel="prev" title="Kubernetes - Jobs">
+                Kubernetes - Jobs <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -776,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Benefits-of-Docker"><span class="nav-number">1.</span> <span class="nav-text">Benefits of Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture"><span class="nav-number">2.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Important-Concepts"><span class="nav-number">3.</span> <span class="nav-text">Important Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image"><span class="nav-number">3.1.</span> <span class="nav-text">Image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container"><span class="nav-number">3.2.</span> <span class="nav-text">Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Registry"><span class="nav-number">3.3.</span> <span class="nav-text">Registry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repository"><span class="nav-number">3.4.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Runtime"><span class="nav-number">3.5.</span> <span class="nav-text">Container Runtime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Engine"><span class="nav-number">3.6.</span> <span class="nav-text">Container Engine</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">4.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Useful-links"><span class="nav-number">5.</span> <span class="nav-text">Useful links</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ingress-Demo"><span class="nav-number">1.</span> <span class="nav-text">Ingress Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
@@ -931,9 +891,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Docker-Intro/";
-        this.page.identifier = "Docker-Intro/";
-        this.page.title = 'Docker Intro';
+        this.page.url = "http://xinghua24.github.io/Kubernetes-Ingress/";
+        this.page.identifier = "Kubernetes-Ingress/";
+        this.page.title = 'Kubernetes - Ingress';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

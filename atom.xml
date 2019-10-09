@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2019-10-08T06:57:34.724Z</updated>
+  <updated>2019-10-08T07:04:51.420Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://xinghua24.github.io/Kubernetes-Helm/"/>
     <id>http://xinghua24.github.io/Kubernetes-Helm/</id>
     <published>2019-09-28T21:34:00.000Z</published>
-    <updated>2019-10-08T06:57:34.724Z</updated>
+    <updated>2019-10-08T07:04:51.420Z</updated>
     
     <summary type="html">
     
@@ -129,11 +129,11 @@
     <link href="http://xinghua24.github.io/Kubernetes-Namespaces/"/>
     <id>http://xinghua24.github.io/Kubernetes-Namespaces/</id>
     <published>2019-09-11T03:19:00.000Z</published>
-    <updated>2019-10-06T22:05:10.285Z</updated>
+    <updated>2019-10-08T21:29:29.416Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Kubernetes Namespaces&lt;br&gt;
+      &lt;p&gt;Kubernetes Namespaces&lt;/p&gt;
     
     </summary>
     
@@ -146,12 +146,30 @@
     <title>Kubernetes - Jobs</title>
     <link href="http://xinghua24.github.io/Kubernetes-Jobs/"/>
     <id>http://xinghua24.github.io/Kubernetes-Jobs/</id>
-    <published>2019-09-06T14:00:00.000Z</published>
-    <updated>2019-09-29T04:25:52.906Z</updated>
+    <published>2019-09-09T14:00:00.000Z</published>
+    <updated>2019-10-09T06:42:10.852Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Kubernetes jobs&lt;br&gt;
+      &lt;p&gt;Kubernetes jobs&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes - Ingress</title>
+    <link href="http://xinghua24.github.io/Kubernetes-Ingress/"/>
+    <id>http://xinghua24.github.io/Kubernetes-Ingress/</id>
+    <published>2019-09-08T06:26:00.000Z</published>
+    <updated>2019-10-09T06:43:25.950Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a collection of rules to define how inbound connection reach the service. &lt;/p&gt;
     
     </summary>
     
@@ -179,15 +197,15 @@
   </entry>
   
   <entry>
-    <title>Kubernetes - Running Applications</title>
+    <title>Kubernetes - Running Application Using Deployment</title>
     <link href="http://xinghua24.github.io/Kubernetes-Running-Applications/"/>
     <id>http://xinghua24.github.io/Kubernetes-Running-Applications/</id>
     <published>2019-09-04T22:55:00.000Z</published>
-    <updated>2019-10-06T02:14:11.807Z</updated>
+    <updated>2019-10-09T01:25:33.821Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Let’s learn how to deploy, scale and roll back application in Kubernetes&lt;br&gt;
+      &lt;p&gt;Let’s learn how to deploy, scale and roll back application in Kubernetes&lt;/p&gt;
     
     </summary>
     
@@ -201,11 +219,11 @@
     <link href="http://xinghua24.github.io/Kubernetes-Concepts/"/>
     <id>http://xinghua24.github.io/Kubernetes-Concepts/</id>
     <published>2019-09-04T00:41:00.000Z</published>
-    <updated>2019-10-06T04:01:05.949Z</updated>
+    <updated>2019-10-09T01:28:45.769Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Key Kubernetes concetps.&lt;br&gt;
+      &lt;p&gt;Key Kubernetes concetps.&lt;/p&gt;
     
     </summary>
     
@@ -219,11 +237,11 @@
     <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
     <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
     <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2019-10-06T21:14:50.122Z</updated>
+    <updated>2019-10-08T07:15:11.594Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.&lt;br&gt;
+      &lt;p&gt;Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.&lt;/p&gt;
     
     </summary>
     
@@ -354,24 +372,6 @@
     </summary>
     
       <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Python Introduction</title>
-    <link href="http://xinghua24.github.io/Python-Introduction/"/>
-    <id>http://xinghua24.github.io/Python-Introduction/</id>
-    <published>2019-08-06T22:00:00.000Z</published>
-    <updated>2019-09-16T01:22:40.071Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Python Introduction&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://xinghua24.github.io/categories/Python/"/>
     
     
   </entry>

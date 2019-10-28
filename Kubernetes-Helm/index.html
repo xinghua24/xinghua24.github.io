@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Helm - The Kubernetes Package Manager.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-08T07:04:51.420Z">
+<meta property="og:updated_time" content="2019-10-28T06:26:45.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes - Helm">
 <meta name="twitter:description" content="Helm - The Kubernetes Package Manager.">
@@ -472,8 +472,12 @@
 <p>Use <code>helm version</code> to check Helm version. Output should look like this</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ helm version</span><br><span class="line">Client: &amp;version.Version&#123;SemVer:&quot;v2.14.3&quot;, GitCommit:&quot;0e7f3b6637f7af8fcfddb3d2941fcc7cbebb0085&quot;, GitTreeState:&quot;clean&quot;&#125;</span><br><span class="line">Error: could not find tiller</span><br></pre></td></tr></table></figure>
 
-<h2 id="Install-Tiller-Server"><a href="#Install-Tiller-Server" class="headerlink" title="Install Tiller Server"></a>Install Tiller Server</h2><p>initialize the local CLI and also install Tiller into your Kubernetes cluster in one step using <code>helm init</code> command.</p>
+<h2 id="Install-Tiller-Server"><a href="#Install-Tiller-Server" class="headerlink" title="Install Tiller Server"></a>Install Tiller Server</h2><p>Initialize the local CLI and also install Tiller into your Kubernetes cluster in one step using <code>helm init</code> command. </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ helm init</span><br><span class="line">$HELM_HOME has been configured at /home/xing/.helm.</span><br><span class="line"></span><br><span class="line">Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.</span><br><span class="line"></span><br><span class="line">Please note: by default, Tiller is deployed with an insecure &apos;allow unauthenticated users&apos; policy.</span><br><span class="line">To prevent this, run `helm init` with the --tiller-tls-verify flag.</span><br><span class="line">For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation</span><br></pre></td></tr></table></figure>
+
+<p>It may take a minute for tiller to install. Use <code>helm ls</code> to verify tiller is installed. </p>
+<p>If tiller is not ready, error will be return.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ helm ls</span><br><span class="line">Error: could not find a ready tiller po</span><br></pre></td></tr></table></figure>
 
 <h1 id="Helm-Install-Default-Charts"><a href="#Helm-Install-Default-Charts" class="headerlink" title="Helm Install Default Charts"></a>Helm Install Default Charts</h1><p>get latest list of charts</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm repo update</span><br></pre></td></tr></table></figure>

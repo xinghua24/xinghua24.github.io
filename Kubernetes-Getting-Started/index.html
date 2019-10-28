@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-08T07:15:11.594Z">
+<meta property="og:updated_time" content="2019-10-28T06:25:48.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes Getting Started">
 <meta name="twitter:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
@@ -461,9 +461,9 @@
 
 <p>The config file is in the $HOME/.kube directory. This file defines clusters, context and users. You can view the file using command <code>kubectl config view</code>.</p>
 <p>If the configuration file is not working as expected, use <code>rm -rf ~/.kube</code> command to remove the existing configuration and cache.</p>
-<p>For more information on Kubectl, see <a href="https://kubernetes.io/docs/reference/kubectl/overview/" target="_blank" rel="noopener">Kubectl Overview</a> </p>
 <p>Useful links for kubectl:</p>
 <ul>
+<li><a href="https://kubernetes.io/docs/reference/kubectl/overview/" target="_blank" rel="noopener">Kubectl Overview</a></li>
 <li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/" target="_blank" rel="noopener">kubectl cheatsheet</a></li>
 <li><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands" target="_blank" rel="noopener">kubectl command reference</a></li>
 </ul>
@@ -474,8 +474,8 @@
 <p>You can check minikube version using <code>minikube version</code> command. </p>
 <p>Note hat Minikube can only set up a one node cluster. </p>
 <h1 id="Set-Up-a-Cluster-with-Minikube"><a href="#Set-Up-a-Cluster-with-Minikube" class="headerlink" title="Set Up a Cluster with Minikube"></a>Set Up a Cluster with Minikube</h1><p>A brief guide to start use, and delete Minikube locally. See <a href="https://kubernetes.io/docs/tasks/tools/install-minikube/" target="_blank" rel="noopener">https://kubernetes.io/docs/tasks/tools/install-minikube/</a></p>
-<p>1 - Start Minikube and create a cluster.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ minikube start</span><br><span class="line">😄  minikube v1.3.1 on Ubuntu 19.04</span><br><span class="line">🔥  Creating virtualbox VM (CPUs=2, Memory=2000MB, Disk=20000MB) ...</span><br><span class="line">🐳  Preparing Kubernetes v1.15.2 on Docker 18.09.8 ...</span><br><span class="line">💾  Downloading kubeadm v1.15.2</span><br><span class="line">💾  Downloading kubelet v1.15.2</span><br><span class="line">🚜  Pulling images ...</span><br><span class="line">🚀  Launching Kubernetes ... </span><br><span class="line">⌛  Waiting <span class="keyword">for</span>: apiserver proxy etcd scheduler controller dns</span><br><span class="line">🏄  Done! kubectl is now configured to use <span class="string">"minikube"</span></span><br></pre></td></tr></table></figure>
+<p>1 - Start Minikube and create a cluster. You can optionally specify cpu and memory.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ minikube start --memory=11000 --cpus=4</span><br><span class="line">😄  minikube v1.3.1 on Ubuntu 19.04</span><br><span class="line">🔥  Creating virtualbox VM (CPUs=4, Memory=11000MB, Disk=20000MB) ...</span><br><span class="line">🐳  Preparing Kubernetes v1.15.2 on Docker 18.09.8 ...</span><br><span class="line">💾  Downloading kubeadm v1.15.2</span><br><span class="line">💾  Downloading kubelet v1.15.2</span><br><span class="line">🚜  Pulling images ...</span><br><span class="line">🚀  Launching Kubernetes ... </span><br><span class="line">⌛  Waiting <span class="keyword">for</span>: apiserver proxy etcd scheduler controller dns</span><br><span class="line">🏄  Done! kubectl is now configured to use <span class="string">"minikube"</span></span><br></pre></td></tr></table></figure>
 
 <p>You can use <code>minikube status</code> to check its status. also use <code>kubectl get pods --all-namespaces</code> command to ensure all pods are running without error.</p>
 <p>Now minikube will start a Virtual Machine. The cluster runs on that Virtual Machine. If you open VirtualBox Manager, you will see a virtual machine named “minikube”.</p>

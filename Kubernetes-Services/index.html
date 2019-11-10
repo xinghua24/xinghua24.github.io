@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Kubernetes Service">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-30T05:41:14.403Z">
+<meta property="og:updated_time" content="2019-11-10T05:32:51.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes - Services">
 <meta name="twitter:description" content="Kubernetes Service">
@@ -491,7 +491,8 @@
 <p>Example to access the service inside the cluster</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 10.101.67.7:8080</span><br></pre></td></tr></table></figure>
 
-<p>Note that the easiest way to get into a cluster is to execute <code>kubectl exec -it &lt;pod-name&gt; /bin/bash</code> command to get into a pod.</p>
+<p>One way to get into a cluster is to execute <code>kubectl exec -it &lt;pod-name&gt; /bin/bash</code> command to get into a pod. You may need to install curl in the pod if it is not available.  In addition, curl installation doesn’t always work.</p>
+<p>Note that another way to access the application is <a href="Port-Forwarding">port forwarding</a>.</p>
 <h1 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h1><p>NodePort exposes the service via the defined note port. The service can be reach on any node in the cluster via the nodePort.</p>
 <p>myapp-service.yml</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">NodePort</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">  ports:</span></span><br><span class="line"><span class="attr">  - protocol:</span> <span class="string">TCP</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">    nodePort:</span> <span class="number">30003</span></span><br></pre></td></tr></table></figure>
@@ -536,11 +537,6 @@
 <p>Example to access the service using loadbalancerIP outside of the cluster. Kubernetes routes request to a nodePort, then routes to the clusterIP port. </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.22:8080</span><br></pre></td></tr></table></figure>
 
-<h1 id="Port-Forwarding"><a href="#Port-Forwarding" class="headerlink" title="Port Forwarding"></a>Port Forwarding</h1><p>port-forwarding allows you to forward a port in the host to a port on the pod</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl port-forward &lt;pod-name&gt; &lt;host-port&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure>
-
-<p>You can use <code>curl hostname:host-port</code> to access the pod.</p>
-<p>For more details on port forwarding, see <a href="https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/" target="_blank" rel="noopener">Port Forwarding documentation</a></p>
 <h1 id="Service-Discovery-via-DNS"><a href="#Service-Discovery-via-DNS" class="headerlink" title="Service Discovery via DNS"></a>Service Discovery via DNS</h1><p>As of Kubernetes v1.12, CoreDNS is the recommended DNS Server, replacing kube-dns. However, kube-dns may still be installed by default with certain Kubernetes installer tools. Both the CoreDNS and kube-dns Service are named kube-dns in the metadata.name field.</p>
 <p>When inside a Kubernetes cluster, you can use ClusterIP or DNS to visit the service. DNS Service will resolve the DNS name. </p>
 <p>Every Service defined in the cluster is assigned a DNS A Record. The record is of format  <strong>&lt;Service-name&gt;.&lt;Namespace&gt;.svc.&lt;Cluster-Domain&gt;</strong>. You can often use <strong>&lt;Service-name&gt;.&lt;Namespace&gt;</strong> to refer to the service.</p>
@@ -552,6 +548,13 @@
 <p>Execute the following command to see how the pod visit the service using DNS name.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f servicediscovery.yml </span><br><span class="line">$ kubectl logs servicetest</span><br></pre></td></tr></table></figure>
 
+<h1 id="Port-Forwarding"><a href="#Port-Forwarding" class="headerlink" title="Port Forwarding"></a>Port Forwarding</h1><p>Service is not the only way to access an application. One way is to use port forwarding to access a pod.</p>
+<p>port-forwarding allows you to forward a local port in the host to a port on the pod</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl port-forward &lt;pod-name&gt; &lt;local-port&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure>
+
+<p>You can use <code>curl hostname:host-port</code> to access the pod locally. Default hostname is localhost if address option is not set.</p>
+<p><code>kubctl port-forward</code> has an option <code>--address</code> to specify the address to listen on.  It accepts IP addresses or localhost as a value. Default is localhost.</p>
+<p>For more details on port forwarding, use <code>kubectl port-forward --help</code> command to see sample usage. See <a href="https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/" target="_blank" rel="noopener">Port Forwarding documentation</a> for more detail explaination.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#service-v1-core" target="_blank" rel="noopener">Service API</a></li>
 <li><a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types" target="_blank" rel="noopener">ServiceType</a></li>
@@ -813,7 +816,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Types"><span class="nav-number">1.</span> <span class="nav-text">Service Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Commands"><span class="nav-number">2.</span> <span class="nav-text">Service Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClusterIP"><span class="nav-number">3.</span> <span class="nav-text">ClusterIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NodePort"><span class="nav-number">4.</span> <span class="nav-text">NodePort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LoadBalancer"><span class="nav-number">5.</span> <span class="nav-text">LoadBalancer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Port-Forwarding"><span class="nav-number">6.</span> <span class="nav-text">Port Forwarding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Discovery-via-DNS"><span class="nav-number">7.</span> <span class="nav-text">Service Discovery via DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Types"><span class="nav-number">1.</span> <span class="nav-text">Service Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Commands"><span class="nav-number">2.</span> <span class="nav-text">Service Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClusterIP"><span class="nav-number">3.</span> <span class="nav-text">ClusterIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NodePort"><span class="nav-number">4.</span> <span class="nav-text">NodePort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LoadBalancer"><span class="nav-number">5.</span> <span class="nav-text">LoadBalancer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Discovery-via-DNS"><span class="nav-number">6.</span> <span class="nav-text">Service Discovery via DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Port-Forwarding"><span class="nav-number">7.</span> <span class="nav-text">Port Forwarding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

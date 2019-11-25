@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a">
+  <meta name="description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss solves this problem.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kubernetes - Ingress">
 <meta property="og:url" content="http://xinghua24.github.io/Kubernetes-Ingress/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a">
+<meta property="og:description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss solves this problem.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-09T06:43:25.950Z">
+<meta property="og:updated_time" content="2019-11-25T08:09:37.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes - Ingress">
-<meta name="twitter:description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a">
+<meta name="twitter:description" content="Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss solves this problem.">
 
 
 
@@ -448,9 +448,10 @@
       
 
       
-        <p>Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss allows access to Kubernetes services. You can hava a collection of rules to define how inbound connection reach the service. </p>
+        <p>Kubernetes service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss solves this problem.</p>
 <a id="more"></a>
 
+<p><strong>Ingress</strong> exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource. Ingress also provides SSL termination.</p>
 <h1 id="Ingress-Demo"><a href="#Ingress-Demo" class="headerlink" title="Ingress Demo"></a>Ingress Demo</h1><p>Enable Nginx Ingress controller</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ minikube addons enable ingress</span><br></pre></td></tr></table></figure>
 
@@ -472,13 +473,19 @@
 <p>add the following route to /etc/hosts</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.99.112 hello-world.info</span><br></pre></td></tr></table></figure>
 
-<p>access services ‘web’ with url <a href="http://hello-world.info/v1" target="_blank" rel="noopener">http://hello-world.info/v1</a></p>
+<p>Create the Ingress resource</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f example-ingress.yaml</span><br></pre></td></tr></table></figure>
+
+<p>Access services ‘web’ with url <a href="http://hello-world.info/v1" target="_blank" rel="noopener">http://hello-world.info/v1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://hello-world.info/v1</span><br><span class="line">Hello, world!</span><br><span class="line">Version: 1.0.0</span><br><span class="line">Hostname: web-6d4657545d-hrjtv</span><br></pre></td></tr></table></figure>
 
-<p>access service ‘web2’ with url <a href="http://hello-world.info/v2" target="_blank" rel="noopener">http://hello-world.info/v2</a></p>
+<p>Access service ‘web2’ with url <a href="http://hello-world.info/v2" target="_blank" rel="noopener">http://hello-world.info/v2</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl  http://hello-world.info/v2</span><br><span class="line">Hello, world!</span><br><span class="line">Version: 2.0.0</span><br><span class="line">Hostname: web2-674dd45977-xh72p</span><br></pre></td></tr></table></figure>
 
+<h1 id="Ingress-Controller"><a href="#Ingress-Controller" class="headerlink" title="Ingress Controller"></a>Ingress Controller</h1><p>Ingress resource relies on Ingress controller to work. You can choose ingress controller implementation that works best for you. Kubernetes support GCE, nginx. There are other Ingress Controllers available too. Istio provide its own ingress controller if you are using Istio. see <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/" target="_blank" rel="noopener">Ingress Controller</a> for more information.</p>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/" target="_blank" rel="noopener">Ingress</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/" target="_blank" rel="noopener">Ingress Controller</a></li>
 <li><a href="https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/" target="_blank" rel="noopener">Set up Ingress on Minikube with the NGINX Ingress Controller</a></li>
 </ul>
 
@@ -736,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ingress-Demo"><span class="nav-number">1.</span> <span class="nav-text">Ingress Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ingress-Demo"><span class="nav-number">1.</span> <span class="nav-text">Ingress Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ingress-Controller"><span class="nav-number">2.</span> <span class="nav-text">Ingress Controller</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>

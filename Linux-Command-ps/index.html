@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="ps - display current processes. ps is short for Process Status.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.443Z">
+<meta property="og:updated_time" content="2020-03-17T05:36:28.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - ps">
 <meta name="twitter:description" content="ps - display current processes. ps is short for Process Status.">
@@ -451,6 +451,7 @@
       
         <p><code>ps</code> - display current processes. ps is short for Process Status.</p>
 <a id="more"></a>
+
 <p><code>ps</code> displays information about a selection of the active processes. If you want a repetitive update of the selection and the displayed information, use top(1) instead.</p>
 <p><code>ps</code> has several options</p>
 <ol>
@@ -460,6 +461,7 @@
 </ol>
 <p>By default, <code>ps</code> selects all processes with the same effective user ID (euid=EUID) as the current user and associated with the same terminal as the invoker.</p>
 <h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps [options]</span><br></pre></td></tr></table></figure>
+
 <h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
 <thead>
 <tr>
@@ -467,8 +469,7 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>-a</td>
 <td>show processes not associated with a terminal</td>
 </tr>
@@ -504,18 +505,33 @@
 <td>l</td>
 <td>display BSD long format</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Display-all-process"><a href="#Display-all-process" class="headerlink" title="Display all process"></a>Display all process</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e</span><br></pre></td></tr></table></figure>
-<p>Sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PID TTY          TIME CMD</span><br><span class="line">  1 ?        00:01:05 systemd</span><br><span class="line">  2 ?        00:00:00 kthreadd</span><br><span class="line">  4 ?        00:00:00 kworker/0:0H</span><br><span class="line">  6 ?        00:00:00 mm_percpu_wq</span><br><span class="line">  7 ?        00:00:00 ksoftirqd/0</span><br></pre></td></tr></table></figure></p>
+
+<p>Sample output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PID TTY          TIME CMD</span><br><span class="line">  1 ?        00:01:05 systemd</span><br><span class="line">  2 ?        00:00:00 kthreadd</span><br><span class="line">  4 ?        00:00:00 kworker/0:0H</span><br><span class="line">  6 ?        00:00:00 mm_percpu_wq</span><br><span class="line">  7 ?        00:00:00 ksoftirqd/0</span><br></pre></td></tr></table></figure>
+
 <h2 id="Display-all-process-with-full-format"><a href="#Display-all-process-with-full-format" class="headerlink" title="Display all process with full format"></a>Display all process with full format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
-<p>sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">xing      4470  3241  0 Dec25 ?        00:00:00 /usr/bin/zeitgeist-daemon</span><br><span class="line">xing      4477  3241  0 Dec25 ?        00:00:00 /usr/lib/zeitgeist/zeitgeist/zeitgeist-fts</span><br><span class="line">xing      4558  3405  0 Dec25 tty2     00:00:06 /usr/bin/gnome-software --gapplication-service</span><br><span class="line">xing      4559  3405  0 Dec25 tty2     00:00:01 update-notifier</span><br><span class="line">xing      4566  4559  0 Dec25 tty2     00:00:00 [livepatch-notif] &lt;defunct&gt;</span><br><span class="line">root      4584     1  0 Dec25 ?        00:00:02 /usr/lib/fwupd/fwupd</span><br><span class="line">root      4587     2  0 23:14 ?        00:00:00 [kworker/1:1]</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+
+<p>sample output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">xing      4470  3241  0 Dec25 ?        00:00:00 /usr/bin/zeitgeist-daemon</span><br><span class="line">xing      4477  3241  0 Dec25 ?        00:00:00 /usr/lib/zeitgeist/zeitgeist/zeitgeist-fts</span><br><span class="line">xing      4558  3405  0 Dec25 tty2     00:00:06 /usr/bin/gnome-software --gapplication-service</span><br><span class="line">xing      4559  3405  0 Dec25 tty2     00:00:01 update-notifier</span><br><span class="line">xing      4566  4559  0 Dec25 tty2     00:00:00 [livepatch-notif] &lt;defunct&gt;</span><br><span class="line">root      4584     1  0 Dec25 ?        00:00:02 /usr/lib/fwupd/fwupd</span><br><span class="line">root      4587     2  0 23:14 ?        00:00:00 [kworker/1:1]</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
 <h2 id="Display-process-owned-by-root"><a href="#Display-process-owned-by-root" class="headerlink" title="Display process owned by root"></a>Display process owned by root</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -f -u root</span><br></pre></td></tr></table></figure>
-<p>sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">root         1     0  0 Dec25 ?        00:01:06 /sbin/init splash</span><br><span class="line">root         2     0  0 Dec25 ?        00:00:00 [kthreadd]</span><br><span class="line">root         4     2  0 Dec25 ?        00:00:00 [kworker/0:0H]</span><br><span class="line">root         6     2  0 Dec25 ?        00:00:00 [mm_percpu_wq]</span><br><span class="line">root         7     2  0 Dec25 ?        00:00:00 [ksoftirqd/0]</span><br><span class="line">root         8     2  0 Dec25 ?        00:01:11 [rcu_sched]</span><br></pre></td></tr></table></figure></p>
+
+<p>sample output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">root         1     0  0 Dec25 ?        00:01:06 /sbin/init splash</span><br><span class="line">root         2     0  0 Dec25 ?        00:00:00 [kthreadd]</span><br><span class="line">root         4     2  0 Dec25 ?        00:00:00 [kworker/0:0H]</span><br><span class="line">root         6     2  0 Dec25 ?        00:00:00 [mm_percpu_wq]</span><br><span class="line">root         7     2  0 Dec25 ?        00:00:00 [ksoftirqd/0]</span><br><span class="line">root         8     2  0 Dec25 ?        00:01:11 [rcu_sched]</span><br></pre></td></tr></table></figure>
+
 <h2 id="Display-all-process-BSD-syntax"><a href="#Display-all-process-BSD-syntax" class="headerlink" title="Display all process(BSD syntax)"></a>Display all process(BSD syntax)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
-<p>sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">systemd+  6459  0.0  0.0  14280  1812 ?        S    Dec25   0:00 nginx: worker p</span><br><span class="line">xing      6824  0.0  0.0  79960  5544 ?        S    Dec25   0:00 /usr/lib/x86_64</span><br><span class="line">xing      7724  0.0  0.0 370520  7428 ?        Sl   Dec25   0:00 /usr/lib/gvfs/g</span><br><span class="line">xing      7756  0.0  0.0 381288  7292 ?        Sl   Dec25   0:00 /usr/lib/gvfs/g</span><br><span class="line">root     10242  0.0  0.0  10792  4840 ?        Sl   Dec25   0:02 containerd-shim</span><br><span class="line">root     10262  0.0  0.0  18508  3472 pts/0    Ss+  Dec25   0:00 /bin/bash</span><br><span class="line">root     11740  0.0  0.1 108092  8244 ?        Ss   09:36   0:00 /usr/sbin/cupsd</span><br><span class="line">root     11741  0.0  0.1 303672 10620 ?        Ssl  09:36   0:00 /usr/sbin/cups-</span><br><span class="line">xing     13042  0.0  1.8 1780472 146144 tty2   Sl+  10:05   0:37 /usr/lib/chromi</span><br><span class="line">xing     13499  0.1  1.5 1751396 124020 tty2   Sl+  10:18   0:48 /usr/lib/chromi</span><br></pre></td></tr></table></figure></p>
+
+<p>sample output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">systemd+  6459  0.0  0.0  14280  1812 ?        S    Dec25   0:00 nginx: worker p</span><br><span class="line">xing      6824  0.0  0.0  79960  5544 ?        S    Dec25   0:00 /usr/lib/x86_64</span><br><span class="line">xing      7724  0.0  0.0 370520  7428 ?        Sl   Dec25   0:00 /usr/lib/gvfs/g</span><br><span class="line">xing      7756  0.0  0.0 381288  7292 ?        Sl   Dec25   0:00 /usr/lib/gvfs/g</span><br><span class="line">root     10242  0.0  0.0  10792  4840 ?        Sl   Dec25   0:02 containerd-shim</span><br><span class="line">root     10262  0.0  0.0  18508  3472 pts/0    Ss+  Dec25   0:00 /bin/bash</span><br><span class="line">root     11740  0.0  0.1 108092  8244 ?        Ss   09:36   0:00 /usr/sbin/cupsd</span><br><span class="line">root     11741  0.0  0.1 303672 10620 ?        Ssl  09:36   0:00 /usr/sbin/cups-</span><br><span class="line">xing     13042  0.0  1.8 1780472 146144 tty2   Sl+  10:05   0:37 /usr/lib/chromi</span><br><span class="line">xing     13499  0.1  1.5 1751396 124020 tty2   Sl+  10:18   0:48 /usr/lib/chromi</span><br></pre></td></tr></table></figure>
+
 <h2 id="Search-for-a-process-BSD-syntax"><a href="#Search-for-a-process-BSD-syntax" class="headerlink" title="Search for a process(BSD syntax)"></a>Search for a process(BSD syntax)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep -v grep | grep -i -e VSZ -e firefox</span><br></pre></td></tr></table></figure>
-<p>sample output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">xing      8321  0.7  3.4 2007720 277960 tty2   Sl+  16:17   0:13 /usr/lib/firefox/firefox</span><br></pre></td></tr></table></figure></p>
+
+<p>sample output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">xing      8321  0.7  3.4 2007720 277960 tty2   Sl+  16:17   0:13 /usr/lib/firefox/firefox</span><br></pre></td></tr></table></figure>
+
+<p>with the process id, you can use <code>kill -i &lt;pid&gt;</code> command to kill the process</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://linux.die.net/man/1/ps" target="_blank" rel="noopener">ps online man page</a></li>
 </ul>

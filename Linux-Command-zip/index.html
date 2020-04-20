@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="zip - Package and compress (archive) files into zip file. You can use zipinfo command to list the files in zip format.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-18T21:57:55.447Z">
+<meta property="og:updated_time" content="2020-03-24T06:11:51.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - zip">
 <meta name="twitter:description" content="zip - Package and compress (archive) files into zip file. You can use zipinfo command to list the files in zip format.">
@@ -451,7 +451,10 @@
       
         <p><code>zip</code> - Package and compress (archive) files into zip file. You can use <code>zipinfo</code> command to list the files in zip format.</p>
 <a id="more"></a>
+
+
 <h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip [OPTION] archive inpath inpath...</span><br></pre></td></tr></table></figure>
+
 <h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
 <thead>
 <tr>
@@ -459,8 +462,7 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>-r</td>
 <td>recursive</td>
 </tr>
@@ -472,13 +474,19 @@
 <td>-d</td>
 <td>remove entry from archive</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="create-compressed-archive"><a href="#create-compressed-archive" class="headerlink" title="create compressed archive"></a>create compressed archive</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r compressed *</span><br></pre></td></tr></table></figure>
-<p>will create compressed.zip</p>
+
+<p>archive all the files in the current directory and subdirectories to create compressed.zip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip compressed *</span><br></pre></td></tr></table></figure>
+
+<p>archive all the files in the current directory to create compressed.zip, excluding the files in subdirectories.</p>
 <h2 id="Remove-file-from-archive"><a href="#Remove-file-from-archive" class="headerlink" title="Remove file from archive"></a>Remove file from archive</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -d compressed.zip file1</span><br></pre></td></tr></table></figure>
-<p>will remove file1 from zip</p>
-<h2 id="Unzip-compressed-archive"><a href="#Unzip-compressed-archive" class="headerlink" title="Unzip compressed archive"></a>Unzip compressed archive</h2><p>need to use <code>unzip</code> command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip compressed.zip</span><br></pre></td></tr></table></figure></p>
+
+<p>will remove file1 from compressed.zip</p>
+<h2 id="Unzip-compressed-archive"><a href="#Unzip-compressed-archive" class="headerlink" title="Unzip compressed archive"></a>Unzip compressed archive</h2><p>need to use <code>unzip</code> command</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip compressed.zip</span><br></pre></td></tr></table></figure>
+
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://linux.die.net/man/1/zip" target="_blank" rel="noopener">zip online man page</a></li>
 </ul>
@@ -607,7 +615,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">138</span>
+                    <span class="site-state-item-count">139</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

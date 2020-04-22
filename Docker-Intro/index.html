@@ -112,7 +112,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://xinghua24.github.io/Docker-Intro/VM-vs-Docker.png">
 <meta property="og:image" content="https://docs.docker.com/engine/images/architecture.svg">
-<meta property="og:updated_time" content="2019-09-08T15:52:07.918Z">
+<meta property="og:updated_time" content="2020-04-22T07:22:50.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker Intro">
 <meta name="twitter:description" content="Docker is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Conta">
@@ -452,10 +452,16 @@
       
 
       
-        <p><strong>Docker</strong> is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Containers. Docker is widely used as a tool for application deployment.<br><a id="more"></a></p>
+        <p><strong>Docker</strong> is a platform that manages application using containers. Docker packages application and its dependencies as a container. It also provide an intuitive interface for users to interact with Containers. Docker is widely used as a tool for application deployment.</p>
+<a id="more"></a>
+
 <img src="/Docker-Intro/VM-vs-Docker.png" title="VM-vs-Docker">
 <p>Compare Docker to VM </p>
-<p><br></p>
+<br>
+
+
+
+
 <h1 id="Benefits-of-Docker"><a href="#Benefits-of-Docker" class="headerlink" title="Benefits of Docker"></a>Benefits of Docker</h1><ul>
 <li>fast deployment</li>
 <li>lightweight. Docker images are small</li>
@@ -491,13 +497,37 @@
 <p>lxc, runc and rkt are the most popular runtimes. Docker Engine runs on runc container runtime.</p>
 <h2 id="Container-Engine"><a href="#Container-Engine" class="headerlink" title="Container Engine"></a>Container Engine</h2><p>A Container Engine can handles user request. Allowing the user to interact with container runtime. When we refer to Docker, we often mean Docker Engine. rkt is also a container engine.</p>
 <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Execute the foolowing command to install docker-ce. see <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">https://docs.docker.com/install/linux/docker-ce/ubuntu/</a> for the detail instructions.</p>
-<p>Uninstall old versions<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure></p>
-<p>Install new version<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y docker-ce</span><br></pre></td></tr></table></figure></p>
-<p>To see docker version after installation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line"># or</span><br><span class="line">docker info</span><br></pre></td></tr></table></figure></p>
-<p>add current user to the docker group. without this step, you will need to type <code>sudo</code> everytime you execute a docker command<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -a -G docker $USER</span><br></pre></td></tr></table></figure></p>
+<p>Uninstall old versions</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+
+<p>Install new version</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y docker-ce</span><br></pre></td></tr></table></figure>
+
+<p>To see docker version after installation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br><span class="line"># or</span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
+
+<p>add current user to the docker group. without this step, you will need to type <code>sudo</code> everytime you execute a docker command</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -a -G docker $USER</span><br></pre></td></tr></table></figure>
+
 <p>You may need to restart after adding current user to docker group.</p>
-<p>To test installation, run the following command.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure></p>
-<p>If you want more fun, run a dwhalesay container<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run docker/whalesay cowsay hello docker</span><br></pre></td></tr></table></figure></p>
+<p>To test installation, run the following command.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<p>If you want more fun, run a dwhalesay container</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run docker/whalesay cowsay hello docker</span><br></pre></td></tr></table></figure>
+
+<h1 id="Start-and-Stop-Service"><a href="#Start-and-Stop-Service" class="headerlink" title="Start and Stop Service"></a>Start and Stop Service</h1><p>use init script to stop/start  docker service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/docker stop</span><br><span class="line">sudo /etc/init.d/docker start</span><br><span class="line">sudo /etc/init.d/docker restart</span><br></pre></td></tr></table></figure>
+
+<p>or simply</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo serice docker stop</span><br><span class="line">sudo service docker start</span><br></pre></td></tr></table></figure>
+
+<p>To disable docker service on rebooting of Ubuntu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl disable docker</span><br></pre></td></tr></table></figure>
+
+<p>To enable docker service on reboot</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></table></figure>
+
 <h1 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h1><ul>
 <li><a href="https://www.aquasec.com/wiki" target="_blank" rel="noopener">Container Technology Wiki(contains Docker 101 and K8s 101</a></li>
 <li><a href="https://towardsdatascience.com/learn-enough-docker-to-be-useful-b7ba70caeb4b" target="_blank" rel="noopener">Learn Enough Docker to be Useful part1 by Jeff Hale</a></li>
@@ -776,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Benefits-of-Docker"><span class="nav-number">1.</span> <span class="nav-text">Benefits of Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture"><span class="nav-number">2.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Important-Concepts"><span class="nav-number">3.</span> <span class="nav-text">Important Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image"><span class="nav-number">3.1.</span> <span class="nav-text">Image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container"><span class="nav-number">3.2.</span> <span class="nav-text">Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Registry"><span class="nav-number">3.3.</span> <span class="nav-text">Registry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repository"><span class="nav-number">3.4.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Runtime"><span class="nav-number">3.5.</span> <span class="nav-text">Container Runtime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Engine"><span class="nav-number">3.6.</span> <span class="nav-text">Container Engine</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">4.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Useful-links"><span class="nav-number">5.</span> <span class="nav-text">Useful links</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Benefits-of-Docker"><span class="nav-number">1.</span> <span class="nav-text">Benefits of Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture"><span class="nav-number">2.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Important-Concepts"><span class="nav-number">3.</span> <span class="nav-text">Important Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image"><span class="nav-number">3.1.</span> <span class="nav-text">Image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container"><span class="nav-number">3.2.</span> <span class="nav-text">Container</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Registry"><span class="nav-number">3.3.</span> <span class="nav-text">Registry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repository"><span class="nav-number">3.4.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Runtime"><span class="nav-number">3.5.</span> <span class="nav-text">Container Runtime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Engine"><span class="nav-number">3.6.</span> <span class="nav-text">Container Engine</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">4.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Start-and-Stop-Service"><span class="nav-number">5.</span> <span class="nav-text">Start and Stop Service</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Useful-links"><span class="nav-number">6.</span> <span class="nav-text">Useful links</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

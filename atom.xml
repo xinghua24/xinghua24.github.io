@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-04-20T21:12:55.242Z</updated>
+  <updated>2020-04-26T16:09:54.429Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>WireMock</title>
-    <link href="http://xinghua24.github.io/Wiremock/"/>
-    <id>http://xinghua24.github.io/Wiremock/</id>
+    <link href="http://xinghua24.github.io/Java/Wiremock/"/>
+    <id>http://xinghua24.github.io/Java/Wiremock/</id>
     <published>2020-04-20T12:18:00.000Z</published>
-    <updated>2020-04-20T21:12:55.242Z</updated>
+    <updated>2020-04-26T16:09:54.429Z</updated>
     
     <summary type="html">
     
@@ -36,10 +36,10 @@
   
   <entry>
     <title>Kubernetes - Helm</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Helm/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Helm/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Helm/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Helm/</id>
     <published>2019-09-28T21:34:00.000Z</published>
-    <updated>2019-10-28T06:26:45.280Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -54,14 +54,14 @@
   
   <entry>
     <title>Kubernetes - Secret</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Secret/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Secret/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Secret/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Secret/</id>
     <published>2019-09-25T16:18:00.000Z</published>
-    <updated>2019-10-06T18:59:11.101Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Kubernetes secret object let you store and mange sensitive information, such as passwords, OAuth tokens and SSH Keys. It is better to store this kind of secret in Kubernetes secret than in a container image.&lt;br&gt;
+      &lt;p&gt;Kubernetes secret object let you store and mange sensitive information, such as passwords, OAuth tokens and SSH Keys. It is better to store this kind of secret in Kubernetes secret than in a container image.&lt;/p&gt;
     
     </summary>
     
@@ -72,14 +72,14 @@
   
   <entry>
     <title>Kubernetes - ConfigMap</title>
-    <link href="http://xinghua24.github.io/Kubernetes-ConfigMap/"/>
-    <id>http://xinghua24.github.io/Kubernetes-ConfigMap/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-ConfigMap/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-ConfigMap/</id>
     <published>2019-09-25T07:19:00.000Z</published>
-    <updated>2019-10-07T02:43:40.498Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Kubernetes ConfigMap&lt;br&gt;
+      &lt;p&gt;Kubernetes ConfigMap&lt;/p&gt;
     
     </summary>
     
@@ -90,14 +90,14 @@
   
   <entry>
     <title>Kubernetes - Environment Variable</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Environment-Variable/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Environment-Variable/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Environment-Variable/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Environment-Variable/</id>
     <published>2019-09-25T02:42:00.000Z</published>
-    <updated>2019-10-07T02:43:54.960Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Kubernetes Environment Variable&lt;br&gt;
+      &lt;p&gt;Kubernetes Environment Variable&lt;/p&gt;
     
     </summary>
     
@@ -108,10 +108,10 @@
   
   <entry>
     <title>Kubernetes - Liveness and Readiness</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Liveness-And-Readiness/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Liveness-And-Readiness/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Liveness-And-Readiness/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Liveness-And-Readiness/</id>
     <published>2019-09-22T04:21:00.000Z</published>
-    <updated>2019-10-30T05:52:41.251Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -126,14 +126,14 @@
   
   <entry>
     <title>Kubernetes - Volumes</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Volumes/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Volumes/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/</id>
     <published>2019-09-15T05:18:00.000Z</published>
-    <updated>2019-10-06T06:16:03.798Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume&lt;br&gt;
+      &lt;p&gt;Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume&lt;/p&gt;
     
     </summary>
     
@@ -144,10 +144,10 @@
   
   <entry>
     <title>Kubernetes - Namespaces</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Namespaces/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Namespaces/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Namespaces/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Namespaces/</id>
     <published>2019-09-11T03:19:00.000Z</published>
-    <updated>2019-10-08T21:29:29.416Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -162,10 +162,10 @@
   
   <entry>
     <title>Kubernetes - Jobs</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Jobs/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Jobs/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Jobs/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Jobs/</id>
     <published>2019-09-09T14:00:00.000Z</published>
-    <updated>2019-10-09T06:42:10.852Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -180,10 +180,10 @@
   
   <entry>
     <title>Kubernetes - Ingress</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Ingress/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Ingress/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Ingress/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Ingress/</id>
     <published>2019-09-08T06:26:00.000Z</published>
-    <updated>2019-11-25T08:16:33.618Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -198,10 +198,10 @@
   
   <entry>
     <title>Kubernetes - Services</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Services/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Services/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Services/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Services/</id>
     <published>2019-09-06T12:22:00.000Z</published>
-    <updated>2019-11-10T05:32:51.812Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -216,10 +216,10 @@
   
   <entry>
     <title>Kubernetes - Running Application Using Deployment</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Running-Applications/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Running-Applications/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Running-Applications/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Running-Applications/</id>
     <published>2019-09-04T22:55:00.000Z</published>
-    <updated>2019-11-23T05:59:50.494Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -234,10 +234,10 @@
   
   <entry>
     <title>Kubernetes Concepts</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Concepts/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Concepts/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Concepts/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Concepts/</id>
     <published>2019-09-04T00:41:00.000Z</published>
-    <updated>2019-10-09T01:28:45.769Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -252,10 +252,10 @@
   
   <entry>
     <title>Kubernetes Getting Started</title>
-    <link href="http://xinghua24.github.io/Kubernetes-Getting-Started/"/>
-    <id>http://xinghua24.github.io/Kubernetes-Getting-Started/</id>
+    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Getting-Started/"/>
+    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Getting-Started/</id>
     <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2019-11-10T07:11:33.673Z</updated>
+    <updated>2020-04-26T16:04:36.042Z</updated>
     
     <summary type="html">
     
@@ -270,14 +270,14 @@
   
   <entry>
     <title>Maven - Deploy Artifacts to Nexus3</title>
-    <link href="http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/"/>
-    <id>http://xinghua24.github.io/Maven-Deploy-Artifacts-to-Nexus3/</id>
+    <link href="http://xinghua24.github.io/Java/Maven-Deploy-Artifacts-to-Nexus3/"/>
+    <id>http://xinghua24.github.io/Java/Maven-Deploy-Artifacts-to-Nexus3/</id>
     <published>2019-09-02T00:41:00.000Z</published>
-    <updated>2019-09-02T01:39:08.469Z</updated>
+    <updated>2020-04-26T16:09:54.429Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;We will learn how to deploy a artifact to Nexus3 server using maven.&lt;br&gt;
+      &lt;p&gt;We will learn how to deploy a artifact to Nexus3 server using maven.&lt;/p&gt;
     
     </summary>
     
@@ -288,14 +288,14 @@
   
   <entry>
     <title>Enable SSH in Ubuntu</title>
-    <link href="http://xinghua24.github.io/Enable-SSH-in-Ubuntu/"/>
-    <id>http://xinghua24.github.io/Enable-SSH-in-Ubuntu/</id>
+    <link href="http://xinghua24.github.io/Linux/Enable-SSH-in-Ubuntu/"/>
+    <id>http://xinghua24.github.io/Linux/Enable-SSH-in-Ubuntu/</id>
     <published>2019-08-29T21:52:00.000Z</published>
-    <updated>2019-09-02T00:35:08.533Z</updated>
+    <updated>2020-04-26T16:13:23.487Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Enable SSH in Ubuntu&lt;br&gt;
+      &lt;p&gt;Enable SSH in Ubuntu&lt;/p&gt;
     
     </summary>
     
@@ -306,14 +306,14 @@
   
   <entry>
     <title>Stop password prompt in Ubuntu</title>
-    <link href="http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/"/>
-    <id>http://xinghua24.github.io/Stop-password-prompt-in-Ubuntu/</id>
+    <link href="http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/"/>
+    <id>http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/</id>
     <published>2019-08-29T17:22:00.000Z</published>
-    <updated>2019-09-02T00:35:20.409Z</updated>
+    <updated>2020-04-26T16:14:30.025Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Password prompt can be annoying. However, there is a quick way to stop it for all.&lt;br&gt;
+      &lt;p&gt;Password prompt can be annoying. However, there is a quick way to stop it for all.&lt;/p&gt;
     
     </summary>
     
@@ -324,10 +324,10 @@
   
   <entry>
     <title>Spring Boot Security - Basics</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Security-Basics/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Security-Basics/</id>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Boot-Security-Basics/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Boot-Security-Basics/</id>
     <published>2019-08-14T22:37:00.000Z</published>
-    <updated>2020-04-24T01:03:04.236Z</updated>
+    <updated>2020-04-26T16:12:53.995Z</updated>
     
     <summary type="html">
     
@@ -342,14 +342,14 @@
   
   <entry>
     <title>Spring Boot - Error Handling</title>
-    <link href="http://xinghua24.github.io/Spring-Boot-Error-Handling/"/>
-    <id>http://xinghua24.github.io/Spring-Boot-Error-Handling/</id>
+    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Error-Handling/"/>
+    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Error-Handling/</id>
     <published>2019-08-14T03:09:00.000Z</published>
-    <updated>2019-08-14T04:11:54.037Z</updated>
+    <updated>2020-04-26T16:07:15.246Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Spring Boot Error Handling&lt;br&gt;
+      &lt;p&gt;Spring Boot Error Handling&lt;/p&gt;
     
     </summary>
     
@@ -360,10 +360,10 @@
   
   <entry>
     <title>Git</title>
-    <link href="http://xinghua24.github.io/Git/"/>
-    <id>http://xinghua24.github.io/Git/</id>
+    <link href="http://xinghua24.github.io/Git/Git/"/>
+    <id>http://xinghua24.github.io/Git/Git/</id>
     <published>2019-08-10T22:20:00.000Z</published>
-    <updated>2020-03-21T09:23:19.020Z</updated>
+    <updated>2020-04-26T16:18:17.205Z</updated>
     
     <summary type="html">
     

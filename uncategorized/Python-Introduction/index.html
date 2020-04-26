@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Python Introduction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Introduction">
+<meta property="og:url" content="http://xinghua24.github.io/uncategorized/Python-Introduction/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Python Introduction">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-04-26T16:19:29.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Introduction">
+<meta name="twitter:description" content="Python Introduction">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Xing's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://xinghua24.github.io/uncategorized/Python-Introduction/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python Introduction | Xing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/uncategorized/Python-Introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinghua Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python Introduction
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-06 18:00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T18:00:00-04:00">2019-08-06</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/uncategorized/Python-Introduction/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="uncategorized/Python-Introduction/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python Introduction</p>
+<a id="more"></a>
+
+<h1 id="Install-Python3"><a href="#Install-Python3" class="headerlink" title="Install Python3"></a>Install Python3</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3</span><br></pre></td></tr></table></figure>
+
+<p>To check python3 version</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+<p>You can now run the python3 interpreter using <code>python3</code> command. </p>
+<p>You can create python program using text editors such as VS Code and run the python program using <code>python3</code> command. VS Code has Python Extension that provides intelliSense and debugging support. You can also use PyCharm if you prefer an IDE.</p>
+<h1 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h1><p>print objects. print() is a build-in function. <a href="https://docs.python.org/3.6/library/functions.html#print" target="_blank" rel="noopener">print() reference</a></p>
+<p>method signature</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(*objects, sep=<span class="string">' '</span>, end=<span class="string">'\n'</span>, file=sys.stdout, flush=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Demo</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"hello python"</span>)</span><br><span class="line">print(<span class="string">"hello"</span>, <span class="string">"python"</span>)</span><br><span class="line">print(<span class="number">234.56</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># use **** as separator, separtor can be anything or empty string</span></span><br><span class="line">print(<span class="string">"hello"</span>, <span class="string">"python"</span>, <span class="string">"3"</span>, sep=<span class="string">"****"</span>)   <span class="comment"># =&gt; hello****python****3</span></span><br><span class="line">print(<span class="string">"hello"</span>, <span class="string">"python"</span>, <span class="string">"3"</span>, sep=<span class="string">""</span>)    <span class="comment"># =&gt; hellopython3</span></span><br><span class="line">print(<span class="string">"hello"</span>, <span class="string">"python"</span>, <span class="string">"3"</span>, sep=<span class="string">"\n"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h1><ul>
+<li>Python variables can only begin with a letter(A-Za-z) or an underscore(_).</li>
+<li>Python variables are dynamically-typed. Do not specify variable type when declaring one.</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeting = <span class="string">"Hello World"</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Getting-input"><a href="#Getting-input" class="headerlink" title="Getting input"></a>Getting input</h1><p>Use input([promp]) build-in function to get input. <a href="https://docs.python.org/3/library/functions.html#input" target="_blank" rel="noopener">input reference</a></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># getting input</span></span><br><span class="line">inputString = input(<span class="string">"please enter a string"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># It is useful to keep window open after script complete execution</span></span><br><span class="line">input(<span class="string">"press close to exit"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>To get input as int. Note that you need to use Ctrl+D to send EOF to indicate no more input.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">a = int(sys.stdin.read())</span><br></pre></td></tr></table></figure>
+
+<h1 id="Build-in-Types"><a href="#Build-in-Types" class="headerlink" title="Build-in Types"></a>Build-in Types</h1><p>Python has 5 standard data types</p>
+<ul>
+<li>Numbers(integers, floating point numbers, and complex numbers)</li>
+<li>String</li>
+<li>Boolean(value are True or False)</li>
+<li>sequence types(List, Tuple, Dictionary)</li>
+</ul>
+<p><strong>Infinity</strong><br><br>In python, you can have a number with infinity value</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">a=math.inf</span><br><span class="line">b=-math.inf</span><br></pre></td></tr></table></figure>
+
+<p><strong>use type() to get object type</strong><br><br>type() is also a build-in function. <a href="https://docs.python.org/3/library/functions.html#type" target="_blank" rel="noopener">type() reference</a></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type(<span class="number">123</span>)    <span class="comment"># =&gt; &lt;class 'int'&gt;</span></span><br><span class="line">type(<span class="number">123.45</span>)    <span class="comment"># =&gt; &lt;class 'float'&gt;</span></span><br><span class="line">type(<span class="string">"foo"</span>)    <span class="comment"># =&gt; &lt;class 'str'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="None"><a href="#None" class="headerlink" title="None"></a>None</h1><p>Many languages has null value. In python, the equivelent is <code>None</code>. <code>None</code> is the only instance of class <code>NoneType</code> You can assign <code>None</code> to a variable. Use identity operator <code>is</code> to check if a variable has <code>None</code> value. </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">my_var = <span class="literal">None</span></span><br><span class="line"><span class="keyword">if</span> my_var <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">     print(<span class="string">"my_var is empty"</span>)   <span class="comment"># "my_var is empty"</span></span><br><span class="line"></span><br><span class="line">my_var = <span class="string">"123"</span></span><br><span class="line"><span class="keyword">if</span> my_var <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">     print(<span class="string">"my_var is not empty"</span>) <span class="comment"># 'my_var is not empty"</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><h2 id="Arithmetic-Operator"><a href="#Arithmetic-Operator" class="headerlink" title="Arithmetic Operator"></a>Arithmetic Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>addition</td>
+</tr>
+<tr>
+<td>-</td>
+<td>subtraction</td>
+</tr>
+<tr>
+<td>*</td>
+<td>multiplication</td>
+</tr>
+<tr>
+<td>/</td>
+<td>division</td>
+</tr>
+<tr>
+<td>//</td>
+<td>floor division</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulus</td>
+</tr>
+<tr>
+<td>**</td>
+<td>exponentiation</td>
+</tr>
+</tbody></table>
+<h2 id="Comparison-Operator"><a href="#Comparison-Operator" class="headerlink" title="Comparison Operator"></a>Comparison Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;</td>
+<td>less than</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>greeter than</td>
+</tr>
+<tr>
+<td>==</td>
+<td>equal to</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>not equal to</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>less than or equal to</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>greeter than or equal to</td>
+</tr>
+</tbody></table>
+<h2 id="Assignment-Operator"><a href="#Assignment-Operator" class="headerlink" title="Assignment Operator"></a>Assignment Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>assign</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>add and assign</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>subtract and assign</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>divide and assign</td>
+</tr>
+<tr>
+<td>* =</td>
+<td>multiple and assign</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>modulus and assign</td>
+</tr>
+<tr>
+<td>**=</td>
+<td>exponent and assign</td>
+</tr>
+<tr>
+<td>//=</td>
+<td>floor-divide and assign</td>
+</tr>
+</tbody></table>
+<h2 id="Logical-Operator"><a href="#Logical-Operator" class="headerlink" title="Logical Operator"></a>Logical Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>and</td>
+<td>return true when both statement are true</td>
+</tr>
+<tr>
+<td>or</td>
+<td>return true when either statement is true</td>
+</tr>
+<tr>
+<td>not</td>
+<td>inverts the Boolean value of an expresion</td>
+</tr>
+</tbody></table>
+<h2 id="Membership-operator"><a href="#Membership-operator" class="headerlink" title="Membership operator"></a>Membership operator</h2><p>There are two membership operators ‘in’ and ‘not in’</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'tea'</span> <span class="keyword">in</span> [<span class="string">'latte'</span>, <span class="string">'tea'</span>, <span class="string">'coke'</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'tea'</span> <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">'latte'</span>, <span class="string">'tea'</span>, <span class="string">'coke'</span>]</span><br></pre></td></tr></table></figure>
+
+<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><p><a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" target="_blank" rel="noopener">str reference</a></p>
+<ul>
+<li>You can use single quotes or double quotes</li>
+<li>If the string contains single quote, then it is better to use double quotes</li>
+<li>tripple quotes “”” and ‘’’ can be used for multiline string</li>
+<li>use square brackets for slicing</li>
+<li>use + to concatenate strings</li>
+<li>use len() function to return a string’s length</li>
+<li>use == to compare strings</li>
+<li>Use <code>in</code> operator or find method to check if a string is a substring of another string</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">"Hello World"</span></span><br><span class="line">s[<span class="number">0</span>]    <span class="comment"># =&gt; H</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># slicing</span></span><br><span class="line">s[<span class="number">0</span>:<span class="number">3</span>]    <span class="comment"># =&gt; Hel</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># String concat</span></span><br><span class="line"><span class="string">"Hello"</span> + <span class="string">" "</span> + <span class="string">"World"</span>   <span class="comment"># Hello World</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># formatting</span></span><br><span class="line">print(<span class="string">"My name is %s and I am %d years old"</span> % (<span class="string">"Mark"</span>, <span class="number">42</span>))    <span class="comment"># =&gt; My name is Mark and I am 42 years old</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get string length</span></span><br><span class="line">len(s)</span><br><span class="line"></span><br><span class="line"><span class="comment"># search for a substring</span></span><br><span class="line">s.find(<span class="string">"Wor"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># upper case</span></span><br><span class="line">s.upper()</span><br><span class="line"></span><br><span class="line"><span class="comment"># lower case</span></span><br><span class="line">s.lower()</span><br><span class="line"></span><br><span class="line"><span class="comment"># format</span></span><br><span class="line"><span class="string">"the Sum of 1 + 2 is &#123;0&#125;"</span>.format(<span class="number">1</span>+<span class="number">2</span>)    <span class="comment"># =&gt; 'the Sum of 1 + 2 is 3'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># convert number to string</span></span><br><span class="line">str(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># check string contains</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">"de"</span> <span class="keyword">in</span> <span class="string">"abcde"</span>:</span><br><span class="line">    print(<span class="string">"de is found"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Control-Statement-and-Iterator"><a href="#Control-Statement-and-Iterator" class="headerlink" title="Control Statement and Iterator"></a>Control Statement and Iterator</h1><h2 id="If-Statement"><a href="#If-Statement" class="headerlink" title="If Statement"></a>If Statement</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = input(<span class="string">"x:"</span>)</span><br><span class="line">y = input(<span class="string">"y:"</span>)</span><br><span class="line"><span class="keyword">if</span> x &lt; y:</span><br><span class="line">    print(<span class="string">'x is less than y'</span>)</span><br><span class="line"><span class="keyword">elif</span> x &gt; y:</span><br><span class="line">    print(<span class="string">'x is greater than y'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'x and y are equal'</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="While-Statement"><a href="#While-Statement" class="headerlink" title="While Statement"></a>While Statement</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> count &lt; <span class="number">10</span>:</span><br><span class="line">     print(count)</span><br><span class="line">     count += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>The <strong>break</strong> statement terminates the loop containing it.</p>
+<p>The <strong>continue</strong> statement is used to skip the rest of the code inside a loop for the current iteration only. </p>
+<h2 id="For-loop"><a href="#For-loop" class="headerlink" title="For loop"></a>For loop</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">    print(i)  <span class="comment"># output 1 3 7 10</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="range-function"><a href="#range-function" class="headerlink" title="range function"></a>range function</h2><p>for loop with range() function.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># output 0 to 4</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output 10 to 0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>range() function generate a sequence of numbers  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(start, stop, step)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pass-statement"><a href="#Pass-statement" class="headerlink" title="Pass statement"></a>Pass statement</h2><p><code>pass</code> statement does nothing. It is usally used when we have a loop or function that is not implemented yet.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="List-Tuple-and-Dictionary"><a href="#List-Tuple-and-Dictionary" class="headerlink" title="List, Tuple and Dictionary"></a>List, Tuple and Dictionary</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
+<li>ordered list</li>
+<li>use [index] to get the item in the list</li>
+<li>if the index is negative, then it will count from the right instead of left</li>
+<li>use in operator to check if an item is in the list</li>
+<li>use len() function to get the string length</li>
+<li>use append method to append item to a list</li>
+</ul>
+<p>see <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" target="_blank" rel="noopener">https://docs.python.org/3/tutorial/datastructures.html#more-on-lists</a> for all list operations</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">empytList = []    <span class="comment"># empty list</span></span><br><span class="line"></span><br><span class="line">people = [<span class="string">"Alice"</span>, <span class="string">"Bob"</span>]</span><br><span class="line">print(people[<span class="number">0</span>])    <span class="comment"># =&gt; Alice</span></span><br><span class="line">people[<span class="number">1</span>] = <span class="string">"Ted"</span>    <span class="comment"># =&gt; change list item value</span></span><br><span class="line"></span><br><span class="line">people.append(<span class="string">"Cathy"</span>) <span class="comment"># append new element</span></span><br><span class="line">people.remove(<span class="string">"Cathy"</span>) <span class="comment"># remove element</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Use List as Stack</strong><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">stack.append(<span class="number">4</span>)</span><br><span class="line">print(stack.pop())    <span class="comment"># 4</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Queue</strong><br><br>Using list as Queue is not efficient. Use <code>collections.deque</code> because it has fast appends and pops at both ends.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">queue = deque([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">queue.append(<span class="number">4</span>)</span><br><span class="line">print(queue.popleft())    <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h2><p>Tuple - tuple is like an immutable list.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numbers = (<span class="number">2</span>, <span class="number">4</span> ,<span class="number">6</span> ,<span class="number">8</span>)</span><br><span class="line">numbers[<span class="number">0</span>]     <span class="comment"># print 2</span></span><br><span class="line">numbers[<span class="number">1</span>:<span class="number">3</span>]   <span class="comment"># print (4, 6)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Dicutionary"><a href="#Dicutionary" class="headerlink" title="Dicutionary"></a>Dicutionary</h2><p>Dictionary - like a Map, it stores key-value pairs. Order doesn’t matter for a dictionary.</p>
+<p>see <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries" target="_blank" rel="noopener">https://docs.python.org/3/tutorial/datastructures.html#dictionaries</a> for all dictionary operations</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">employees = &#123; <span class="string">"alice"</span>: <span class="string">"developer"</span>, <span class="string">"bob"</span>: <span class="string">"sales"</span> &#125;</span><br><span class="line">employees[<span class="string">"alice"</span>]            <span class="comment"># output 'developer'</span></span><br><span class="line">employees[<span class="string">"alice"</span>] = <span class="string">"CEO"</span>    <span class="comment"># sets value of 'alice' to be 'CEO'</span></span><br><span class="line">employees.keys()              <span class="comment"># dict_keys(['alice', 'bob'])</span></span><br><span class="line">employees.values()            <span class="comment"># dict_values(['CEO', 'sales'])</span></span><br><span class="line"><span class="keyword">del</span> employees[<span class="string">"alice"</span>]        <span class="comment"># delete key "alice"</span></span><br><span class="line">employees[<span class="string">"abc"</span>]              <span class="comment"># KeyError: 'abc'</span></span><br><span class="line">employees.get(<span class="string">"abc"</span>)          <span class="comment"># None</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><p>Functions are defined using ‘def’</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(num1, num2)</span>:</span></span><br><span class="line">     <span class="keyword">return</span> num1 + num2</span><br><span class="line"> </span><br><span class="line">add(<span class="number">2</span>, <span class="number">3</span>)  <span class="comment"># =&gt; 5</span></span><br></pre></td></tr></table></figure>
+
+<p>Python supports multiple return values.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal</span><span class="params">(num1, num2)</span>:</span></span><br><span class="line">     <span class="keyword">return</span> num1+num2, num1-num2</span><br><span class="line"></span><br><span class="line">x,y = cal(<span class="number">10</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h1><p>By default, files are open in reading mode. modes are ‘r’, ‘w’, ‘x’(exclusive creation), ‘a’, ‘b’, ‘+’(reading and writing).</p>
+<p>read file and write file.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># write file</span></span><br><span class="line">myfile = open(<span class="string">'output.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">myfile.write(<span class="string">"ABC\n"</span>)</span><br><span class="line">myfile.write(<span class="string">"DEF\n"</span>)</span><br><span class="line">myfile.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># read file</span></span><br><span class="line">myfile = open(<span class="string">'output.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line">content = myfile.read()</span><br><span class="line">print(content)</span><br><span class="line">myfile.close()</span><br></pre></td></tr></table></figure>
+
+<br>
+With statement
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'sample.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> myFile:</span><br><span class="line">    myFile.write(<span class="string">"ABC\n"</span>)</span><br><span class="line">    myFile.write(<span class="string">"DEF\n"</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'sample.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> myFile:</span><br><span class="line">    print(myFile.read())</span><br></pre></td></tr></table></figure>
+
+<p><strong>Read file line by line</strong><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"file.txt"</span>, <span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f: </span><br><span class="line">    print(line.strip())</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<p>Reference:</p>
+<ul>
+<li><a href="https://www.programiz.com/python-programming/file-operation" target="_blank" rel="noopener">Python Tutorial - File operation</a></li>
+</ul>
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><p>You can assign attributes to an Object. functions defined in an class should have a ‘self’<br>reference to the instance by convention. It can be named differently but not recommended.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.sound)</span><br><span class="line"></span><br><span class="line">animal = Animal()</span><br><span class="line">animal.sound = <span class="string">"..."</span></span><br><span class="line">animal.speak()</span><br></pre></td></tr></table></figure>
+
+<p><strong>init method</strong><br><br>the init method is <strong>init</strong>(two underscore characters, followed by init, and then two more underscores)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, sound)</span>:</span></span><br><span class="line">    self.sound = sound</span><br></pre></td></tr></table></figure>
+
+<p><strong>toString method</strong><br><br><strong>str</strong> is supposed to return a string representation of an object.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Animal'</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Inheritance</strong><br><br>syntax</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span>:</span></span><br><span class="line">  Body of base <span class="class"><span class="keyword">class</span></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">DerivedClass</span><span class="params">(BaseClass)</span>:</span></span><br><span class="line">  Body of derived <span class="class"><span class="keyword">class</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Sample</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.sound)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span><span class="params">(Animal)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">speak</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"meow"</span>)</span><br><span class="line"></span><br><span class="line">cat = Cat()</span><br><span class="line">cat.speak()</span><br></pre></td></tr></table></figure>
+
+<h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p>A module is a file containing Python definitions and statements. The file name is the module name with the suffix .py appended. </p>
+<p>A module can contain executable statements as well as function definitions.</p>
+<p>calc.py file defines module calc with two functions</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(num1, num2)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> num1 + num2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subtract</span><span class="params">(num1, num2)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> num1 - num2</span><br></pre></td></tr></table></figure>
+
+<p>Import calc module and use its functions</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> calc</span><br><span class="line">print(calc.add(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">print(calc.subtract(<span class="number">2</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong>Importing build-in Module</strong><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import a math module</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">print(math.sqrt(<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong>from … import …</strong><br><br>import specific functions from a module</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> ceil, floor</span><br><span class="line">print(ceil(<span class="number">3.7</span>))   <span class="comment"># =&gt; 4.0</span></span><br><span class="line">print(floor(<span class="number">3.7</span>))  <span class="comment"># =&gt; 3.0</span></span><br></pre></td></tr></table></figure>
+
+<p>import functions and datatypes</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple, deque</span><br></pre></td></tr></table></figure>
+
+<p>*<em>from … import * *</em><br><br>import all functions in a module, not recommended</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> *</span><br><span class="line">print(sqrt(<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h1><p>A package is a collection of related python modules. A Package must contain a special file <strong>__init__.py</strong>. The initialization code in <strong>__init__.py</strong> will be executed when package is imported. You will usually see import statements in <strong>__init__.py</strong> file.</p>
+<h1 id="Main-method"><a href="#Main-method" class="headerlink" title="Main method"></a>Main method</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">"in main method"</span>) <span class="comment"># =&gt; in main method</span></span><br></pre></td></tr></table></figure>
+
+<p>The above code snippe is used quite often. It checks if a module is being imported or not.</p>
+<p>In other words, the code within the ‘if’ block will be executed only when the code runs directly. Here ‘directly’ means ‘not imported’.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://www.programiz.com/python-programming/first-program" target="_blank" rel="noopener">Python Tutorial</a></li>
+<li><a href="https://realpython.com/python-modules-packages/" target="_blank" rel="noopener">Python Modules and Packages – An Introduction by John Sturtz</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Linux/Run-Command-in-Background/" rel="next" title="Run Command in the Background">
+                <i class="fa fa-chevron-left"></i> Run Command in the Background
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SpringBoot/Spring-Boot-MongoDB/" rel="prev" title="Spring Boot - MongoDB">
+                Spring Boot - MongoDB <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">139</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/xinghua24" title="GitHub &rarr; https://github.com/xinghua24" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Python3"><span class="nav-number">1.</span> <span class="nav-text">Install Python3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print"><span class="nav-number">2.</span> <span class="nav-text">print()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variable"><span class="nav-number">3.</span> <span class="nav-text">Variable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting-input"><span class="nav-number">4.</span> <span class="nav-text">Getting input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Build-in-Types"><span class="nav-number">5.</span> <span class="nav-text">Build-in Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#None"><span class="nav-number">6.</span> <span class="nav-text">None</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operators"><span class="nav-number">7.</span> <span class="nav-text">Operators</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arithmetic-Operator"><span class="nav-number">7.1.</span> <span class="nav-text">Arithmetic Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparison-Operator"><span class="nav-number">7.2.</span> <span class="nav-text">Comparison Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Assignment-Operator"><span class="nav-number">7.3.</span> <span class="nav-text">Assignment Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logical-Operator"><span class="nav-number">7.4.</span> <span class="nav-text">Logical Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Membership-operator"><span class="nav-number">7.5.</span> <span class="nav-text">Membership operator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">8.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Control-Statement-and-Iterator"><span class="nav-number">9.</span> <span class="nav-text">Control Statement and Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#If-Statement"><span class="nav-number">9.1.</span> <span class="nav-text">If Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#While-Statement"><span class="nav-number">9.2.</span> <span class="nav-text">While Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#For-loop"><span class="nav-number">9.3.</span> <span class="nav-text">For loop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range-function"><span class="nav-number">9.4.</span> <span class="nav-text">range function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-statement"><span class="nav-number">9.5.</span> <span class="nav-text">Pass statement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-Tuple-and-Dictionary"><span class="nav-number">10.</span> <span class="nav-text">List, Tuple and Dictionary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">10.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuple"><span class="nav-number">10.2.</span> <span class="nav-text">Tuple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dicutionary"><span class="nav-number">10.3.</span> <span class="nav-text">Dicutionary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">11.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Files"><span class="nav-number">12.</span> <span class="nav-text">Files</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class"><span class="nav-number">13.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module"><span class="nav-number">14.</span> <span class="nav-text">Module</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Package"><span class="nav-number">15.</span> <span class="nav-text">Package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Main-method"><span class="nav-number">16.</span> <span class="nav-text">Main method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">17.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://xinghua24githubio.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://xinghua24.github.io/uncategorized/Python-Introduction/";
+        this.page.identifier = "uncategorized/Python-Introduction/";
+        this.page.title = 'Python Introduction';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xinghua24githubio.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('Copied');
+          else $(this).text('Copy failed');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>

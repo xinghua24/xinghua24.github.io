@@ -102,13 +102,17 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Xing&#39;s Blog">
-<meta property="og:url" content="http://xinghua24.github.io/categories/SpringBoot-Security/index.html">
+  <meta name="description" content="Configure Authentication in Spring Security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Security - Configure Authentication">
+<meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Configure Authentication in Spring Security">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-04-26T23:59:51.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xing&#39;s Blog">
+<meta name="twitter:title" content="Spring Security - Configure Authentication">
+<meta name="twitter:description" content="Configure Authentication in Spring Security">
 
 
 
@@ -117,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/categories/SpringBoot-Security/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/">
 
 
 
@@ -127,7 +131,7 @@
   };
 </script>
 
-  <title>Category: SpringBoot Security | Xing's Blog</title>
+  <title>Spring Security - Configure Authentication | Xing's Blog</title>
   
 
 
@@ -175,7 +179,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,7 +234,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -277,22 +281,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -338,57 +326,234 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>SpringBoot Security<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinghua Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/SpringSecurity/Spring-Boot-Security-Basics/" itemprop="url">
-              
-                <span itemprop="name">Spring Boot Security - Basics</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Spring Security - Configure Authentication
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-14T18:37:00-04:00" content="2019-08-14">
-          08-14
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-04-26 08:38:00" itemprop="dateCreated datePublished" datetime="2020-04-26T08:38:00-04:00">2020-04-26</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/SpringSecurity/Spring-Security-Config-Authentication/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringSecurity/Spring-Security-Config-Authentication/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Configure Authentication in Spring Security</p>
+<a id="more"></a>
+
+
+<h1 id="AuthenticationManager"><a href="#AuthenticationManager" class="headerlink" title="AuthenticationManager"></a>AuthenticationManager</h1><ul>
+<li>One of the most important interface in Spring Security. </li>
+<li>Responsible for processing Authentication request and returns a fully populated Authentication object.</li>
+<li>You don’t usually work with AuthenticationManager directly, you use AuthenticationManagerBuilder to create it.</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/authentication/AuthenticationManager.html" target="_blank" rel="noopener">java doc</a></li>
+<li><a href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/AuthenticationManager.java" target="_blank" rel="noopener">source code</a></li>
+</ul>
+<p>AuthenticationManager Interface source code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AuthenticationManager</span> </span>&#123;</span><br><span class="line">    <span class="function">Authentication <span class="title">authenticate</span><span class="params">(Authentication authentication)</span></span></span><br><span class="line"><span class="function">		<span class="keyword">throws</span> AuthenticationException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>authenticate</code> method Attempts to authenticate the passed Authentication argument</p>
+<ul>
+<li>returning a fully populated Authentication object (including granted authorities, authenticated=true) if successful. </li>
+<li>if input request is not valid, throw AuthenticationException</li>
+<li>reutrns null if can’t decide</li>
+</ul>
+<h1 id="AuthenticationManagerBuilder"><a href="#AuthenticationManagerBuilder" class="headerlink" title="AuthenticationManagerBuilder"></a>AuthenticationManagerBuilder</h1><ul>
+<li>To configure Authentication, you need to provide a Security configuration that extends WebSecurityConfiguereAdapter and then overrde configure method that takes an AuthenticationManagerBuilder as parameter.</li>
+<li><strong>AuthenticationManagerBuilder</strong> is a securityBuilder used to create an AuthenticationManager. Allows for easily building in memory authentication, LDAP authentication, JDBC based authentication, adding UserDetailsService, and adding AuthenticationProvider’s.</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.html" target="_blank" rel="noopener">java doc</a></li>
+<li><a href="https://github.com/spring-projects/spring-security/blob/master/config/src/main/java/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.java" target="_blank" rel="noopener">source code</a></li>
+</ul>
+<h1 id="Using-AuthenticationManagerBuilder"><a href="#Using-AuthenticationManagerBuilder" class="headerlink" title="Using AuthenticationManagerBuilder"></a>Using AuthenticationManagerBuilder</h1><p>Configure AuthenticationManager using AuthenticationManagerBuilder.<br>This configureation sets up a very basic in-memory authentication config. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityConfiguration</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PasswordEncoder <span class="title">passwordEncoder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BCryptPasswordEncoder();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(AuthenticationManagerBuilder auth)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        auth.inMemoryAuthentication()</span><br><span class="line">                .withUser(<span class="string">"user"</span>)</span><br><span class="line">                    .password(passwordEncoder().encode(<span class="string">"password"</span>))</span><br><span class="line">                    .roles(<span class="string">"ADMIN"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Start with Spring 5, we need to use password encoder to encode the password. <br></p>
+<p>Here we use AuthenticationManagerBuilder to create a very simple in memory authentication. </p>
+<p>In practice, we are more likely create more complicated authentication such as LDAP authentication, JDBC based authentication. We can also add UserDetailsService or add custom AuthenticationProvider.</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/SpringSecurity/Spring-Security-Intro/" rel="next" title="Spring Security - Intro">
+                <i class="fa fa-chevron-left"></i> Spring Security - Intro
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SpringSecurity/Spring-Security-Config-HTTPSecurity/" rel="prev" title="Spring Security - Configure Using HttpSecurity">
+                Spring Security - Configure Using HttpSecurity <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -409,8 +574,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -425,7 +599,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">139</span>
+                    <span class="site-state-item-count">141</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -437,6 +611,12 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
+                    
+                      
+                    
+                      
                     
                       
                     
@@ -552,6 +732,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManager"><span class="nav-number">1.</span> <span class="nav-text">AuthenticationManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManagerBuilder"><span class="nav-number">2.</span> <span class="nav-text">AuthenticationManagerBuilder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-AuthenticationManagerBuilder"><span class="nav-number">3.</span> <span class="nav-text">Using AuthenticationManagerBuilder</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -680,6 +877,10 @@
   
 
   
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 
@@ -694,6 +895,23 @@
     <script id="dsq-count-scr" src="https://xinghua24githubio.disqus.com/count.js" async></script>
   
 
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/";
+        this.page.identifier = "SpringSecurity/Spring-Security-Config-Authentication/";
+        this.page.title = 'Spring Security - Configure Authentication';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xinghua24githubio.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 

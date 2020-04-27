@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-04-26T16:09:54.429Z</updated>
+  <updated>2020-04-27T00:15:45.327Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Security - Configure Using HttpSecurity</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HTTPSecurity/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HTTPSecurity/</id>
+    <published>2020-04-26T23:37:00.000Z</published>
+    <updated>2020-04-27T00:15:45.327Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Configure Spring Security using HTTPSecurity&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - Configure Authentication</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/</id>
+    <published>2020-04-26T12:38:00.000Z</published>
+    <updated>2020-04-26T23:59:51.620Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Configure Authentication in Spring Security&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - Intro</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
+    <published>2020-04-25T22:37:00.000Z</published>
+    <updated>2020-04-26T23:43:19.119Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Security Introduction&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>WireMock</title>
@@ -318,60 +372,6 @@
     </summary>
     
       <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot Security - Basics</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Boot-Security-Basics/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Boot-Security-Basics/</id>
-    <published>2019-08-14T22:37:00.000Z</published>
-    <updated>2020-04-26T16:12:53.995Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Spring Security Introduction&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot Security" scheme="http://xinghua24.github.io/categories/SpringBoot-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Error Handling</title>
-    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Error-Handling/"/>
-    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Error-Handling/</id>
-    <published>2019-08-14T03:09:00.000Z</published>
-    <updated>2020-04-26T16:07:15.246Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Spring Boot Error Handling&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="SpringBoot" scheme="http://xinghua24.github.io/categories/SpringBoot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Git</title>
-    <link href="http://xinghua24.github.io/Git/Git/"/>
-    <id>http://xinghua24.github.io/Git/Git/</id>
-    <published>2019-08-10T22:20:00.000Z</published>
-    <updated>2020-04-26T16:18:17.205Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Git Introduction&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="uncategorized" scheme="http://xinghua24.github.io/categories/uncategorized/"/>
     
     
   </entry>

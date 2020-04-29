@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-04-27T00:15:45.327Z</updated>
+  <updated>2020-04-28T03:29:05.122Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -18,14 +18,14 @@
   
   <entry>
     <title>Spring Security - Configure Using HttpSecurity</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HTTPSecurity/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HTTPSecurity/</id>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HttpSecurity/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HttpSecurity/</id>
     <published>2020-04-26T23:37:00.000Z</published>
-    <updated>2020-04-27T00:15:45.327Z</updated>
+    <updated>2020-04-28T03:29:05.122Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Configure Spring Security using HTTPSecurity&lt;/p&gt;
+      &lt;p&gt;Configure Spring Security using HttpSecurity&lt;/p&gt;
     
     </summary>
     
@@ -57,7 +57,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
     <published>2020-04-25T22:37:00.000Z</published>
-    <updated>2020-04-26T23:43:19.119Z</updated>
+    <updated>2020-04-29T03:57:14.035Z</updated>
     
     <summary type="html">
     

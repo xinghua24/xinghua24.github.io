@@ -102,17 +102,19 @@
 
 
 
-  <meta name="description" content="Configure Authentication in Spring Security">
+  <meta name="description" content="Authentication Process">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Security - Configure Authentication">
-<meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/index.html">
+<meta property="og:title" content="Spring Security - Authentication Process">
+<meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Configure Authentication in Spring Security">
+<meta property="og:description" content="Authentication Process">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T23:59:51.620Z">
+<meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/Authentication-Process.png">
+<meta property="og:updated_time" content="2020-05-02T04:51:36.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Security - Configure Authentication">
-<meta name="twitter:description" content="Configure Authentication in Spring Security">
+<meta name="twitter:title" content="Spring Security - Authentication Process">
+<meta name="twitter:description" content="Authentication Process">
+<meta name="twitter:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/Authentication-Process.png">
 
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>Spring Security - Configure Authentication | Xing's Blog</title>
+  <title>Spring Security - Authentication Process | Xing's Blog</title>
   
 
 
@@ -342,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Security - Configure Authentication
+          <h1 class="post-title" itemprop="name headline">Spring Security - Authentication Process
 
               
             
@@ -418,9 +420,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/SpringSecurity/Spring-Security-Config-Authentication/#comments" itemprop="discussionUrl">
+                <a href="/SpringSecurity/Spring-Security-Authentication-Process/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringSecurity/Spring-Security-Config-Authentication/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringSecurity/Spring-Security-Authentication-Process/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -448,14 +450,31 @@
       
 
       
-        <p>Configure Authentication in Spring Security</p>
+        <p>Authentication Process</p>
 <a id="more"></a>
 
-
+<h1 id="Authentication-Process-The-Big-Picture"><a href="#Authentication-Process-The-Big-Picture" class="headerlink" title="Authentication Process - The Big Picture"></a>Authentication Process - The Big Picture</h1><p><img src="Authentication-Process.png" alt></p>
+<h1 id="Authentication-Filter"><a href="#Authentication-Filter" class="headerlink" title="Authentication Filter"></a>Authentication Filter</h1><p>Authentication filter usually extends  <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.html" target="_blank" rel="noopener">AbstractAuthenticationProcessingFilter</a>  class.</p>
+<p>Example Authentication Filters are</p>
+<ul>
+<li>UsernamePasswordAuthenticationFilter</li>
+<li>CasAuthenticationFilter</li>
+<li>OAuth2LoginAuthenticationFilter</li>
+<li>OpenIDAuthenticationFilter</li>
+<li>Saml2WebSsoAuthenticationFilter</li>
+</ul>
+<p>Authentication Filter’s basic responsibility</p>
+<ol>
+<li>Authentication Filter creates Authentication from the user Request. For example, UsernamePasswordAuthenticationFilter creates UsernamePasswordAuthenticationToken</li>
+<li>Authentication Filter delegates the work to AuthenticationManager</li>
+<li>If authentication is success, then set the Authetnication on the SecurityContextHolder</li>
+</ol>
 <h1 id="AuthenticationManager"><a href="#AuthenticationManager" class="headerlink" title="AuthenticationManager"></a>AuthenticationManager</h1><ul>
-<li>One of the most important interface in Spring Security. </li>
+<li><strong>AuthenticationManager</strong> is one of the most important class in Spring Security. </li>
 <li>Responsible for processing Authentication request and returns a fully populated Authentication object.</li>
+<li>AuthenticationManager is an interface, the most common implementation is <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-providermanager" target="_blank" rel="noopener">ProviderManager</a>.  ProviderManager delegates to a List of AuthenticationProviders.</li>
 <li>You don’t usually work with AuthenticationManager directly, you use AuthenticationManagerBuilder to create it.</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-authenticationmanager" target="_blank" rel="noopener">Spring Security Reference on AuthenticationManager</a></li>
 <li><a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/authentication/AuthenticationManager.html" target="_blank" rel="noopener">java doc</a></li>
 <li><a href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/AuthenticationManager.java" target="_blank" rel="noopener">source code</a></li>
 </ul>
@@ -468,18 +487,27 @@
 <li>if input request is not valid, throw AuthenticationException</li>
 <li>reutrns null if can’t decide</li>
 </ul>
+<h1 id="AuthenticationProvider"><a href="#AuthenticationProvider" class="headerlink" title="AuthenticationProvider"></a>AuthenticationProvider</h1><ul>
+<li>It is the actual class that does the authentication.</li>
+<li>AuthenticationProvider has a supports method that tells AuthenticationManager what Authentication object it supports.</li>
+<li>An app can have multiple AuthenticationProviders(Ldap, Dao, OAuth2 etc)</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/authentication/AuthenticationProvider.html" target="_blank" rel="noopener">java doc</a></li>
+<li><a href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/AuthenticationProvider.java" target="_blank" rel="noopener">source code</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AuthenticationProvider</span> </span>&#123;</span><br><span class="line">    <span class="function">Authentication <span class="title">authenticate</span><span class="params">(Authentication authentication)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> AuthenticationException</span>;</span><br><span class="line">	    <span class="function"><span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Class&lt;?&gt; authentication)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>There are manay providers implements AuthenticationProvider interface. Some of the most important ones are</p>
+<ul>
+<li>DaoAuthenticationProvider - this is the most common AuthenticationProvider you will see</li>
+<li>LdapAuthenticationProvider</li>
+<li>JwtAuthenticationProvider</li>
+</ul>
 <h1 id="AuthenticationManagerBuilder"><a href="#AuthenticationManagerBuilder" class="headerlink" title="AuthenticationManagerBuilder"></a>AuthenticationManagerBuilder</h1><ul>
 <li>To configure Authentication, you need to provide a Security configuration that extends WebSecurityConfiguereAdapter and then overrde configure method that takes an AuthenticationManagerBuilder as parameter.</li>
 <li><strong>AuthenticationManagerBuilder</strong> is a securityBuilder used to create an AuthenticationManager. Allows for easily building in memory authentication, LDAP authentication, JDBC based authentication, adding UserDetailsService, and adding AuthenticationProvider’s.</li>
 <li><a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.html" target="_blank" rel="noopener">java doc</a></li>
 <li><a href="https://github.com/spring-projects/spring-security/blob/master/config/src/main/java/org/springframework/security/config/annotation/authentication/builders/AuthenticationManagerBuilder.java" target="_blank" rel="noopener">source code</a></li>
 </ul>
-<h1 id="Using-AuthenticationManagerBuilder"><a href="#Using-AuthenticationManagerBuilder" class="headerlink" title="Using AuthenticationManagerBuilder"></a>Using AuthenticationManagerBuilder</h1><p>Configure AuthenticationManager using AuthenticationManagerBuilder.<br>This configureation sets up a very basic in-memory authentication config. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityConfiguration</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PasswordEncoder <span class="title">passwordEncoder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BCryptPasswordEncoder();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(AuthenticationManagerBuilder auth)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        auth.inMemoryAuthentication()</span><br><span class="line">                .withUser(<span class="string">"user"</span>)</span><br><span class="line">                    .password(passwordEncoder().encode(<span class="string">"password"</span>))</span><br><span class="line">                    .roles(<span class="string">"ADMIN"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Start with Spring 5, we need to use password encoder to encode the password. <br></p>
-<p>Here we use AuthenticationManagerBuilder to create a very simple in memory authentication. </p>
-<p>In practice, we are more likely create more complicated authentication such as LDAP authentication, JDBC based authentication. We can also add UserDetailsService or add custom AuthenticationProvider.</p>
 
       
     </div>
@@ -510,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/SpringSecurity/Spring-Security-Intro/" rel="next" title="Spring Security - Intro">
-                <i class="fa fa-chevron-left"></i> Spring Security - Intro
+              <a href="/SpringSecurity/Spring-Security-Understanding-Security-Context/" rel="next" title="Spring Security - Understanding Security Context">
+                <i class="fa fa-chevron-left"></i> Spring Security - Understanding Security Context
               </a>
             
           </div>
@@ -599,7 +627,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">141</span>
+                    <span class="site-state-item-count">142</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -739,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManager"><span class="nav-number">1.</span> <span class="nav-text">AuthenticationManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManagerBuilder"><span class="nav-number">2.</span> <span class="nav-text">AuthenticationManagerBuilder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-AuthenticationManagerBuilder"><span class="nav-number">3.</span> <span class="nav-text">Using AuthenticationManagerBuilder</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Process-The-Big-Picture"><span class="nav-number">1.</span> <span class="nav-text">Authentication Process - The Big Picture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Filter"><span class="nav-number">2.</span> <span class="nav-text">Authentication Filter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManager"><span class="nav-number">3.</span> <span class="nav-text">AuthenticationManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationProvider"><span class="nav-number">4.</span> <span class="nav-text">AuthenticationProvider</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManagerBuilder"><span class="nav-number">5.</span> <span class="nav-text">AuthenticationManagerBuilder</span></a></li></ol></div>
             
 
           </div>
@@ -894,9 +922,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/";
-        this.page.identifier = "SpringSecurity/Spring-Security-Config-Authentication/";
-        this.page.title = 'Spring Security - Configure Authentication';
+        this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/";
+        this.page.identifier = "SpringSecurity/Spring-Security-Authentication-Process/";
+        this.page.title = 'Spring Security - Authentication Process';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

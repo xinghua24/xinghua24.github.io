@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-04-28T03:29:05.122Z</updated>
+  <updated>2020-05-02T04:52:36.621Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Spring Security - Configure Using HttpSecurity</title>
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HttpSecurity/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HttpSecurity/</id>
-    <published>2020-04-26T23:37:00.000Z</published>
-    <updated>2020-04-28T03:29:05.122Z</updated>
+    <published>2020-04-26T22:03:09.393Z</published>
+    <updated>2020-05-02T04:52:36.621Z</updated>
     
     <summary type="html">
     
@@ -35,15 +35,33 @@
   </entry>
   
   <entry>
-    <title>Spring Security - Configure Authentication</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-Authentication/</id>
+    <title>Spring Security - Authentication Process</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/</id>
     <published>2020-04-26T12:38:00.000Z</published>
-    <updated>2020-04-26T23:59:51.620Z</updated>
+    <updated>2020-05-02T04:51:36.697Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Configure Authentication in Spring Security&lt;/p&gt;
+      &lt;p&gt;Authentication Process&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - Understanding Security Context</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Understanding-Security-Context/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Understanding-Security-Context/</id>
+    <published>2020-04-26T12:38:00.000Z</published>
+    <updated>2020-05-02T04:36:58.129Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Security Context and its related classes are fundamental to Spring Security. A successful authentication process needs to property set the SecurityContextHolder.  The user information stored in Security Context will also likely be used by Spring Boot application after authentication.&lt;/p&gt;
     
     </summary>
     
@@ -57,7 +75,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
     <published>2020-04-25T22:37:00.000Z</published>
-    <updated>2020-04-29T03:57:14.035Z</updated>
+    <updated>2020-05-01T05:37:06.379Z</updated>
     
     <summary type="html">
     
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Enable SSH in Ubuntu&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Stop password prompt in Ubuntu</title>
-    <link href="http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/"/>
-    <id>http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/</id>
-    <published>2019-08-29T17:22:00.000Z</published>
-    <updated>2020-04-26T16:14:30.025Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Password prompt can be annoying. However, there is a quick way to stop it for all.&lt;/p&gt;
     
     </summary>
     

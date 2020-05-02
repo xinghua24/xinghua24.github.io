@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/login.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/basic-auth.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/filter-chain.png">
-<meta property="og:updated_time" content="2020-04-29T03:57:14.035Z">
+<meta property="og:updated_time" content="2020-05-01T05:37:06.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security - Intro">
 <meta name="twitter:description" content="Spring Security Introduction">
@@ -479,17 +479,17 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
 
 <h1 id="Security-Configuration"><a href="#Security-Configuration" class="headerlink" title="Security Configuration"></a>Security Configuration</h1><p>We configure Spring security by creating a configuration class that extends <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html" target="_blank" rel="noopener">WebSecurityConfigurerAdapter</a>.</p>
 <p>We also need to add @EnableWebSecurity annotation to the configuration class.  @EnableWebSecurity enable Spring Security’s web security support and provide the Spring MVC integration. </p>
-<p>Here is what a configuration for Spring Security looks like:</p>
+<p>Here is what a Spring Security configuration looks like:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityConfiguration</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        http.authorizeRequests().anyRequest().authenticated().and().httpBasic();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>In this example, we override <code>configure(HttpSecurity http)</code> method. The configuration  will secure all requests and use Basic authentication instead of form base authentication.</p>
-<p><img src="basic-auth.png" alt></p>
+<p>With the above configuration we switch from form base authentication to basic authentication:<br><img src="basic-auth.png" alt></p>
 <h1 id="How-Spring-Security-Works"><a href="#How-Spring-Security-Works" class="headerlink" title="How Spring Security Works"></a>How Spring Security Works</h1><p>Spring Security maintains a filter chain. All the requests has to gone through the filter chain in order to visite the resource. Each filter has a specific responsbility. You can add, remove and replace filters in the filter chain. </p>
-<p>To learn more on filter chain, see <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture" target="_blank" rel="noopener">Servlet Security: The Big Picture</a></p>
+<p>To learn more on filter chain, see <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture" target="_blank" rel="noopener">Servlet Security Reference: The Big Picture</a></p>
 <p><img src="filter-chain.png" alt></p>
+<p>Here are some of the important concepts and filters to understand: </p>
 <p><strong>FilterChainProxy</strong><br>Spring Security’s FilterChainProxy is the entry point for all web base security. You can put a breakpoint at FilterChainProxy’s doFilter method to see all the Filters used.  </p>
-<p><strong>UsernamePasswordAuthenticationFilter</strong><br>Processes an authentication form submission.  Login forms must present two parameters to this filter: a username and password. </p>
-<p><strong>BasicAuthenticationFilter</strong><br>Processes a HTTP request’s BASIC authorization headers, putting the result into the SecurityContextHolder.</p>
+<p><strong>Authentication processing filter</strong><br>UsernamePasswordAuthenticationFilter, CasAuthenticationFilter, BasicAuthenticationFilter, OAuth2LoginAuthenticationFilter etc - Processes an authentication. Then putting the valid authentication token into the SecurityContextHolder.</p>
 <p><strong>ExceptionTranslationFilter</strong><br>The ExceptionTranslationFilter allows translation of AccessDeniedException and AuthenticationException into HTTP responses.</p>
 <p><strong>FilterSecurityInterceptor</strong><br>The FilterSecurityInterceptor provides authorization for HttpServletRequests. If access is denied, an AccessDeniedException is thrown. ExceptionTranslationFilter handles the AccessDeniedException.</p>
 <h1 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h1><ul>
@@ -498,6 +498,7 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://www.baeldung.com/java-config-spring-security" target="_blank" rel="noopener">Introduction to Java Config for Spring Security by Baeldung</a></li>
 <li><a href="https://www.youtube.com/watch?v=I0poT4UxFxE" target="_blank" rel="noopener">Authentication vs authorization by Java Brains</a></li>
+<li><a href="https://stackoverflow.com/questions/41480102/how-spring-security-filter-chain-works" target="_blank" rel="noopener">Stackoverflow - How Spring Security Filter Chain works</a></li>
 </ul>
 
       
@@ -539,8 +540,8 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/SpringSecurity/Spring-Security-Config-Authentication/" rel="prev" title="Spring Security - Configure Authentication">
-                Spring Security - Configure Authentication <i class="fa fa-chevron-right"></i>
+              <a href="/SpringSecurity/Spring-Security-Understanding-Security-Context/" rel="prev" title="Spring Security - Understanding Security Context">
+                Spring Security - Understanding Security Context <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -618,7 +619,7 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">141</span>
+                    <span class="site-state-item-count">142</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

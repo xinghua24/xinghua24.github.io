@@ -57,11 +57,11 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Understanding-Security-Context/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Understanding-Security-Context/</id>
     <published>2020-04-26T12:38:00.000Z</published>
-    <updated>2020-05-02T04:36:58.129Z</updated>
+    <updated>2020-05-02T13:10:21.373Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Security Context and its related classes are fundamental to Spring Security. A successful authentication process needs to property set the SecurityContextHolder.  The user information stored in Security Context will also likely be used by Spring Boot application after authentication.&lt;/p&gt;
+      &lt;p&gt;Security Context and its related classes are fundamental to Spring Security. A successful authentication process needs to property set the SecurityContextHolder.  The user information stored in Security Context will be used for authorization.&lt;/p&gt;
     
     </summary>
     
@@ -75,7 +75,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
     <published>2020-04-25T22:37:00.000Z</published>
-    <updated>2020-05-01T05:37:06.379Z</updated>
+    <updated>2020-05-03T03:56:29.470Z</updated>
     
     <summary type="html">
     

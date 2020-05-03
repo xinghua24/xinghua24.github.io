@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/login.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/basic-auth.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/filter-chain.png">
-<meta property="og:updated_time" content="2020-05-01T05:37:06.379Z">
+<meta property="og:updated_time" content="2020-05-03T03:56:29.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security - Intro">
 <meta name="twitter:description" content="Spring Security Introduction">
@@ -466,6 +466,9 @@
 </ul>
 <h1 id="Dependency"><a href="#Dependency" class="headerlink" title="Dependency"></a>Dependency</h1><p>Spring Boot provides a spring-boot-starter-security starter that aggregates Spring Security-related dependencies together.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>For spring security test support</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="Spring-Security-In-Action"><a href="#Spring-Security-In-Action" class="headerlink" title="Spring Security In Action"></a>Spring Security In Action</h1><p>After adding spring security dependency, Spring will enable Form Authentication automatically. The default username is <strong>user</strong> and the password will be print to the console. The password will be different for every application startup.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using generated security password: 74fbc0b8-c18e-49a0-9144-95cd019d8010</span><br></pre></td></tr></table></figure>

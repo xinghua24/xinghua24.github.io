@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Docker Networking">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:05:04.105Z">
+<meta property="og:updated_time" content="2020-05-30T02:41:02.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker Networking">
 <meta name="twitter:description" content="Docker Networking">
@@ -457,7 +457,7 @@
 <li><strong>bridge</strong> - this is the default and most used network driver.</li>
 <li><strong>host</strong> - remove network isolation between host and container, use host’s networking directly. Host mode networking can be useful to optimize performance. </li>
 <li><strong>overlay</strong> - Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. </li>
-<li><strong>none</strong> - disable all networking. Container can’t connect to networ. Not used often.</li>
+<li><strong>none</strong> - disable all networking. Container can’t connect to network. Not used often.</li>
 </ul>
 <p>When a container is connected to a network, it can communicate with other containers in the same network.</p>
 <h1 id="List-Networks"><a href="#List-Networks" class="headerlink" title="List Networks"></a>List Networks</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br></pre></td></tr></table></figure>
@@ -498,6 +498,10 @@
 <p>Inspect the container’s network configuration.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec my-alpine ifconfig</span><br></pre></td></tr></table></figure>
 
+<h1 id="Example-Run-Containers-on-the-Same-Network"><a href="#Example-Run-Containers-on-the-Same-Network" class="headerlink" title="Example: Run Containers on the Same Network"></a>Example: Run Containers on the Same Network</h1><p>Here is an example bash script to run both mysql and phpmyadmin container on the same network</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Create network</span></span><br><span class="line">docker network create sample-network</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create mysql container</span></span><br><span class="line">docker run  -d --name=mysql \</span><br><span class="line">--network=sample-network \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=password \</span><br><span class="line">-p 3306:3306 \</span><br><span class="line">mysql:8</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create phpmyadmin container</span></span><br><span class="line">docker run -d --name phpmyadmin  \</span><br><span class="line">--network=sample-network \</span><br><span class="line">-e PMA_HOSTS=mysql-dev \</span><br><span class="line">-e PMA_PORT=3306 \</span><br><span class="line">-e PMA_USER=root \</span><br><span class="line">-e PMA_PASSWORD=password \</span><br><span class="line">-p 7000:80 \</span><br><span class="line">phpmyadmin/phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<p>We first create a bridge network called sample-network. Then create mysql and phpmyadmin container that both connect to sample-network.<br>You can now open phpmyadmin at <a href="http://localhost:7000/" target="_blank" rel="noopener">http://localhost:7000/</a></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://docs.docker.com/network/" target="_blank" rel="noopener">Networking overview</a></li>
 <li><a href="https://docs.docker.com/engine/reference/commandline/network/" target="_blank" rel="noopener">docker network commands</a></li>
@@ -770,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List-Networks"><span class="nav-number">1.</span> <span class="nav-text">List Networks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-Network"><span class="nav-number">2.</span> <span class="nav-text">Create a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inspect-a-Network"><span class="nav-number">3.</span> <span class="nav-text">Inspect a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-a-Network"><span class="nav-number">4.</span> <span class="nav-text">Remove a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Running-a-container-in-a-Network"><span class="nav-number">5.</span> <span class="nav-text">Running a container in a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List-Networks"><span class="nav-number">1.</span> <span class="nav-text">List Networks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-Network"><span class="nav-number">2.</span> <span class="nav-text">Create a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inspect-a-Network"><span class="nav-number">3.</span> <span class="nav-text">Inspect a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-a-Network"><span class="nav-number">4.</span> <span class="nav-text">Remove a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Running-a-container-in-a-Network"><span class="nav-number">5.</span> <span class="nav-text">Running a container in a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-Run-Containers-on-the-Same-Network"><span class="nav-number">6.</span> <span class="nav-text">Example: Run Containers on the Same Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

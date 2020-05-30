@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="zip - Package and compress (archive) files into zip file. You can use zipinfo command to list the files in zip format.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:01:46.288Z">
+<meta property="og:updated_time" content="2020-05-17T19:36:44.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - zip">
 <meta name="twitter:description" content="zip - Package and compress (archive) files into zip file. You can use zipinfo command to list the files in zip format.">
@@ -474,17 +474,25 @@
 <td>-d</td>
 <td>remove entry from archive</td>
 </tr>
+<tr>
+<td>-q</td>
+<td>quiet</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>verbose mode or print diagnostic version info</td>
+</tr>
 </tbody></table>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="create-compressed-archive"><a href="#create-compressed-archive" class="headerlink" title="create compressed archive"></a>create compressed archive</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r compressed *</span><br></pre></td></tr></table></figure>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="create-compressed-archive"><a href="#create-compressed-archive" class="headerlink" title="create compressed archive"></a>create compressed archive</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -rq compressed .zip*</span><br></pre></td></tr></table></figure>
 
-<p>archive all the files in the current directory and subdirectories to create compressed.zip</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip compressed *</span><br></pre></td></tr></table></figure>
+<p>archive all the files in the current directory and subdirectories to create compressed.zip. Don’t show the output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip compressed.zip *</span><br></pre></td></tr></table></figure>
 
 <p>archive all the files in the current directory to create compressed.zip, excluding the files in subdirectories.</p>
 <h2 id="Remove-file-from-archive"><a href="#Remove-file-from-archive" class="headerlink" title="Remove file from archive"></a>Remove file from archive</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -d compressed.zip file1</span><br></pre></td></tr></table></figure>
 
 <p>will remove file1 from compressed.zip</p>
-<h2 id="Unzip-compressed-archive"><a href="#Unzip-compressed-archive" class="headerlink" title="Unzip compressed archive"></a>Unzip compressed archive</h2><p>need to use <code>unzip</code> command</p>
+<h2 id="Unzip-compressed-archive"><a href="#Unzip-compressed-archive" class="headerlink" title="Unzip compressed archive"></a>Unzip compressed archive</h2><p>use <code>unzip</code> command to unzip compressed archive</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip compressed.zip</span><br></pre></td></tr></table></figure>
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>

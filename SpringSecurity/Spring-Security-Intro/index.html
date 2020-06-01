@@ -112,7 +112,8 @@
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/login.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/basic-auth.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/filter-chain.png">
-<meta property="og:updated_time" content="2020-05-03T03:56:29.470Z">
+<meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/debug-FilterChainProxy.png">
+<meta property="og:updated_time" content="2020-05-31T22:24:28.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security - Intro">
 <meta name="twitter:description" content="Spring Security Introduction">
@@ -491,7 +492,8 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
 <p>To learn more on filter chain, see <a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture" target="_blank" rel="noopener">Servlet Security Reference: The Big Picture</a></p>
 <p><img src="filter-chain.png" alt></p>
 <p>Here are some of the important concepts and filters to understand: </p>
-<p><strong>FilterChainProxy</strong><br>Spring Security’s FilterChainProxy is the entry point for all web base security. You can put a breakpoint at FilterChainProxy’s doFilter method to see all the Filters used.  </p>
+<p><strong>FilterChainProxy</strong><br>Spring Security’s FilterChainProxy is the entry point for all web base security. You can put a breakpoint at FilterChainProxy’s <em>doFilterInternal</em> method to see all the Filters used.  </p>
+<p><img src="debug-FilterChainProxy.png" alt="Debug FilterChianProxy class"></p>
 <p><strong>Authentication processing filter</strong><br>UsernamePasswordAuthenticationFilter, CasAuthenticationFilter, BasicAuthenticationFilter, OAuth2LoginAuthenticationFilter etc - Processes an authentication. Then putting the valid authentication token into the SecurityContextHolder.</p>
 <p><strong>ExceptionTranslationFilter</strong><br>The ExceptionTranslationFilter allows translation of AccessDeniedException and AuthenticationException into HTTP responses.</p>
 <p><strong>FilterSecurityInterceptor</strong><br>The FilterSecurityInterceptor provides authorization for HttpServletRequests. If access is denied, an AccessDeniedException is thrown. ExceptionTranslationFilter handles the AccessDeniedException.</p>
@@ -622,7 +624,7 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">142</span>
+                    <span class="site-state-item-count">144</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

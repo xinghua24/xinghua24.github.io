@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-05-02T04:52:36.621Z</updated>
+  <updated>2020-06-01T04:39:58.799Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,15 +17,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spring Security - Configure Using HttpSecurity</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HttpSecurity/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Config-HttpSecurity/</id>
-    <published>2020-04-26T22:03:09.393Z</published>
-    <updated>2020-05-02T04:52:36.621Z</updated>
+    <title>Spring Security - Customize UserDetailsService</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/</id>
+    <published>2020-05-05T22:37:00.000Z</published>
+    <updated>2020-06-01T04:39:58.799Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Configure Spring Security using HttpSecurity&lt;/p&gt;
+      &lt;p&gt;We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - JDBC Authentication</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-JDBCAuthentication/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-JDBCAuthentication/</id>
+    <published>2020-05-03T22:37:00.000Z</published>
+    <updated>2020-06-01T03:56:00.242Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Configure JDBC based Authentication&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - In-Memory Authentication</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-InMemoryAuthenticaion/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-InMemoryAuthenticaion/</id>
+    <published>2020-05-01T22:37:00.000Z</published>
+    <updated>2020-06-01T03:55:22.695Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Configure inMemory Authentication&lt;/p&gt;
     
     </summary>
     
@@ -38,8 +74,8 @@
     <title>Spring Security - Authentication Process</title>
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/</id>
-    <published>2020-04-26T12:38:00.000Z</published>
-    <updated>2020-05-02T04:51:36.697Z</updated>
+    <published>2020-04-27T12:38:00.000Z</published>
+    <updated>2020-06-01T04:41:19.177Z</updated>
     
     <summary type="html">
     
@@ -75,7 +111,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
     <published>2020-04-25T22:37:00.000Z</published>
-    <updated>2020-05-03T03:56:29.470Z</updated>
+    <updated>2020-05-31T22:24:28.681Z</updated>
     
     <summary type="html">
     
@@ -336,42 +372,6 @@
     </summary>
     
       <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Maven - Deploy Artifacts to Nexus3</title>
-    <link href="http://xinghua24.github.io/Java/Maven-Deploy-Artifacts-to-Nexus3/"/>
-    <id>http://xinghua24.github.io/Java/Maven-Deploy-Artifacts-to-Nexus3/</id>
-    <published>2019-09-02T00:41:00.000Z</published>
-    <updated>2020-04-26T16:09:54.429Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;We will learn how to deploy a artifact to Nexus3 server using maven.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Enable SSH in Ubuntu</title>
-    <link href="http://xinghua24.github.io/Linux/Enable-SSH-in-Ubuntu/"/>
-    <id>http://xinghua24.github.io/Linux/Enable-SSH-in-Ubuntu/</id>
-    <published>2019-08-29T21:52:00.000Z</published>
-    <updated>2020-04-26T16:13:23.487Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Enable SSH in Ubuntu&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
     
     
   </entry>

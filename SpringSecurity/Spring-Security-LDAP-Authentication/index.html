@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
+  <meta name="description" content="LDAP Authentication">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot - Runners">
-<meta property="og:url" content="http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/index.html">
+<meta property="og:title" content="Spring Security - LDAP Authentication">
+<meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
+<meta property="og:description" content="LDAP Authentication">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T19:23:43.834Z">
+<meta property="og:updated_time" content="2020-06-03T06:05:19.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot - Runners">
-<meta name="twitter:description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
+<meta name="twitter:title" content="Spring Security - LDAP Authentication">
+<meta name="twitter:description" content="LDAP Authentication">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Spring Boot - Runners | Xing's Blog</title>
+  <title>Spring Security - LDAP Authentication | Xing's Blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Boot - Runners
+          <h1 class="post-title" itemprop="name headline">Spring Security - LDAP Authentication
 
               
             
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-05-02 05:17:00" itemprop="dateCreated datePublished" datetime="2019-05-02T05:17:00-04:00">2019-05-02</time>
+              <time title="Created: 2020-05-05 03:09:41" itemprop="dateCreated datePublished" datetime="2020-05-05T03:09:41-04:00">2020-05-05</time>
             
 
             
@@ -403,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a></span>
 
                 
                 
@@ -418,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/SpringBoot/Spring-Boot-Runners/#comments" itemprop="discussionUrl">
+                <a href="/SpringSecurity/Spring-Security-LDAP-Authentication/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringBoot/Spring-Boot-Runners/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringSecurity/Spring-Security-LDAP-Authentication/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -448,25 +448,31 @@
       
 
       
-        <p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html" target="_blank" rel="noopener">ApplicationRunner</a> and <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> interfaces lets you to execute the code after the Spring Boot application is started.</p>
+        <p>LDAP Authentication</p>
 <a id="more"></a>
+<p>This post follows spring security LDAP guide <a href="https://spring.io/guides/gs/authenticating-ldap/" target="_blank" rel="noopener">https://spring.io/guides/gs/authenticating-ldap/</a></p>
+<p>The guide uses git repository</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/spring-guides/gs-authenticating-ldap.git</span><br></pre></td></tr></table></figure>
 
-<h1 id="ApplicationRunner"><a href="#ApplicationRunner" class="headerlink" title="ApplicationRunner"></a>ApplicationRunner</h1><p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html" target="_blank" rel="noopener">ApplicationRunner</a> interface allows you to run some code after Sprint Boot starts. </p>
-<p>MyBean.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyBean.class);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        args.getOptionNames().forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Dependency"><a href="#Dependency" class="headerlink" title="Dependency"></a>Dependency</h1><p>Gradle setup</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">compile("org.springframework.ldap:spring-ldap-core")</span><br><span class="line">compile("org.springframework.security:spring-security-ldap")</span><br><span class="line">compile("com.unboundid:unboundid-ldapsdk")</span><br></pre></td></tr></table></figure>
 
-<h1 id="CommandLineRunner"><a href="#CommandLineRunner" class="headerlink" title="CommandLineRunner"></a>CommandLineRunner</h1><p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> interface allows you to run some code after Sprint Boot starts. The difference between CommandLineRunner and ApplicationRunner is run() method’s parameter. With <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> you get raw unprocessed arguments.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConsoleBean</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyConsoleBean.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// print all args</span></span><br><span class="line">        Stream.of(args).forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Set-up-an-Embeded-LDAP-Server"><a href="#Set-up-an-Embeded-LDAP-Server" class="headerlink" title="Set up an Embeded LDAP Server"></a>Set up an Embeded LDAP Server</h1><p>You can start an embedded LDAP Server using LDIF(LDAP Data Interchange Format) files</p>
+<p>add test-server.ldif under classpath src/test/resources</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">dn: dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: domain</span><br><span class="line">objectclass: extensibleObject</span><br><span class="line">dc: springframework</span><br><span class="line"></span><br><span class="line">dn: ou=groups,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: organizationalUnit</span><br><span class="line">ou: groups</span><br><span class="line"></span><br><span class="line">dn: ou=subgroups,ou=groups,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: organizationalUnit</span><br><span class="line">ou: subgroups</span><br><span class="line"></span><br><span class="line">dn: ou=people,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: organizationalUnit</span><br><span class="line">ou: people</span><br><span class="line"></span><br><span class="line">dn: ou=space cadets,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: organizationalUnit</span><br><span class="line">ou: space cadets</span><br><span class="line"></span><br><span class="line">dn: ou=\&quot;quoted people\&quot;,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: organizationalUnit</span><br><span class="line">ou: &quot;quoted people&quot;</span><br><span class="line"></span><br><span class="line">dn: ou=otherpeople,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: organizationalUnit</span><br><span class="line">ou: otherpeople</span><br><span class="line"></span><br><span class="line">dn: uid=ben,ou=people,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: person</span><br><span class="line">objectclass: organizationalPerson</span><br><span class="line">objectclass: inetOrgPerson</span><br><span class="line">cn: Ben Alex</span><br><span class="line">sn: Alex</span><br><span class="line">uid: ben</span><br><span class="line">userPassword: $2a$10$c6bSeWPhg06xB1lvmaWNNe4NROmZiSpYhlocU/98HNr2MhIOiSt36</span><br><span class="line"></span><br><span class="line">dn: uid=bob,ou=people,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: person</span><br><span class="line">objectclass: organizationalPerson</span><br><span class="line">objectclass: inetOrgPerson</span><br><span class="line">cn: Bob Hamilton</span><br><span class="line">sn: Hamilton</span><br><span class="line">uid: bob</span><br><span class="line">userPassword: bobspassword</span><br><span class="line"></span><br><span class="line">dn: uid=joe,ou=otherpeople,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: person</span><br><span class="line">objectclass: organizationalPerson</span><br><span class="line">objectclass: inetOrgPerson</span><br><span class="line">cn: Joe Smeth</span><br><span class="line">sn: Smeth</span><br><span class="line">uid: joe</span><br><span class="line">userPassword: joespassword</span><br><span class="line"></span><br><span class="line">dn: cn=mouse\, jerry,ou=people,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: person</span><br><span class="line">objectclass: organizationalPerson</span><br><span class="line">objectclass: inetOrgPerson</span><br><span class="line">cn: Mouse, Jerry</span><br><span class="line">sn: Mouse</span><br><span class="line">uid: jerry</span><br><span class="line">userPassword: jerryspassword</span><br><span class="line"></span><br><span class="line">dn: cn=slash/guy,ou=people,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: person</span><br><span class="line">objectclass: organizationalPerson</span><br><span class="line">objectclass: inetOrgPerson</span><br><span class="line">cn: slash/guy</span><br><span class="line">sn: Slash</span><br><span class="line">uid: slashguy</span><br><span class="line">userPassword: slashguyspassword</span><br><span class="line"></span><br><span class="line">dn: cn=quote\&quot;guy,ou=\&quot;quoted people\&quot;,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: person</span><br><span class="line">objectclass: organizationalPerson</span><br><span class="line">objectclass: inetOrgPerson</span><br><span class="line">cn: quote\&quot;guy</span><br><span class="line">sn: Quote</span><br><span class="line">uid: quoteguy</span><br><span class="line">userPassword: quoteguyspassword</span><br><span class="line"></span><br><span class="line">dn: uid=space cadet,ou=space cadets,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: person</span><br><span class="line">objectclass: organizationalPerson</span><br><span class="line">objectclass: inetOrgPerson</span><br><span class="line">cn: Space Cadet</span><br><span class="line">sn: Cadet</span><br><span class="line">uid: space cadet</span><br><span class="line">userPassword: spacecadetspassword</span><br><span class="line"></span><br><span class="line">dn: cn=developers,ou=groups,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: groupOfUniqueNames</span><br><span class="line">cn: developers</span><br><span class="line">ou: developer</span><br><span class="line">uniqueMember: uid=ben,ou=people,dc=springframework,dc=org</span><br><span class="line">uniqueMember: uid=bob,ou=people,dc=springframework,dc=org</span><br><span class="line"></span><br><span class="line">dn: cn=managers,ou=groups,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: groupOfUniqueNames</span><br><span class="line">cn: managers</span><br><span class="line">ou: manager</span><br><span class="line">uniqueMember: uid=ben,ou=people,dc=springframework,dc=org</span><br><span class="line">uniqueMember: cn=mouse\, jerry,ou=people,dc=springframework,dc=org</span><br><span class="line"></span><br><span class="line">dn: cn=submanagers,ou=subgroups,ou=groups,dc=springframework,dc=org</span><br><span class="line">objectclass: top</span><br><span class="line">objectclass: groupOfUniqueNames</span><br><span class="line">cn: submanagers</span><br><span class="line">ou: submanager</span><br><span class="line">uniqueMember: uid=ben,ou=people,dc=springframework,dc=org</span><br></pre></td></tr></table></figure>
 
-<p>sample output:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyBean                  : foo</span><br><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyConsoleBean           : --foo=bar</span><br></pre></td></tr></table></figure>
+<p>configure embedded ldap server in application.properties</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spring.ldap.embedded.ldif=classpath:test-server.ldif</span><br><span class="line">spring.ldap.embedded.base-dn=dc=springframework,dc=org</span><br><span class="line">spring.ldap.embedded.port=8389</span><br></pre></td></tr></table></figure>
+
+<h1 id="LDAP-Authentication"><a href="#LDAP-Authentication" class="headerlink" title="LDAP Authentication"></a>LDAP Authentication</h1><p>Use ldapAuthentication() method to configure LDAP Authentication.</p>
+<p>WebSecurityConfig.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebSecurityConfig</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    http</span><br><span class="line">      .authorizeRequests()</span><br><span class="line">        .anyRequest().fullyAuthenticated()</span><br><span class="line">        .and()</span><br><span class="line">      .formLogin();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(AuthenticationManagerBuilder auth)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        auth</span><br><span class="line">                .ldapAuthentication()</span><br><span class="line">                .userDnPatterns(<span class="string">"uid=&#123;0&#125;,ou=people"</span>) <span class="comment">// set LDAP pattern for finding the usernames, &#123;0&#125; will be substitued</span></span><br><span class="line">                .groupSearchBase(<span class="string">"ou=groups"</span>) <span class="comment">// The search base for group membership searches. Defaults to "".</span></span><br><span class="line">                .contextSource()</span><br><span class="line">                .url(<span class="string">"ldap://localhost:8389/dc=springframework,dc=org"</span>)</span><br><span class="line">                .and()</span><br><span class="line">                .passwordCompare()</span><br><span class="line">                .passwordEncoder(<span class="keyword">new</span> BCryptPasswordEncoder()) <span class="comment">// Allows specifying the PasswordEncoder to use. The default is NoOpPasswordEncoder.</span></span><br><span class="line">                .passwordAttribute(<span class="string">"userPassword"</span>); <span class="comment">//The attribute in the directory which contains the user password. Defaults to "userPassword"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Reference</p>
 <ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-command-line-runner" target="_blank" rel="noopener">Application Runners and Command Line Runners</a></li>
-<li><a href="https://www.tutorialspoint.com/spring_boot/spring_boot_runners.htm" target="_blank" rel="noopener">Spring Boot Runners</a></li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/" target="_blank" rel="noopener">Spring Security Doc - LDAP Authentication</a></li>
+<li><a href="https://spring.io/guides/gs/authenticating-ldap/" target="_blank" rel="noopener">spring security LDAP Guide</a></li>
 </ul>
-<p>source code - <a href="https://github.com/xinghua24/SpringBootExamples/tree/master/runners" target="_blank" rel="noopener">SpringBootExamples - runners</a></p>
 
       
     </div>
@@ -497,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Java/Non-static-vs-Static-Nested-class/" rel="next" title="Non-static vs Static Nested class">
-                <i class="fa fa-chevron-left"></i> Non-static vs Static Nested class
+              <a href="/SpringSecurity/Spring-Security-JDBCAuthentication/" rel="next" title="Spring Security - JDBC Authentication">
+                <i class="fa fa-chevron-left"></i> Spring Security - JDBC Authentication
               </a>
             
           </div>
@@ -507,8 +513,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/SpringBoot/Spring-Boot-Logging/" rel="prev" title="Spring Boot - Logging">
-                Spring Boot - Logging <i class="fa fa-chevron-right"></i>
+              <a href="/SpringSecurity/Spring-Security-Custom-UserDetailsService/" rel="prev" title="Spring Security - Customize UserDetailsService">
+                Spring Security - Customize UserDetailsService <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -726,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ApplicationRunner"><span class="nav-number">1.</span> <span class="nav-text">ApplicationRunner</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CommandLineRunner"><span class="nav-number">2.</span> <span class="nav-text">CommandLineRunner</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dependency"><span class="nav-number">1.</span> <span class="nav-text">Dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-up-an-Embeded-LDAP-Server"><span class="nav-number">2.</span> <span class="nav-text">Set up an Embeded LDAP Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LDAP-Authentication"><span class="nav-number">3.</span> <span class="nav-text">LDAP Authentication</span></a></li></ol></div>
             
 
           </div>
@@ -881,9 +887,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/";
-        this.page.identifier = "SpringBoot/Spring-Boot-Runners/";
-        this.page.title = 'Spring Boot - Runners';
+        this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/";
+        this.page.identifier = "SpringSecurity/Spring-Security-LDAP-Authentication/";
+        this.page.title = 'Spring Security - LDAP Authentication';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-02T06:51:02.741Z</updated>
+  <updated>2020-06-03T06:05:11.734Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -20,12 +20,30 @@
     <title>Spring Security - Customize UserDetailsService</title>
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/</id>
-    <published>2020-05-05T22:37:00.000Z</published>
-    <updated>2020-06-02T06:51:02.741Z</updated>
+    <published>2020-05-15T22:37:00.000Z</published>
+    <updated>2020-06-03T06:05:11.734Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - LDAP Authentication</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/</id>
+    <published>2020-05-05T07:09:41.000Z</published>
+    <updated>2020-06-03T06:05:19.193Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;LDAP Authentication&lt;/p&gt;
     
     </summary>
     
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Key Kubernetes concetps.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes Getting Started</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Getting-Started/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Getting-Started/</id>
-    <published>2019-09-03T00:41:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.&lt;/p&gt;
     
     </summary>
     

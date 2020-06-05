@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/basic-auth.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/filter-chain.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/debug-FilterChainProxy.png">
-<meta property="og:updated_time" content="2020-05-31T22:24:28.681Z">
+<meta property="og:updated_time" content="2020-06-05T03:46:31.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security - Intro">
 <meta name="twitter:description" content="Spring Security Introduction">
@@ -459,8 +459,8 @@
 <p>Spring Security is a very popular authentication and authorization framework. If you are building Spring based web application, Spring Security should be your go to framework for securing your application.</p>
 <p>Note that this post and the following sprint security blog posts are used for Spring Boot application.</p>
 <h1 id="Security-Basic-Concepts"><a href="#Security-Basic-Concepts" class="headerlink" title="Security Basic Concepts"></a>Security Basic Concepts</h1><ul>
-<li><strong>Authentication</strong> - validating that users are who they claim to be.</li>
-<li><strong>Authorization</strong> - giving the user permission to access a specific resource or function.</li>
+<li><strong>Authentication</strong> - validate the user’s credentials</li>
+<li><strong>Authorization</strong> - verify the authenticated user has permission to access certain feature of the application</li>
 <li><strong>Principal</strong> - The user that is currently logged in.</li>
 <li><strong>Role</strong> - Coarse grained representation of a set of Authorities. A user can have multiple roles. Roles usually starts with <code>ROLE_</code> prefix</li>
 <li><strong>Granted Authority</strong> - individual privilege.</li>
@@ -478,7 +478,7 @@
 Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-9144-95cd019d8010**
 
 <p>Go to <code>http://localhost:8080/logout</code> page to invalidate the session and logout of the application.</p>
-<p>You can set a custom user name and password in application.properties file</p>
+<p>You can set a custom user name and password in application.properties file. Spring Security will use in memory authentication with the provided username and password</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.security.user.name=user</span><br><span class="line">spring.security.user.password=password</span><br></pre></td></tr></table></figure>
 
 <h1 id="Security-Configuration"><a href="#Security-Configuration" class="headerlink" title="Security Configuration"></a>Security Configuration</h1><p>We configure Spring security by creating a configuration class that extends <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html" target="_blank" rel="noopener">WebSecurityConfigurerAdapter</a>.</p>
@@ -624,7 +624,7 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">145</span>
+                    <span class="site-state-item-count">146</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

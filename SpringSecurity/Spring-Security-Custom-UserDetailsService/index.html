@@ -104,14 +104,14 @@
 
   <meta name="description" content="We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Security - Customize UserDetailsService">
+<meta property="og:title" content="Spring Security - Custome UserDetailsService">
 <meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-03T06:05:11.734Z">
+<meta property="og:updated_time" content="2020-06-05T02:30:53.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Security - Customize UserDetailsService">
+<meta name="twitter:title" content="Spring Security - Custome UserDetailsService">
 <meta name="twitter:description" content="We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.">
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Spring Security - Customize UserDetailsService | Xing's Blog</title>
+  <title>Spring Security - Custome UserDetailsService | Xing's Blog</title>
   
 
 
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Security - Customize UserDetailsService
+          <h1 class="post-title" itemprop="name headline">Spring Security - Custome UserDetailsService
 
               
             
@@ -451,17 +451,28 @@
         <p>We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.</p>
 <a id="more"></a>
 
+<h1 id="UserDetails-Interface"><a href="#UserDetails-Interface" class="headerlink" title="UserDetails Interface"></a>UserDetails Interface</h1><p>We can understand UserDetails class first before looking at UserDetailsService interface.</p>
+<p>UserDetails Interface provides essential user info. This class will then be encapsulated into <strong>Authentication</strong> object. <strong>Authentication</strong> object contains a Principal. The Principal is often a UserDetails.</p>
+<p><a href="https://docs.spring.io/spring-security/site/docs/5.3.2.RELEASE/api/index.html?org/springframework/security/core/userdetails/User.html" target="_blank" rel="noopener">User</a> is the reference implementation of UserDetails interface.</p>
+<p>Here is the source code for UserDetails</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.springframework.security.core.userdetails;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDetails</span> <span class="keyword">extends</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	Collection&lt;? extends GrantedAuthority&gt; getAuthorities();</span><br><span class="line"></span><br><span class="line">	<span class="function">String <span class="title">getPassword</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function">String <span class="title">getUsername</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonExpired</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonLocked</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isCredentialsNonExpired</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isEnabled</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="UserDetailsService-Interface"><a href="#UserDetailsService-Interface" class="headerlink" title="UserDetailsService Interface"></a>UserDetailsService Interface</h1><p>Core interface which loads user-specific data.</p>
 <p>It is used throughout the framework as a user DAO and is the strategy used by the DaoAuthenticationProvider.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.springframework.security.core.userdetails;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDetailsService</span> </span>&#123;</span><br><span class="line">	<span class="function">UserDetails <span class="title">loadUserByUsername</span><span class="params">(String username)</span> <span class="keyword">throws</span> UsernameNotFoundException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>loadUserByUsername(String)</strong> method locates the user based on the username. if the user could not be found or the user has no GrantedAuthority, a UsernameNotFoundException will be thrown</p>
-<h1 id="UserDetails-Interface"><a href="#UserDetails-Interface" class="headerlink" title="UserDetails Interface"></a>UserDetails Interface</h1><p>UserDetails Interface provides essential user info. This class will then be encapsulated into <strong>Authentication</strong> object. <strong>Authentication</strong> object contains a Principal. The Principal is often a UserDetails.</p>
-<p><a href="https://docs.spring.io/spring-security/site/docs/5.3.2.RELEASE/api/index.html?org/springframework/security/core/userdetails/User.html" target="_blank" rel="noopener">User</a> is the reference implementation of UserDetails interface.</p>
-<p>Here is the source code for UserDetails</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.springframework.security.core.userdetails;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDetails</span> <span class="keyword">extends</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	Collection&lt;? extends GrantedAuthority&gt; getAuthorities();</span><br><span class="line"></span><br><span class="line">	<span class="function">String <span class="title">getPassword</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function">String <span class="title">getUsername</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonExpired</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isAccountNonLocked</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isCredentialsNonExpired</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isEnabled</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Custom-UserDetailsService-Example"><a href="#Custom-UserDetailsService-Example" class="headerlink" title="Custom UserDetailsService Example"></a>Custom UserDetailsService Example</h1><p>Here UserDetailsService.loadUserByUsername method returns <a href="https://docs.spring.io/spring-security/site/docs/5.3.2.RELEASE/api/index.html?org/springframework/security/core/userdetails/User.html" target="_blank" rel="noopener">User</a>, which is the reference implementation. If you need more customization, you can implement UserDetails interface for your user entity. That way you can directly return user entity instead of creating <a href="https://docs.spring.io/spring-security/site/docs/5.3.2.RELEASE/api/index.html?org/springframework/security/core/userdetails/User.html" target="_blank" rel="noopener">User</a> object.</p>
+<p>Spring Security already contains implementations for UserDetailsService.</p>
+<ul>
+<li>CachingUserDetailsService</li>
+<li>InMemoryUserDetailsManager</li>
+<li>JdbcDaoImpl</li>
+<li>JdbcUserDetailsManager</li>
+<li>LdapUserDetailsManager</li>
+<li>LdapUserDetailsService</li>
+</ul>
+<p>If you need more flexibility to get UserDetails from the username, you can provide your own implementation.</p>
+<h1 id="UserDetailsService-Simple-Example"><a href="#UserDetailsService-Simple-Example" class="headerlink" title="UserDetailsService Simple Example"></a>UserDetailsService Simple Example</h1><p>Here UserDetailsService.loadUserByUsername method returns <a href="https://docs.spring.io/spring-security/site/docs/5.3.2.RELEASE/api/index.html?org/springframework/security/core/userdetails/User.html" target="_blank" rel="noopener">User</a>, which is the reference implementation. If you need more customization, you can implement UserDetails interface for your user entity. That way you can directly return user entity instead of creating <a href="https://docs.spring.io/spring-security/site/docs/5.3.2.RELEASE/api/index.html?org/springframework/security/core/userdetails/User.html" target="_blank" rel="noopener">User</a> object.</p>
 <p>SimpleUserDetailsServiceImpl.java - a very simple UserDetailsService implementation that returns a user with password equals ‘password’. The returned user’s password should be encoded.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.User;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleUserDetailsServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserDetailsService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    PasswordEncoder passwordEncoder;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserDetails <span class="title">loadUserByUsername</span><span class="params">(String username)</span> <span class="keyword">throws</span> UsernameNotFoundException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(username.equals(<span class="string">"user"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> User(username, passwordEncoder.encode(<span class="string">"password"</span>),</span><br><span class="line">                    Collections.singletonList(<span class="keyword">new</span> SimpleGrantedAuthority(<span class="string">"User"</span>)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UsernameNotFoundException(<span class="string">"Error logging in "</span> + username);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -518,6 +529,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SpringSecurity/Spring-Security-Custom-AuthenticationProvider/" rel="prev" title="Spring Security - Custom AuthenticationProvider">
+                Spring Security - Custom AuthenticationProvider <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -594,7 +609,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">145</span>
+                    <span class="site-state-item-count">146</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -734,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService-Interface"><span class="nav-number">1.</span> <span class="nav-text">UserDetailsService Interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetails-Interface"><span class="nav-number">2.</span> <span class="nav-text">UserDetails Interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Custom-UserDetailsService-Example"><span class="nav-number">3.</span> <span class="nav-text">Custom UserDetailsService Example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService-that-works-with-JPA"><span class="nav-number">4.</span> <span class="nav-text">UserDetailsService that works with JPA</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetails-Interface"><span class="nav-number">1.</span> <span class="nav-text">UserDetails Interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService-Interface"><span class="nav-number">2.</span> <span class="nav-text">UserDetailsService Interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService-Simple-Example"><span class="nav-number">3.</span> <span class="nav-text">UserDetailsService Simple Example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService-that-works-with-JPA"><span class="nav-number">4.</span> <span class="nav-text">UserDetailsService that works with JPA</span></a></li></ol></div>
             
 
           </div>
@@ -891,7 +906,7 @@
       var disqus_config = function () {
         this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/";
         this.page.identifier = "SpringSecurity/Spring-Security-Custom-UserDetailsService/";
-        this.page.title = 'Spring Security - Customize UserDetailsService';
+        this.page.title = 'Spring Security - Custome UserDetailsService';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

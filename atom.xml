@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-03T06:05:11.734Z</updated>
+  <updated>2020-06-05T04:05:14.305Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spring Security - Customize UserDetailsService</title>
+    <title>Spring Security - Custom AuthenticationProvider</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-AuthenticationProvider/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-AuthenticationProvider/</id>
+    <published>2020-06-05T02:35:43.000Z</published>
+    <updated>2020-06-05T04:05:14.305Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Security provides many AuthenticationProvider for you to use. You can provide your own customized AuthenticationProvider if the provided AuthenticationProvider doesn’t satisfy your Authentication need.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - Custome UserDetailsService</title>
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/</id>
     <published>2020-05-15T22:37:00.000Z</published>
-    <updated>2020-06-03T06:05:11.734Z</updated>
+    <updated>2020-06-05T02:30:53.143Z</updated>
     
     <summary type="html">
     
@@ -93,7 +111,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Authentication-Process/</id>
     <published>2020-04-27T12:38:00.000Z</published>
-    <updated>2020-06-04T03:44:28.193Z</updated>
+    <updated>2020-06-05T13:13:42.350Z</updated>
     
     <summary type="html">
     
@@ -129,7 +147,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
     <published>2020-04-25T22:37:00.000Z</published>
-    <updated>2020-05-31T22:24:28.681Z</updated>
+    <updated>2020-06-05T03:46:31.257Z</updated>
     
     <summary type="html">
     
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Let’s learn how to deploy, scale and roll back application in Kubernetes&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes Concepts</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Concepts/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Concepts/</id>
-    <published>2019-09-04T00:41:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Key Kubernetes concetps.&lt;/p&gt;
     
     </summary>
     

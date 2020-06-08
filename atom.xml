@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-07T02:19:16.623Z</updated>
+  <updated>2020-06-08T01:03:23.634Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spring Boot Thymeleaf Intro</title>
+    <title>Spring Security - PasswordEncoder</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-PasswordEncoder/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-PasswordEncoder/</id>
+    <published>2020-06-08T00:37:44.000Z</published>
+    <updated>2020-06-08T01:03:23.634Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lets learn how to use PasswordEncoder in Spring Security&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot - Thymeleaf</title>
     <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Thymeleaf/"/>
     <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Thymeleaf/</id>
     <published>2020-06-07T02:08:02.000Z</published>
-    <updated>2020-06-07T02:19:16.623Z</updated>
+    <updated>2020-06-08T00:50:48.873Z</updated>
     
     <summary type="html">
     
@@ -39,7 +57,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Form-Login/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Form-Login/</id>
     <published>2020-06-05T23:37:00.000Z</published>
-    <updated>2020-06-07T21:16:30.495Z</updated>
+    <updated>2020-06-07T23:48:24.148Z</updated>
     
     <summary type="html">
     
@@ -57,7 +75,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-AuthenticationProvider/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-AuthenticationProvider/</id>
     <published>2020-06-05T02:35:43.000Z</published>
-    <updated>2020-06-05T04:05:14.305Z</updated>
+    <updated>2020-06-07T23:47:51.586Z</updated>
     
     <summary type="html">
     
@@ -75,7 +93,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/</id>
     <published>2020-05-15T22:37:00.000Z</published>
-    <updated>2020-06-05T02:30:53.143Z</updated>
+    <updated>2020-06-07T23:48:05.495Z</updated>
     
     <summary type="html">
     
@@ -93,7 +111,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/</id>
     <published>2020-05-05T07:09:41.000Z</published>
-    <updated>2020-06-03T06:05:19.193Z</updated>
+    <updated>2020-06-07T23:50:44.510Z</updated>
     
     <summary type="html">
     
@@ -111,7 +129,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-JDBCAuthentication/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-JDBCAuthentication/</id>
     <published>2020-05-03T22:37:00.000Z</published>
-    <updated>2020-06-01T03:56:00.242Z</updated>
+    <updated>2020-06-07T23:49:51.131Z</updated>
     
     <summary type="html">
     
@@ -129,7 +147,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-InMemoryAuthenticaion/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-InMemoryAuthenticaion/</id>
     <published>2020-05-01T22:37:00.000Z</published>
-    <updated>2020-06-01T03:55:22.695Z</updated>
+    <updated>2020-06-07T23:49:37.718Z</updated>
     
     <summary type="html">
     
@@ -183,7 +201,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
     <published>2020-04-25T22:37:00.000Z</published>
-    <updated>2020-06-05T03:46:31.257Z</updated>
+    <updated>2020-06-07T23:36:56.002Z</updated>
     
     <summary type="html">
     
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Kubernetes jobs&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - Ingress</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Ingress/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Ingress/</id>
-    <published>2019-09-08T06:26:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Kubernetes Service can expose deployments to the external world. However it can’t route requests to services base on HTTP URI. Kubernetes Ingresss solves this problem.&lt;/p&gt;
     
     </summary>
     

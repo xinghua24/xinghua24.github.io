@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-08T01:03:23.634Z</updated>
+  <updated>2020-06-09T04:33:56.904Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Spring Security - Authorization Process</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Process/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Process/</id>
+    <published>2020-06-09T02:37:00.000Z</published>
+    <updated>2020-06-09T04:33:56.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Authorization process explained. Note that most of the time you don’t need to know the details of how authorization works.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - Authorization Configuration</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Configuration/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Configuration/</id>
+    <published>2020-06-08T02:28:55.000Z</published>
+    <updated>2020-06-09T04:24:59.021Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Authorization Configuration&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Spring Security - PasswordEncoder</title>
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-PasswordEncoder/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-PasswordEncoder/</id>
     <published>2020-06-08T00:37:44.000Z</published>
-    <updated>2020-06-08T01:03:23.634Z</updated>
+    <updated>2020-06-08T01:07:19.832Z</updated>
     
     <summary type="html">
     
@@ -201,7 +237,7 @@
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/</id>
     <published>2020-04-25T22:37:00.000Z</published>
-    <updated>2020-06-07T23:36:56.002Z</updated>
+    <updated>2020-06-08T01:35:37.722Z</updated>
     
     <summary type="html">
     
@@ -332,42 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - Namespaces</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Namespaces/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Namespaces/</id>
-    <published>2019-09-11T03:19:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Kubernetes Namespaces&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - Jobs</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Jobs/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Jobs/</id>
-    <published>2019-09-09T14:00:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Kubernetes jobs&lt;/p&gt;
     
     </summary>
     

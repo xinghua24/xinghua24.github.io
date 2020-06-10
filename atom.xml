@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-09T04:33:56.904Z</updated>
+  <updated>2020-06-10T03:07:29.140Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Security - Method Security</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/</id>
+    <published>2020-06-10T01:28:17.000Z</published>
+    <updated>2020-06-10T03:07:29.140Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Method Security&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Spring Security - Authorization Process</title>
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;configure liveness, readiness and startup probes for Containers&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - Volumes</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/</id>
-    <published>2019-09-15T05:18:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume&lt;/p&gt;
     
     </summary>
     

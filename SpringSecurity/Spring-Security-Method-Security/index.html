@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="Synchronous vs Asynchronous and Blocking vs Non-Blocking">
-<meta name="keywords" content="Concurrency">
+  <meta name="description" content="Method Security">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Synchronization and Blocking">
-<meta property="og:url" content="http://xinghua24.github.io/Others/Synchronization-and-Blocking/index.html">
+<meta property="og:title" content="Spring Security - Method Security">
+<meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Synchronous vs Asynchronous and Blocking vs Non-Blocking">
+<meta property="og:description" content="Method Security">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T17:55:26.782Z">
+<meta property="og:updated_time" content="2020-06-10T03:07:29.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Synchronization and Blocking">
-<meta name="twitter:description" content="Synchronous vs Asynchronous and Blocking vs Non-Blocking">
+<meta name="twitter:title" content="Spring Security - Method Security">
+<meta name="twitter:description" content="Method Security">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Others/Synchronization-and-Blocking/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Synchronization and Blocking | Xing's Blog</title>
+  <title>Spring Security - Method Security | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Others/Synchronization-and-Blocking/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Synchronization and Blocking
+          <h1 class="post-title" itemprop="name headline">Spring Security - Method Security
 
               
             
@@ -386,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-01-26 22:13:00" itemprop="dateCreated datePublished" datetime="2019-01-26T22:13:00-05:00">2019-01-26</time>
+              <time title="Created: 2020-06-09 21:28:17" itemprop="dateCreated datePublished" datetime="2020-06-09T21:28:17-04:00">2020-06-09</time>
             
 
             
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a></span>
 
                 
                 
@@ -419,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Others/Synchronization-and-Blocking/#comments" itemprop="discussionUrl">
+                <a href="/SpringSecurity/Spring-Security-Method-Security/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Others/Synchronization-and-Blocking/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringSecurity/Spring-Security-Method-Security/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,20 +448,27 @@
       
 
       
-        <p>Synchronous vs Asynchronous and Blocking vs Non-Blocking</p>
+        <p>Method Security</p>
 <a id="more"></a>
 
-<p>For example, A calls B.</p>
-<p>Synchronous/Asynchronous focus on how B passes result to A</p>
-<p><strong>Synchronous</strong> - A keeps waiting for the result from B. A and B are Synchronous</p>
-<p><strong>Asynchronous</strong> - B returns immediately. A does not wait for the result from B. When the result is ready. A will be notified. A and B are Asynchronous in this case.</p>
-<p>Blocking/Non-Blocking focus on A’s status</p>
-<p><strong>Blocking</strong> - A keeps waiting for the reply from B. A is Blocking.</p>
-<p><strong>Non-Blocking</strong> - B returns immediately. A does not have to wait for the reply from B. A is Non-Blocking. A may check periodically to see if result is ready OR A will get notified by B when result is ready.</p>
-<p>Synchronous Blocking operations are the simplest and most common. Java’s InputStream.read() is a synchronous blocking operation.</p>
-<p>Asynchronous Non-Blocking operations are widely used in Node.js. See how Node.js reads file using Asynchronous Non-Blocking method.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.readFile(<span class="string">'/file.md'</span>, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="Method-Security"><a href="#Method-Security" class="headerlink" title="Method Security"></a>Method Security</h1><p>Enable method security using @EnableGlobalMethodSecurity annotation</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableGlobalMethodSecurity</span>(</span><br><span class="line">		prePostEnabled = <span class="keyword">true</span>,</span><br><span class="line">		securedEnabled = <span class="keyword">true</span>,</span><br><span class="line">		jsr250Enabled = <span class="keyword">true</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringSecurityApplication</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(SpringSecurityApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>Now you can use <code>@Secured</code> annotation to specify the roles needed to access the method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Secured</span>(<span class="string">"ROLE_ADMIN"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSecretMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"secret test"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>@RoleAllowed</code> annotation is the JSR-250’s equivalent annotation of the <code>@Secured</code> annotation.  You can swap @Secured with @RolesAllowed annotaiton and it will still work.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RolesAllowed</span>(<span class="string">"ROLE_ADMIN"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="PreAuthorize-and-PostAuthorize"><a href="#PreAuthorize-and-PostAuthorize" class="headerlink" title="@PreAuthorize and @PostAuthorize"></a>@PreAuthorize and @PostAuthorize</h1><p>@PreAuthorize and @PostAuthorize allows you to use SpEL expression access control. @PreAuthorize happens before method invocation. @PostAuthorize happens after method invocation.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PreAuthorize</span>(<span class="string">"hasRole('ADMIN')"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getSecretMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"secret test"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Expression-based annotations are a good choice if you need to define simple rules that go beyond checking the role names against the user’s list of authorities.</p>
+<p>Reference</p>
+<ul>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#jc-method" target="_blank" rel="noopener">Spring Security Docs method security section</a></li>
+<li><a href="https://www.baeldung.com/spring-security-method-security" target="_blank" rel="noopener">Introduction to Spring Method Security by Baeldung</a></li>
+</ul>
 
       
     </div>
@@ -484,12 +490,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Concurrency/" rel="tag"># Concurrency</a>
-          
-        </div>
-      
 
       
       
@@ -499,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Java/Project-Lombok-Intro/" rel="next" title="Project Lombok Intro">
-                <i class="fa fa-chevron-left"></i> Project Lombok Intro
+              <a href="/SpringSecurity/Spring-Security-Authorization-Process/" rel="next" title="Spring Security - Authorization Process">
+                <i class="fa fa-chevron-left"></i> Spring Security - Authorization Process
               </a>
             
           </div>
@@ -508,10 +508,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Java/Java-Concurrency-Thread/" rel="prev" title="Java Concurrency - Thread">
-                Java Concurrency - Thread <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,8 +559,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -710,6 +715,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Method-Security"><span class="nav-number">1.</span> <span class="nav-text">Method Security</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PreAuthorize-and-PostAuthorize"><span class="nav-number">2.</span> <span class="nav-text">@PreAuthorize and @PostAuthorize</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -859,9 +881,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Others/Synchronization-and-Blocking/";
-        this.page.identifier = "Others/Synchronization-and-Blocking/";
-        this.page.title = 'Synchronization and Blocking';
+        this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/";
+        this.page.identifier = "SpringSecurity/Spring-Security-Method-Security/";
+        this.page.title = 'Spring Security - Method Security';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

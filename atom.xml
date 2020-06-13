@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-11T03:09:32.718Z</updated>
+  <updated>2020-06-13T23:08:27.509Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OAuth2</title>
+    <link href="http://xinghua24.github.io/Security/OAuth2/"/>
+    <id>http://xinghua24.github.io/Security/OAuth2/</id>
+    <published>2020-06-12T15:15:17.000Z</published>
+    <updated>2020-06-13T23:08:27.509Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;OAuth2 Explained&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Security" scheme="http://xinghua24.github.io/categories/Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security - OAuth2 Login with Github</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Login-with-Github/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Login-with-Github/</id>
+    <published>2020-06-12T01:28:17.000Z</published>
+    <updated>2020-06-13T13:41:19.951Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Security - OAuth2 Login with Github&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Spring Boot - Cookies</title>
     <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Cookies/"/>
     <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Cookies/</id>
     <published>2020-06-11T00:11:00.000Z</published>
-    <updated>2020-06-11T03:09:32.718Z</updated>
+    <updated>2020-06-11T03:15:47.375Z</updated>
     
     <summary type="html">
     
@@ -332,42 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Kubernetes secret object let you store and mange sensitive information, such as passwords, OAuth tokens and SSH Keys. It is better to store this kind of secret in Kubernetes secret than in a container image.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - ConfigMap</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-ConfigMap/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-ConfigMap/</id>
-    <published>2019-09-25T07:19:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Kubernetes ConfigMap&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - Environment Variable</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Environment-Variable/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Environment-Variable/</id>
-    <published>2019-09-25T02:42:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Kubernetes Environment Variable&lt;/p&gt;
     
     </summary>
     

@@ -104,14 +104,14 @@
 
   <meta name="description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot - Runners">
-<meta property="og:url" content="http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/index.html">
+<meta property="og:title" content="Spring Boot - ApplicationRunner and CommandLineRunner">
+<meta property="og:url" content="http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T19:23:43.834Z">
+<meta property="og:updated_time" content="2020-06-17T06:20:52.530Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot - Runners">
+<meta name="twitter:title" content="Spring Boot - ApplicationRunner and CommandLineRunner">
 <meta name="twitter:description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Spring Boot - Runners | Xing's Blog</title>
+  <title>Spring Boot - ApplicationRunner and CommandLineRunner | Xing's Blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Boot - Runners
+          <h1 class="post-title" itemprop="name headline">Spring Boot - ApplicationRunner and CommandLineRunner
 
               
             
@@ -418,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/SpringBoot/Spring-Boot-Runners/#comments" itemprop="discussionUrl">
+                <a href="/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringBoot/Spring-Boot-Runners/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -452,21 +452,21 @@
 <a id="more"></a>
 
 <h1 id="ApplicationRunner"><a href="#ApplicationRunner" class="headerlink" title="ApplicationRunner"></a>ApplicationRunner</h1><p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html" target="_blank" rel="noopener">ApplicationRunner</a> interface allows you to run some code after Sprint Boot starts. </p>
-<p>MyBean.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBean</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyBean.class);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        args.getOptionNames().forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MyApplicationRunner.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplicationRunner</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyApplicationRunner.class);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        args.getOptionNames().forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="CommandLineRunner"><a href="#CommandLineRunner" class="headerlink" title="CommandLineRunner"></a>CommandLineRunner</h1><p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> interface allows you to run some code after Sprint Boot starts. The difference between CommandLineRunner and ApplicationRunner is run() method’s parameter. With <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> you get raw unprocessed arguments.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConsoleBean</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyConsoleBean.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// print all args</span></span><br><span class="line">        Stream.of(args).forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MyCommandListRunner.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCommandListRunner</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyCommandListRunner.class);</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Stream.of(args).forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>sample output:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyBean                  : foo</span><br><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyConsoleBean           : --foo=bar</span><br></pre></td></tr></table></figure>
+<p>sample output with application argument <code>--foo=bar</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyApplicationRunner                  : foo</span><br><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyCommandListRunner           : --foo=bar</span><br></pre></td></tr></table></figure>
 
 <p>Reference</p>
 <ul>
 <li><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-command-line-runner" target="_blank" rel="noopener">Application Runners and Command Line Runners</a></li>
 <li><a href="https://www.tutorialspoint.com/spring_boot/spring_boot_runners.htm" target="_blank" rel="noopener">Spring Boot Runners</a></li>
 </ul>
-<p>source code - <a href="https://github.com/xinghua24/SpringBootExamples/tree/master/runners" target="_blank" rel="noopener">SpringBootExamples - runners</a></p>
 
       
     </div>
@@ -883,9 +883,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/SpringBoot/Spring-Boot-Runners/";
-        this.page.identifier = "SpringBoot/Spring-Boot-Runners/";
-        this.page.title = 'Spring Boot - Runners';
+        this.page.url = "http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/";
+        this.page.identifier = "SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/";
+        this.page.title = 'Spring Boot - ApplicationRunner and CommandLineRunner';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

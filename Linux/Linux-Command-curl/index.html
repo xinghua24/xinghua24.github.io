@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="curl - transfer data to and from the web. With curl you can easily interact with REST API.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:01:46.286Z">
+<meta property="og:updated_time" content="2020-06-18T05:32:27.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - curl">
 <meta name="twitter:description" content="curl - transfer data to and from the web. With curl you can easily interact with REST API.">
@@ -509,27 +509,30 @@
 <td>--retry-delay <em>seconds</em></td>
 <td>set retry delay in seconds</td>
 </tr>
+<tr>
+<td>-s</td>
+<td>Silent or quiet mode. Don’t show progress meter or error messages. Makes Curl mute.</td>
+</tr>
 </tbody></table>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Download-files"><a href="#Download-files" class="headerlink" title="Download files"></a>Download files</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -O  https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
+<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Download-file"><a href="#Download-file" class="headerlink" title="Download file"></a>Download file</h2><p>Download file in silent mode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -O  https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
 
 <p>You can also use -o to rename the downloaded file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o funny-octocats.zip  https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -o funny-octocats.zip  https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
 
 <h2 id="Curl-with-Basic-authentication"><a href="#Curl-with-Basic-authentication" class="headerlink" title="Curl with Basic authentication"></a>Curl with Basic authentication</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u username:password http://mydomain.com</span><br></pre></td></tr></table></figure>
 
 <h2 id="Make-a-GET-Request"><a href="#Make-a-GET-Request" class="headerlink" title="Make a GET Request"></a>Make a GET Request</h2><p>send a GET request to server and display response</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
 
 <p>Same as </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
 
 <h2 id="With-Http-Header"><a href="#With-Http-Header" class="headerlink" title="With Http Header"></a>With Http Header</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i -X GET http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
 
-<h2 id="With-Http-Header-Only"><a href="#With-Http-Header-Only" class="headerlink" title="With Http Header Only"></a>With Http Header Only</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -I -X GET http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
-
 <h2 id="Make-a-PUT-Request"><a href="#Make-a-PUT-Request" class="headerlink" title="Make a PUT Request"></a>Make a PUT Request</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X PUT http://172.17.0.4/newdb</span><br></pre></td></tr></table></figure>
 
-<h2 id="Make-a-POST-Request-with-Header"><a href="#Make-a-POST-Request-with-Header" class="headerlink" title="Make a POST Request with Header"></a>Make a POST Request with Header</h2><p>Make a Post request to create a customer</p>
+<h2 id="Make-a-POST-Request"><a href="#Make-a-POST-Request" class="headerlink" title="Make a POST Request"></a>Make a POST Request</h2><p>Make a Post request to create a customer</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST  -H &apos;Content-Type: application/json&apos; http://localhost:8080/customers/ -d &apos;&#123;&quot;name&quot;: &quot;Dave&quot;, &quot;age&quot;: &quot;25&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
@@ -803,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-files"><span class="nav-number">3.1.</span> <span class="nav-text">Download files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Curl-with-Basic-authentication"><span class="nav-number">3.2.</span> <span class="nav-text">Curl with Basic authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-GET-Request"><span class="nav-number">3.3.</span> <span class="nav-text">Make a GET Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#With-Http-Header"><span class="nav-number">3.4.</span> <span class="nav-text">With Http Header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#With-Http-Header-Only"><span class="nav-number">3.5.</span> <span class="nav-text">With Http Header Only</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-PUT-Request"><span class="nav-number">3.6.</span> <span class="nav-text">Make a PUT Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-POST-Request-with-Header"><span class="nav-number">3.7.</span> <span class="nav-text">Make a POST Request with Header</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-file"><span class="nav-number">3.1.</span> <span class="nav-text">Download file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Curl-with-Basic-authentication"><span class="nav-number">3.2.</span> <span class="nav-text">Curl with Basic authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-GET-Request"><span class="nav-number">3.3.</span> <span class="nav-text">Make a GET Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#With-Http-Header"><span class="nav-number">3.4.</span> <span class="nav-text">With Http Header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-PUT-Request"><span class="nav-number">3.5.</span> <span class="nav-text">Make a PUT Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-POST-Request"><span class="nav-number">3.6.</span> <span class="nav-text">Make a POST Request</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

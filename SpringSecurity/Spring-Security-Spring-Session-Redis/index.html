@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="Linux files have a lot of properties">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="Spring Session Redis Demo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - Linux file properties">
-<meta property="og:url" content="http://xinghua24.github.io/Linux/Linux-Command-Linux-file-properties/index.html">
+<meta property="og:title" content="Spring Security - Spring Session Redis">
+<meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Linux files have a lot of properties">
+<meta property="og:description" content="Spring Session Redis Demo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:01:46.286Z">
+<meta property="og:updated_time" content="2020-06-19T21:30:44.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command - Linux file properties">
-<meta name="twitter:description" content="Linux files have a lot of properties">
+<meta name="twitter:title" content="Spring Security - Spring Session Redis">
+<meta name="twitter:description" content="Spring Session Redis Demo">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux/Linux-Command-Linux-file-properties/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Linux Command - Linux file properties | Xing's Blog</title>
+  <title>Spring Security - Spring Session Redis | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux/Linux-Command-Linux-file-properties/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command - Linux file properties
+          <h1 class="post-title" itemprop="name headline">Spring Security - Spring Session Redis
 
               
             
@@ -386,7 +385,7 @@
                 
               
 
-              <time title="Created: 2018-12-06 18:07:30" itemprop="dateCreated datePublished" datetime="2018-12-06T18:07:30-05:00">2018-12-06</time>
+              <time title="Created: 2020-06-19 10:37:44" itemprop="dateCreated datePublished" datetime="2020-06-19T10:37:44-04:00">2020-06-19</time>
             
 
             
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a></span>
 
                 
                 
@@ -419,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux/Linux-Command-Linux-file-properties/#comments" itemprop="discussionUrl">
+                <a href="/SpringSecurity/Spring-Security-Spring-Session-Redis/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux/Linux-Command-Linux-file-properties/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringSecurity/Spring-Security-Spring-Session-Redis/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,49 +448,47 @@
       
 
       
-        <p>Linux files have a lot of properties</p>
+        <p>Spring Session Redis Demo</p>
 <a id="more"></a>
 
-<p>use <code>ls -lih</code> command to show file properties</p>
-<p>sample output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">total 4.0K</span><br><span class="line">13902171 -rw-r--r-- 1 root root 5 Dec 24 18:13 file1</span><br></pre></td></tr></table></figure>
+<p>By Default Spring boot stores user session info in Server’s memory. If we have more than one instance of web application behind a load balancer, this will cause problem because the request has to be route to the same instance to retrieve session data. One solution is to use sticky session. Sticky session has many disadvantages. One of the disadvantage is servers may go down, the session data is lost.</p>
+<p>Spring Session uses data store to store session data. So we can implement a stateless application. This is valuable in the cloud environment.</p>
+<p>Spring Session supports many data store</p>
+<ul>
+<li>Redis</li>
+<li>JDBC</li>
+<li>MongoDB</li>
+<li>GemFire</li>
+</ul>
+<p>The most popular store is Redis.</p>
+<h1 id="Start-Redis-Server"><a href="#Start-Redis-Server" class="headerlink" title="Start Redis Server"></a>Start Redis Server</h1><p>To make it simple, we can start redis server as Docker container</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --rm -p 6379:6379 --name redis-demo redis</span><br></pre></td></tr></table></figure>
 
-<table>
-<thead>
-<tr>
-<th>output</th>
-<th>analysis</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>13902171</td>
-<td>inode number. Inode stores information about a file but not the content</td>
-</tr>
-<tr>
-<td>-rw-r–r–</td>
-<td>file permission, meaning file is readable and writable for owner. readable for group and others</td>
-</tr>
-<tr>
-<td>1</td>
-<td>hard link number. 1 meanings only one hard link, it is itself</td>
-</tr>
-<tr>
-<td>root</td>
-<td>owner</td>
-</tr>
-<tr>
-<td>root</td>
-<td>group</td>
-</tr>
-<tr>
-<td>5 Dec 24 18:13</td>
-<td>atime. meaning last access date</td>
-</tr>
-<tr>
-<td>file1</td>
-<td>name of the file</td>
-</tr>
-</tbody></table>
+<p>You can get into the container and execute <code>redis-cli</code> to bring up the Redis CLI to interact with the Redis Contaienr</p>
+<h1 id="Maven-Dependency"><a href="#Maven-Dependency" class="headerlink" title="Maven Dependency"></a>Maven Dependency</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.session<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-session-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring-Session-Configuration"><a href="#Spring-Session-Configuration" class="headerlink" title="Spring Session Configuration"></a>Spring Session Configuration</h1><p>We need to set the redis server connection and Spring Session’s store type in application.properties</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring.redis.host=localhost</span><br><span class="line">spring.redis.port=6379</span><br><span class="line">spring.redis.password=</span><br><span class="line"></span><br><span class="line">spring.session.store-type=redis</span><br></pre></td></tr></table></figure>
+
+<p>We also need to enable Redis session using <code>@EnableRedisHttpSession</code> annotation</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableRedisHttpSession</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringSessionRedisApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(SpringSessionRedisApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>That is all we need for Spring Session Redis configuration.</p>
+<h1 id="Security-Config"><a href="#Security-Config" class="headerlink" title="Security Config"></a>Security Config</h1><p>We can define a regular user and admin user in Security Configuration.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecurityConfig</span> <span class="keyword">extends</span> <span class="title">WebSecurityConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PasswordEncoder <span class="title">passwordEncoder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> PasswordEncoderFactories.createDelegatingPasswordEncoder();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        http.formLogin().and()</span><br><span class="line">                .authorizeRequests()</span><br><span class="line">                .mvcMatchers(<span class="string">"/"</span>).hasRole(<span class="string">"USER"</span>)</span><br><span class="line">                .anyRequest().authenticated();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">configure</span><span class="params">(AuthenticationManagerBuilder auth)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        auth.inMemoryAuthentication()</span><br><span class="line">                .withUser(<span class="string">"user"</span>)</span><br><span class="line">                .password(passwordEncoder().encode(<span class="string">"password"</span>))</span><br><span class="line">                .roles(<span class="string">"USER"</span>)</span><br><span class="line">                .and()</span><br><span class="line">                .withUser(<span class="string">"admin"</span>)</span><br><span class="line">                .password(passwordEncoder().encode(<span class="string">"password"</span>))</span><br><span class="line">                .roles(<span class="string">"ADMIN"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h1><p>This controller providers 3 endpoints. /setValue sets session attribute “foo” and /getValue gets “foo’ attribute value from session</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(HomeController.class);</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">home</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Home"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/setValue/&#123;val&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">setValue</span><span class="params">(HttpServletRequest request, @PathVariable String val)</span> </span>&#123;</span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        session.setAttribute(<span class="string">"foo"</span>, val);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/getValue"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getValue</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        <span class="keyword">if</span>( session.getAttribute(<span class="string">"foo"</span>) != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> session.getAttribute(<span class="string">"foo"</span>).toString();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Can't find Value"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><p>We can login and set value using User and Admin account. Spring will store the session in Redis.</p>
+<p>Use <code>KEYS</code> command to check the keys set in redis:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line"> 1) &quot;spring:session:index:org.springframework.session.FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME:admin&quot;</span><br><span class="line"> 2) &quot;spring:session:sessions:756cb785-5b04-43e3-99cf-0f82bb9d0767&quot;</span><br><span class="line"> 3) &quot;spring:session:sessions:e4429c73-4d26-41d6-b598-b7c9b0dc2116&quot;</span><br><span class="line"> 4) &quot;spring:session:expirations:1592599800000&quot;</span><br><span class="line"> 5) &quot;spring:session:expirations:1592599860000&quot;</span><br><span class="line"> 6) &quot;spring:session:index:org.springframework.session.FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME:user&quot;</span><br><span class="line"> 7) &quot;spring:session:sessions:expires:dfb4e97c-681b-4710-8bd7-667f95621f0c&quot;</span><br><span class="line"> 8) &quot;customer:-5656296892928562510&quot;</span><br><span class="line"> 9) &quot;spring:session:sessions:dfb4e97c-681b-4710-8bd7-667f95621f0c&quot;</span><br><span class="line">10) &quot;spring:session:sessions:expires:756cb785-5b04-43e3-99cf-0f82bb9d0767&quot;</span><br></pre></td></tr></table></figure>
+
+<p>You can view the source code from Github: <a href="https://github.com/xinghua24/SpringBootExamples/tree/master/SpringSessionRedis" target="_blank" rel="noopener">https://github.com/xinghua24/SpringBootExamples/tree/master/SpringSessionRedis</a></p>
+<p>Reference</p>
+<ul>
+<li><a href="https://www.javainuse.com/spring/springboot_session_redis" target="_blank" rel="noopener">Spring Boot + Session Management Example Using Redis</a></li>
+</ul>
 
       
     </div>
@@ -513,12 +510,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
 
       
       
@@ -528,8 +519,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux/Linux-Command-file-types/" rel="next" title="Linux Command - Linux file types">
-                <i class="fa fa-chevron-left"></i> Linux Command - Linux file types
+              <a href="/SpringBoot/Spring-Boot-Spring-Data-Redis/" rel="next" title="Spring Boot - Spring Data Redis">
+                <i class="fa fa-chevron-left"></i> Spring Boot - Spring Data Redis
               </a>
             
           </div>
@@ -537,10 +528,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Linux/Linux-Command-File-Permission/" rel="prev" title="Linux Command - File Permission">
-                Linux Command - File Permission <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -592,8 +579,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -739,6 +735,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Start-Redis-Server"><span class="nav-number">1.</span> <span class="nav-text">Start Redis Server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven-Dependency"><span class="nav-number">2.</span> <span class="nav-text">Maven Dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Session-Configuration"><span class="nav-number">3.</span> <span class="nav-text">Spring Session Configuration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Security-Config"><span class="nav-number">4.</span> <span class="nav-text">Security Config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Controller"><span class="nav-number">5.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Test"><span class="nav-number">6.</span> <span class="nav-text">Test</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -888,9 +901,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux/Linux-Command-Linux-file-properties/";
-        this.page.identifier = "Linux/Linux-Command-Linux-file-properties/";
-        this.page.title = 'Linux Command - Linux file properties';
+        this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/";
+        this.page.identifier = "SpringSecurity/Spring-Security-Spring-Session-Redis/";
+        this.page.title = 'Spring Security - Spring Session Redis';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

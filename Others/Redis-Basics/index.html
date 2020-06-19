@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Redis is an in-memory key-value store.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-16T21:15:13.794Z">
+<meta property="og:updated_time" content="2020-06-19T19:21:14.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis Basics">
 <meta name="twitter:description" content="Redis is an in-memory key-value store.">
@@ -479,19 +479,30 @@
 <p>Redis container has installed <code>redis-cli</code> you can use to interact with redis.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># redis-cli</span><br></pre></td></tr></table></figure>
 
-<h1 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h1><h2 id="Redis-Keys"><a href="#Redis-Keys" class="headerlink" title="Redis Keys"></a>Redis Keys</h2><p>You can use any binary sequence as a key, meaning you can use string or even JPEG file. Maximum key size is 512M.</p>
+<h1 id="Redis-Keys"><a href="#Redis-Keys" class="headerlink" title="Redis Keys"></a>Redis Keys</h1><p>You can use any binary sequence as a key, meaning you can use string or even JPEG file. Maximum key size is 512M.</p>
 <p>Try to stick with a schema for the key. convention is to use colon(:). For Instance “user:100”, “user:100:password”. for multi-words key, use dots. comment:1234:replay.to”</p>
-<p>To list all keys</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keys &apos;*&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="KEYS"><a href="#KEYS" class="headerlink" title="KEYS"></a>KEYS</h2><p><a href="https://redis.io/commands/keys" target="_blank" rel="noopener">KEYS command</a> Returns all keys matching pattern.</p>
+<p>show keys matching pattern</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; KEYS *name*</span><br><span class="line">1) &quot;lastname&quot;</span><br><span class="line">2) &quot;firstname&quot;</span><br></pre></td></tr></table></figure>
 
-<p>To delete a key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEL mykey</span><br></pre></td></tr></table></figure>
+<p>show all keys</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; KEYS *</span><br><span class="line">1) &quot;lastname&quot;</span><br><span class="line">2) &quot;age&quot;</span><br><span class="line">3) &quot;firstname&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>The simpliest data structure</p>
+<h2 id="DEL"><a href="#DEL" class="headerlink" title="DEL"></a>DEL</h2><p>Use <a href="https://redis.io/commands/del" target="_blank" rel="noopener">DEL Command</a> to delete a key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; DEL mykey</span><br></pre></td></tr></table></figure>
+
+<h2 id="TYPE"><a href="#TYPE" class="headerlink" title="TYPE"></a>TYPE</h2><p>Use <a href="https://redis.io/commands/type" target="_blank" rel="noopener">TYPE Command</a> to check the type of a key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; TYPE firstname</span><br></pre></td></tr></table></figure>
+
+<p>The return type can be “string”, “hash”, “list”, “set” or “zset”.</p>
+<h1 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h1><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>The simpliest data structure</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; SET site:about &quot;this is my site&quot;</span><br><span class="line">OK</span><br><span class="line">&gt; GET site:about</span><br><span class="line">&quot;this is my site&quot;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><p>data type to store objects.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; HSET books:helloredis title &quot;hello redis&quot;</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">&gt; HSET books:helloredis price  33.4</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">&gt; HGET books:helloredis title</span><br><span class="line">&quot;hello redis&quot;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://redis.io/commands/hgetall" target="_blank" rel="noopener">HGETALL</a> Command Returns all fields and values of the hash stored at key. In the returned value, every field name is followed by its value, so the length of the reply is twice the size of the hash.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; HGETALL books:helloredis</span><br><span class="line">1) &quot;title&quot;</span><br><span class="line">2) &quot;hello redis&quot;</span><br></pre></td></tr></table></figure>
 
 <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>An array of values.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; LPUSH books:helloredis:authors &apos;alice&apos; &apos;bob&apos;</span><br><span class="line">(integer) 2</span><br><span class="line"></span><br><span class="line">&gt; LRANGE books:helloredis:authors 0 10</span><br><span class="line">1) &quot;bob&quot;</span><br><span class="line">2) &quot;alice&quot;</span><br></pre></td></tr></table></figure>
@@ -505,8 +516,19 @@
 <h2 id="Sorted-Set"><a href="#Sorted-Set" class="headerlink" title="Sorted Set"></a>Sorted Set</h2><p>values are associated with a score. score is used for sorting.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; ZADD tags 1 redis</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">&gt; ZADD tags 3 nosql</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">&gt; ZADD tags 2 it</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">&gt; ZRANGE tags 0 10</span><br><span class="line">1) &quot;redis&quot;</span><br><span class="line">2) &quot;it&quot;</span><br><span class="line">3) &quot;nosql&quot;</span><br></pre></td></tr></table></figure>
 
+<h1 id="Pub-Sub"><a href="#Pub-Sub" class="headerlink" title="Pub/Sub"></a>Pub/Sub</h1><p>Redis supports Pub/Sub. senders(publishers) can send messages to specific receivers(subscribers).</p>
+<p>To subscribe to a channel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; subscribe foo</span><br></pre></td></tr></table></figure>
+
+<p>To publish a message to foo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; publish foo &quot;Hello Redis&quot;</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h1 id="Other-Commands"><a href="#Other-Commands" class="headerlink" title="Other Commands"></a>Other Commands</h1><h2 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h2><p><a href="https://redis.io/commands/monitor" target="_blank" rel="noopener">MONITOR</a> is a debugging command that streams back every command processed by the Redis server. It can help in understanding what is happening to the database.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; monitor</span><br><span class="line">1339518083.107412 [0 127.0.0.1:60866] &quot;keys&quot; &quot;*&quot;</span><br><span class="line">1339518087.877697 [0 127.0.0.1:60866] &quot;dbsize&quot;</span><br><span class="line">1339518090.420270 [0 127.0.0.1:60866] &quot;set&quot; &quot;x&quot; &quot;6&quot;</span><br><span class="line">1339518096.506257 [0 127.0.0.1:60866] &quot;get&quot; &quot;x&quot;</span><br><span class="line">1339518099.363765 [0 127.0.0.1:60866] &quot;del&quot; &quot;x&quot;</span><br><span class="line">1339518100.544926 [0 127.0.0.1:60866] &quot;get&quot; &quot;x&quot;</span><br></pre></td></tr></table></figure>
+
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://redis.io/documentation" target="_blank" rel="noopener">Redis Documentation</a></li>
+<li><a href="https://redis.io/topics/pubsub" target="_blank" rel="noopener">Pub/Sub Documentation</a></li>
 <li><a href="https://redis.io/commands" target="_blank" rel="noopener">Redis Commands</a></li>
 <li><a href="https://www.javatpoint.com/redis-tutorial" target="_blank" rel="noopener">Javatpoint Redis tutorial</a></li>
 </ul>
@@ -635,7 +657,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">156</span>
+                    <span class="site-state-item-count">157</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -777,7 +799,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Types"><span class="nav-number">2.</span> <span class="nav-text">Data Types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-Keys"><span class="nav-number">2.1.</span> <span class="nav-text">Redis Keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">2.2.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash"><span class="nav-number">2.3.</span> <span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">2.4.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">2.5.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Set"><span class="nav-number">2.6.</span> <span class="nav-text">Sorted Set</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-Keys"><span class="nav-number">2.</span> <span class="nav-text">Redis Keys</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#KEYS"><span class="nav-number">2.1.</span> <span class="nav-text">KEYS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEL"><span class="nav-number">2.2.</span> <span class="nav-text">DEL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TYPE"><span class="nav-number">2.3.</span> <span class="nav-text">TYPE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Types"><span class="nav-number">3.</span> <span class="nav-text">Data Types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">3.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash"><span class="nav-number">3.2.</span> <span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">3.3.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">3.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorted-Set"><span class="nav-number">3.5.</span> <span class="nav-text">Sorted Set</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pub-Sub"><span class="nav-number">4.</span> <span class="nav-text">Pub/Sub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other-Commands"><span class="nav-number">5.</span> <span class="nav-text">Other Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Monitor"><span class="nav-number">5.1.</span> <span class="nav-text">Monitor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

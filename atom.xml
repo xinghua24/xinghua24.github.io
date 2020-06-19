@@ -53,6 +53,24 @@
   </entry>
   
   <entry>
+    <title>Spring Boot - HttpSession</title>
+    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/"/>
+    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/</id>
+    <published>2020-06-12T00:11:00.000Z</published>
+    <updated>2020-06-19T15:58:50.274Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;HttpSession&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Boot" scheme="http://xinghua24.github.io/categories/Spring-Boot/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Spring Boot - Cookies</title>
     <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Cookies/"/>
     <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Cookies/</id>
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Helm - The Kubernetes Package Manager.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - Secret</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-Secret/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-Secret/</id>
-    <published>2019-09-25T16:18:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Kubernetes secret object let you store and mange sensitive information, such as passwords, OAuth tokens and SSH Keys. It is better to store this kind of secret in Kubernetes secret than in a container image.&lt;/p&gt;
     
     </summary>
     

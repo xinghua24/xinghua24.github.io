@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="date - display or set system time.">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="HttpSession">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - date">
-<meta property="og:url" content="http://xinghua24.github.io/Linux/Linux-Command-date/index.html">
+<meta property="og:title" content="Spring Boot - HttpSession">
+<meta property="og:url" content="http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="date - display or set system time.">
+<meta property="og:description" content="HttpSession">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:01:46.286Z">
+<meta property="og:updated_time" content="2020-06-19T15:58:50.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command - date">
-<meta name="twitter:description" content="date - display or set system time.">
+<meta name="twitter:title" content="Spring Boot - HttpSession">
+<meta name="twitter:description" content="HttpSession">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux/Linux-Command-date/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Linux Command - date | Xing's Blog</title>
+  <title>Spring Boot - HttpSession | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux/Linux-Command-date/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command - date
+          <h1 class="post-title" itemprop="name headline">Spring Boot - HttpSession
 
               
             
@@ -386,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-01-07 20:50:00" itemprop="dateCreated datePublished" datetime="2019-01-07T20:50:00-05:00">2019-01-07</time>
+              <time title="Created: 2020-06-11 20:11:00" itemprop="dateCreated datePublished" datetime="2020-06-11T20:11:00-04:00">2020-06-11</time>
             
 
             
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a></span>
 
                 
                 
@@ -419,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux/Linux-Command-date/#comments" itemprop="discussionUrl">
+                <a href="/SpringBoot/Spring-Boot-HttpSession/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux/Linux-Command-date/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringBoot/Spring-Boot-HttpSession/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,107 +448,20 @@
       
 
       
-        <p><code>date</code> - display or set system time.</p>
+        <p>HttpSession</p>
 <a id="more"></a>
 
+<p>You can use <code>HttpServletRequest.getSession()</code> method to get the current HttpSession.</p>
+<h1 id="Set-Session-Attribute"><a href="#Set-Session-Attribute" class="headerlink" title="Set Session Attribute"></a>Set Session Attribute</h1><p>Use <code>HttpSession.setAttribute()</code> method to set attribute to the session. The session value can be any Object.</p>
+<p>Here is an example to set a session in the controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/setValue"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">setValue</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    session.setAttribute(<span class="string">"foo"</span>, <span class="string">"bar"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date [OPTIONS] [+FORMAT]</span><br></pre></td></tr></table></figure>
+<h1 id="Get-Session-Attribute"><a href="#Get-Session-Attribute" class="headerlink" title="Get Session Attribute"></a>Get Session Attribute</h1><p>Use <code>HttpSession.getAttribute()</code> to get attribute value</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/getValue"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getValue</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    <span class="keyword">if</span>( session.getAttribute(<span class="string">"foo"</span>) != <span class="keyword">null</span>)&#123;</span><br><span class="line">        LOG.info(session.getAttribute(<span class="string">"foo"</span>).toString());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Format"><a href="#Format" class="headerlink" title="Format"></a>Format</h1><table>
-<thead>
-<tr>
-<th>common FORMAT</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%Y</td>
-<td>year</td>
-</tr>
-<tr>
-<td>%y</td>
-<td>last two digits of year(00…99)</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>month</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>day of month(e.g. 01)</td>
-</tr>
-<tr>
-<td>%F</td>
-<td>full date; same as %Y-%m-%d</td>
-</tr>
-<tr>
-<td>%H</td>
-<td>hour(00…23)</td>
-</tr>
-<tr>
-<td>%l</td>
-<td>hour(01…12)</td>
-</tr>
-<tr>
-<td>%k</td>
-<td>hour(0…23)</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>minute (00..59)</td>
-</tr>
-<tr>
-<td>%S</td>
-<td>second (00..60)</td>
-</tr>
-<tr>
-<td>%T</td>
-<td>time; same as %H:%M:%S</td>
-</tr>
-</tbody></table>
-<h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-d, --date=STRING</td>
-<td>display time described by STRING, not ‘now’</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>print or set Coordinated Universal Time</td>
-</tr>
-</tbody></table>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Display-date-in-UTC-and-ISO-8601-format"><a href="#Display-date-in-UTC-and-ISO-8601-format" class="headerlink" title="Display date in UTC and ISO 8601 format"></a>Display date in UTC and ISO 8601 format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -u +&quot;%Y-%m-%dT%H:%M:%SZ&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="Get-All-Session-Attribute"><a href="#Get-All-Session-Attribute" class="headerlink" title="Get All Session Attribute"></a>Get All Session Attribute</h1><p>use <code>Enumeration e = session.getAttributeNames()</code> to get all the session names, then use <code>HttpSession.getAttribute()</code> method to get the session attribute.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/getAll"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getAll</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    Enumeration e = session.getAttributeNames();</span><br><span class="line">    <span class="keyword">while</span>(e.hasMoreElements()) &#123;</span><br><span class="line">        Object key = e.nextElement();</span><br><span class="line">        LOG.info(key.toString() + <span class="string">"="</span> + session.getAttribute(key.toString()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Display-date-using-default-locale’s-format"><a href="#Display-date-using-default-locale’s-format" class="headerlink" title="Display date using default locale’s format"></a>Display date using default locale’s format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date +%c</span><br></pre></td></tr></table></figure>
-
-<p>sample output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mon 07 Jan 2019 09:21:51 PM EST</span><br></pre></td></tr></table></figure>
-
-<h2 id="Display-date-and-time"><a href="#Display-date-and-time" class="headerlink" title="Display date and time"></a>Display date and time</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date +&quot;%F %T&quot;</span><br></pre></td></tr></table></figure>
-
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2019-01-07 21:14:37</span><br></pre></td></tr></table></figure>
-
-<h2 id="Display-unix-time"><a href="#Display-unix-time" class="headerlink" title="Display unix time"></a>Display unix time</h2><p>Unix time is seconds since Unix epoch</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date +%s</span><br></pre></td></tr></table></figure>
-
-<h2 id="Display-a-future-date"><a href="#Display-a-future-date" class="headerlink" title="Display a future date"></a>Display a future date</h2><p>next month</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -d next-month +%Y-%m</span><br></pre></td></tr></table></figure>
-
-<p>Nov 25 of the year</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -d &apos;nov 25&apos; +%F</span><br></pre></td></tr></table></figure>
-
-<p>10 minutes later</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -d &apos;10 minutes&apos; +%H:%M:%S</span><br></pre></td></tr></table></figure>
-
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://linux.die.net/man/1/date" target="_blank" rel="noopener">date online man page</a></li>
-</ul>
 
       
     </div>
@@ -571,12 +483,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
 
       
       
@@ -586,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux/Linux-Command-alias/" rel="next" title="Linux Command - alias">
-                <i class="fa fa-chevron-left"></i> Linux Command - alias
+              <a href="/SpringBoot/Spring-Boot-Cookies/" rel="next" title="Spring Boot - Cookies">
+                <i class="fa fa-chevron-left"></i> Spring Boot - Cookies
               </a>
             
           </div>
@@ -596,8 +502,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Linux/Linux-Command-poweroff-halt-and-reboot/" rel="prev" title="Linux Command - poweroff, halt and reboot">
-                Linux Command - poweroff, halt and reboot <i class="fa fa-chevron-right"></i>
+              <a href="/Security/OAuth2/" rel="prev" title="OAuth2">
+                OAuth2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -817,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Format"><span class="nav-number">2.</span> <span class="nav-text">Format</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">3.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">4.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-date-in-UTC-and-ISO-8601-format"><span class="nav-number">4.1.</span> <span class="nav-text">Display date in UTC and ISO 8601 format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-date-using-default-locale’s-format"><span class="nav-number">4.2.</span> <span class="nav-text">Display date using default locale’s format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-date-and-time"><span class="nav-number">4.3.</span> <span class="nav-text">Display date and time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-unix-time"><span class="nav-number">4.4.</span> <span class="nav-text">Display unix time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-a-future-date"><span class="nav-number">4.5.</span> <span class="nav-text">Display a future date</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-Session-Attribute"><span class="nav-number">1.</span> <span class="nav-text">Set Session Attribute</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-Session-Attribute"><span class="nav-number">2.</span> <span class="nav-text">Get Session Attribute</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-All-Session-Attribute"><span class="nav-number">3.</span> <span class="nav-text">Get All Session Attribute</span></a></li></ol></div>
             
 
           </div>
@@ -972,9 +878,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux/Linux-Command-date/";
-        this.page.identifier = "Linux/Linux-Command-date/";
-        this.page.title = 'Linux Command - date';
+        this.page.url = "http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/";
+        this.page.identifier = "SpringBoot/Spring-Boot-HttpSession/";
+        this.page.title = 'Spring Boot - HttpSession';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume">
+  <meta name="description" content="Lets learn to integrate Spring Data Redis into a Spring Boot application.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kubernetes - Volumes">
-<meta property="og:url" content="http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/index.html">
+<meta property="og:title" content="Spring Boot - Spring Data Redis">
+<meta property="og:url" content="http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume">
+<meta property="og:description" content="Lets learn to integrate Spring Data Redis into a Spring Boot application.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:04:36.042Z">
+<meta property="og:updated_time" content="2020-06-19T03:08:01.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kubernetes - Volumes">
-<meta name="twitter:description" content="Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume">
+<meta name="twitter:title" content="Spring Boot - Spring Data Redis">
+<meta name="twitter:description" content="Lets learn to integrate Spring Data Redis into a Spring Boot application.">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/">
+  <link rel="canonical" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Kubernetes - Volumes | Xing's Blog</title>
+  <title>Spring Boot - Spring Data Redis | Xing's Blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kubernetes - Volumes
+          <h1 class="post-title" itemprop="name headline">Spring Boot - Spring Data Redis
 
               
             
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-09-15 01:18:00" itemprop="dateCreated datePublished" datetime="2019-09-15T01:18:00-04:00">2019-09-15</time>
+              <time title="Created: 2020-06-18 18:11:00" itemprop="dateCreated datePublished" datetime="2020-06-18T18:11:00-04:00">2020-06-18</time>
             
 
             
@@ -403,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a></span>
 
                 
                 
@@ -418,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Kubernetes/Kubernetes-Volumes/#comments" itemprop="discussionUrl">
+                <a href="/SpringBoot/Spring-Boot-Spring-Data-Redis/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Kubernetes/Kubernetes-Volumes/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringBoot/Spring-Boot-Spring-Data-Redis/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -448,65 +448,37 @@
       
 
       
-        <p>Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume</p>
+        <p>Lets learn to integrate Spring Data Redis into a Spring Boot application.</p>
 <a id="more"></a>
 
-<p>Kubernetes supports many Volume Types</p>
-<ul>
-<li>emptyDir</li>
-<li>azureDisk</li>
-<li>awsElasticBlockStore</li>
-<li>gcePersistentDisk</li>
-<li>…</li>
-</ul>
-<h1 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a>emptyDir</h1><p>An <strong>emptyDir</strong> volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node. It can be used for Pods to share files. </p>
-<p>By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment. </p>
-<p>All containers in a pod can share an emptyDir. emptyDir volume can mount to the same or different path.</p>
-<p>emptyDir volume is removed when a Pod is removed.</p>
-<p>Example</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">test-pd</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  containers:</span></span><br><span class="line"><span class="attr">  - image:</span> <span class="string">k8s.gcr.io/test-webserver</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">test-container</span></span><br><span class="line"><span class="attr">    volumeMounts:</span></span><br><span class="line"><span class="attr">    - mountPath:</span> <span class="string">/cache</span></span><br><span class="line"><span class="attr">      name:</span> <span class="string">cache-volume</span></span><br><span class="line"><span class="attr">  volumes:</span></span><br><span class="line"><span class="attr">  - name:</span> <span class="string">cache-volume</span></span><br><span class="line"><span class="attr">    emptyDir:</span> <span class="string">&#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>First, you need a Redis server. You can start a redis server as Docker container:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --rm -p 6379:6379 --name redis-demo redis</span><br></pre></td></tr></table></figure>
 
-<h1 id="PersistentVolume"><a href="#PersistentVolume" class="headerlink" title="PersistentVolume"></a>PersistentVolume</h1><p>For persistent volume use PersistentVolume(PV) and PersistentVolumeClaim(PVC).</p>
-<ul>
-<li>PersistentVolume is usually managed by administrators</li>
-<li>PersistentVolume can be requested by PersistentVolumeClaim</li>
-</ul>
-<p>There are three steps to use PersistentVolume.</p>
-<ol>
-<li>Administrator create PersistentVolume</li>
-<li>Developer create PersistentVolumeClaim that claims part of that PersistentVolume disk space</li>
-<li>Developer create pod that that uses PersistentVolumeClaim</li>
-</ol>
-<h2 id="Step1-Create-PersistentVolume"><a href="#Step1-Create-PersistentVolume" class="headerlink" title="Step1: Create PersistentVolume"></a>Step1: Create PersistentVolume</h2><p>mongo-pv.yml</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line"><span class="attr">  labels:</span> </span><br><span class="line"><span class="attr">    type:</span> <span class="string">local</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">mongo-pv</span></span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line"><span class="attr">  storageClassName:</span> <span class="string">mongo-demo</span></span><br><span class="line"><span class="attr">  accessModes:</span> </span><br><span class="line"><span class="bullet">    -</span> <span class="string">ReadWriteOnce</span></span><br><span class="line"><span class="attr">  capacity:</span> </span><br><span class="line"><span class="attr">    storage:</span> <span class="number">1</span><span class="string">Gi</span></span><br><span class="line"><span class="attr">  hostPath:</span> </span><br><span class="line"><span class="attr">    path:</span> <span class="string">/data/mongo_data</span></span><br></pre></td></tr></table></figure>
+<h1 id="Maven-Dependency"><a href="#Maven-Dependency" class="headerlink" title="Maven Dependency"></a>Maven Dependency</h1><p>You need to include <code>spring-boot-starter-data-redis</code> dependency in your spring boot’s pom.xml file in order to use Spring Data Redis.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>use <code>kubectl get pv</code> to display PersistentVolume resources. <strong>storageClassName</strong> is very important. It is used to tie PersistentVolume and PersistentVolumeClaim. The status is <em>Available</em> at this time. If a PersistentVolumeClaim is bound, the status will be <em>Bound</em>. </p>
-<p>3 Access Modes</p>
-<ul>
-<li>ReadWriteOnce: The Volume can be mounted as read-write by a single node.</li>
-<li>ReadOnlyMany: The Volume can be mounted read-only by many nodes.</li>
-<li>ReadWriteMany: The Volume can be mounted as read-write by many nodes. PersistentVolumes that are backed by Compute Engine persistent disks don’t support this access mode.</li>
-</ul>
-<p>use <code>kubectl get pv</code> command to display the PersistentVolumes.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pv</span><br><span class="line">NAME       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE</span><br><span class="line">mongo-pv   1Gi        RWO            Retain           Available           mongo-demo              6s</span><br></pre></td></tr></table></figure>
+<h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><p>Here is an example of Redis Configuration. The configuration below sets up a redis connection to localhost:6379 and RedisTemplate.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableRedisRepositories</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LettuceConnectionFactory <span class="title">jedisConnectionFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> LettuceConnectionFactory(<span class="string">"127.0.0.1"</span>, <span class="number">6379</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    RedisTemplate&lt;?, ?&gt; redisTemplate() &#123;</span><br><span class="line">        RedisTemplate&lt;<span class="keyword">byte</span>[], <span class="keyword">byte</span>[]&gt; redisTemplate = <span class="keyword">new</span> RedisTemplate&lt;&gt;();</span><br><span class="line">        redisTemplate.setConnectionFactory(jedisConnectionFactory());</span><br><span class="line">        <span class="keyword">return</span> redisTemplate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Step2-Create-PersistentVolumeClaim"><a href="#Step2-Create-PersistentVolumeClaim" class="headerlink" title="Step2: Create PersistentVolumeClaim"></a>Step2: Create PersistentVolumeClaim</h2><p>mongo-pvc.yml</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line"><span class="attr">  name:</span> <span class="string">mongo-pvc</span></span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line"><span class="attr">  storageClassName:</span> <span class="string">mongo-demo</span></span><br><span class="line"><span class="attr">  accessModes:</span> </span><br><span class="line"><span class="bullet">    -</span> <span class="string">ReadWriteOnce</span></span><br><span class="line"><span class="attr">  resources:</span></span><br><span class="line"><span class="attr">    requests:</span> </span><br><span class="line"><span class="attr">      storage:</span> <span class="number">250</span><span class="string">Mi</span></span><br></pre></td></tr></table></figure>
+<p>We need to provide <code>@EnableRedisRepositories</code> annotation to tell Spring boot to use Reids Repositories.</p>
+<p><a href="https://docs.spring.io/spring-data/data-redis/docs/current/api/org/springframework/data/redis/connection/lettuce/LettuceConnectionFactory.html" target="_blank" rel="noopener">LettuceConnectionFactory</a> is a connection factory that creates Lettuce-based connections. Here we configure by providing hostname and port number. In reality, it should be configured using environmetnal configuration.</p>
+<p><a href="https://docs.spring.io/spring-data/data-redis/docs/current/api/index.html?org/springframework/data/redis/connection/lettuce/LettuceConnectionFactory.html" target="_blank" rel="noopener">RedisTemplate</a> is used for Redis data access.</p>
+<h1 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h1><p>A very simple object that annotated with @RedisHash. The identity should have @Id annotation.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.annotation.Id;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.RedisHash;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@RedisHash</span>(<span class="string">"customer"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>use <code>kubectl get pvc</code> to display PersistentVolumeClaim</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pvc</span><br><span class="line">NAME             STATUS   VOLUME     CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">mongo-pv-claim   Bound    mongo-pv   1Gi        RWO            mongo-demo     8s</span><br></pre></td></tr></table></figure>
+<h1 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h1><p>Redis Repository class are interfaces that extends CrudRepository interface. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.data.repository.CrudRepository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CustomerRepository</span> <span class="keyword">extends</span> <span class="title">CrudRepository</span>&lt;<span class="title">Customer</span>, <span class="title">Long</span>&gt; </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Step3-Create-Pod-that-uses-the-PersistentVolumeClaim"><a href="#Step3-Create-Pod-that-uses-the-PersistentVolumeClaim" class="headerlink" title="Step3: Create Pod that uses the PersistentVolumeClaim"></a>Step3: Create Pod that uses the PersistentVolumeClaim</h2><p>mongo.yml: defines a service and statefulset that uses PersistentVolume.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr"> name:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr"> labels:</span></span><br><span class="line"><span class="attr">  app:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr"> ports:</span></span><br><span class="line"><span class="attr">  - port:</span> <span class="number">27017</span></span><br><span class="line"><span class="attr">    targetPort:</span> <span class="number">27017</span></span><br><span class="line"><span class="attr"> clusterIP:</span> <span class="string">None</span></span><br><span class="line"><span class="attr"> selector:</span></span><br><span class="line"><span class="attr">  app:</span> <span class="string">mongo</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">StatefulSet</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  selector:</span></span><br><span class="line"><span class="attr">    matchLabels:</span></span><br><span class="line"><span class="attr">      app:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">  serviceName:</span> <span class="string">"mongo"</span></span><br><span class="line"><span class="attr">  replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">  template:</span></span><br><span class="line"><span class="attr">    metadata:</span></span><br><span class="line"><span class="attr">      labels:</span></span><br><span class="line"><span class="attr">        app:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      terminationGracePeriodSeconds:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">      containers:</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">        image:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">        command:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">mongod</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"--bind_ip"</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line"><span class="attr">        ports:</span></span><br><span class="line"><span class="attr">        - containerPort:</span> <span class="number">27017</span></span><br><span class="line"><span class="attr">        volumeMounts:</span></span><br><span class="line"><span class="attr">        - name:</span> <span class="string">mongo-volume</span></span><br><span class="line"><span class="attr">          mountPath:</span> <span class="string">/data/db</span></span><br><span class="line"><span class="attr">      volumes:</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">mongo-volume</span></span><br><span class="line"><span class="attr">        persistentVolumeClaim:</span></span><br><span class="line"><span class="attr">          claimName:</span> <span class="string">mongo-pvc</span></span><br></pre></td></tr></table></figure>
+<h1 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h1><p>Controller class that tests the repository</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/customers"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CustomerRepository customerRepository;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// GET localhost:8080/customers/all</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/all"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Iterable&lt;Customer&gt; <span class="title">all</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> customerRepository.findAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// POST localhost:8080/cusotmers/save</span></span><br><span class="line">    <span class="comment">// curl -X POST -H 'Content-Type: application/json' localhost:8080/customers/save -d '&#123;"name": "James"&#125;'</span></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/save"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Customer <span class="title">save</span><span class="params">(@RequestBody Customer customer)</span> </span>&#123;</span><br><span class="line">        customerRepository.save(customer);</span><br><span class="line">        <span class="keyword">return</span> customer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// DELETE localhost:8080/cusotmers/&#123;id&#125;</span></span><br><span class="line">    <span class="comment">// curl -X DELETE localhost:8080/customers/-2768644627155708900</span></span><br><span class="line">    <span class="meta">@DeleteMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(@PathVariable Long id)</span> </span>&#123;</span><br><span class="line">        customerRepository.deleteById(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>After the statefulset is created, use <code>kubectl get statefulsets</code> to check the statefulset status</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get statefulsets</span><br><span class="line">NAME    READY   AGE</span><br><span class="line">mongo   1/1     11m</span><br></pre></td></tr></table></figure>
+<p>Execute POST http request to save a customer to redis data store.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST -H &apos;Content-Type: application/json&apos; localhost:8080/customers/save -d &apos;&#123;&quot;name&quot;: &quot;James&quot;&#125;&apos;</span><br></pre></td></tr></table></figure>
 
-<p>Use <code>kubectl exec -it mongo-0 /bin/bash</code> to get into the container and use the mongodb database. The data will persiste over pod restart.</p>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
-<li><a href="https://kubernetes.io/docs/concepts/storage/volumes" target="_blank" rel="noopener">Kubernetes volume</a></li>
-<li><a href="https://kubernetes.io/docs/concepts/storage/volumes/#emptydir" target="_blank" rel="noopener">emptyDir volume</a></li>
-<li><a href="https://www.alibabacloud.com/blog/kubernetes-volume-basics-emptydir-and-persistentvolume_594834" target="_blank" rel="noopener">Kubernetes Volume Basics: emptyDir and PersistentVolume by Alibaba Clouder</a></li>
+<p>go to <code>localhost:8080/customers/all</code> to view all the customers in the redis data store.</p>
+<p><a href="https://github.com/xinghua24/SpringBootExamples/tree/master/data-redis" target="_blank" rel="noopener">source code</a> for this post</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://dzone.com/articles/introduction-to-spring-data-redis" target="_blank" rel="noopener">Introduction to Spring Data Redis by Piotr Mińkowski</a></li>
 </ul>
 
       
@@ -538,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Kubernetes/Kubernetes-Namespaces/" rel="next" title="Kubernetes - Namespaces">
-                <i class="fa fa-chevron-left"></i> Kubernetes - Namespaces
+              <a href="/Security/OAuth2/" rel="next" title="OAuth2">
+                <i class="fa fa-chevron-left"></i> OAuth2
               </a>
             
           </div>
@@ -547,10 +519,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Kubernetes/Kubernetes-Liveness-And-Readiness/" rel="prev" title="Kubernetes - Liveness and Readiness">
-                Kubernetes - Liveness and Readiness <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -769,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#emptyDir"><span class="nav-number">1.</span> <span class="nav-text">emptyDir</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PersistentVolume"><span class="nav-number">2.</span> <span class="nav-text">PersistentVolume</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step1-Create-PersistentVolume"><span class="nav-number">2.1.</span> <span class="nav-text">Step1: Create PersistentVolume</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step2-Create-PersistentVolumeClaim"><span class="nav-number">2.2.</span> <span class="nav-text">Step2: Create PersistentVolumeClaim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step3-Create-Pod-that-uses-the-PersistentVolumeClaim"><span class="nav-number">2.3.</span> <span class="nav-text">Step3: Create Pod that uses the PersistentVolumeClaim</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven-Dependency"><span class="nav-number">1.</span> <span class="nav-text">Maven Dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Configuration"><span class="nav-number">2.</span> <span class="nav-text">Configuration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Entity"><span class="nav-number">3.</span> <span class="nav-text">Entity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Repository"><span class="nav-number">4.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Controller"><span class="nav-number">5.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -924,9 +892,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Kubernetes/Kubernetes-Volumes/";
-        this.page.identifier = "Kubernetes/Kubernetes-Volumes/";
-        this.page.title = 'Kubernetes - Volumes';
+        this.page.url = "http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/";
+        this.page.identifier = "SpringBoot/Spring-Boot-Spring-Data-Redis/";
+        this.page.title = 'Spring Boot - Spring Data Redis';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

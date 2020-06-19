@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-14T16:26:54.113Z</updated>
+  <updated>2020-06-19T03:08:01.117Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot - Spring Data Redis</title>
+    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/"/>
+    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/</id>
+    <published>2020-06-18T22:11:00.000Z</published>
+    <updated>2020-06-19T03:08:01.117Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Lets learn to integrate Spring Data Redis into a Spring Boot application.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Boot" scheme="http://xinghua24.github.io/categories/Spring-Boot/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>OAuth2</title>
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Kubernetes secret object let you store and mange sensitive information, such as passwords, OAuth tokens and SSH Keys. It is better to store this kind of secret in Kubernetes secret than in a container image.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Kubernetes" scheme="http://xinghua24.github.io/categories/Kubernetes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kubernetes - ConfigMap</title>
-    <link href="http://xinghua24.github.io/Kubernetes/Kubernetes-ConfigMap/"/>
-    <id>http://xinghua24.github.io/Kubernetes/Kubernetes-ConfigMap/</id>
-    <published>2019-09-25T07:19:00.000Z</published>
-    <updated>2020-04-26T16:04:36.042Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Kubernetes ConfigMap&lt;/p&gt;
     
     </summary>
     

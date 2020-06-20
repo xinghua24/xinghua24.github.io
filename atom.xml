@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-06-19T21:30:44.842Z</updated>
+  <updated>2020-06-20T00:37:32.449Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Spring Security - Spring Session Jdbc</title>
+    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Jdbc/"/>
+    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Jdbc/</id>
+    <published>2020-06-20T00:37:44.000Z</published>
+    <updated>2020-06-20T00:37:32.449Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring Session Jdbc Demo&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Spring Security - Spring Session Redis</title>
     <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/"/>
     <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/</id>
     <published>2020-06-19T14:37:44.000Z</published>
-    <updated>2020-06-19T21:30:44.842Z</updated>
+    <updated>2020-06-20T00:21:57.806Z</updated>
     
     <summary type="html">
     
@@ -354,24 +372,6 @@
     </summary>
     
       <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>WireMock</title>
-    <link href="http://xinghua24.github.io/Java/Wiremock/"/>
-    <id>http://xinghua24.github.io/Java/Wiremock/</id>
-    <published>2020-04-20T12:18:00.000Z</published>
-    <updated>2020-04-26T16:09:54.429Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;WireMock is a simulator for HTTP-based APIs.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://xinghua24.github.io/categories/Java/"/>
     
     
   </entry>

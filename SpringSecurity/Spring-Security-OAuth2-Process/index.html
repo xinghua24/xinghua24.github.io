@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Let us walk throught OAuth 2.0 Authorization Process.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Security - OAuth2 Process">
+<meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Process/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Let us walk throught OAuth 2.0 Authorization Process.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-06-24T04:16:19.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Security - OAuth2 Process">
+<meta name="twitter:description" content="Let us walk throught OAuth 2.0 Authorization Process.">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Xing's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Process/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Spring Security - OAuth2 Process | Xing's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xing's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinghua Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring Security - OAuth2 Process
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-22T00:00:00-04:00">2020-06-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/SpringSecurity/Spring-Security-OAuth2-Process/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringSecurity/Spring-Security-OAuth2-Process/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Let us walk throught OAuth 2.0 Authorization Process. </p>
+<a id="more"></a>
+
+<p>When the user logs in using Github using auhtorization code grant flow. The following three classes are responsible for handling the user login.</p>
+<ul>
+<li>OAuth2LoginAuthenticationFilter</li>
+<li>OAuth2LoginAuthenticationProvider</li>
+<li>DefaultOAuth2UserService</li>
+</ul>
+<h1 id="OAuth2LoginAuthenticationFilter"><a href="#OAuth2LoginAuthenticationFilter" class="headerlink" title="OAuth2LoginAuthenticationFilter"></a>OAuth2LoginAuthenticationFilter</h1><ul>
+<li>This authentication Filter handles the processing of an OAuth 2.0 Authorization Response for the authorization code grant flow and delegates an OAuth2LoginAuthenticationToken to the AuthenticationManager to log in the End-User.</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/web/OAuth2LoginAuthenticationFilter.html" target="_blank" rel="noopener">javadoc</a></li>
+<li><a href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/OAuth2LoginAuthenticationFilter.java" target="_blank" rel="noopener">Source Code</a></li>
+</ul>
+<p>attemptAuthentication code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Authentication <span class="title">attemptAuthentication</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">		<span class="keyword">throws</span> AuthenticationException </span>&#123;</span><br><span class="line"></span><br><span class="line">	MultiValueMap&lt;String, String&gt; params = OAuth2AuthorizationResponseUtils.toMultiMap(request.getParameterMap());</span><br><span class="line">	<span class="keyword">if</span> (!OAuth2AuthorizationResponseUtils.isAuthorizationResponse(params)) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = <span class="keyword">new</span> OAuth2Error(OAuth2ErrorCodes.INVALID_REQUEST);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	OAuth2AuthorizationRequest authorizationRequest =</span><br><span class="line">			<span class="keyword">this</span>.authorizationRequestRepository.removeAuthorizationRequest(request, response);</span><br><span class="line">	<span class="keyword">if</span> (authorizationRequest == <span class="keyword">null</span>) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = <span class="keyword">new</span> OAuth2Error(AUTHORIZATION_REQUEST_NOT_FOUND_ERROR_CODE);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	String registrationId = authorizationRequest.getAttribute(OAuth2ParameterNames.REGISTRATION_ID);</span><br><span class="line">	ClientRegistration clientRegistration = <span class="keyword">this</span>.clientRegistrationRepository.findByRegistrationId(registrationId);</span><br><span class="line">	<span class="keyword">if</span> (clientRegistration == <span class="keyword">null</span>) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = <span class="keyword">new</span> OAuth2Error(CLIENT_REGISTRATION_NOT_FOUND_ERROR_CODE,</span><br><span class="line">				<span class="string">"Client Registration not found with Id: "</span> + registrationId, <span class="keyword">null</span>);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString());</span><br><span class="line">	&#125;</span><br><span class="line">	String redirectUri = UriComponentsBuilder.fromHttpUrl(UrlUtils.buildFullRequestUrl(request))</span><br><span class="line">			.replaceQuery(<span class="keyword">null</span>)</span><br><span class="line">			.build()</span><br><span class="line">			.toUriString();</span><br><span class="line">	OAuth2AuthorizationResponse authorizationResponse = OAuth2AuthorizationResponseUtils.convert(params, redirectUri);</span><br><span class="line"></span><br><span class="line">	Object authenticationDetails = <span class="keyword">this</span>.authenticationDetailsSource.buildDetails(request);</span><br><span class="line">	OAuth2LoginAuthenticationToken authenticationRequest = <span class="keyword">new</span> OAuth2LoginAuthenticationToken(</span><br><span class="line">			clientRegistration, <span class="keyword">new</span> OAuth2AuthorizationExchange(authorizationRequest, authorizationResponse));</span><br><span class="line">	authenticationRequest.setDetails(authenticationDetails);</span><br><span class="line"></span><br><span class="line">	OAuth2LoginAuthenticationToken authenticationResult =</span><br><span class="line">		(OAuth2LoginAuthenticationToken) <span class="keyword">this</span>.getAuthenticationManager().authenticate(authenticationRequest);</span><br><span class="line"></span><br><span class="line">	OAuth2AuthenticationToken oauth2Authentication = <span class="keyword">new</span> OAuth2AuthenticationToken(</span><br><span class="line">		authenticationResult.getPrincipal(),</span><br><span class="line">		authenticationResult.getAuthorities(),</span><br><span class="line">		authenticationResult.getClientRegistration().getRegistrationId());</span><br><span class="line">	oauth2Authentication.setDetails(authenticationDetails);</span><br><span class="line"></span><br><span class="line">	OAuth2AuthorizedClient authorizedClient = <span class="keyword">new</span> OAuth2AuthorizedClient(</span><br><span class="line">		authenticationResult.getClientRegistration(),</span><br><span class="line">		oauth2Authentication.getName(),</span><br><span class="line">		authenticationResult.getAccessToken(),</span><br><span class="line">		authenticationResult.getRefreshToken());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">this</span>.authorizedClientRepository.saveAuthorizedClient(authorizedClient, oauth2Authentication, request, response);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> oauth2Authentication;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Process</p>
+<ol>
+<li>Construct OAuth2LoginAuthenticationToken</li>
+<li>Delegate authentication to AuthenticationManager</li>
+<li>Create OAuth2AuthenticationToken from the AuthenticationManager.authenticate(…) method call</li>
+<li>Create OAuth2AuthorizedClient</li>
+<li>Save OAuth2AuthorizedClient to authorizedClientRepository</li>
+<li>Return OAuth2AuthenticationToken</li>
+</ol>
+<p>There are providers used by AuthenticationManager for OAuth2</p>
+<ul>
+<li>OAuth2LoginAuthenticationProvider</li>
+<li>OidcAuthorizationCodeAuthenticationProvider</li>
+</ul>
+<p>If the scope contains “openid” then OidcAuthorizationCodeAuthenticationProvider will be used to process the authentication. If not, then OAuth2LoginAuthenticationProvider will be used.</p>
+<p>We will analyze OAuth2LoginAuthenticationProvider class here</p>
+<h1 id="OAuth2LoginAuthenticationProvider"><a href="#OAuth2LoginAuthenticationProvider" class="headerlink" title="OAuth2LoginAuthenticationProvider"></a>OAuth2LoginAuthenticationProvider</h1><ul>
+<li>An implementation of an AuthenticationProvider for OAuth 2.0 Login, which leverages the OAuth 2.0 Authorization Code Grant Flow.</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/authentication/OAuth2LoginAuthenticationProvider.html" target="_blank" rel="noopener">Javadoc</a></li>
+<li><a href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2LoginAuthenticationProvider.java" target="_blank" rel="noopener">Source Code</a></li>
+</ul>
+<p>OAuth2LoginAuthenticationProvider.authenticate() method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Authentication <span class="title">authenticate</span><span class="params">(Authentication authentication)</span> <span class="keyword">throws</span> AuthenticationException </span>&#123;</span><br><span class="line">	OAuth2LoginAuthenticationToken authorizationCodeAuthentication =</span><br><span class="line">		(OAuth2LoginAuthenticationToken) authentication;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Section 3.1.2.1 Authentication Request - https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest</span></span><br><span class="line">	<span class="comment">// scope</span></span><br><span class="line">	<span class="comment">// 		REQUIRED. OpenID Connect requests MUST contain the "openid" scope value.</span></span><br><span class="line">	<span class="keyword">if</span> (authorizationCodeAuthentication.getAuthorizationExchange()</span><br><span class="line">		.getAuthorizationRequest().getScopes().contains(<span class="string">"openid"</span>)) &#123;</span><br><span class="line">		<span class="comment">// This is an OpenID Connect Authentication Request so return null</span></span><br><span class="line">		<span class="comment">// and let OidcAuthorizationCodeAuthenticationProvider handle it instead</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	OAuth2AccessTokenResponse accessTokenResponse;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		OAuth2AuthorizationExchangeValidator.validate(</span><br><span class="line">				authorizationCodeAuthentication.getAuthorizationExchange());</span><br><span class="line"></span><br><span class="line">		accessTokenResponse = <span class="keyword">this</span>.accessTokenResponseClient.getTokenResponse(</span><br><span class="line">				<span class="keyword">new</span> OAuth2AuthorizationCodeGrantRequest(</span><br><span class="line">						authorizationCodeAuthentication.getClientRegistration(),</span><br><span class="line">						authorizationCodeAuthentication.getAuthorizationExchange()));</span><br><span class="line"></span><br><span class="line">	&#125; <span class="keyword">catch</span> (OAuth2AuthorizationException ex) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = ex.getError();</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	OAuth2AccessToken accessToken = accessTokenResponse.getAccessToken();</span><br><span class="line">	Map&lt;String, Object&gt; additionalParameters = accessTokenResponse.getAdditionalParameters();</span><br><span class="line"></span><br><span class="line">	OAuth2User oauth2User = <span class="keyword">this</span>.userService.loadUser(<span class="keyword">new</span> OAuth2UserRequest(</span><br><span class="line">			authorizationCodeAuthentication.getClientRegistration(), accessToken, additionalParameters));</span><br><span class="line"></span><br><span class="line">	Collection&lt;? extends GrantedAuthority&gt; mappedAuthorities =</span><br><span class="line">		<span class="keyword">this</span>.authoritiesMapper.mapAuthorities(oauth2User.getAuthorities());</span><br><span class="line"></span><br><span class="line">	OAuth2LoginAuthenticationToken authenticationResult = <span class="keyword">new</span> OAuth2LoginAuthenticationToken(</span><br><span class="line">		authorizationCodeAuthentication.getClientRegistration(),</span><br><span class="line">		authorizationCodeAuthentication.getAuthorizationExchange(),</span><br><span class="line">		oauth2User,</span><br><span class="line">		mappedAuthorities,</span><br><span class="line">		accessToken,</span><br><span class="line">		accessTokenResponse.getRefreshToken());</span><br><span class="line">	authenticationResult.setDetails(authorizationCodeAuthentication.getDetails());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> authenticationResult;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>this.accessTokenResponseClient.getTokenResponse(...)</code> will take the Authorization Code and exchange with Authorization Server to get the access token.</li>
+<li>UserService(DefaultOAuth2UserService in this case) will call UserInfo endpoint and then create the user and put it in Authentication object.</li>
+</ul>
+<h1 id="DefaultOAuth2UserService"><a href="#DefaultOAuth2UserService" class="headerlink" title="DefaultOAuth2UserService"></a>DefaultOAuth2UserService</h1><ul>
+<li>DefaultOAuth2UserService is an implementation of UserService. Its loadUser method calls UserInfo Endpoint and retrieve user info. Finally create a new OAuth2User and return it.</li>
+<li><a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/userinfo/DefaultOAuth2UserService.html" target="_blank" rel="noopener">Javadoc</a></li>
+<li><a href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/userinfo/DefaultOAuth2UserService.java" target="_blank" rel="noopener">Source Code</a></li>
+</ul>
+<p>DefaultOAuth2UserService.loadUser method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> OAuth2User <span class="title">loadUser</span><span class="params">(OAuth2UserRequest userRequest)</span> <span class="keyword">throws</span> OAuth2AuthenticationException </span>&#123;</span><br><span class="line">	Assert.notNull(userRequest, <span class="string">"userRequest cannot be null"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!StringUtils.hasText(userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUri())) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = <span class="keyword">new</span> OAuth2Error(</span><br><span class="line">			MISSING_USER_INFO_URI_ERROR_CODE,</span><br><span class="line">			<span class="string">"Missing required UserInfo Uri in UserInfoEndpoint for Client Registration: "</span> +</span><br><span class="line">				userRequest.getClientRegistration().getRegistrationId(),</span><br><span class="line">			<span class="keyword">null</span></span><br><span class="line">		);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString());</span><br><span class="line">	&#125;</span><br><span class="line">	String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()</span><br><span class="line">			.getUserInfoEndpoint().getUserNameAttributeName();</span><br><span class="line">	<span class="keyword">if</span> (!StringUtils.hasText(userNameAttributeName)) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = <span class="keyword">new</span> OAuth2Error(</span><br><span class="line">			MISSING_USER_NAME_ATTRIBUTE_ERROR_CODE,</span><br><span class="line">			<span class="string">"Missing required \"user name\" attribute name in UserInfoEndpoint for Client Registration: "</span> +</span><br><span class="line">				userRequest.getClientRegistration().getRegistrationId(),</span><br><span class="line">			<span class="keyword">null</span></span><br><span class="line">		);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	RequestEntity&lt;?&gt; request = <span class="keyword">this</span>.requestEntityConverter.convert(userRequest);</span><br><span class="line"></span><br><span class="line">	ResponseEntity&lt;Map&lt;String, Object&gt;&gt; response;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		response = <span class="keyword">this</span>.restOperations.exchange(request, PARAMETERIZED_RESPONSE_TYPE);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (OAuth2AuthorizationException ex) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = ex.getError();</span><br><span class="line">		StringBuilder errorDetails = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">		errorDetails.append(<span class="string">"Error details: ["</span>);</span><br><span class="line">		errorDetails.append(<span class="string">"UserInfo Uri: "</span>).append(</span><br><span class="line">				userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUri());</span><br><span class="line">		errorDetails.append(<span class="string">", Error Code: "</span>).append(oauth2Error.getErrorCode());</span><br><span class="line">		<span class="keyword">if</span> (oauth2Error.getDescription() != <span class="keyword">null</span>) &#123;</span><br><span class="line">			errorDetails.append(<span class="string">", Error Description: "</span>).append(oauth2Error.getDescription());</span><br><span class="line">		&#125;</span><br><span class="line">		errorDetails.append(<span class="string">"]"</span>);</span><br><span class="line">		oauth2Error = <span class="keyword">new</span> OAuth2Error(INVALID_USER_INFO_RESPONSE_ERROR_CODE,</span><br><span class="line">				<span class="string">"An error occurred while attempting to retrieve the UserInfo Resource: "</span> + errorDetails.toString(), <span class="keyword">null</span>);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString(), ex);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (RestClientException ex) &#123;</span><br><span class="line">		OAuth2Error oauth2Error = <span class="keyword">new</span> OAuth2Error(INVALID_USER_INFO_RESPONSE_ERROR_CODE,</span><br><span class="line">				<span class="string">"An error occurred while attempting to retrieve the UserInfo Resource: "</span> + ex.getMessage(), <span class="keyword">null</span>);</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> OAuth2AuthenticationException(oauth2Error, oauth2Error.toString(), ex);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Map&lt;String, Object&gt; userAttributes = response.getBody();</span><br><span class="line">	Set&lt;GrantedAuthority&gt; authorities = <span class="keyword">new</span> LinkedHashSet&lt;&gt;();</span><br><span class="line">	authorities.add(<span class="keyword">new</span> OAuth2UserAuthority(userAttributes));</span><br><span class="line">	OAuth2AccessToken token = userRequest.getAccessToken();</span><br><span class="line">	<span class="keyword">for</span> (String authority : token.getScopes()) &#123;</span><br><span class="line">		authorities.add(<span class="keyword">new</span> SimpleGrantedAuthority(<span class="string">"SCOPE_"</span> + authority));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> DefaultOAuth2User(authorities, userAttributes, userNameAttributeName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/SpringSecurity/Spring-Security-OAuth2-Core-Classes/" rel="next" title="Spring Security - OAuth2 Core Classes">
+                <i class="fa fa-chevron-left"></i> Spring Security - OAuth2 Core Classes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">161</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/xinghua24" title="GitHub &rarr; https://github.com/xinghua24" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2LoginAuthenticationFilter"><span class="nav-number">1.</span> <span class="nav-text">OAuth2LoginAuthenticationFilter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2LoginAuthenticationProvider"><span class="nav-number">2.</span> <span class="nav-text">OAuth2LoginAuthenticationProvider</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DefaultOAuth2UserService"><span class="nav-number">3.</span> <span class="nav-text">DefaultOAuth2UserService</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://xinghua24githubio.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Process/";
+        this.page.identifier = "SpringSecurity/Spring-Security-OAuth2-Process/";
+        this.page.title = 'Spring Security - OAuth2 Process';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://xinghua24githubio.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('Copied');
+          else $(this).text('Copy failed');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('Copy');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>

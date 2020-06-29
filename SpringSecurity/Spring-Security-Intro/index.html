@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/basic-auth.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/filter-chain.png">
 <meta property="og:image" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-Intro/debug-FilterChainProxy.png">
-<meta property="og:updated_time" content="2020-06-08T01:35:37.722Z">
+<meta property="og:updated_time" content="2020-06-28T23:49:27.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security - Intro">
 <meta name="twitter:description" content="Spring Security Introduction">
@@ -494,9 +494,10 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
 <p>Here are some of the <strong>IMPORTANT</strong> Filters you need to understand: </p>
 <p><strong>FilterChainProxy</strong><br>Spring Security’s FilterChainProxy is the entry point for all web base security. You can put a breakpoint at FilterChainProxy’s <em>doFilterInternal</em> method to see all the Filters used.  </p>
 <p><img src="debug-FilterChainProxy.png" alt="Debug FilterChianProxy class"></p>
-<p><strong>Authentication processing filter</strong><br>UsernamePasswordAuthenticationFilter, CasAuthenticationFilter, BasicAuthenticationFilter, OAuth2LoginAuthenticationFilter etc - Processes an authentication. Then putting the valid authentication token into the SecurityContextHolder.</p>
-<p><strong>ExceptionTranslationFilter</strong><br>The ExceptionTranslationFilter allows translation of AccessDeniedException and AuthenticationException into HTTP responses.</p>
-<p><strong>FilterSecurityInterceptor</strong><br>The FilterSecurityInterceptor provides authorization for HttpServletRequests. If access is denied, an AccessDeniedException is thrown. ExceptionTranslationFilter handles the AccessDeniedException.</p>
+<p><strong>SecurityContextPersistenceFilter</strong><br><a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/context/SecurityContextPersistenceFilter.html" target="_blank" rel="noopener">SecurityContextPersistenceFilter</a> populates the SecurityContextHolder with information obtained from the configured SecurityContextRepository prior to the request and stores it back in the repository once the request has completed and clearing the context holder. By default it uses an HttpSessionSecurityContextRepository. </p>
+<p><strong>Authentication processing filter</strong><br><a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.html" target="_blank" rel="noopener">UsernamePasswordAuthenticationFilter</a>, CasAuthenticationFilter, BasicAuthenticationFilter, OAuth2LoginAuthenticationFilter etc - Processes an authentication. Then putting the valid authentication token into the SecurityContextHolder.</p>
+<p><strong>ExceptionTranslationFilter</strong><br>The <a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/access/ExceptionTranslationFilter.html" target="_blank" rel="noopener">ExceptionTranslationFilter</a> allows translation of AccessDeniedException and AuthenticationException into HTTP responses.</p>
+<p><strong>FilterSecurityInterceptor</strong><br>The <a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/access/intercept/FilterSecurityInterceptor.html" target="_blank" rel="noopener">FilterSecurityInterceptor</a> provides authorization for HttpServletRequests. If access is denied, an AccessDeniedException is thrown. ExceptionTranslationFilter handles the AccessDeniedException.</p>
 <h1 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h1><ul>
 <li><a href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/" target="_blank" rel="noopener">Spring security Reference</a></li>
 <li><a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html" target="_blank" rel="noopener">Spring Security Javadoc</a></li>
@@ -638,6 +639,10 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
+                    
+                      
                     
                       
                     

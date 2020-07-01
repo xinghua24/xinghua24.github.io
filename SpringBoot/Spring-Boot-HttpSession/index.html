@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="HttpSession">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-19T15:58:50.274Z">
+<meta property="og:updated_time" content="2020-06-30T02:41:09.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot - HttpSession">
 <meta name="twitter:description" content="HttpSession">
@@ -456,8 +456,14 @@
 <p>Here is an example to set a session in the controller</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/setValue"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">setValue</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    session.setAttribute(<span class="string">"foo"</span>, <span class="string">"bar"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/util/WebUtils.html" target="_blank" rel="noopener">WebUtils</a> offers method to set Session attribute.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebUtils.setSessionAttribute(request, <span class="string">"foo"</span>, <span class="string">"bar"</span>);</span><br></pre></td></tr></table></figure>
+
 <h1 id="Get-Session-Attribute"><a href="#Get-Session-Attribute" class="headerlink" title="Get Session Attribute"></a>Get Session Attribute</h1><p>Use <code>HttpSession.getAttribute()</code> to get attribute value</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/getValue"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getValue</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    <span class="keyword">if</span>( session.getAttribute(<span class="string">"foo"</span>) != <span class="keyword">null</span>)&#123;</span><br><span class="line">        LOG.info(session.getAttribute(<span class="string">"foo"</span>).toString());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Get Session attribute using <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/util/WebUtils.html" target="_blank" rel="noopener">WebUtils</a>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebUtils.getSessionAttribute(request, <span class="string">"foo"</span>).toString();</span><br></pre></td></tr></table></figure>
 
 <h1 id="Get-All-Session-Attribute"><a href="#Get-All-Session-Attribute" class="headerlink" title="Get All Session Attribute"></a>Get All Session Attribute</h1><p>use <code>Enumeration e = session.getAttributeNames()</code> to get all the session names, then use <code>HttpSession.getAttribute()</code> method to get the session attribute.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/getAll"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getAll</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">    HttpSession session = request.getSession();</span><br><span class="line">    Enumeration e = session.getAttributeNames();</span><br><span class="line">    <span class="keyword">while</span>(e.hasMoreElements()) &#123;</span><br><span class="line">        Object key = e.nextElement();</span><br><span class="line">        LOG.info(key.toString() + <span class="string">"="</span> + session.getAttribute(key.toString()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"OK"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -593,8 +599,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     

@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="Let us walk throught OAuth 2.0 Authorization Process.">
+  <meta name="description" content="Let us walk throught OAuth2 Authorization Process. Have some basic understanding the classes mentioned in Spring Security OAuth2 Core Classes will help you understanding OAuth2 process in this post.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Security - OAuth2 Process">
 <meta property="og:url" content="http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Process/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Let us walk throught OAuth 2.0 Authorization Process.">
+<meta property="og:description" content="Let us walk throught OAuth2 Authorization Process. Have some basic understanding the classes mentioned in Spring Security OAuth2 Core Classes will help you understanding OAuth2 process in this post.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-24T04:16:19.515Z">
+<meta property="og:updated_time" content="2020-07-01T01:08:37.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Security - OAuth2 Process">
-<meta name="twitter:description" content="Let us walk throught OAuth 2.0 Authorization Process.">
+<meta name="twitter:description" content="Let us walk throught OAuth2 Authorization Process. Have some basic understanding the classes mentioned in Spring Security OAuth2 Core Classes will help you understanding OAuth2 process in this post.">
 
 
 
@@ -448,7 +448,7 @@
       
 
       
-        <p>Let us walk throught OAuth 2.0 Authorization Process. </p>
+        <p>Let us walk throught OAuth2 Authorization Process. Have some basic understanding the classes mentioned in <a href="../Spring-Security-OAuth2-Core-Classes">Spring Security OAuth2 Core Classes</a> will help you understanding OAuth2 process in this post.</p>
 <a id="more"></a>
 
 <p>When the user logs in using Github using auhtorization code grant flow. The following three classes are responsible for handling the user login.</p>
@@ -467,9 +467,9 @@
 
 <p>Process</p>
 <ol>
-<li>Construct OAuth2LoginAuthenticationToken</li>
-<li>Delegate authentication to AuthenticationManager</li>
-<li>Create OAuth2AuthenticationToken from the AuthenticationManager.authenticate(…) method call</li>
+<li>Create OAuth2LoginAuthenticationToken as authentication request</li>
+<li>Delegate authentication to AuthenticationManager. OAuth2LoginAuthenticationToken is passed as parameter</li>
+<li>Create OAuth2AuthenticationToken from the AuthenticationManager.authenticate(…) method call result</li>
 <li>Create OAuth2AuthorizedClient</li>
 <li>Save OAuth2AuthorizedClient to authorizedClientRepository</li>
 <li>Return OAuth2AuthenticationToken</li>
@@ -480,7 +480,7 @@
 <li>OidcAuthorizationCodeAuthenticationProvider</li>
 </ul>
 <p>If the scope contains “openid” then OidcAuthorizationCodeAuthenticationProvider will be used to process the authentication. If not, then OAuth2LoginAuthenticationProvider will be used.</p>
-<p>We will analyze OAuth2LoginAuthenticationProvider class here</p>
+<p>We will analyze OAuth2LoginAuthenticationProvider class only.</p>
 <h1 id="OAuth2LoginAuthenticationProvider"><a href="#OAuth2LoginAuthenticationProvider" class="headerlink" title="OAuth2LoginAuthenticationProvider"></a>OAuth2LoginAuthenticationProvider</h1><ul>
 <li>An implementation of an AuthenticationProvider for OAuth 2.0 Login, which leverages the OAuth 2.0 Authorization Code Grant Flow.</li>
 <li><a href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/authentication/OAuth2LoginAuthenticationProvider.html" target="_blank" rel="noopener">Javadoc</a></li>
@@ -626,8 +626,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     

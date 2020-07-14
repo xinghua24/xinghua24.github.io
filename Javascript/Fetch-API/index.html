@@ -102,17 +102,17 @@
 
 
 
-  <meta name="description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
+  <meta name="description" content="Fetch API is used to make server request. The returned value is a Promise. This allows us to build simple and clean API calls.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot - ApplicationRunner and CommandLineRunner">
-<meta property="og:url" content="http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/index.html">
+<meta property="og:title" content="Fetch API">
+<meta property="og:url" content="http://xinghua24.github.io/Javascript/Fetch-API/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
+<meta property="og:description" content="Fetch API is used to make server request. The returned value is a Promise. This allows us to build simple and clean API calls.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-17T06:20:52.530Z">
+<meta property="og:updated_time" content="2020-07-14T04:33:16.118Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot - ApplicationRunner and CommandLineRunner">
-<meta name="twitter:description" content="ApplicationRunner and CommandLineRunner interfaces lets you to execute the code after the Spring Boot application is started.">
+<meta name="twitter:title" content="Fetch API">
+<meta name="twitter:description" content="Fetch API is used to make server request. The returned value is a Promise. This allows us to build simple and clean API calls.">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/">
+  <link rel="canonical" href="http://xinghua24.github.io/Javascript/Fetch-API/">
 
 
 
@@ -131,7 +131,7 @@
   };
 </script>
 
-  <title>Spring Boot - ApplicationRunner and CommandLineRunner | Xing's Blog</title>
+  <title>Fetch API | Xing's Blog</title>
   
 
 
@@ -342,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Javascript/Fetch-API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring Boot - ApplicationRunner and CommandLineRunner
+          <h1 class="post-title" itemprop="name headline">Fetch API
 
               
             
@@ -385,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-05-02 05:17:00" itemprop="dateCreated datePublished" datetime="2019-05-02T05:17:00-04:00">2019-05-02</time>
+              <time title="Created: 2020-07-13 18:00:00" itemprop="dateCreated datePublished" datetime="2020-07-13T18:00:00-04:00">2020-07-13</time>
             
 
             
@@ -403,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
 
                 
                 
@@ -418,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/#comments" itemprop="discussionUrl">
+                <a href="/Javascript/Fetch-API/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Javascript/Fetch-API/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -448,24 +448,32 @@
       
 
       
-        <p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html" target="_blank" rel="noopener">ApplicationRunner</a> and <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> interfaces lets you to execute the code after the Spring Boot application is started.</p>
+        <p>Fetch API is used to make server request. The returned value is a Promise. This allows us to build simple and clean API calls.</p>
 <a id="more"></a>
 
-<h1 id="ApplicationRunner"><a href="#ApplicationRunner" class="headerlink" title="ApplicationRunner"></a>ApplicationRunner</h1><p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/ApplicationRunner.html" target="_blank" rel="noopener">ApplicationRunner</a> interface allows you to run some code after Sprint Boot starts. </p>
-<p>MyApplicationRunner.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplicationRunner</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyApplicationRunner.class);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        args.getOptionNames().forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Basic-Fetch-Request"><a href="#Basic-Fetch-Request" class="headerlink" title="Basic Fetch Request"></a>Basic Fetch Request</h1><p>Example to use Fetch to get data from server</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">"https://jsonplaceholder.typicode.com/todos/1"</span> )</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">    .then(<span class="function"><span class="params">json</span> =&gt;</span> <span class="built_in">console</span>.log(json))</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err));</span><br></pre></td></tr></table></figure>
 
-<h1 id="CommandLineRunner"><a href="#CommandLineRunner" class="headerlink" title="CommandLineRunner"></a>CommandLineRunner</h1><p><a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> interface allows you to run some code after Sprint Boot starts. The difference between CommandLineRunner and ApplicationRunner is run() method’s parameter. With <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/CommandLineRunner.html" target="_blank" rel="noopener">CommandLineRunner</a> you get raw unprocessed arguments.</p>
-<p>MyCommandListRunner.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCommandListRunner</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOG = LoggerFactory.getLogger(MyCommandListRunner.class);</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Stream.of(args).forEach(LOG::info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>output</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"userId"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"title"</span>: <span class="string">"delectus aut autem"</span>,</span><br><span class="line">  <span class="attr">"completed"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>sample output with application argument <code>--foo=bar</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyApplicationRunner                  : foo</span><br><span class="line">2019-05-02 22:59:35.261  INFO 15067 --- [  restartedMain] com.example.demo.MyCommandListRunner           : --foo=bar</span><br></pre></td></tr></table></figure>
+<p><code>fetch()</code> method takes a url as the first argument. The return value is a Promise. <code>json()</code> method converts the response to json. It is the most used method.</p>
+<h1 id="POST-Request"><a href="#POST-Request" class="headerlink" title="POST Request"></a>POST Request</h1><p>The <code>fetch()</code> method call accepts a second optional parameter. You specify the request options such as method, headers and body using the second parameter.</p>
+<p>Example to send a POST message with headers and body.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'https://jsonplaceholder.typicode.com/posts'</span>, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">        headers: &#123;</span><br><span class="line">      <span class="string">"Content-type"</span>: <span class="string">"application/json; charset=UTF-8"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    body: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">      title: <span class="string">'foo'</span>,</span><br><span class="line">      body: <span class="string">'bar'</span>,</span><br><span class="line">      userId: <span class="number">1</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">  .then(<span class="function"><span class="params">json</span> =&gt;</span> <span class="built_in">console</span>.log(json))</span><br><span class="line">  .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err));</span><br></pre></td></tr></table></figure>
 
-<p>Reference</p>
-<ul>
-<li><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-command-line-runner" target="_blank" rel="noopener">Application Runners and Command Line Runners</a></li>
-<li><a href="https://www.tutorialspoint.com/spring_boot/spring_boot_runners.htm" target="_blank" rel="noopener">Spring Boot Runners</a></li>
+<p>output</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  id: 101,</span><br><span class="line">  title: 'foo',</span><br><span class="line">  body: 'bar',</span><br><span class="line">  userId: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Async-and-await"><a href="#Async-and-await" class="headerlink" title="Async and await"></a>Async and await</h1><p>You can rewrite the fetch request using async/await. This sometimes makes the code easier to understand and maintain. no more <code>.then()</code> chains.</p>
+<p>Async function that uses fetch() to make http request</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">myFetch</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(<span class="string">'https://jsonplaceholder.typicode.com/todos/1'</span>);</span><br><span class="line">    <span class="keyword">if</span>(!response.ok) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Http error. status:<span class="subst">$&#123;response.status&#125;</span>`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> json = <span class="keyword">await</span> response.json();</span><br><span class="line">        <span class="built_in">console</span>.log(json);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myFetch()</span><br></pre></td></tr></table></figure>
+
+<p><code>await</code> blocks execution of the code that follows until the promise fulfills. So you need to be careful when using async/await</p>
+<h1 id="Useful-Resources"><a href="#Useful-Resources" class="headerlink" title="Useful Resources"></a>Useful Resources</h1><ul>
+<li><a href="https://javascript.info/network" target="_blank" rel="noopener">Javascript.info Network request Section</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener">MDN Using Fetch</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await" target="_blank" rel="noopener">MDN Making asynchronous programming easier with async and await</a></li>
 </ul>
 
       
@@ -497,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Java/Non-static-vs-Static-Nested-class/" rel="next" title="Non-static vs Static Nested class">
-                <i class="fa fa-chevron-left"></i> Non-static vs Static Nested class
+              <a href="/Javascript/Javascript-Handle-Mouse-Event/" rel="next" title="Javascript - Handle Mouse Event">
+                <i class="fa fa-chevron-left"></i> Javascript - Handle Mouse Event
               </a>
             
           </div>
@@ -506,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/SpringBoot/Spring-Boot-Logging/" rel="prev" title="Spring Boot - Logging">
-                Spring Boot - Logging <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -734,7 +738,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ApplicationRunner"><span class="nav-number">1.</span> <span class="nav-text">ApplicationRunner</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CommandLineRunner"><span class="nav-number">2.</span> <span class="nav-text">CommandLineRunner</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Fetch-Request"><span class="nav-number">1.</span> <span class="nav-text">Basic Fetch Request</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#POST-Request"><span class="nav-number">2.</span> <span class="nav-text">POST Request</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Async-and-await"><span class="nav-number">3.</span> <span class="nav-text">Async and await</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Useful-Resources"><span class="nav-number">4.</span> <span class="nav-text">Useful Resources</span></a></li></ol></div>
             
 
           </div>
@@ -889,9 +893,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/";
-        this.page.identifier = "SpringBoot/Spring-Boot-ApplicationRunner-and-CommandLineRunner/";
-        this.page.title = 'Spring Boot - ApplicationRunner and CommandLineRunner';
+        this.page.url = "http://xinghua24.github.io/Javascript/Fetch-API/";
+        this.page.identifier = "Javascript/Fetch-API/";
+        this.page.title = 'Fetch API';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

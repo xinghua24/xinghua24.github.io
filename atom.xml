@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-14T04:33:16.118Z</updated>
+  <updated>2020-07-14T05:22:03.155Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Copy Object in Javascript</title>
+    <link href="http://xinghua24.github.io/Javascript/Copy-Object-in-Javascript/"/>
+    <id>http://xinghua24.github.io/Javascript/Copy-Object-in-Javascript/</id>
+    <published>2020-07-13T23:00:00.000Z</published>
+    <updated>2020-07-14T05:22:03.155Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Copying Object in Javascript&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://xinghua24.github.io/categories/Javascript/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Fetch API</title>
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - LDAP Authentication</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-LDAP-Authentication/</id>
-    <published>2020-05-05T07:09:41.000Z</published>
-    <updated>2020-06-07T23:50:44.510Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;LDAP Authentication&lt;/p&gt;
     
     </summary>
     

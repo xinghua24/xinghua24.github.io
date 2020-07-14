@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="free - Display amount of free and used memory in the system.">
-<meta name="keywords" content="Linux">
+  <meta name="description" content="Copying Object in Javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - free">
-<meta property="og:url" content="http://xinghua24.github.io/Linux/Linux-Command-free/index.html">
+<meta property="og:title" content="Copy Object in Javascript">
+<meta property="og:url" content="http://xinghua24.github.io/Javascript/Copy-Object-in-Javascript/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="free - Display amount of free and used memory in the system.">
+<meta property="og:description" content="Copying Object in Javascript">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:01:46.286Z">
+<meta property="og:updated_time" content="2020-07-14T05:22:03.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux Command - free">
-<meta name="twitter:description" content="free - Display amount of free and used memory in the system.">
+<meta name="twitter:title" content="Copy Object in Javascript">
+<meta name="twitter:description" content="Copying Object in Javascript">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux/Linux-Command-free/">
+  <link rel="canonical" href="http://xinghua24.github.io/Javascript/Copy-Object-in-Javascript/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>Linux Command - free | Xing's Blog</title>
+  <title>Copy Object in Javascript | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux/Linux-Command-free/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Javascript/Copy-Object-in-Javascript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux Command - free
+          <h1 class="post-title" itemprop="name headline">Copy Object in Javascript
 
               
             
@@ -386,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-01-03 01:35:33" itemprop="dateCreated datePublished" datetime="2019-01-03T01:35:33-05:00">2019-01-03</time>
+              <time title="Created: 2020-07-13 19:00:00" itemprop="dateCreated datePublished" datetime="2020-07-13T19:00:00-04:00">2020-07-13</time>
             
 
             
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
 
                 
                 
@@ -419,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux/Linux-Command-free/#comments" itemprop="discussionUrl">
+                <a href="/Javascript/Copy-Object-in-Javascript/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux/Linux-Command-free/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Javascript/Copy-Object-in-Javascript/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,76 +448,31 @@
       
 
       
-        <p><code>free</code> - Display amount of free and used memory in the system.</p>
+        <p>Copying Object in Javascript</p>
 <a id="more"></a>
 
+<p>There are three ways to copy object in Javascript</p>
+<ul>
+<li>spread (…) syntax</li>
+<li>Object.assign() function</li>
+<li>JSON.stringify() and JSON.parse() function</li>
+</ul>
+<h1 id="Spread-Syntax"><a href="#Spread-Syntax" class="headerlink" title="Spread Syntax"></a>Spread Syntax</h1><p>Spread syntax is the most simple way to shallow clone an object</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> book = &#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">title</span>: <span class="string">'js tutorial'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> cloneBook = &#123;...book&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free [OPTIONS]</span><br></pre></td></tr></table></figure>
+<h1 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h1><p>Object.assign() is also used to shallow clone an object.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> book = &#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">title</span>: <span class="string">'js tutorial'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> cloneBook = <span class="built_in">Object</span>.assign(&#123;&#125;, book)</span><br></pre></td></tr></table></figure>
 
-<h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
-<thead>
-<tr>
-<th>Common Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-b, –bytes</td>
-<td>show output in bytes</td>
-</tr>
-<tr>
-<td>-k, –kibi</td>
-<td>show output in kibibytes</td>
-</tr>
-<tr>
-<td>-m, –mebi</td>
-<td>show output in mebibytes</td>
-</tr>
-<tr>
-<td>-g, –gibi</td>
-<td>show output in gibibytes</td>
-</tr>
-<tr>
-<td>-h, –human</td>
-<td>show human-readable output</td>
-</tr>
-<tr>
-<td>-l, –lohi</td>
-<td>show detailed low and high memory statistics</td>
-</tr>
-<tr>
-<td>-t, –total</td>
-<td>show total for RAM + swap</td>
-</tr>
-<tr>
-<td>-s N, –seconds N</td>
-<td>repeat printing every N seconds</td>
-</tr>
-<tr>
-<td>-c N, –count N</td>
-<td>repeat printing N times, then exit</td>
-</tr>
-<tr>
-<td>-w, –wide</td>
-<td>wide output</td>
-</tr>
-</tbody></table>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Show-free-and-used-memory"><a href="#Show-free-and-used-memory" class="headerlink" title="Show free and used memory"></a>Show free and used memory</h2><p>Show in Human readable output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
+<p>Both spread and Object.assign copy/merge the properties from one object to another. They are shallow cloning object because when copying reference, they don’t copy the referenced data, only the reference itself.</p>
+<p>So when the object to clone contains object, array or dates, shallow clone will cause both original and clone object use the same reference.</p>
+<h1 id="stringify-and-parse"><a href="#stringify-and-parse" class="headerlink" title="stringify and parse"></a>stringify and parse</h1><p>JSON.stringify() and JSON.parse() methods are used to do deep clone. This works for all kind of objects containing objects, arrays and primitives.</p>
+<p>Shallow clone example</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Shallow Clone</span></span><br><span class="line"><span class="keyword">let</span> book = &#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">title</span>: <span class="string">'js tutorial'</span>, <span class="attr">details</span>: &#123;<span class="attr">isbn</span>: <span class="number">100000</span> &#125;&#125;</span><br><span class="line"><span class="keyword">let</span> cloneBook = &#123;...book&#125;</span><br><span class="line">cloneBook.details.isbn=<span class="number">22222</span></span><br><span class="line"><span class="built_in">console</span>.log(book) <span class="comment">// the isbn is now 22222</span></span><br></pre></td></tr></table></figure>
 
-<p>Sample output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:          7.7G       5.1G       2.6G       654M       542M       2.1G</span><br><span class="line">-/+ buffers/cache:       2.5G       5.2G</span><br><span class="line">Swap:         2.0G         0B       2.0</span><br></pre></td></tr></table></figure>
-
-<p>Show output in mebibytes</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
-
-<p>Sample output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:          7881       5229       2652        663        542       2161</span><br><span class="line">-/+ buffers/cache:       2525       5356</span><br><span class="line">Swap:         2047          0       2047</span><br></pre></td></tr></table></figure>
-
-<h2 id="Show-free-and-used-memory-refresh-every-5sec"><a href="#Show-free-and-used-memory-refresh-every-5sec" class="headerlink" title="Show free and used memory, refresh every 5sec"></a>Show free and used memory, refresh every 5sec</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m -s 5</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Deep Clone</span></span><br><span class="line"><span class="keyword">let</span> book = &#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">title</span>: <span class="string">'js tutorial'</span>, <span class="attr">details</span>: &#123;<span class="attr">isbn</span>: <span class="number">100000</span> &#125;&#125;</span><br><span class="line"><span class="keyword">let</span> cloneBook = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(book))</span><br><span class="line">cloneBook.details.isbn=<span class="number">22222</span></span><br><span class="line"><span class="built_in">console</span>.log(book) <span class="comment">// the isbn is still 100000</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://linux.die.net/man/1/free" target="_blank" rel="noopener">free online man page</a></li>
+<li><a href="https://www.javascripttutorial.net/object/3-ways-to-copy-objects-in-javascript/" target="_blank" rel="noopener">3 Ways to Copy Objects in JavaScript</a></li>
 </ul>
 
       
@@ -541,12 +495,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
 
       
       
@@ -556,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Linux/Linux-Command-find-and-xargs/" rel="next" title="Linux Command - find and xargs">
-                <i class="fa fa-chevron-left"></i> Linux Command - find and xargs
+              <a href="/Javascript/Fetch-API/" rel="next" title="Fetch API">
+                <i class="fa fa-chevron-left"></i> Fetch API
               </a>
             
           </div>
@@ -565,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Linux/Linux-Command-ln/" rel="prev" title="Linux Command - ln">
-                Linux Command - ln <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -793,7 +737,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-free-and-used-memory"><span class="nav-number">3.1.</span> <span class="nav-text">Show free and used memory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-free-and-used-memory-refresh-every-5sec"><span class="nav-number">3.2.</span> <span class="nav-text">Show free and used memory, refresh every 5sec</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spread-Syntax"><span class="nav-number">1.</span> <span class="nav-text">Spread Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object-assign"><span class="nav-number">2.</span> <span class="nav-text">Object.assign()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stringify-and-parse"><span class="nav-number">3.</span> <span class="nav-text">stringify and parse</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
@@ -948,9 +892,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux/Linux-Command-free/";
-        this.page.identifier = "Linux/Linux-Command-free/";
-        this.page.title = 'Linux Command - free';
+        this.page.url = "http://xinghua24.github.io/Javascript/Copy-Object-in-Javascript/";
+        this.page.identifier = "Javascript/Copy-Object-in-Javascript/";
+        this.page.title = 'Copy Object in Javascript';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

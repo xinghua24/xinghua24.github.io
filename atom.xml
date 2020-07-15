@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-14T05:22:03.155Z</updated>
+  <updated>2020-07-15T02:23:23.688Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React JSX Syntax</title>
+    <link href="http://xinghua24.github.io/React/React-JSX/"/>
+    <id>http://xinghua24.github.io/React/React-JSX/</id>
+    <published>2020-07-14T23:00:00.000Z</published>
+    <updated>2020-07-15T02:23:23.688Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;JSX Syntax&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Intro</title>
+    <link href="http://xinghua24.github.io/React/React-Intro/"/>
+    <id>http://xinghua24.github.io/React/React-Intro/</id>
+    <published>2020-07-14T22:00:00.000Z</published>
+    <updated>2020-07-15T02:22:31.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this post we will get to know about React.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Copy Object in Javascript</title>
@@ -332,42 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Configure Spring Security using HttpSecurity&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Custom AuthenticationProvider</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-AuthenticationProvider/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-AuthenticationProvider/</id>
-    <published>2020-06-05T02:35:43.000Z</published>
-    <updated>2020-06-07T23:47:51.586Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Spring Security provides many AuthenticationProvider for you to use. You can provide your own customized AuthenticationProvider if the provided AuthenticationProvider doesn’t satisfy your Authentication need.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Custome UserDetailsService</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Custom-UserDetailsService/</id>
-    <published>2020-05-15T22:37:00.000Z</published>
-    <updated>2020-06-07T23:48:05.495Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;We learn about JDBC Authentication, but in real world, it is more common to customize UserDetailsService. This allows more flexibility When it comes to authenticating user.&lt;/p&gt;
     
     </summary>
     

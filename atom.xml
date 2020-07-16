@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-15T02:23:23.688Z</updated>
+  <updated>2020-07-16T01:04:46.046Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Event</title>
+    <link href="http://xinghua24.github.io/React/React-Event/"/>
+    <id>http://xinghua24.github.io/React/React-Event/</id>
+    <published>2020-07-15T22:00:00.000Z</published>
+    <updated>2020-07-16T01:04:46.046Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;React Event Handling&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Component</title>
+    <link href="http://xinghua24.github.io/React/React-Component/"/>
+    <id>http://xinghua24.github.io/React/React-Component/</id>
+    <published>2020-07-15T21:00:00.000Z</published>
+    <updated>2020-07-16T01:05:13.278Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;React Component&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>React JSX Syntax</title>
@@ -332,42 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Lets learn how to use PasswordEncoder in Spring Security&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Thymeleaf</title>
-    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Thymeleaf/"/>
-    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Thymeleaf/</id>
-    <published>2020-06-07T02:08:02.000Z</published>
-    <updated>2020-06-08T00:50:48.873Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Thymeleaf is a modern server-side Java template engine for both web and standalone environments.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Boot" scheme="http://xinghua24.github.io/categories/Spring-Boot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Form Login</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Form-Login/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Form-Login/</id>
-    <published>2020-06-05T23:37:00.000Z</published>
-    <updated>2020-07-04T03:44:04.098Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Configure Spring Security using HttpSecurity&lt;/p&gt;
     
     </summary>
     

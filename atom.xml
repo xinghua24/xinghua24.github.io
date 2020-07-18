@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-16T01:04:46.046Z</updated>
+  <updated>2020-07-18T04:22:13.125Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React useEffect Hook</title>
+    <link href="http://xinghua24.github.io/React/React-useEffect-Hook/"/>
+    <id>http://xinghua24.github.io/React/React-useEffect-Hook/</id>
+    <published>2020-07-16T13:00:00.000Z</published>
+    <updated>2020-07-18T04:22:13.125Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;React UseEffect Hook&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>React Event</title>
@@ -350,24 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Authorization Configuration&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - PasswordEncoder</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-PasswordEncoder/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-PasswordEncoder/</id>
-    <published>2020-06-08T00:37:44.000Z</published>
-    <updated>2020-06-08T01:07:19.832Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Lets learn how to use PasswordEncoder in Spring Security&lt;/p&gt;
     
     </summary>
     

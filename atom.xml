@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-18T04:22:13.125Z</updated>
+  <updated>2020-07-18T22:34:54.845Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Forms</title>
+    <link href="http://xinghua24.github.io/React/React-Froms/"/>
+    <id>http://xinghua24.github.io/React/React-Froms/</id>
+    <published>2020-07-18T13:00:00.000Z</published>
+    <updated>2020-07-18T22:34:54.845Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Unlike the other HTML Element,form controls keeps some internal state. We can manage the form controls’ state using React component’s states.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Refs</title>
+    <link href="http://xinghua24.github.io/React/React-Refs/"/>
+    <id>http://xinghua24.github.io/React/React-Refs/</id>
+    <published>2020-07-17T13:00:00.000Z</published>
+    <updated>2020-07-18T22:33:12.423Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;React useRef Hook&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>React useEffect Hook</title>
@@ -93,7 +129,7 @@
     <link href="http://xinghua24.github.io/React/React-Intro/"/>
     <id>http://xinghua24.github.io/React/React-Intro/</id>
     <published>2020-07-14T22:00:00.000Z</published>
-    <updated>2020-07-15T02:22:31.927Z</updated>
+    <updated>2020-07-18T22:27:55.780Z</updated>
     
     <summary type="html">
     
@@ -332,42 +368,6 @@
     <summary type="html">
     
       &lt;p&gt;Method Security&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Authorization Process</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Process/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Process/</id>
-    <published>2020-06-09T02:37:00.000Z</published>
-    <updated>2020-06-09T04:33:56.904Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Authorization process explained. Note that most of the time you don’t need to know the details of how authorization works.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Authorization Configuration</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Configuration/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Authorization-Configuration/</id>
-    <published>2020-06-08T02:28:55.000Z</published>
-    <updated>2020-06-09T04:24:59.021Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Authorization Configuration&lt;/p&gt;
     
     </summary>
     

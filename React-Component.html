@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="React Component">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-11T03:12:04.867Z">
+<meta property="og:updated_time" content="2020-07-20T02:44:21.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Component">
 <meta name="twitter:description" content="React Component">
@@ -373,7 +373,7 @@
 <a id="more"></a>
 <p>Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.</p>
 <h1 id="Functional-Component"><a href="#Functional-Component" class="headerlink" title="Functional Component"></a>Functional Component</h1><p>You define a component as a function:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hello</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;p&gt;Hello, &#123;props.name&#125;&lt;/p&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hello</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, &#123;props.name&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>You can render the above component using JSX</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello name=<span class="string">"Smith"</span> /&gt;</span><br></pre></td></tr></table></figure>
@@ -394,7 +394,7 @@
 <li>children is a special property that contains the content between the opening and closing tags when invoking a component.</li>
 </ul>
 <p>Example of a component that renders <code>{props.children}</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyBold</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &lt;b&gt;&#123;props.children&#125;&lt;/b&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// to pass the children to the component</span></span><br><span class="line">&lt;MyBold&gt;Bob Smith&lt;<span class="regexp">/MyBold&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyBold</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">b</span>&gt;</span>&#123;props.children&#125;<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// to pass the children to the component</span></span><br><span class="line">&lt;MyBold&gt;Bob Smith&lt;<span class="regexp">/MyBold&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="State"><a href="#State" class="headerlink" title="State"></a>State</h1><p>Properties are read only, so it cannot hold information that changes. React provide states to keep track of the state of the component. </p>
 <p><code>useState</code> is a Hook that lets you add React state to function components. useState returns a paire of values, the current state and a function to update the value.</p>
@@ -404,7 +404,7 @@
 <p>You read the state uing JSX syntax </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;You clicked &#123;count&#125; times&lt;<span class="regexp">/p&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>You update the state using the returned setter</p>
+<p>You update the state using the return setter</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;() =&gt; setCount(count + <span class="number">1</span>)&#125;&gt;</span><br></pre></td></tr></table></figure>
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
@@ -486,7 +486,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">171</span>
+                    <span class="site-state-item-count">174</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

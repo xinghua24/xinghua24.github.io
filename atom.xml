@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-18T22:34:54.845Z</updated>
+  <updated>2020-07-21T03:14:29.448Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Test</title>
+    <link href="http://xinghua24.github.io/React/React-Test/"/>
+    <id>http://xinghua24.github.io/React/React-Test/</id>
+    <published>2020-07-21T04:00:00.000Z</published>
+    <updated>2020-07-21T03:14:29.448Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let’s learn some basics on how to use Jest and React Testing Library to test React components.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Router</title>
+    <link href="http://xinghua24.github.io/React/React-Router/"/>
+    <id>http://xinghua24.github.io/React/React-Router/</id>
+    <published>2020-07-21T00:00:00.000Z</published>
+    <updated>2020-07-21T03:04:00.184Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;React Router is the most used routing solution for React.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React CSS</title>
+    <link href="http://xinghua24.github.io/React/React-CSS/"/>
+    <id>http://xinghua24.github.io/React/React-CSS/</id>
+    <published>2020-07-19T23:00:00.000Z</published>
+    <updated>2020-07-21T03:06:29.504Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;There are many ways to work with CSS in React application. &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>React Forms</title>
@@ -129,7 +183,7 @@
     <link href="http://xinghua24.github.io/React/React-Intro/"/>
     <id>http://xinghua24.github.io/React/React-Intro/</id>
     <published>2020-07-14T22:00:00.000Z</published>
-    <updated>2020-07-18T22:27:55.780Z</updated>
+    <updated>2020-07-21T02:25:46.075Z</updated>
     
     <summary type="html">
     
@@ -165,11 +219,11 @@
     <link href="http://xinghua24.github.io/Javascript/Fetch-API/"/>
     <id>http://xinghua24.github.io/Javascript/Fetch-API/</id>
     <published>2020-07-13T22:00:00.000Z</published>
-    <updated>2020-07-14T04:33:16.118Z</updated>
+    <updated>2020-07-20T02:44:34.179Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;Fetch API is used to make server request. The returned value is a Promise. This allows us to build simple and clean API calls.&lt;/p&gt;
+      &lt;p&gt;Fetch API is used to make server request. The return value is a Promise. This allows us to build simple and clean API calls.&lt;/p&gt;
     
     </summary>
     
@@ -318,60 +372,6 @@
     </summary>
     
       <category term="Security" scheme="http://xinghua24.github.io/categories/Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - HttpSession</title>
-    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/"/>
-    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-HttpSession/</id>
-    <published>2020-06-12T00:11:00.000Z</published>
-    <updated>2020-06-30T02:41:09.547Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;HttpSession&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Boot" scheme="http://xinghua24.github.io/categories/Spring-Boot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Cookies</title>
-    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Cookies/"/>
-    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Cookies/</id>
-    <published>2020-06-11T00:11:00.000Z</published>
-    <updated>2020-06-30T02:51:26.983Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Lets learn how to use cookies for a Spring Boot application.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Boot" scheme="http://xinghua24.github.io/categories/Spring-Boot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Method Security</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Method-Security/</id>
-    <published>2020-06-10T01:28:17.000Z</published>
-    <updated>2020-06-10T03:07:29.140Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Method Security&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
     
     
   </entry>

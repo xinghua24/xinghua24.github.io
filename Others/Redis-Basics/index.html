@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Redis is an in-memory key-value store.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-19T19:21:14.302Z">
+<meta property="og:updated_time" content="2020-07-20T02:45:36.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis Basics">
 <meta name="twitter:description" content="Redis is an in-memory key-value store.">
@@ -501,7 +501,7 @@
 <h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><p>data type to store objects.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; HSET books:helloredis title &quot;hello redis&quot;</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">&gt; HSET books:helloredis price  33.4</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">&gt; HGET books:helloredis title</span><br><span class="line">&quot;hello redis&quot;</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://redis.io/commands/hgetall" target="_blank" rel="noopener">HGETALL</a> Command Returns all fields and values of the hash stored at key. In the returned value, every field name is followed by its value, so the length of the reply is twice the size of the hash.</p>
+<p><a href="https://redis.io/commands/hgetall" target="_blank" rel="noopener">HGETALL</a> Command Returns all fields and values of the hash stored at key. In the return value, every field name is followed by its value, so the length of the reply is twice the size of the hash.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; HGETALL books:helloredis</span><br><span class="line">1) &quot;title&quot;</span><br><span class="line">2) &quot;hello redis&quot;</span><br></pre></td></tr></table></figure>
 
 <h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>An array of values.</p>
@@ -657,7 +657,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">171</span>
+                    <span class="site-state-item-count">174</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

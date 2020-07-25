@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-21T03:14:29.448Z</updated>
+  <updated>2020-07-25T23:07:32.074Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redux Middleware</title>
+    <link href="http://xinghua24.github.io/React/Redux-middleware/"/>
+    <id>http://xinghua24.github.io/React/Redux-middleware/</id>
+    <published>2020-07-26T04:00:00.000Z</published>
+    <updated>2020-07-25T23:07:32.074Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Redux Middleware&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redux</title>
+    <link href="http://xinghua24.github.io/React/Redux/"/>
+    <id>http://xinghua24.github.io/React/Redux/</id>
+    <published>2020-07-25T04:00:00.000Z</published>
+    <updated>2020-07-25T23:04:03.458Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Redux Basics&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>React Test</title>
@@ -147,7 +183,7 @@
     <link href="http://xinghua24.github.io/React/React-Component/"/>
     <id>http://xinghua24.github.io/React/React-Component/</id>
     <published>2020-07-15T21:00:00.000Z</published>
-    <updated>2020-07-16T01:05:13.278Z</updated>
+    <updated>2020-07-25T23:03:59.285Z</updated>
     
     <summary type="html">
     
@@ -336,42 +372,6 @@
     </summary>
     
       <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Boot - Spring Data Redis</title>
-    <link href="http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/"/>
-    <id>http://xinghua24.github.io/SpringBoot/Spring-Boot-Spring-Data-Redis/</id>
-    <published>2020-06-18T22:11:00.000Z</published>
-    <updated>2020-06-19T17:44:43.231Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Lets learn to integrate Spring Data Redis into a Spring Boot application.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Boot" scheme="http://xinghua24.github.io/categories/Spring-Boot/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OAuth2</title>
-    <link href="http://xinghua24.github.io/Security/OAuth2/"/>
-    <id>http://xinghua24.github.io/Security/OAuth2/</id>
-    <published>2020-06-12T15:15:17.000Z</published>
-    <updated>2020-06-24T03:05:03.236Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;OAuth2 Explained&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Security" scheme="http://xinghua24.github.io/categories/Security/"/>
     
     
   </entry>

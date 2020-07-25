@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="React Component">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-07-16T01:05:13.278Z">
+<meta property="og:updated_time" content="2020-07-25T23:03:59.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Component">
 <meta name="twitter:description" content="React Component">
@@ -497,9 +497,13 @@
 <h1 id="Conditional-Rendering"><a href="#Conditional-Rendering" class="headerlink" title="Conditional Rendering"></a>Conditional Rendering</h1><p>if number is less than or equals 100, then print the number, else print “num greater than 100”</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrintNum</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>( <span class="built_in">parseInt</span>(props.num) &lt;= <span class="number">100</span> ) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;p&gt;&#123;props.num&#125;&lt;/p&gt;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;p&gt;num &amp;gt; 100&lt;/p&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>conditional (ternary) operator</p>
+<p>Inline If with Logical &amp;&amp; Operator - This is handy for including an element</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> error = <span class="string">"SOME ERROR"</span>;</span><br><span class="line">  <span class="keyword">return</span> (&lt;div&gt;</span><br><span class="line">        &#123;error &amp;&amp; </span><br><span class="line">          &lt;div&gt;Something went wrong&lt;/div&gt;&#125;</span><br><span class="line">      &lt;/div&gt;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Inline If-Else with Conditional Operator</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrintNum</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">parseInt</span>(props.num) &lt;= <span class="number">100</span>)? &lt;p&gt;props.num&lt;/p&gt;: &lt;p&gt;num greater than 100&lt;/p&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>There are many ways to do conditional rendering, please choose the method that fits best.</p>
 <h1 id="Rendering-a-List"><a href="#Rendering-a-List" class="headerlink" title="Rendering a List"></a>Rendering a List</h1><p>we can use the <code>map()</code> function to render each element in the list.</p>
 <p>Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> students = [</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">88</span>, <span class="attr">name</span>: <span class="string">"Alice"</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">34</span>, <span class="attr">name</span>: <span class="string">"Zed"</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="number">23</span>, <span class="attr">name</span>: <span class="string">"Bob"</span> &#125;,</span><br><span class="line">  ];</span><br><span class="line">  <span class="keyword">const</span> studentList = students.map(<span class="function">(<span class="params">student</span>) =&gt;</span></span><br><span class="line">    (&lt;li key=&#123;student.id&#125;&gt;</span><br><span class="line">      &#123;student.name&#125;</span><br><span class="line">    &lt;/li&gt;)</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &#123;studentList&#125;</span><br><span class="line">  &lt;<span class="regexp">/ul&gt;);</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
@@ -629,7 +633,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">174</span>
+                    <span class="site-state-item-count">176</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

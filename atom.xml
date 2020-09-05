@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-07-25T23:07:32.074Z</updated>
+  <updated>2020-09-05T01:45:28.792Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centering Div using Flexbox</title>
+    <link href="http://xinghua24.github.io/Frontend/Centering-Div-using-Flexbox/"/>
+    <id>http://xinghua24.github.io/Frontend/Centering-Div-using-Flexbox/</id>
+    <published>2020-09-04T22:00:00.000Z</published>
+    <updated>2020-09-05T01:45:28.792Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;There are generally two ways to center a div, margin and flexbox. Centering Content using flexbox is much more easier to implement. &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Frontend" scheme="http://xinghua24.github.io/categories/Frontend/"/>
+    
+    
+      <category term="CSS" scheme="http://xinghua24.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>Redux Middleware</title>
@@ -350,24 +370,6 @@
     <summary type="html">
     
       &lt;p&gt;Spring Session Jdbc Demo&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Spring Session Redis</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Redis/</id>
-    <published>2020-06-19T14:37:44.000Z</published>
-    <updated>2020-06-20T00:21:57.806Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Spring Session Redis Demo&lt;/p&gt;
     
     </summary>
     

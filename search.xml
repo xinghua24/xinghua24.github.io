@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Deploy React application to S3]]></title>
+    <url>%2FReact%2FReact-Deploy-To-S3%2F</url>
+    <content type="text"><![CDATA[Deploying React application to S3 and serve as static site is simple. First create a simple React application and cd to the directory 12npx create-react-app testappcd testapp Then build the application 1npm run build Create a S3 bucket. You can create a bucket using the Console or use the script 1aws s3api create-bucket --bucket name-of-the-bucket --region us-east-1 Enable static website hosting. S3 bucket has property to host a website. Go to the S3 bucket in the console and Eidt Static website hosting property Change Bucket policy. You can set the bucket’s policy to allow Get access. Remember to replace the bucket name from the following policy. 12345678910111213&#123; "Version": "2012-10-17", "Id": "Policy1608922285404", "Statement": [ &#123; "Sid": "Stmt1608922283381", "Effect": "Allow", "Principal": "*", "Action": "s3:GetObject", "Resource": "arn:aws:s3:::name-of-the-bucket/*" &#125; ]&#125; Upload the react application to S3 bucket 1aws s3 sync build/ s3://name-of-the-bucket React application is deployed to S3 now. The endpoint can be found in static website hosting property of the S3 bucket. Reference Deploy to S3]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Centering Div using Flexbox]]></title>
     <url>%2FFrontend%2FCentering-Div-using-Flexbox%2F</url>
     <content type="text"><![CDATA[There are generally two ways to center a div, margin and flexbox. Centering Content using flexbox is much more easier to implement. Center a div HorizontallyTo center a div horizontally, you only need to apply display: flexand justify-content:center the container div 1234.container &#123; display: flex; justify-content: center;&#125; 123&lt;div class="container"&gt; &lt;div class="child"&gt;&lt;/div&gt;&lt;/div&gt; Center a Div VerticallyTo center a div vertically, you only need to apply align-items: center the container div 1234.container &#123; display: flex; align-items: center;&#125; 123&lt;div class="container"&gt; &lt;div class="child"&gt;&lt;/div&gt;&lt;/div&gt; Center a div Vertically and HorizontallyTo center a div both vertically and horizontally, apply both justify-content:center and align-items: center the container div 12345.container &#123; display: flex; justify-content: center; align-items: center;&#125; 123&lt;div class="container"&gt; &lt;div class="child"&gt;&lt;/div&gt;&lt;/div&gt; Reference How to Center Anything with CSS - Align a Div, Text, and More]]></content>

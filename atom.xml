@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-09-05T01:45:28.792Z</updated>
+  <updated>2020-12-26T01:20:08.502Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Deploy React application to S3</title>
+    <link href="http://xinghua24.github.io/React/React-Deploy-To-S3/"/>
+    <id>http://xinghua24.github.io/React/React-Deploy-To-S3/</id>
+    <published>2020-12-21T00:00:00.000Z</published>
+    <updated>2020-12-26T01:20:08.502Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Deploying React application to S3 and serve as static site is simple.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Centering Div using Flexbox</title>
@@ -352,24 +370,6 @@
     <summary type="html">
     
       &lt;p&gt;Let us create an example Spring Security OAuth 2.0 application&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Spring Session Jdbc</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Jdbc/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Spring-Session-Jdbc/</id>
-    <published>2020-06-20T00:37:44.000Z</published>
-    <updated>2020-06-20T00:37:32.449Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Spring Session Jdbc Demo&lt;/p&gt;
     
     </summary>
     

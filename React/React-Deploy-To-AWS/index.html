@@ -102,19 +102,27 @@
 
 
 
-  <meta name="description" content="Deploying React application to S3 and serve as static site is simple.">
+  <meta name="description" content="Here are the steps needed to deploy a React application to AWS. The steps applies not only to React, but any front end web applications.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Deploy React application to S3">
-<meta property="og:url" content="http://xinghua24.github.io/React/React-Deploy-To-S3/index.html">
+<meta property="og:title" content="Deploy React Application to AWS">
+<meta property="og:url" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Deploying React application to S3 and serve as static site is simple.">
+<meta property="og:description" content="Here are the steps needed to deploy a React application to AWS. The steps applies not only to React, but any front end web applications.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-S3/static-website-hosting.png">
-<meta property="og:updated_time" content="2020-12-26T01:20:08.502Z">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/static-website-hosting.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/route53.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/request-certificate.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/public-certificate.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/add-domain-name.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/dns-validation.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/create-distribution.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/dist-ssl.png">
+<meta property="og:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/route53-add-record.png">
+<meta property="og:updated_time" content="2020-12-27T02:38:30.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deploy React application to S3">
-<meta name="twitter:description" content="Deploying React application to S3 and serve as static site is simple.">
-<meta name="twitter:image" content="http://xinghua24.github.io/React/React-Deploy-To-S3/static-website-hosting.png">
+<meta name="twitter:title" content="Deploy React Application to AWS">
+<meta name="twitter:description" content="Here are the steps needed to deploy a React application to AWS. The steps applies not only to React, but any front end web applications.">
+<meta name="twitter:image" content="http://xinghua24.github.io/React/React-Deploy-To-AWS/static-website-hosting.png">
 
 
 
@@ -123,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/React/React-Deploy-To-S3/">
+  <link rel="canonical" href="http://xinghua24.github.io/React/React-Deploy-To-AWS/">
 
 
 
@@ -133,7 +141,7 @@
   };
 </script>
 
-  <title>Deploy React application to S3 | Xing's Blog</title>
+  <title>Deploy React Application to AWS | Xing's Blog</title>
   
 
 
@@ -344,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/React/React-Deploy-To-S3/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/React/React-Deploy-To-AWS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -361,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Deploy React application to S3
+          <h1 class="post-title" itemprop="name headline">Deploy React Application to AWS
 
               
             
@@ -420,9 +428,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/React/React-Deploy-To-S3/#comments" itemprop="discussionUrl">
+                <a href="/React/React-Deploy-To-AWS/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="React/React-Deploy-To-S3/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="React/React-Deploy-To-AWS/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -450,38 +458,71 @@
       
 
       
-        <p>Deploying React application to S3 and serve as static site is simple.</p>
+        <p>Here are the steps needed to deploy a React application to AWS. The steps applies not only to React, but any front end web applications. </p>
 <a id="more"></a>
 
-
-<ol>
-<li><p>First create a simple React application and cd to the directory</p>
+<ul>
+<li>First we deploy the web app to S3 bucket and set up static site hosting</li>
+<li>Then register a custom domain and create SSL certificate associated to the domain </li>
+<li>Setup CloudFront distribution</li>
+<li>Configure Route 53 to route traffic to the cloudFront distribution</li>
+</ul>
+<h1 id="Deploying-React-Application"><a href="#Deploying-React-Application" class="headerlink" title="Deploying React Application"></a>Deploying React Application</h1><ol>
+<li><p>First create a simple React application and cd to the directory. If you already have a web application, you can skip here.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app testapp</span><br><span class="line"><span class="built_in">cd</span> testapp</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Then build the application</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Create a S3 bucket. You can create a bucket using the Console or use the script</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws s3api create-bucket --bucket name-of-the-bucket --region us-east-1</span><br></pre></td></tr></table></figure>
+<li><p>Go to AWS Console and create a bucket in S3</p>
 </li>
-<li><p>Enable static website hosting. S3 bucket has property to host a website. Go to the S3 bucket in the console and Eidt <em>Static website hosting</em> property</p>
-<img src="/React/React-Deploy-To-S3/static-website-hosting.png">
+<li><p>Go to the <strong>Properties</strong> tab and enable static website hosting. S3 bucket has property to host a website. Go to the S3 bucket in the console and Eidt <em>Static website hosting</em> property. Index file is <code>index.html</code>.</p>
+<img src="/React/React-Deploy-To-AWS/static-website-hosting.png">
 
 
 </li>
 </ol>
 <ol start="5">
-<li><p>Change Bucket policy. You can set the bucket’s policy to allow Get access. Remember to replace the bucket name from the following policy. </p>
+<li><p>Go to the <strong>Permissions</strong> tab and change bucket policy. This allows the public to read the files in the bucket. You can set the bucket’s policy to allow Get access. Remember to replace the bucket name from the following policy. </p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"Version"</span>: <span class="string">"2012-10-17"</span>,</span><br><span class="line">    <span class="attr">"Id"</span>: <span class="string">"Policy1608922285404"</span>,</span><br><span class="line">    <span class="attr">"Statement"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"Sid"</span>: <span class="string">"Stmt1608922283381"</span>,</span><br><span class="line">            <span class="attr">"Effect"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">            <span class="attr">"Principal"</span>: <span class="string">"*"</span>,</span><br><span class="line">            <span class="attr">"Action"</span>: <span class="string">"s3:GetObject"</span>,</span><br><span class="line">            <span class="attr">"Resource"</span>: <span class="string">"arn:aws:s3:::name-of-the-bucket/*"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Upload the react application to S3 bucket</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws s3 sync build/ s3://name-of-the-bucket</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>React application is deployed to S3 now. The endpoint can be found in <em>static website hosting</em> property of the S3 bucket.</p>
+<li><p>React application is deployed to S3 now. The endpoint can be found in <em>static website hosting</em> property of the S3 bucket.<br>The format of the endpoint looks like this: <a href="http://name-of-the-bucket.s3-website-us-east-1.amazonaws.com/" target="_blank" rel="noopener">http://name-of-the-bucket.s3-website-us-east-1.amazonaws.com/</a>.</p>
 </li>
 </ol>
-<p>Reference</p>
-<ul>
+<h1 id="Register-a-Domain"><a href="#Register-a-Domain" class="headerlink" title="Register a Domain"></a>Register a Domain</h1><p>You can easily register a domain using AWS’s Route 53 service. Just need to choose a unique domain name and provide some personal information. The registration may take some time to finish.</p>
+<img src="/React/React-Deploy-To-AWS/route53.png">
+<p><em>route53 dashboard</em></p>
+<p>After registering a domain, you can see the domain appear in the <strong>Hosted zones</strong>. You can find the DNS Records for the domain here.</p>
+<h1 id="Create-SSL-Certificate"><a href="#Create-SSL-Certificate" class="headerlink" title="Create SSL Certificate"></a>Create SSL Certificate</h1><p>AWS Certificate Manager (ACM) handles the complexity of creating, storing, and renewing public and private SSL/TLS X.509 certificates and keys that protect your AWS websites and applications.</p>
+<p>You can Request a certificate in Amazon Certificate Manager.</p>
+<img src="/React/React-Deploy-To-AWS/request-certificate.png">
+<p><em>select Request a certificate</em></p>
+<img src="/React/React-Deploy-To-AWS/public-certificate.png">
+<p><em>select public certificate</em></p>
+<img src="/React/React-Deploy-To-AWS/add-domain-name.png">
+<p><em>Enter domain name here, replace domain with the requested domain from route53</em></p>
+<img src="/React/React-Deploy-To-AWS/dns-validation.png">
+<p><em>select DNS validation</em></p>
+<p>In the validation step,  click <strong>Create record in Route 53</strong> button for all domain names. When the Certificate status is <em>Issued</em>, You are ready to move to CloudFront distribution.</p>
+<h1 id="CloudFront-Distribution"><a href="#CloudFront-Distribution" class="headerlink" title="CloudFront Distribution"></a>CloudFront Distribution</h1><p>Open CloudFront to create the Distribution.</p>
+<p>For <strong>Origin Domain Name</strong>, use the url for the original S3 bucket URL: <a href="http://name-of-the-bucket.s3-website-us-east-1.amazonaws.com/" target="_blank" rel="noopener">http://name-of-the-bucket.s3-website-us-east-1.amazonaws.com/</a>. Select <strong>Redirect HTTP to HTTPS</strong> Protocol Policy.</p>
+<img src="/React/React-Deploy-To-AWS/create-distribution.png">
+
+<br>
+
+<p>In Distribution Settings, Set <strong>Price Class</strong> to be <em>Use Only U.S., Canada and Europe</em>. This will reduce cost. Check <strong>Custom SSL Certificate(example.com)</strong> checkbox. Custom Certificate allows users to access the content using domain name. The default cloudfront certificate only allows users to access using CloudFront domain name(*.cloudfront.net). Then Select the SSL certificate to be used.</p>
+<img src="/React/React-Deploy-To-AWS/dist-ssl.png">
+
+<p>After setting up CloudFront, The cloudfront domain for the distribution(*.cloudfront.net) should be accessible. However, to use the custom domain, you need to configure Route53 to route traffic to Cloudfront.</p>
+<h1 id="Configure-Route53-to-Route-Traffic-to-CloudFront"><a href="#Configure-Route53-to-Route-Traffic-to-CloudFront" class="headerlink" title="Configure Route53 to Route Traffic to CloudFront"></a>Configure Route53 to Route Traffic to CloudFront</h1><p>Go to <strong>Route 53</strong>, select <strong>Hosted zones</strong> and click on the Domain created earlier. The DNS records are now displayed. Click <strong>Create record</strong> to create a <strong>A</strong> record to route traffic to cloudfront. Select <strong>Alias</strong> and route traffic to the cloudfront distribution we setup in the previous step. Click <strong>Create records</strong>.</p>
+<img src="/React/React-Deploy-To-AWS/route53-add-record.png">
+<br>
+
+<p>This is the last step. After a few minutes, you should be able to access the web application using the custom domain.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://serverless-stack.com/chapters/deploy-to-s3.html" target="_blank" rel="noopener">Deploy to S3</a></li>
 </ul>
 
@@ -574,8 +615,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -732,6 +782,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deploying-React-Application"><span class="nav-number">1.</span> <span class="nav-text">Deploying React Application</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Register-a-Domain"><span class="nav-number">2.</span> <span class="nav-text">Register a Domain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-SSL-Certificate"><span class="nav-number">3.</span> <span class="nav-text">Create SSL Certificate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CloudFront-Distribution"><span class="nav-number">4.</span> <span class="nav-text">CloudFront Distribution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Configure-Route53-to-Route-Traffic-to-CloudFront"><span class="nav-number">5.</span> <span class="nav-text">Configure Route53 to Route Traffic to CloudFront</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -880,9 +947,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/React/React-Deploy-To-S3/";
-        this.page.identifier = "React/React-Deploy-To-S3/";
-        this.page.title = 'Deploy React application to S3';
+        this.page.url = "http://xinghua24.github.io/React/React-Deploy-To-AWS/";
+        this.page.identifier = "React/React-Deploy-To-AWS/";
+        this.page.title = 'Deploy React Application to AWS';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

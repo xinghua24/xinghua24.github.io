@@ -454,7 +454,7 @@
 <h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h1><p>JSX is a syntax extension to JavaScript. Use JSX to describe what the UI should look like. </p>
 <p>Babel compiles JSX down to React.createElement() calls.</p>
 <p>JSX Example</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> heading=&lt;h1&gt;Hello React&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> heading=<span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello React<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <p>Multiline JSX Example</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> heading=(</span><br><span class="line">  &lt;h1&gt;</span><br><span class="line">    Hello React</span><br><span class="line">  &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">)</span></span><br></pre></td></tr></table></figure>
@@ -466,10 +466,10 @@
 <p>By default, ReactDOM escapes any values embedded in JSX before rendering them.</p>
 <h1 id="Setting-Attribute"><a href="#Setting-Attribute" class="headerlink" title="Setting Attribute"></a>Setting Attribute</h1><p>You can set attributes of a element with JSX.</p>
 <p>You can have String literals as attribute value</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;a href="https://google.com"&gt;Google&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://google.com"</span>&gt;</span>Google<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <p>Or you can use Javascript expression as attribute value</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img src=&#123;food.imgurl&#125;&gt;&lt;/img&gt;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;food.imgurl&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">img</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.</p>
 <p><code>class</code> and <code>for</code> are both javascript’s keyworlds, they need to be changed to <code>className</code> and <code>htmlFor</code> attribute</p>

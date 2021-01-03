@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="React UseEffect Hook">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-01-03T04:58:53.333Z">
+<meta property="og:updated_time" content="2021-01-03T05:01:01.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React useEffect Hook">
 <meta name="twitter:description" content="React UseEffect Hook">
@@ -465,7 +465,7 @@
 <p>Todo.js - fetch data when component mounts</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;useEffect&#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Todo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [todoid, setTodoid] = useState(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> [todo, setTodo] = useState(&#123;&#125;);</span><br><span class="line"></span><br><span class="line">    useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        fetch(<span class="string">"https://jsonplaceholder.typicode.com/todos/1"</span> )</span><br><span class="line">            .then( <span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">            .then(<span class="function"><span class="params">res</span> =&gt;</span> setTodo(res))</span><br><span class="line">            .catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.log(err));</span><br><span class="line">    &#125;, [])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;&gt;</span><br><span class="line">            &#123;todo.title&#125;</span><br><span class="line">        &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">    )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>useEffect do not take an async function that returns a promise. If you need to use async function,<br>write the async function inside the effect and call it immediately.</p>
+<p>useEffect do not take an async function that returns a promise. If you need to use async function, write the async function inside the effect and call it immediately.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchData</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">"https://jsonplaceholder.typicode.com/todos/1"</span>)</span><br><span class="line">    <span class="keyword">const</span> json = <span class="keyword">await</span> response.json()</span><br><span class="line">    setTodo(json)</span><br><span class="line">    <span class="built_in">console</span>.log(json)</span><br><span class="line">  &#125;</span><br><span class="line">  fetchData()</span><br><span class="line">&#125;, [])</span><br></pre></td></tr></table></figure>
 
 <h1 id="With-Dependency-List"><a href="#With-Dependency-List" class="headerlink" title="With Dependency List"></a>With Dependency List</h1><p>dependency list can contain props or state. Whenever the dependency changes, the useEffect function gets called.</p>
@@ -603,7 +603,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">178</span>
+                    <span class="site-state-item-count">179</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

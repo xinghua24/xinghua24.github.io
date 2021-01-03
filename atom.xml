@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2020-12-27T02:38:30.501Z</updated>
+  <updated>2021-01-03T15:23:16.146Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Deploy React Application to AWS</title>
-    <link href="http://xinghua24.github.io/React/React-Deploy-To-AWS/"/>
-    <id>http://xinghua24.github.io/React/React-Deploy-To-AWS/</id>
+    <title>Deploy React Application To AWS Amplify</title>
+    <link href="http://xinghua24.github.io/React/React-Deploy-To-Amplify/"/>
+    <id>http://xinghua24.github.io/React/React-Deploy-To-Amplify/</id>
+    <published>2021-01-03T14:58:59.000Z</published>
+    <updated>2021-01-03T15:23:16.146Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AWS Amplify simplifies the steps to deploy frontend application to a globally available CDN. Here are the steps to deploy React application to AWS Amplify&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="React" scheme="http://xinghua24.github.io/categories/React/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Deploy React Application to AWS S3</title>
+    <link href="http://xinghua24.github.io/React/React-Deploy-To-S3/"/>
+    <id>http://xinghua24.github.io/React/React-Deploy-To-S3/</id>
     <published>2020-12-21T00:00:00.000Z</published>
-    <updated>2020-12-27T02:38:30.501Z</updated>
+    <updated>2021-01-03T15:24:19.568Z</updated>
     
     <summary type="html">
     
@@ -185,7 +203,7 @@
     <link href="http://xinghua24.github.io/React/React-useEffect-Hook/"/>
     <id>http://xinghua24.github.io/React/React-useEffect-Hook/</id>
     <published>2020-07-16T13:00:00.000Z</published>
-    <updated>2021-01-03T04:58:53.333Z</updated>
+    <updated>2021-01-03T05:01:01.159Z</updated>
     
     <summary type="html">
     
@@ -352,24 +370,6 @@
     <summary type="html">
     
       &lt;p&gt;You don’t need to understand all the OAuth2 classes to use OAuth2.0 login. However, knowing the core OAuth2 classes and internals will help you configure OAuth2 authentication process and take full advantage of Spring Boot’s OAuth2.0 support.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - Github Login</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-Github-Login/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-Github-Login/</id>
-    <published>2020-06-21T00:37:44.000Z</published>
-    <updated>2020-06-25T06:19:49.756Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let us create an example Spring Security OAuth 2.0 application&lt;/p&gt;
     
     </summary>
     

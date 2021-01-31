@@ -102,18 +102,17 @@
 
 
 
-  <meta name="description" content="Debian/Ubuntu uses apt command to manage software.">
-<meta name="keywords" content="Ubuntu">
+  <meta name="description" content="React useState hook">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to Use Apt in Ubuntu">
-<meta property="og:url" content="http://xinghua24.github.io/Linux/How-to-Use-Apt-in-Ubuntu/index.html">
+<meta property="og:title" content="React useState Hook">
+<meta property="og:url" content="http://xinghua24.github.io/React/React-useState/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Debian/Ubuntu uses apt command to manage software.">
+<meta property="og:description" content="React useState hook">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:14:40.640Z">
+<meta property="og:updated_time" content="2021-01-31T22:25:59.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to Use Apt in Ubuntu">
-<meta name="twitter:description" content="Debian/Ubuntu uses apt command to manage software.">
+<meta name="twitter:title" content="React useState Hook">
+<meta name="twitter:description" content="React useState hook">
 
 
 
@@ -122,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux/How-to-Use-Apt-in-Ubuntu/">
+  <link rel="canonical" href="http://xinghua24.github.io/React/React-useState/">
 
 
 
@@ -132,7 +131,7 @@
   };
 </script>
 
-  <title>How to Use Apt in Ubuntu | Xing's Blog</title>
+  <title>React useState Hook | Xing's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux/How-to-Use-Apt-in-Ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/React/React-useState/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">How to Use Apt in Ubuntu
+          <h1 class="post-title" itemprop="name headline">React useState Hook
 
               
             
@@ -386,7 +385,7 @@
                 
               
 
-              <time title="Created: 2019-02-17 00:49:00" itemprop="dateCreated datePublished" datetime="2019-02-17T00:49:00-05:00">2019-02-17</time>
+              <time title="Created: 2020-07-15 18:00:00" itemprop="dateCreated datePublished" datetime="2020-07-15T18:00:00-04:00">2020-07-15</time>
             
 
             
@@ -404,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a></span>
 
                 
                 
@@ -419,9 +418,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux/How-to-Use-Apt-in-Ubuntu/#comments" itemprop="discussionUrl">
+                <a href="/React/React-useState/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux/How-to-Use-Apt-in-Ubuntu/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="React/React-useState/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -449,47 +448,28 @@
       
 
       
-        <p>Debian/Ubuntu uses apt command to manage software.</p>
+        <p>React useState hook</p>
 <a id="more"></a>
 
-<h1 id="Apt-vs-Apt-get"><a href="#Apt-vs-Apt-get" class="headerlink" title="Apt vs Apt-get"></a>Apt vs Apt-get</h1><p>apt command is very similar to apt-get command. apt is introduced to provide a better interface for the end user than apt-get.  It is recommended to use apt. </p>
-<h1 id="Search-for-Package"><a href="#Search-for-Package" class="headerlink" title="Search for Package"></a>Search for Package</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt search &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="useState-Hook"><a href="#useState-Hook" class="headerlink" title="useState Hook"></a>useState Hook</h1><p><strong>state</strong> is like a component’s personal data storage. </p>
+<p>Properties are read only, so it cannot hold information that changes. React provide states to keep track of the state of the component. A state can be number, string, javascript object or array.</p>
+<p><code>useState</code> is a Hook that lets you add React state to function components. useState returns a paire of values, the current state and a function to update the value.</p>
+<p>To import useState</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install &lt;package_name&gt;...</span><br></pre></td></tr></table></figure>
+<p>A Counter component that contains a <code>count</code> state. The initial value of count is 0.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Counter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span></span><br><span class="line"><span class="regexp">        Click me</span></span><br><span class="line"><span class="regexp">      &lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>example</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tree</span><br></pre></td></tr></table></figure>
+<iframe src="https://codesandbox.io/embed/usestate-hook-9pb9j?fontsize=14&hidenavigation=1&theme=dark" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="useState Hook" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
 
-<h1 id="Show-package-details"><a href="#Show-package-details" class="headerlink" title="Show package details"></a>Show package details</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt show &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<p>You read the state uing JSX syntax </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;You clicked &#123;count&#125; times&lt;<span class="regexp">/p&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="Check-the-Installed-Packages"><a href="#Check-the-Installed-Packages" class="headerlink" title="Check the Installed Packages"></a>Check the Installed Packages</h1><p>to see all installed packages</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --list</span><br></pre></td></tr></table></figure>
+<p>You update the state using the returned setter</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;() =&gt; setCount(count + <span class="number">1</span>)&#125;&gt;</span><br></pre></td></tr></table></figure>
 
-<p>to search for installed package</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg --list | grep -in &lt;search term&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Remove-Package"><a href="#Remove-Package" class="headerlink" title="Remove Package"></a>Remove Package</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove &lt;package_name&gt;...</span><br></pre></td></tr></table></figure>
-
-<p>To fully remove a package</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Upgrade-Package"><a href="#Upgrade-Package" class="headerlink" title="Upgrade Package"></a>Upgrade Package</h1><p>upgrade some packages</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade &lt;package_name&gt;...</span><br></pre></td></tr></table></figure>
-
-<p>or if you want to upgrade all packages</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
-
-<h2 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h2><p>A repository is a directory containing packages along with an index file. Debian keeps a central repository for software download and installation.</p>
-<p>You can use <code>apt add-apt-repository</code> command to add  an  external APT repository  to either /etc/apt/sources.list or a file in /etc/apt/sources.list.d/ or removes an already existing repository.</p>
-<p>After adding a repository, you need to update the package list</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p>Docker installation example - you need to add a repository first before installing docker-ce.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line">curl -fsSL https:<span class="comment">//download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span></span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure>
-
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://itsfoss.com/apt-vs-apt-get-difference/" target="_blank" rel="noopener">apt vs apt-get By Abhishek Prakash</a></li>
-<li><a href="https://www.howtogeek.com/63997/how-to-install-programs-in-ubuntu-in-the-command-line/" target="_blank" rel="noopener">How-To Geek - How to Use Apt-Get to Install Programs in Ubuntu from the Command Line by YATRITRIVEDI</a></li>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a href="https://reactjs.org/docs/hooks-state.html" target="_blank" rel="noopener">Using the State Hook</a></li>
 </ul>
 
       
@@ -512,12 +492,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
-          
-        </div>
-      
 
       
       
@@ -527,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Java/Java-Concurrency-Thread-join/" rel="next" title="Java Concurrency - Thread.join()">
-                <i class="fa fa-chevron-left"></i> Java Concurrency - Thread.join()
+              <a href="/React/React-Component/" rel="next" title="React Component">
+                <i class="fa fa-chevron-left"></i> React Component
               </a>
             
           </div>
@@ -537,8 +511,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Linux/Bash-String-Operations/" rel="prev" title="Bash String Operations">
-                Bash String Operations <i class="fa fa-chevron-right"></i>
+              <a href="/React/React-Event/" rel="prev" title="React Event">
+                React Event <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -768,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apt-vs-Apt-get"><span class="nav-number">1.</span> <span class="nav-text">Apt vs Apt-get</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Search-for-Package"><span class="nav-number">2.</span> <span class="nav-text">Search for Package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">3.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Show-package-details"><span class="nav-number">4.</span> <span class="nav-text">Show package details</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Check-the-Installed-Packages"><span class="nav-number">5.</span> <span class="nav-text">Check the Installed Packages</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-Package"><span class="nav-number">6.</span> <span class="nav-text">Remove Package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Upgrade-Package"><span class="nav-number">7.</span> <span class="nav-text">Upgrade Package</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Repository"><span class="nav-number">7.1.</span> <span class="nav-text">Repository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#useState-Hook"><span class="nav-number">1.</span> <span class="nav-text">useState Hook</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
@@ -923,9 +897,9 @@
   
     <script>
       var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux/How-to-Use-Apt-in-Ubuntu/";
-        this.page.identifier = "Linux/How-to-Use-Apt-in-Ubuntu/";
-        this.page.title = 'How to Use Apt in Ubuntu';
+        this.page.url = "http://xinghua24.github.io/React/React-useState/";
+        this.page.identifier = "React/React-useState/";
+        this.page.title = 'React useState Hook';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

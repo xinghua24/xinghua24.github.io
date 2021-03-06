@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="kill - terminate a process by sending a signal.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:01:46.286Z">
+<meta property="og:updated_time" content="2021-03-06T20:57:06.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - kill">
 <meta name="twitter:description" content="kill - terminate a process by sending a signal.">
@@ -476,7 +476,8 @@
 <td>to list signal names</td>
 </tr>
 </tbody></table>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="kill-a-process"><a href="#kill-a-process" class="headerlink" title="kill a process"></a>kill a process</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill 16575</span><br></pre></td></tr></table></figure>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="kill-a-process"><a href="#kill-a-process" class="headerlink" title="kill a process"></a>kill a process</h2><p>kill without option will send SIGTERM signal</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill 16575</span><br></pre></td></tr></table></figure>
 
 <h2 id="Send-KILL-signal-to-a-process"><a href="#Send-KILL-signal-to-a-process" class="headerlink" title="Send KILL signal to a process"></a>Send KILL signal to a process</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 16575</span><br></pre></td></tr></table></figure>
 
@@ -485,8 +486,12 @@
 
 <h2 id="List-signal-names"><a href="#List-signal-names" class="headerlink" title="List signal names"></a>List signal names</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -l</span><br></pre></td></tr></table></figure>
 
+<h2 id="pkill-command"><a href="#pkill-command" class="headerlink" title="pkill command"></a>pkill command</h2><p>If you know the name of the process, you can use <code>pkill [OPTIONS] &lt;PATTERN&gt;</code> to kill all running programs that match with the given name. To kill all python3 process: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill python3</span><br></pre></td></tr></table></figure>
+
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://linux.die.net/man/1/kill" target="_blank" rel="noopener">kill online man page</a></li>
+<li><a href="https://linuxize.com/post/pkill-command-in-linux/" target="_blank" rel="noopener">pkill</a></li>
 </ul>
 
       
@@ -765,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kill-a-process"><span class="nav-number">3.1.</span> <span class="nav-text">kill a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Send-KILL-signal-to-a-process"><span class="nav-number">3.2.</span> <span class="nav-text">Send KILL signal to a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-signal-names"><span class="nav-number">3.3.</span> <span class="nav-text">List signal names</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kill-a-process"><span class="nav-number">3.1.</span> <span class="nav-text">kill a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Send-KILL-signal-to-a-process"><span class="nav-number">3.2.</span> <span class="nav-text">Send KILL signal to a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-signal-names"><span class="nav-number">3.3.</span> <span class="nav-text">List signal names</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pkill-command"><span class="nav-number">3.4.</span> <span class="nav-text">pkill command</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

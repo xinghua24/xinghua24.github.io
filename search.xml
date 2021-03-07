@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Using APT to install software in Ubuntu]]></title>
+    <url>%2FLinux%2FUbuntu-APT-Install-Software%2F</url>
+    <content type="text"><![CDATA[Ubuntu uses apt(Advanced Package Tool) for software package management. APT requires super-user permissions, as it deals with core aspects of the system, so in Ubuntu you’ll need to preface most commands with “sudo.” Update Packagesupdate list of available packages 1apt update Install PackageExample to install tree package 1apt install tree Remove Package1apt remove tree Upgrade1apt upgrade full upgrade 1apt full-upgrade Search for Package1apt-cache search You can serach pacakge online using https://packages.ubuntu.com/ Clean the Cahce1apt clean Check what’s Installed1sudo dpkg -l You can use grep to find if a package is installed 1sudo dpkg -l | grep tree Adding RepositoryWhen you use apt to install packages, the packages are downloaded from one or more apt software repositories. Ubuntu stores software repositories are in /etc/apt/sources.list file or individual files under /etc/apt/sources.list.d/ directory. you can add respository to /etc/apt/sources.list directly 1sudo vim /etc/apt/sources.list Here is a sample repository entry in sources.list 12deb http://us.archive.ubuntu.com/ubuntu/ focal universedeb-src http://us.archive.ubuntu.com/ubuntu/ focal universe Note that deb means the repository contains binaries or precompiled packages. deb-src means the repository contains source code of the packages. Useful for developers. ‘focal’ is the release name or version of your distribution. ‘universe’ means Community-maintained free and open-source software. If you don’t want to edit sources.list directly, you can use the following command to add repository. 1sudo add-apt-repository &quot;deb http://us.archive.ubuntu.com/ubuntu/ saucy universe multiverse&quot; To learn more about Respositories, see What are Repositories? Repositories/CommandLine]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[UFW Command]]></title>
+    <url>%2FLinux%2FUbuntu-ufw-Commmand%2F</url>
+    <content type="text"><![CDATA[The default firewall configuration tool for Ubuntu is ufw. ufw allows users to easily configure firewall rules. To see the manual 1man ufw Allowsyntax 1sudo ufw allow &lt;port&gt;/&lt;optional: protocol&gt; Example to allow ssh traffic 1sudo ufw allow ssh Example to allow tcp traffic on port 53 1sudo ufw allow 53/tcp allow from subnet networks 123ufw allow from 10.0.0.0/8ufw allow from 172.16.0.0/12ufw allow from 192.168.0.0/16 DenyExample to deny a port 1sudo ufw deny 53 Enable and Disable ufw12ufw disableufw enable Reload1ufw reload Check status1ufw status sample output 12345678910Status: activeTo Action From-- ------ ----22:tcp DENY 192.168.0.122:udp DENY 192.168.0.122:tcp DENY 192.168.0.722:udp DENY 192.168.0.722:tcp ALLOW 192.168.0.0/2422:udp ALLOW 192.168.0.0/24 check status and show rule number 1ufw status numbered Delete Rule by NumberTo delete a rule, you need to fire use ufw status numbered command to get the rule number and then delete using ufw delete command. 1ufw delete 3 Reference Ubuntu UFW command introduction and syntax]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Deploy React Application To AWS Amplify]]></title>
     <url>%2FReact%2FReact-Deploy-To-Amplify%2F</url>
     <content type="text"><![CDATA[AWS Amplify simplifies the steps to deploy frontend application to a globally available CDN. Here are the steps to deploy React application to AWS Amplify First go to AWS Amplify https://console.aws.amazon.com/amplify/home#/home , and select Host your web app. Select Git Repository Select a repository and branch Review and click Save and deploy. This will deploy the application to amplify. After the deployment is complete, you can now open the web application from the browser. The deployed application should have a domain such as https://master.d2zimxm532432.amplifyapp.com/. Add a Custom Domain. You can register a domain on Amazon Route53 and use the custom domain to access the web application. Go to Domain management and click Add domain. Select the domain and Click Save.]]></content>
@@ -469,7 +485,7 @@
   </entry>
   <entry>
     <title><![CDATA[Stop password prompt in Ubuntu]]></title>
-    <url>%2FLinux%2FStop-password-prompt-in-Ubuntu%2F</url>
+    <url>%2FLinux%2FUbuntu-password-prompt%2F</url>
     <content type="text"><![CDATA[Password prompt can be annoying. However, there is a quick way to stop it for all. open /etc/sudoers file 1sudo vi /etc/sudoers change this line 1%sudo ALL=(ALL) ALL into 1%sudo ALL=(ALL) NOPASSWD:ALL to allow assuming any group as well as any user, change the following line 1%sudo ALL=(ALL:ALL) ALL into 1%sudo ALL=(ALL:ALL) NOPASSWD:ALL]]></content>
       <categories>
         <category>Ubuntu</category>

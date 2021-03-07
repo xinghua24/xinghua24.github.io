@@ -102,17 +102,13 @@
 
 
 
-  <meta name="description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Stop password prompt in Ubuntu">
-<meta property="og:url" content="http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Xing&#39;s Blog">
+<meta property="og:url" content="http://xinghua24.github.io/page/13/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:14:30.025Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stop password prompt in Ubuntu">
-<meta name="twitter:description" content="Password prompt can be annoying. However, there is a quick way to stop it for all.">
+<meta name="twitter:title" content="Xing&#39;s Blog">
 
 
 
@@ -121,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/">
+  <link rel="canonical" href="http://xinghua24.github.io/page/13/">
 
 
 
@@ -131,7 +127,7 @@
   };
 </script>
 
-  <title>Stop password prompt in Ubuntu | Xing's Blog</title>
+  <title>Xing's Blog</title>
   
 
 
@@ -179,7 +175,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -325,9 +322,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -342,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Linux/Install-Go-on-Ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xinghua Zhang">
@@ -359,8 +356,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Stop password prompt in Ubuntu
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/Linux/Install-Go-on-Ubuntu/" class="post-title-link" itemprop="url">Install Go on Ubuntu</a>
               
             
           </h1>
@@ -385,30 +384,12 @@
                 
               
 
-              <time title="Created: 2019-08-29 13:22:00" itemprop="dateCreated datePublished" datetime="2019-08-29T13:22:00-04:00">2019-08-29</time>
+              <time title="Created: 2018-11-27 23:28:42" itemprop="dateCreated datePublished" datetime="2018-11-27T23:28:42-05:00">2018-11-27</time>
             
 
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -418,9 +399,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Linux/Stop-password-prompt-in-Ubuntu/#comments" itemprop="discussionUrl">
+                <a href="/Linux/Install-Go-on-Ubuntu/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux/Stop-password-prompt-in-Ubuntu/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Linux/Install-Go-on-Ubuntu/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -448,25 +429,18 @@
       
 
       
-        <p>Password prompt can be annoying. However, there is a quick way to stop it for all.</p>
-<a id="more"></a>
-
-<p>open /etc/sudoers file</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sudoers</span><br></pre></td></tr></table></figure>
-
-<p>change this line</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
-
-<p>into</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure>
-
-<p>to allow assuming any group as well as any user, change the following line</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
-
-<p>into</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%sudo  ALL=(ALL:ALL) NOPASSWD:ALL</span><br></pre></td></tr></table></figure>
-
-
+        
+          <p>Install Go and set up paths on Ubuntu. </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/Linux/Install-Go-on-Ubuntu/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
       
     </div>
 
@@ -489,32 +463,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/SpringBoot/Spring-Boot-Error-Handling/" rel="next" title="Spring Boot - Error Handling">
-                <i class="fa fa-chevron-left"></i> Spring Boot - Error Handling
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Linux/Enable-SSH-in-Ubuntu/" rel="prev" title="Enable SSH in Ubuntu">
-                Enable SSH in Ubuntu <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -524,22 +478,191 @@
   </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xinghua24.github.io/Others/set-up-a-new-hexo-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xinghua Zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/Others/set-up-a-new-hexo-blog/" class="post-title-link" itemprop="url">Set up a new hexo blog</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-11-27 20:47:00" itemprop="dateCreated datePublished" datetime="2018-11-27T20:47:00-05:00">2018-11-27</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Others/set-up-a-new-hexo-blog/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Others/set-up-a-new-hexo-blog/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>setting up a new hexo blog and deploy to github pages.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/Others/set-up-a-new-hexo-blog/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span>
+  </nav>
+
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -576,7 +699,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">180</span>
+                    <span class="site-state-item-count">182</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -845,10 +968,6 @@
   
 
   
-  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
-<script src="/js/src/post-details.js?v=6.6.0"></script>
-
-
 
   
 
@@ -863,23 +982,6 @@
     <script id="dsq-count-scr" src="https://xinghua24githubio.disqus.com/count.js" async></script>
   
 
-  
-    <script>
-      var disqus_config = function () {
-        this.page.url = "http://xinghua24.github.io/Linux/Stop-password-prompt-in-Ubuntu/";
-        this.page.identifier = "Linux/Stop-password-prompt-in-Ubuntu/";
-        this.page.title = 'Stop password prompt in Ubuntu';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://xinghua24githubio.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
   
 
 

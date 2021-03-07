@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2021-01-03T15:23:16.146Z</updated>
+  <updated>2021-03-07T00:45:11.811Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Using APT to install software in Ubuntu</title>
+    <link href="http://xinghua24.github.io/Linux/Ubuntu-APT-Install-Software/"/>
+    <id>http://xinghua24.github.io/Linux/Ubuntu-APT-Install-Software/</id>
+    <published>2021-03-06T20:22:00.000Z</published>
+    <updated>2021-03-07T00:45:11.811Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ubuntu uses apt(Advanced Package Tool) for software package management.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>UFW Command</title>
+    <link href="http://xinghua24.github.io/Linux/Ubuntu-ufw-Commmand/"/>
+    <id>http://xinghua24.github.io/Linux/Ubuntu-ufw-Commmand/</id>
+    <published>2021-03-06T18:22:00.000Z</published>
+    <updated>2021-03-06T21:25:42.058Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The default firewall configuration tool for Ubuntu is &lt;strong&gt;ufw&lt;/strong&gt;. ufw allows users to easily configure firewall rules.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Deploy React Application To AWS Amplify</title>
@@ -338,42 +374,6 @@
     </summary>
     
       <category term="Javascript" scheme="http://xinghua24.github.io/categories/Javascript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Javascript - Handle Mouse Event</title>
-    <link href="http://xinghua24.github.io/Javascript/Javascript-Handle-Mouse-Event/"/>
-    <id>http://xinghua24.github.io/Javascript/Javascript-Handle-Mouse-Event/</id>
-    <published>2020-07-08T16:00:00.000Z</published>
-    <updated>2020-07-09T02:10:28.314Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Handle mouse event using javascript only&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://xinghua24.github.io/categories/Javascript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Security - OAuth2 Process</title>
-    <link href="http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Process/"/>
-    <id>http://xinghua24.github.io/SpringSecurity/Spring-Security-OAuth2-Process/</id>
-    <published>2020-06-22T04:00:00.000Z</published>
-    <updated>2020-07-01T01:08:37.545Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let us walk throught OAuth2 Authorization Process. Have some basic understanding the classes mentioned in &lt;a href=&quot;../Spring-Security-OAuth2-Core-Classes&quot;&gt;Spring Security OAuth2 Core Classes&lt;/a&gt; will help you understanding OAuth2 process in this post.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Spring Security" scheme="http://xinghua24.github.io/categories/Spring-Security/"/>
     
     
   </entry>

@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="hostname - show or set the system’s host name or domain name">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-04-26T16:01:46.286Z">
+<meta property="og:updated_time" content="2021-03-08T04:46:19.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Command - hostname">
 <meta name="twitter:description" content="hostname - show or set the system’s host name or domain name">
@@ -489,6 +489,13 @@
 
 <p>To show the ip address, you can use <code>ifconfig</code> command. By default, it display the information for all network interfaces. </p>
 <p>You can also show the ip address using the <code>ip addr show</code> command.</p>
+<h1 id="Change-current-hostname"><a href="#Change-current-hostname" class="headerlink" title="Change current hostname"></a>Change current hostname</h1><p>Hostname can be changed using hostnamectl command in Ubuntu. </p>
+<p>To change hostname to <code>server0</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo hostnamectl set-hostname server0</span><br></pre></td></tr></table></figure>
+
+<p>To view current hostname</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl</span><br></pre></td></tr></table></figure>
+
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a href="https://linux.die.net/man/1/hostname" target="_blank" rel="noopener">hostname online man page</a></li>
 </ul>
@@ -769,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">1.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-host-name"><span class="nav-number">2.1.</span> <span class="nav-text">Show host name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-domain-name"><span class="nav-number">2.2.</span> <span class="nav-text">Show domain name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-FQDN"><span class="nav-number">2.3.</span> <span class="nav-text">Show FQDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-all-ip-address"><span class="nav-number">2.4.</span> <span class="nav-text">show all ip address</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">1.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-host-name"><span class="nav-number">2.1.</span> <span class="nav-text">Show host name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-domain-name"><span class="nav-number">2.2.</span> <span class="nav-text">Show domain name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-FQDN"><span class="nav-number">2.3.</span> <span class="nav-text">Show FQDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-all-ip-address"><span class="nav-number">2.4.</span> <span class="nav-text">show all ip address</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-current-hostname"><span class="nav-number">3.</span> <span class="nav-text">Change current hostname</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Ubuntu uses apt(Advanced Package Tool) for software package management.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-07T00:45:11.811Z">
+<meta property="og:updated_time" content="2021-03-07T19:58:55.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using APT to install software in Ubuntu">
 <meta name="twitter:description" content="Ubuntu uses apt(Advanced Package Tool) for software package management.">
@@ -460,12 +460,18 @@
 
 <h1 id="Remove-Package"><a href="#Remove-Package" class="headerlink" title="Remove Package"></a>Remove Package</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt remove tree</span><br></pre></td></tr></table></figure>
 
+<p>Example: to purge virtualbox pacakges </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt remove virtualbox* --purge</span><br></pre></td></tr></table></figure>
+
 <h1 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt upgrade</span><br></pre></td></tr></table></figure>
 
 <p>full upgrade</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt full-upgrade</span><br></pre></td></tr></table></figure>
 
 <h1 id="Search-for-Package"><a href="#Search-for-Package" class="headerlink" title="Search for Package"></a>Search for Package</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search</span><br></pre></td></tr></table></figure>
+
+<p>Example to serach virtualbox package</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search virtualbox-6.0</span><br></pre></td></tr></table></figure>
 
 <p>You can serach pacakge online using <a href="https://packages.ubuntu.com/" target="_blank" rel="noopener">https://packages.ubuntu.com/</a></p>
 <h1 id="Clean-the-Cahce"><a href="#Clean-the-Cahce" class="headerlink" title="Clean the Cahce"></a>Clean the Cahce</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt clean</span><br></pre></td></tr></table></figure>

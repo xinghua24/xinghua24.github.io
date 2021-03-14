@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xinghua24.github.io/"/>
-  <updated>2021-03-07T19:58:55.136Z</updated>
+  <updated>2021-03-14T06:59:13.304Z</updated>
   <id>http://xinghua24.github.io/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Vagrant</title>
+    <link href="http://xinghua24.github.io/Linux/Vagrant/"/>
+    <id>http://xinghua24.github.io/Linux/Vagrant/</id>
+    <published>2021-03-14T17:22:00.000Z</published>
+    <updated>2021-03-14T06:59:13.304Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.vagrantup.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vagrant&lt;/a&gt; is a command line utility for managing the lifecycle of virtual machines.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://xinghua24.github.io/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Using APT to install software in Ubuntu</title>
     <link href="http://xinghua24.github.io/Linux/Ubuntu-APT-Install-Software/"/>
     <id>http://xinghua24.github.io/Linux/Ubuntu-APT-Install-Software/</id>
     <published>2021-03-06T20:22:00.000Z</published>
-    <updated>2021-03-07T19:58:55.136Z</updated>
+    <updated>2021-03-14T06:58:19.148Z</updated>
     
     <summary type="html">
     
@@ -29,7 +47,7 @@
     
     </summary>
     
-      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
+      <category term="Linux" scheme="http://xinghua24.github.io/categories/Linux/"/>
     
     
   </entry>
@@ -39,7 +57,7 @@
     <link href="http://xinghua24.github.io/Linux/Ubuntu-ufw-Commmand/"/>
     <id>http://xinghua24.github.io/Linux/Ubuntu-ufw-Commmand/</id>
     <published>2021-03-06T18:22:00.000Z</published>
-    <updated>2021-03-06T21:25:42.058Z</updated>
+    <updated>2021-03-14T06:58:22.928Z</updated>
     
     <summary type="html">
     
@@ -47,7 +65,7 @@
     
     </summary>
     
-      <category term="Ubuntu" scheme="http://xinghua24.github.io/categories/Ubuntu/"/>
+      <category term="Linux" scheme="http://xinghua24.github.io/categories/Linux/"/>
     
     
   </entry>
@@ -352,24 +370,6 @@
     <summary type="html">
     
       &lt;p&gt;Copying Object in Javascript&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://xinghua24.github.io/categories/Javascript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Fetch API</title>
-    <link href="http://xinghua24.github.io/Javascript/Fetch-API/"/>
-    <id>http://xinghua24.github.io/Javascript/Fetch-API/</id>
-    <published>2020-07-13T22:00:00.000Z</published>
-    <updated>2020-07-20T02:44:34.179Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Fetch API is used to make server request. The return value is a Promise. This allows us to build simple and clean API calls.&lt;/p&gt;
     
     </summary>
     

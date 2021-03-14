@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Ubuntu uses apt(Advanced Package Tool) for software package management.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-07T19:58:55.136Z">
+<meta property="og:updated_time" content="2021-03-14T06:58:19.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Using APT to install software in Ubuntu">
 <meta name="twitter:description" content="Ubuntu uses apt(Advanced Package Tool) for software package management.">
@@ -403,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
@@ -452,6 +452,7 @@
 <a id="more"></a>
 
 <p>APT requires super-user permissions, as it deals with core aspects of the system, so in Ubuntu you’ll need to preface most commands with “sudo.”</p>
+<p>apt command is very similar to apt-get command. apt is introduced to provide a better interface for the end user than apt-get.  It is recommended to use apt. </p>
 <h1 id="Update-Packages"><a href="#Update-Packages" class="headerlink" title="Update Packages"></a>Update Packages</h1><p>update list of available packages</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
 
@@ -467,6 +468,9 @@
 
 <p>full upgrade</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt full-upgrade</span><br></pre></td></tr></table></figure>
+
+<p>upgrade one package</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade &lt;package_name&gt;...</span><br></pre></td></tr></table></figure>
 
 <h1 id="Search-for-Package"><a href="#Search-for-Package" class="headerlink" title="Search for Package"></a>Search for Package</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search</span><br></pre></td></tr></table></figure>
 
@@ -496,8 +500,8 @@
 <li>‘focal’ is the release name or version of your distribution.</li>
 <li>‘universe’ means Community-maintained free and open-source software.</li>
 </ul>
-<p>If you don’t want to edit sources.list directly, you can use the following command to add repository.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository &quot;deb http://us.archive.ubuntu.com/ubuntu/ saucy universe multiverse&quot;</span><br></pre></td></tr></table></figure>
+<p>If you don’t want to edit sources.list directly, you can use <code>add-apt-repository</code> to add repository. Docker installation example</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line">curl -fsSL https:<span class="comment">//download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span></span><br><span class="line">sudo add-apt-repository <span class="string">"deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install docker-ce</span><br></pre></td></tr></table></figure>
 
 <p>To learn more about Respositories, see</p>
 <ul>
@@ -543,6 +547,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Linux/Vagrant/" rel="prev" title="Vagrant">
+                Vagrant <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -668,6 +676,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
@@ -713,7 +723,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

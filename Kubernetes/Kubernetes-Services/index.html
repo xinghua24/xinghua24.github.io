@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Kubernetes Service">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes - Services">
+<meta property="og:url" content="http://example.com/Kubernetes/Kubernetes-Services/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Kubernetes Service">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-06T12:22:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.180Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Kubernetes/Kubernetes-Services/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Kubernetes/Kubernetes-Services/","path":"Kubernetes/Kubernetes-Services/","title":"Kubernetes - Services"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubernetes - Services | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Types"><span class="nav-number">1.</span> <span class="nav-text">Service Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Commands"><span class="nav-number">2.</span> <span class="nav-text">Service Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClusterIP"><span class="nav-number">3.</span> <span class="nav-text">ClusterIP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NodePort"><span class="nav-number">4.</span> <span class="nav-text">NodePort</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LoadBalancer"><span class="nav-number">5.</span> <span class="nav-text">LoadBalancer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service-Discovery-via-DNS"><span class="nav-number">6.</span> <span class="nav-text">Service Discovery via DNS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Port-Forwarding"><span class="nav-number">7.</span> <span class="nav-text">Port Forwarding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Kubernetes/Kubernetes-Services/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubernetes - Services | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes - Services
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-09-06 08:22:00" itemprop="dateCreated datePublished" datetime="2019-09-06T08:22:00-04:00">2019-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Kubernetes Service</p>
+<span id="more"></span>
+
+<p>Service is an abstract way to expose an application running on a set of Pods as a network service. </p>
+<p>Every pod has an IP address. A Pod’s IP address is ephemeral because the pods can failed and replaced in a different node. Service has a stable and reliable IP address that you can use to access the pods. </p>
+<h1 id="Service-Types"><a href="#Service-Types" class="headerlink" title="Service Types"></a>Service Types</h1><p>There are three Service Typs to choose from.</p>
+<ul>
+<li><strong>ClusterIP</strong>: Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the clluster. This is the default ServiceType</li>
+<li><strong>NodePort</strong>: Exposes the service on each Node’s IP at a static port(the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created. You will be able to contact the NodePort Service, from outside the cluster, by requesting &lt;NodeIP&gt;:&lt;NodePort&gt;. The drawback of NodePort is you need to know the node’s ip address to access the service.</li>
+<li><strong>LoadBalancer</strong>: Exposes the service externally using a cloud provider’s load balancer. If the cluster is not run on the cloud, then LoadBalancer type is probably not supported.</li>
+</ul>
+<h1 id="Service-Commands"><a href="#Service-Commands" class="headerlink" title="Service Commands"></a>Service Commands</h1><p>To get a list of services exposed</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get services</span><br></pre></td></tr></table></figure>
+
+<p>To describe a service named nginx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe service nginx</span><br></pre></td></tr></table></figure>
+
+<p>Delete a service</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete service nginx</span><br></pre></td></tr></table></figure>
+
+<p>Expose a resource( can be pod, replicaset, service, deployment) as a new Kubernetes service.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Create a service for an nginx deployment, which serves on port 80 and connects to the containers on port 8000.</span><br><span class="line">kubectl expose deployment nginx --port=80 --target-port=8000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="ClusterIP"><a href="#ClusterIP" class="headerlink" title="ClusterIP"></a>ClusterIP</h1><p>You can only access this service while inside the cluster. ClusterIP is usually used by backend service and data store service. </p>
+<p>Sample service with ClusterIP type</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">ClusterIP</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">myapp</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+
+<p>A service use selectors to select the pods with specific labels.</p>
+<p>Here there are two ports defined</p>
+<ul>
+<li>targetPort - the port to access on the pods targeted by the service. This is the port which the application is configured to listen on.</li>
+<li>port - the port that wil be exposed by this service</li>
+</ul>
+<p>Use <code>kubectl get services</code> to list service info</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE</span><br><span class="line">kubernetes   ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP    103m</span><br><span class="line">myapp        ClusterIP   10.101.67.7   &lt;none&gt;        8080/TCP   15s</span><br></pre></td></tr></table></figure>
+
+<p>When inside the cluster, you can access this service suing the following</p>
+<ul>
+<li>clusterIP:port</li>
+</ul>
+<p>Example to access the service inside the cluster</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 10.101.67.7:8080</span><br></pre></td></tr></table></figure>
+
+<p>One way to get into a cluster is to execute <code>kubectl exec -it &lt;pod-name&gt; /bin/bash</code> command to get into a pod. You may need to install curl in the pod if it is not available.  In addition, curl installation doesn’t always work.</p>
+<p>Note that another way to access the application is <a href="Port-Forwarding">port forwarding</a>.</p>
+<h1 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h1><p>NodePort exposes the service via the defined note port. The service can be reach on any node in the cluster via the nodePort.</p>
+<p>myapp-service.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">NodePort</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">myapp</span></span><br><span class="line">  <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">protocol:</span> <span class="string">TCP</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="number">80</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line">    <span class="attr">nodePort:</span> <span class="number">30003</span></span><br></pre></td></tr></table></figure>
+<p>Here there are three ports defined</p>
+<ul>
+<li>targetPort - the port to access on the pods targeted by the service</li>
+<li>port - the port that wil be exposed by this service</li>
+<li>nodePort - The port on each node on which this service is exposed when type&#x3D;NodePort or LoadBalancer. Usually assigned by the system.</li>
+</ul>
+<p>Use <code>kubectl get services</code> to list service info</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">kubernetes   ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP          106m</span><br><span class="line">myapp        NodePort    10.101.67.7   &lt;none&gt;        8080:30003/TCP   3m3s</span><br></pre></td></tr></table></figure>
+
+<p>You can access this service using the following</p>
+<ul>
+<li>clusterIP:port</li>
+<li>nodeIP:nodePort</li>
+</ul>
+<p>In addition to accessing the service using clusterIP, you can access the service outside of the cluster using node’s external IP. For minikube cluster, the node’s external IP can be retrieved using <code>minikube ip</code> command.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.44:30003</span><br></pre></td></tr></table></figure>
+
+<p>You can get a node’s ip using <code>kubectl get nodes -o wide</code> command</p>
+<h1 id="LoadBalancer"><a href="#LoadBalancer" class="headerlink" title="LoadBalancer"></a>LoadBalancer</h1><p>Loadbalancer exposes the service to the outside world. </p>
+<p>Sample LoadBalancer type service</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: myapp</span><br><span class="line">spec:</span><br><span class="line">  type: LoadBalancer</span><br><span class="line">  selector:</span><br><span class="line">    app: myapp</span><br><span class="line">  ports:</span><br><span class="line">  - protocol: TCP</span><br><span class="line">    targetPort: 80</span><br><span class="line">    port: 8080</span><br><span class="line">    nodePort: 30003</span><br></pre></td></tr></table></figure>
+
+<p>Here there are three ports defined</p>
+<ul>
+<li>targetPort - the port to access on the pods targeted by the service</li>
+<li>port - the port that wil be exposed by this service</li>
+<li>nodePort - The port on each node on which this service is exposed when type&#x3D;NodePort or LoadBalancer. Usually assigned by the system.</li>
+</ul>
+<p>Use <code>kubectl get services</code> to list service info</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get services</span><br><span class="line">NAME         TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE</span><br><span class="line">kubernetes   ClusterIP      10.96.0.1     &lt;none&gt;        443/TCP          109m</span><br><span class="line">myapp        LoadBalancer   10.101.67.7   172.17.0.22   8080:30003/TCP   6m18s</span><br></pre></td></tr></table></figure>
+
+<p>You can access this service using the following</p>
+<ul>
+<li>clusterIP:port</li>
+<li>nodeIP:nodePort</li>
+<li>loadBalancerIp:port</li>
+</ul>
+<p>Example to access the service using loadbalancerIP outside of the cluster. Kubernetes routes request to a nodePort, then routes to the clusterIP port. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl 172.17.0.22:8080</span><br></pre></td></tr></table></figure>
+
+<h1 id="Service-Discovery-via-DNS"><a href="#Service-Discovery-via-DNS" class="headerlink" title="Service Discovery via DNS"></a>Service Discovery via DNS</h1><p>As of Kubernetes v1.12, CoreDNS is the recommended DNS Server, replacing kube-dns. However, kube-dns may still be installed by default with certain Kubernetes installer tools. Both the CoreDNS and kube-dns Service are named kube-dns in the metadata.name field.</p>
+<p>When inside a Kubernetes cluster, you can use ClusterIP or DNS to visit the service. DNS Service will resolve the DNS name. </p>
+<p>Every Service defined in the cluster is assigned a DNS A Record. The record is of format  <strong>&lt;Service-name&gt;.&lt;Namespace&gt;.svc.&lt;Cluster-Domain&gt;</strong>. You can often use <strong>&lt;Service-name&gt;.&lt;Namespace&gt;</strong> to refer to the service.</p>
+<p>So in the application code, use url <a target="_blank" rel="noopener" href="http://service-name.namespace/">http://service-name.namespace/</a> to visit the service. Kubernetes will resolve the hostname using dns service.</p>
+<p>servicediscovery.yml: A pod that uses DNS name to visit myapp service.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">servicetest</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">servicetest</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">restartPolicy:</span> <span class="string">Never</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">servicetest</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">byrnedo/alpine-curl</span></span><br><span class="line">    <span class="attr">command:</span> [ <span class="string">&quot;/bin/sh&quot;</span>, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;curl http://myapp.default:8080;&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>This pod refers to myapp service in default namespace using hostname myapp.default. The complete dns name for myapp service is myapp.default.svc.cluster.local. cluster.local is the default  Namespace can be omitted if the service provider and consumer are in the same namespace. </p>
+<p>Execute the following command to see how the pod visit the service using DNS name.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl apply -f servicediscovery.yml </span><br><span class="line">$ kubectl logs servicetest</span><br></pre></td></tr></table></figure>
+
+<h1 id="Port-Forwarding"><a href="#Port-Forwarding" class="headerlink" title="Port Forwarding"></a>Port Forwarding</h1><p>Service is not the only way to access an application. One way is to use port forwarding to access a pod.</p>
+<p>port-forwarding allows you to forward a local port in the host to a port on the pod</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl port-forward &lt;pod-name&gt; &lt;local-port&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure>
+
+<p>You can use <code>curl hostname:host-port</code> to access the pod locally. Default hostname is localhost if address option is not set.</p>
+<p><code>kubctl port-forward</code> has an option <code>--address</code> to specify the address to listen on.  It accepts IP addresses or localhost as a value. Default is localhost.</p>
+<p>For more details on port forwarding, use <code>kubectl port-forward --help</code> command to see sample usage. See <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/">Port Forwarding documentation</a> for more detail explaination.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#service-v1-core">Service API</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types">ServiceType</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41509439/whats-the-difference-between-clusterip-nodeport-and-loadbalancer-service-types">Diff between ClusterIP, NodePort and LoadBalancer service types in Kubernetes</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/">Kubernetes - DNS for Services and Pods</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Kubernetes/Kubernetes-Running-Applications/" rel="prev" title="Kubernetes - Running Application Using Deployment">
+                  <i class="fa fa-chevron-left"></i> Kubernetes - Running Application Using Deployment
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Kubernetes/Kubernetes-Ingress/" rel="next" title="Kubernetes - Ingress">
+                  Kubernetes - Ingress <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Docker Networking">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Networking">
+<meta property="og:url" content="http://example.com/Docker/Docker-Networking/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Docker Networking">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-01-11T07:51:14.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.165Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Docker/Docker-Networking/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Docker/Docker-Networking/","path":"Docker/Docker-Networking/","title":"Docker Networking"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docker Networking | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#List-Networks"><span class="nav-number">1.</span> <span class="nav-text">List Networks</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-a-Network"><span class="nav-number">2.</span> <span class="nav-text">Create a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inspect-a-Network"><span class="nav-number">3.</span> <span class="nav-text">Inspect a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remove-a-Network"><span class="nav-number">4.</span> <span class="nav-text">Remove a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Running-a-container-in-a-Network"><span class="nav-number">5.</span> <span class="nav-text">Running a container in a Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-Run-Containers-on-the-Same-Network"><span class="nav-number">6.</span> <span class="nav-text">Example: Run Containers on the Same Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Docker/Docker-Networking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Docker Networking | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker Networking
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-11 02:51:14" itemprop="dateCreated datePublished" datetime="2019-01-11T02:51:14-05:00">2019-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Docker Networking</p>
+<span id="more"></span>
+
+<p>Network Drivers Types</p>
+<ul>
+<li><strong>bridge</strong> - this is the default and most used network driver.</li>
+<li><strong>host</strong> - remove network isolation between host and container, use host’s networking directly. Host mode networking can be useful to optimize performance. </li>
+<li><strong>overlay</strong> - Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. </li>
+<li><strong>none</strong> - disable all networking. Container can’t connect to network. Not used often.</li>
+</ul>
+<p>When a container is connected to a network, it can communicate with other containers in the same network.</p>
+<h1 id="List-Networks"><a href="#List-Networks" class="headerlink" title="List Networks"></a>List Networks</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network ls</span><br></pre></td></tr></table></figure>
+
+<p>default output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NETWORK ID          NAME                    DRIVER              SCOPE</span><br><span class="line">cad232899398        bridge                  bridge              local</span><br><span class="line">00cc8b46ebad        host                    host                local</span><br><span class="line">ac75839ac3dd        none                    null                local</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Create-a-Network"><a href="#Create-a-Network" class="headerlink" title="Create a Network"></a>Create a Network</h1><p>use <code>docker network create</code> to create network. use <code>-d</code> or <code>--driver</code> option to set the driver type</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create -d bridge my-bridge</span><br></pre></td></tr></table></figure>
+
+<p>You can specify the network’s subnet and gateway. The prefix length is 16 by default, here we can specify a subnet with prefix length of24.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create -d bridge --subnet 172.66.66.0/24 --gateway 172.66.66.1  my-bridge</span><br></pre></td></tr></table></figure>
+
+<p>run <code>ifconfig</code> on the host machine, you will see a new network interface added.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig</span><br><span class="line">br-0a428d94b9d5: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.66.66.1  netmask 255.255.255.0  broadcast 172.66.66.255</span><br><span class="line">        ether 02:42:e6:8c:27:40  txqueuelen 0  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+
+<h1 id="Inspect-a-Network"><a href="#Inspect-a-Network" class="headerlink" title="Inspect a Network"></a>Inspect a Network</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect my-bridge</span><br></pre></td></tr></table></figure>
+<p>This will show the network information such as Subnet and Gateway information. </p>
+<p>It will also contain the containers connected to the network and their IP addresses.</p>
+<p>Sample output:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">$ docker network inspect my-bridge</span><br><span class="line"><span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;my-bridge&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0a428d94b9d528eaf3c52521158e399ec17e7651e98db1eed7570295271bf7db&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Created&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-09-14T04:13:40.981076739-04:00&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Scope&quot;</span><span class="punctuation">:</span> <span class="string">&quot;local&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Driver&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bridge&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;EnableIPv6&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;IPAM&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;Driver&quot;</span><span class="punctuation">:</span> <span class="string">&quot;default&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;Options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;Config&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="punctuation">&#123;</span></span><br><span class="line">                    <span class="attr">&quot;Subnet&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.66.66.0/24&quot;</span><span class="punctuation">,</span></span><br><span class="line">                    <span class="attr">&quot;Gateway&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.66.66.1&quot;</span></span><br><span class="line">                <span class="punctuation">&#125;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Internal&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Attachable&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Ingress&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;ConfigFrom&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;Network&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;ConfigOnly&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Containers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;ac3a42c369ee00afffb5170a1bae619cbaa3ca45b0bd630768e6199c322d123b&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;my-alpine&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;EndpointID&quot;</span><span class="punctuation">:</span> <span class="string">&quot;568a17e9c97ef707eec0f37614a630465bdb0634114639ab4abfb9acd40455b8&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;MacAddress&quot;</span><span class="punctuation">:</span> <span class="string">&quot;02:42:ac:42:42:02&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;IPv4Address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;172.66.66.2/24&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;IPv6Address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;Labels&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Remove-a-Network"><a href="#Remove-a-Network" class="headerlink" title="Remove a Network"></a>Remove a Network</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network rm my-bridge</span><br></pre></td></tr></table></figure>
+
+<h1 id="Running-a-container-in-a-Network"><a href="#Running-a-container-in-a-Network" class="headerlink" title="Running a container in a Network"></a>Running a container in a Network</h1><p>use <code>--net=&lt;network&gt;</code> or <code>--network=&lt;network&gt;</code> option to specify the network. <code>&lt;network&gt;</code> is the name of the network to be used</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm --network bridge --name my-alpine alpine</span><br></pre></td></tr></table></figure>
+
+<p>Disconnect from a network</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network disconnect bridget my-alpine</span><br></pre></td></tr></table></figure>
+
+<p>Connect to my-bridge network </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network connect my-bridge my-alpine</span><br></pre></td></tr></table></figure>
+
+<p>The above command will automatically assign an IP address to the container. You can connect to a network with a specified IP address.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network connect --ip 172.66.66.33 my-bridge  my-alpine</span><br></pre></td></tr></table></figure>
+
+<p>Inspect the container’s network configuration.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec my-alpine ifconfig</span><br></pre></td></tr></table></figure>
+
+<h1 id="Example-Run-Containers-on-the-Same-Network"><a href="#Example-Run-Containers-on-the-Same-Network" class="headerlink" title="Example: Run Containers on the Same Network"></a>Example: Run Containers on the Same Network</h1><p>Here is an example bash script to run both mysql and phpmyadmin container on the same network</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Create network</span></span><br><span class="line">docker network create sample-network</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create mysql container</span></span><br><span class="line">docker run  -d --name=mysql \</span><br><span class="line">--network=sample-network \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=password \</span><br><span class="line">-p 3306:3306 \</span><br><span class="line">mysql:8</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create phpmyadmin container</span></span><br><span class="line">docker run -d --name phpmyadmin  \</span><br><span class="line">--network=sample-network \</span><br><span class="line">-e PMA_HOSTS=mysql-dev \</span><br><span class="line">-e PMA_PORT=3306 \</span><br><span class="line">-e PMA_USER=root \</span><br><span class="line">-e PMA_PASSWORD=password \</span><br><span class="line">-p 7000:80 \</span><br><span class="line">phpmyadmin/phpmyadmin</span><br></pre></td></tr></table></figure>
+<p>We first create a bridge network called sample-network. Then create mysql and phpmyadmin container that both connect to sample-network.<br>You can now open phpmyadmin at <a target="_blank" rel="noopener" href="http://localhost:7000/">http://localhost:7000/</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/network/">Networking overview</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/network/">docker network commands</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/network/bridge/">bridge network</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/network/host/">host network</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/network/none/">none network</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Docker/Docker-Volume/" rel="prev" title="Docker Volume">
+                  <i class="fa fa-chevron-left"></i> Docker Volume
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Docker/Docker-Compose/" rel="next" title="Docker Compose">
+                  Docker Compose <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

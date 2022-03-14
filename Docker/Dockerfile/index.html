@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Dockerfile is a text file that contains instructions on how to build a custom image.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dockerfile">
+<meta property="og:url" content="http://example.com/Docker/Dockerfile/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Dockerfile is a text file that contains instructions on how to build a custom image.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-01-10T10:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.166Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Docker/Dockerfile/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Docker/Dockerfile/","path":"Docker/Dockerfile/","title":"Dockerfile"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Dockerfile | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Building-Image-using-Dockerfile"><span class="nav-number">1.</span> <span class="nav-text">Building Image using Dockerfile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dockerfile-Format"><span class="nav-number">2.</span> <span class="nav-text">Dockerfile Format</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Environment-Variable"><span class="nav-number">3.</span> <span class="nav-text">Environment Variable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FROM"><span class="nav-number">4.</span> <span class="nav-text">FROM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#COPY-amp-ADD"><span class="nav-number">5.</span> <span class="nav-text">COPY &amp; ADD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WORKDIR"><span class="nav-number">6.</span> <span class="nav-text">WORKDIR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RUN"><span class="nav-number">7.</span> <span class="nav-text">RUN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CMD-amp-ENTRYPOINT"><span class="nav-number">8.</span> <span class="nav-text">CMD &amp; ENTRYPOINT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VOLUME"><span class="nav-number">9.</span> <span class="nav-text">VOLUME</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EXPOSE"><span class="nav-number">10.</span> <span class="nav-text">EXPOSE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ARG"><span class="nav-number">11.</span> <span class="nav-text">ARG</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ENV"><span class="nav-number">12.</span> <span class="nav-text">ENV</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LABEL"><span class="nav-number">13.</span> <span class="nav-text">LABEL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#STOPSIGNAL"><span class="nav-number">14.</span> <span class="nav-text">STOPSIGNAL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ONBUILD"><span class="nav-number">15.</span> <span class="nav-text">ONBUILD</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HEALTHCHECK"><span class="nav-number">16.</span> <span class="nav-text">HEALTHCHECK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SHELL"><span class="nav-number">17.</span> <span class="nav-text">SHELL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Best-practices"><span class="nav-number">18.</span> <span class="nav-text">Best practices</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tools"><span class="nav-number">19.</span> <span class="nav-text">Tools</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">20.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Docker/Dockerfile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Dockerfile | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Dockerfile
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-10 05:00:00" itemprop="dateCreated datePublished" datetime="2019-01-10T05:00:00-05:00">2019-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Dockerfile is a text file that contains instructions on how to build a custom image.</p>
+<span id="more"></span>
+
+<p>A very simple Dockerfile for Springboot app</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> openjdk:<span class="number">8</span>-jre-alpine</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8080</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> /target/myApp.jar myApp.jar</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;java&quot;</span>,<span class="string">&quot;-jar&quot;</span>,<span class="string">&quot;myApp.jar&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>A Dockerfile for Python app. see <a target="_blank" rel="noopener" href="https://docs.docker.com/get-started/part2/">Get Started, Part 2: Containers</a></p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use an official Python runtime as a parent image</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">2.7</span>-slim</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the working directory to /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Copy the current directory contents into the container at /app</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Install any needed packages specified in requirements.txt</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install --trusted-host pypi.python.org -r requirements.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Make port 80 available to the world outside this container</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define environment variable</span></span><br><span class="line"><span class="keyword">ENV</span> NAME World</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run app.py when the container launches</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;app.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Building-Image-using-Dockerfile"><a href="#Building-Image-using-Dockerfile" class="headerlink" title="Building Image using Dockerfile"></a>Building Image using Dockerfile</h1><p><code>docker build</code> command builds an image from a Dockerfile and context. Docker Image is consist of read-only layers. Each instruction in a Dockerfile creates one layer on top of the previous layer.</p>
+<p>Syntax</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t image_name directory_path</span><br></pre></td></tr></table></figure>
+
+<p>The build’s <strong>context</strong> is the set of files at a specified location PATH or URL. The PATH is a directory on your local filesystem. The URL is a Git repository location.</p>
+<p>The build is run by the <strong>Docker daemon</strong>, not by CLI. the <strong>context</strong>(except for the files and directory exclude by .dockerignore file) is send to the daemon.</p>
+<p>Example to build testimage:v1 using .&#x2F;testapp as the context</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t testimage:v1 ./testapp</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>-f</code> option to specify Dockerfile location if Dockerfile is not at the top of the context</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -f testapp/dockerfiles/Dockerfile.debug -t testimage:v1 ./testapp</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="Dockerfile-Format"><a href="#Dockerfile-Format" class="headerlink" title="Dockerfile Format"></a>Dockerfile Format</h1><p>Comments starts with ‘#’</p>
+<p>use backslash() as the escape character.</p>
+<p>A Dockerfile usually start with a <code>form</code> instruction.</p>
+<h1 id="Environment-Variable"><a href="#Environment-Variable" class="headerlink" title="Environment Variable"></a>Environment Variable</h1><p>You can get the value of an Environment variable with <code>$variable_name</code> or <code>$&#123;variable_name&#125;</code></p>
+<p>You can escape string starts with <code>$</code> by adding a <code>\</code> before the <code>$</code>.</p>
+<p>Environment variables are supported by the following list of instructions:</p>
+<ul>
+<li>ADD</li>
+<li>COPY</li>
+<li>ENV</li>
+<li>EXPOSE</li>
+<li>FROM</li>
+<li>LABEL</li>
+<li>STOPSIGNAL</li>
+<li>USER</li>
+<li>VOLUME</li>
+<li>WORKDIR</li>
+</ul>
+<h1 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h1><p>Syntax</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM &lt;image&gt;[:&lt;tag&gt;]</span><br></pre></td></tr></table></figure>
+<p>The FROM instruction initializes a new build stage and sets the Base Image for subsequent instructions. </p>
+<p>example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM httpd:2.4</span><br><span class="line">FROM centos:latest</span><br><span class="line">FROM openjdk:8-jre-alpine</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="COPY-amp-ADD"><a href="#COPY-amp-ADD" class="headerlink" title="COPY &amp; ADD"></a>COPY &amp; ADD</h1><p>The <code>COPY</code> and <code>ADD</code> instruction copies files and folders from host to the image we’re building. <code>ADD</code> is more powerful, it can unpack tar archive and download from URL and copy to the building image.</p>
+<p>example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY index.html /var/www/html/</span><br><span class="line">COPY *.html /var/www/html/</span><br></pre></td></tr></table></figure>
+
+<p>Best practice is to use <code>COPY</code> when copying local files to Docker image because it is more explicit. Use <code>ADD</code> only for tar files and download from URLs.</p>
+<h1 id="WORKDIR"><a href="#WORKDIR" class="headerlink" title="WORKDIR"></a>WORKDIR</h1><p>sets the working directory for any <code>RUN</code>, <code>CMD</code>, <code>ENTRYPOINT</code>, <code>COPY</code> and <code>ADD</code> instructions that follow it in the Dockerfile.<br>The <code>WORKDIR</code> instruction can be used multiple times in a Dockerfile.</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /path/to/workdir</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /path/to/workdir</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">pwd</span>  <span class="comment"># will print /path/to/workdir</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Do not use <code>RUN cd /path/to/workdir</code>. It has no effect on the image filesystem</p>
+<h1 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h1><p>Commonly used instruction. The <code>RUN</code> instruction will execute any commands in a new layer on top of the current image and commit the results. <code>RUN</code> instruction is often used to install software packages.</p>
+<p>You can have many <code>RUN</code> instructions in a Dockerfile.</p>
+<p>Syntax</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> &lt;<span class="built_in">command</span>&gt;</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> [<span class="string">&quot;executable&quot;</span>, <span class="string">&quot;param1&quot;</span>, <span class="string">&quot;param2&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RUN apt-get update \ </span><br><span class="line"> &amp;&amp; apt-get install -y wget</span><br></pre></td></tr></table></figure>
+
+<h1 id="CMD-amp-ENTRYPOINT"><a href="#CMD-amp-ENTRYPOINT" class="headerlink" title="CMD &amp; ENTRYPOINT"></a>CMD &amp; ENTRYPOINT</h1><p>Both <code>CMD</code> and <code>ENTRYPOINT</code> can be used to start a process. They are very similar. Both <code>CMD</code> and <code>ENTRYPOINT</code> has two forms, shell form and exec form.</p>
+<p>Two forms of ENTRYPOINT</p>
+<ul>
+<li>ENTRYPOINT command param1 param2 (shell form) </li>
+<li>ENTRYPOINT [“executable”, “param1”, “param2”] (exec form, preferred)</li>
+</ul>
+<p>Shell format example</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine</span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;Hello Docker&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>exec form example</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine</span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;/bin/echo&quot;</span>, <span class="string">&quot;Hello Docker&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p><code>CMD</code> provide defaults for an executing container. command line arguments will override <code>CMD</code> instruction.</p>
+<p>Three forms of CMD</p>
+<ul>
+<li>CMD command param1 param2 (shell form)</li>
+<li>CMD [“executable”,”param1”,”param2”] (exec form, this is the preferred form)</li>
+<li>CMD [“param1”,”param2”] (as default parameters to ENTRYPOINT, ENTRYPOINT must use exec form in this case)</li>
+</ul>
+<p>Shell form example</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine</span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;Hello Docker&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>exec form example</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> alpine</span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/bin/echo&quot;</span>, <span class="string">&quot;Hello Docker&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>CMD and ENTRYPOINT can interact. When both instruction are presented,<br>CMD defines default arguments for an ENTRYPOINT instruction.</p>
+<p>Example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine</span><br><span class="line"></span><br><span class="line">ENTRYPOINT [&quot;ls&quot; ]</span><br><span class="line">CMD [ &quot;-l&quot;, &quot;/usr&quot;]</span><br></pre></td></tr></table></figure>
+
+<p><strong>CMD vs ENTRYPOINT</strong></p>
+<ul>
+<li>CMD sets <strong>default</strong> command. This command can be <strong>easily overriden</strong> from commandline</li>
+<li>ENTRYPOINT is often used for a long running process. parameters passed to <code>docker run</code> will not override ENTRYPOINT instruction parameters</li>
+<li>CMD is used to define a default command to execute. parameters passed to <code>docker run</code> will override CMD.</li>
+</ul>
+<h1 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h1><p><code>VOLUME</code> defines a path in the container to the host. Host path can map to the container path using <code>-v</code> argument when runnning a cotnainer.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VOLUME [&quot;/data/db&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>Volume allows us to add source and data to the image without commiting them to the image.</p>
+<h1 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h1><p>The <code>EXPOSE</code> instruction informs Docker that the container listens on the specified network ports at runtime. You can have multiple <code>EXPOSE</code> instruction in a Dockerfile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">EXPOSE 80</span><br><span class="line">EXPOSE 8080</span><br></pre></td></tr></table></figure>
+
+<p>By default, EXPOSE assumes TCP. You can also specify UDP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPOSE 80/udp</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h1><p>The <code>ARG</code> instruction defines a variable that users can pass at build-time to the builder with the <code>docker build</code> command. use <code>--build-arg var=val</code> option to pass these variables.</p>
+<p>ARG instruction can have a default value.</p>
+<p>An ARG instruction goes out of scope at the end of the build stage where it was defined. </p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> busybox</span><br><span class="line"><span class="keyword">ARG</span> buildno=<span class="number">0</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> buildno is <span class="variable">$buildno</span></span></span><br></pre></td></tr></table></figure>
+
+<p>to pass 123456 as argument </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg buildno=123456 .</span><br></pre></td></tr></table></figure>
+
+<p>Sample output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Sending build context to Docker daemon  2.048kB</span><br><span class="line">Step 1/3 : FROM busybox</span><br><span class="line"> ---&gt; 3a093384ac30</span><br><span class="line">Step 2/3 : ARG buildno=0</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 92ad6cab8c44</span><br><span class="line">Step 3/3 : RUN echo buildno is $buildno</span><br><span class="line"> ---&gt; Running in b290e1c97eec</span><br><span class="line">buildno is 123456</span><br><span class="line">Removing intermediate container b290e1c97eec</span><br><span class="line"> ---&gt; 815f540e2db8</span><br><span class="line">Successfully built 815f540e2db8</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h1><p>The ENV instruction sets the environment variable. see <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder/#env">Reference</a></p>
+<p>syntax</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENV &lt;key&gt; &lt;value&gt;</span><br><span class="line">ENV &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
+
+<p>example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENV foo /bar/baz</span><br><span class="line">ENV foo=/bar/baz</span><br></pre></td></tr></table></figure>
+
+<p>You can also pass environment variable to container using -e flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit -e ENV_VAR_1=&#x27;foo&#x27; -e ENV_VAR_2=&#x27;bar&#x27; -p 80:80 --name test nginx:alpine</span><br></pre></td></tr></table></figure>
+
+<p><strong>ENV vs ARG</strong><br><br>Environment variable are available during the image build stage and when a container is launched from the image. ARG variables is ONLY available during the image build stage.</p>
+<h1 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h1><p>label is a key-value pair.<br>syntax</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
+
+<p>example</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;1.0&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;Some app description...&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;alicebob@example.com&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>When you use <code>docker inspect</code> command to get the low level info for a container, you will get the labels for the containers</p>
+<h1 id="STOPSIGNAL"><a href="#STOPSIGNAL" class="headerlink" title="STOPSIGNAL"></a>STOPSIGNAL</h1><p>sets the signal to send to stop the container using <code>docker stop</code> command. The default signal is <code>SIGTERM</code>. If the main process doesn’t exit after a period of time, <code>SIGKILL</code> will be sent.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STOPSIGNAL SIGKILL</span><br></pre></td></tr></table></figure>
+
+<h1 id="ONBUILD"><a href="#ONBUILD" class="headerlink" title="ONBUILD"></a>ONBUILD</h1><p>syntax</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ONBUILD</span> [INSTRUCTION]</span><br></pre></td></tr></table></figure>
+
+<p>ONBUILD adds a <em>trigger</em> instruction to be executed when the image is used as the base for another build.</p>
+<p>This is useful if you are building an image which will be used as a base to build other images</p>
+<h1 id="HEALTHCHECK"><a href="#HEALTHCHECK" class="headerlink" title="HEALTHCHECK"></a>HEALTHCHECK</h1><p>Tells Docker how to test a container to see if it is working.</p>
+<p>syntax</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">HEALTHCHECK</span><span class="language-bash"> [OPTIONS] CMD <span class="built_in">command</span></span></span><br></pre></td></tr></table></figure>
+
+<p>example</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">HEALTHCHECK</span><span class="language-bash"> --interval=5m --<span class="built_in">timeout</span>=3s \</span></span><br><span class="line"><span class="language-bash">  CMD curl -f http://localhost/ || <span class="built_in">exit</span> 1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h1><p>the SHELL instruction overrides the default shell. The default shell on Linux is <code>[&quot;/bin/sh&quot;, &quot;-c&quot;]</code>. For windows, it is <code>[&quot;cmd&quot;, &quot;/S&quot;, &quot;/C&quot;]</code></p>
+<p>Example</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Executed as powershell -command Write-Host hello</span></span><br><span class="line"><span class="keyword">SHELL</span><span class="language-bash"> [<span class="string">&quot;powershell&quot;</span>, <span class="string">&quot;-command&quot;</span>]</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> Write-Host hello</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Best-practices"><a href="#Best-practices" class="headerlink" title="Best practices"></a>Best practices</h1><p>use <a target="_blank" rel="noopener" href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">this document</a> for Dockerfile best practice</p>
+<ul>
+<li>use .dockerignore file to filter out the files and directories not being used</li>
+<li>Don’t install unnecessary package</li>
+<li>Minimize layers used. Multi-stage build can be used to achieve that.</li>
+<li>Leverage build cache. Cache can significantly reduce build time. If you don’t want to use cache, set parameter <code>--no-cache-true</code></li>
+</ul>
+<p>see <a target="_blank" rel="noopener" href="https://blog.docker.com/2019/07/intro-guide-to-dockerfile-best-practices/">this blog post</a> for some useful Best practices </p>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker&ssr=false">Docker Extension</a> for VS Code provides syntax highlighting, commands, and linting for Dockerfile.</p>
+<p>To Install, just search for <em>Docker</em> in VS Code extension tab. Then install the Docker extension from Microsoft.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Docker/Docker-Image/" rel="prev" title="Docker Image">
+                  <i class="fa fa-chevron-left"></i> Docker Image
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Docker/Docker-Volume/" rel="next" title="Docker Volume">
+                  Docker Volume <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

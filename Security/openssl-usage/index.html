@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="OpenSSL is a toolkit for TLS and SSL protocols. It is also a general-purpose cryptography library.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Openssl Usage">
+<meta property="og:url" content="http://example.com/Security/openssl-usage/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="OpenSSL is a toolkit for TLS and SSL protocols. It is also a general-purpose cryptography library.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-10T02:35:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.198Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Security">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Security/openssl-usage/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Security/openssl-usage/","path":"Security/openssl-usage/","title":"Openssl Usage"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Openssl Usage | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Openssl"><span class="nav-number">1.</span> <span class="nav-text">Openssl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#enc"><span class="nav-number">2.</span> <span class="nav-text">enc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dgst"><span class="nav-number">3.</span> <span class="nav-text">dgst</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rand"><span class="nav-number">4.</span> <span class="nav-text">rand</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#genrsa"><span class="nav-number">5.</span> <span class="nav-text">genrsa</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Self-signed-Certificate"><span class="nav-number">6.</span> <span class="nav-text">Create Self-signed Certificate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Calculate-fingerprint"><span class="nav-number">7.</span> <span class="nav-text">Calculate fingerprint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convert-Formats"><span class="nav-number">8.</span> <span class="nav-text">Convert Formats</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Security/openssl-usage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Openssl Usage | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Openssl Usage
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-09 22:35:00" itemprop="dateCreated datePublished" datetime="2019-05-09T22:35:00-04:00">2019-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Security/" itemprop="url" rel="index"><span itemprop="name">Security</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>OpenSSL is a toolkit for TLS and SSL protocols. It is also a general-purpose cryptography library.</p>
+<span id="more"></span>
+
+<h1 id="Openssl"><a href="#Openssl" class="headerlink" title="Openssl"></a>Openssl</h1><p>OpenSSL is licensed under an Apache-style license, which basically means that you are free to get and use it for commercial and non-commercial purposes subject to some simple license conditions.</p>
+<p>OpenSSL provides:</p>
+<ul>
+<li>A command line application to perform a wide variety of cryptography tasks, such as creating and handling certificates and related files. OpenSSL commands</li>
+<li>A comprehensive and extensive cryptographic library libcrypto.</li>
+<li>A library for enabling SSL&#x2F;TLS communications libssl to provide SSL and TLS Protocols support within clients or servers applications.</li>
+</ul>
+<p>To display openssl version</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ openssl version -a</span><br><span class="line">OpenSSL 1.1.0g  2 Nov 2017</span><br><span class="line">built on: reproducible build, date unspecified</span><br><span class="line">platform: debian-amd64</span><br><span class="line">compiler: gcc </span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p>To display summary</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl -help</span><br></pre></td></tr></table></figure>
+
+<p>To display summary for a command</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl [command] -help</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="enc"><a href="#enc" class="headerlink" title="enc"></a>enc</h1><p><strong><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/enc.html">enc</a></strong> command is used for encryption and decryption. Enc is used for various block and stream ciphers using keys based on passwords or explicitly provided. It can also be used for Base64 encoding or decoding.</p>
+<p>Synopsis</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl enc -ciphername [options]</span><br></pre></td></tr></table></figure>
+
+<p>You can get a list a ciphers using the following command</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl enc -ciphers</span><br></pre></td></tr></table></figure>
+
+
+<p>Example to encode a file using base64. encryption is the default so no need to include -e option.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl enc -base64 -in file.bin -out file.b64</span><br></pre></td></tr></table></figure>
+
+<p>Example to decode a file using base64</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl enc -d -base64 -in file.b64 -out file.bin</span><br></pre></td></tr></table></figure>
+
+<p>Example to encode a file using aes-256. You need to provide a password to do the encryption.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl enc -aes256 -in file.txt -out file.enc</span><br><span class="line">enter aes-256-cbc encryption password:</span><br><span class="line">Verifying - enter aes-256-cbc encryption password:</span><br></pre></td></tr></table></figure>
+
+<h1 id="dgst"><a href="#dgst" class="headerlink" title="dgst"></a>dgst</h1><p><strong><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/dgst.html">dgst</a></strong> - perform digest operations</p>
+<p>Usage: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dgst [options] [file...]</span><br></pre></td></tr></table></figure>
+
+<p>Example to create md5 digest for a file</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl dgst -md5 file.txt </span><br></pre></td></tr></table></figure>
+
+<p>Example to create sha1 digest for a file</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl dgst -sha1 -hex file.txt</span><br></pre></td></tr></table></figure>
+
+<p>Example to create sha256 digest for a file</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl dgst -sha256 -hex file.txt</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="rand"><a href="#rand" class="headerlink" title="rand"></a>rand</h1><p><strong><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/rand.html">rand</a></strong> - generate pseudo-random bytes</p>
+<p>SYNOPSIS</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rand [-help] [-out file] [-rand file...] [-writerand file] [-base64] [-hex] num</span><br></pre></td></tr></table></figure>
+<p>The rand command outputs <em>num</em> pseudo-random bytes after seeding the random number generator once. </p>
+<p>Example to generate 10 bytes and then display as hex string</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rand -hex 10</span><br><span class="line">59405a642b9c3041401c</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Example to generate 10 bytes and then print the base64 encoded output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rand -base64 10</span><br><span class="line">a7tvmW3bCHVUKg==</span><br></pre></td></tr></table></figure>
+
+<p>Example to generate a random key and use it for symmetric encryption.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rand -base64 128 &gt; key.txt</span><br><span class="line">$ openssl enc -aes-256-cbc -salt -in file.txt -out file.txt.encoded -pass file:key.txt</span><br><span class="line">$ openssl enc -d -aes-256-cbc -in file.txt.encoded -out file.txt.decoded -pass file:key.txt</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="genrsa"><a href="#genrsa" class="headerlink" title="genrsa"></a>genrsa</h1><p><strong><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/genrsa.html">genrsa</a></strong> generate an RSA private key. Private and public keys are used in asymmetric encryption. </p>
+<p>Example to generate private key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out private.pem 2048 </span><br></pre></td></tr></table></figure>
+
+<p>To secure the private, you can prompt the user to enter a password</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -aes256 -passout stdin -out private.pem 1024</span><br></pre></td></tr></table></figure>
+
+<p>Example to generate public key from private key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in private.pem -pubout -out public.pem</span><br></pre></td></tr></table></figure>
+
+<p>Encrypt a file using public key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsautl -encrypt -pubin -inkey public.pem -in file.txt -out file.txt.enc</span><br></pre></td></tr></table></figure>
+
+<p>The data to be encrypted should be small. Otherwise it will throw an error</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rsautl -encrypt -pubin -inkey public.pem -in file.txt -out file.txt.enc</span><br><span class="line">RSA operation error</span><br><span class="line">140382596690368:error:0406D06E:rsa routines:RSA_padding_add_PKCS1_type_2:data too large for key size:../crypto/rsa/rsa_pk1.c:125:</span><br></pre></td></tr></table></figure>
+
+<p>Decrypt a file using private key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsautl -decrypt -inkey private.pem -in file.txt.encrypted -out file.txt.dec</span><br></pre></td></tr></table></figure>
+
+<p>Note: Do not use public key and private key to encrypt data. To send large data, generate a random symmetric key and encrypt it with RSA cipher(public key). After recipient receive and decrypt the symmetric key. The sender and receiver can use symmetric key to decrypt the message</p>
+<h1 id="Create-Self-signed-Certificate"><a href="#Create-Self-signed-Certificate" class="headerlink" title="Create Self-signed Certificate"></a>Create Self-signed Certificate</h1><p>First create private key </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out privateKey.pem 4096</span><br></pre></td></tr></table></figure>
+<p>Add <code>-des3</code> option to enter a pass phrase</p>
+<p>Generate CSR(certificate signing request) using the private key. If the privateKey contains a pass phrase, you need to enter it. You will need to answsewr a series of questions here.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key privateKey.pem -out req.csr</span><br></pre></td></tr></table></figure>
+
+<p>Optional: to examine a certificate request, use the following command</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -in req.csr -text</span><br></pre></td></tr></table></figure>
+
+<p>Sign the CSR. -x509 option outputs a self signed certificate instead of a certificate request. If the privateKey contains a pass phrase, you need to enter it here.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -req -sha256 -days 365 -in req.csr -signkey privateKey.pem -out server.crt</span><br></pre></td></tr></table></figure>
+
+<p>To examine the certificate</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -in server.crt -text -noout</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Calculate-fingerprint"><a href="#Calculate-fingerprint" class="headerlink" title="Calculate fingerprint"></a>Calculate fingerprint</h1><p>Certificate Fingerprint is the hash of the der-encoded Certificate.</p>
+<p>First convert the certificate to DER format</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -in cert.crt -outform DER -out cert.cer</span><br></pre></td></tr></table></figure>
+
+<p>Then calculate the hash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ openssl dgst -md5 cert.cer</span><br><span class="line">$ openssl dgst -sha1 cert.cer</span><br><span class="line">$ openssl dgst -sha256 cert.cer</span><br></pre></td></tr></table></figure>
+
+<h1 id="Convert-Formats"><a href="#Convert-Formats" class="headerlink" title="Convert Formats"></a>Convert Formats</h1><p>Convert PEM to DER</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -in cert.crt -outform DER -out cert.cer</span><br></pre></td></tr></table></figure>
+
+<p>Convert DER to PEM</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -in cert.cer -outform DER -out cert.crt</span><br></pre></td></tr></table></figure>
+
+<p>Convert PEM to PKCS7</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl crl2pkcs7 -nocrl -certfile cert.crt -out cert.p7b</span><br></pre></td></tr></table></figure>
+
+<p>Convert PKCS7 to PEM</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs7 -in cert.p7b -print_certs -out cert.crt</span><br></pre></td></tr></table></figure>
+
+<p>Convert PEM to PKCS12. You will need a private key and certificate.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -inkey cert.key -in cert.crt -export -out cert.pfx</span><br></pre></td></tr></table></figure>
+<p>You will be prompted for key pass phrase and export password</p>
+<p>Convert PKCS12 to PEM. the output file combines certificate and private key.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in cert.pfx -nodes -out cert.combined.crt</span><br></pre></td></tr></table></figure>
+<p>You will be prompted for the import password</p>
+<p>Reference</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.openssl.org/">Openssl Homepage</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.openssl.org/index.php/OpenSSL_Overview">Openssl Overview</a></li>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/fntlnz/cf14feb5a46b2eda428e000157447309#create-a-certificate-done-for-each-server">self-signed-certificate-with-custom-ca.md</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs/">OpenSSL Essentials by Mitchell Anicas</a></li>
+<li><a target="_blank" rel="noopener" href="https://devcenter.heroku.com/articles/ssl-certificate-self">Creating a Self-Signed SSL Certificate</a></li>
+</ul>
+<p>Useful Links</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.openssl.org/docs/manmaster/man1/">OpenSSL commands</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Security/" rel="tag"># Security</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Security/Certificate-Basics/" rel="prev" title="Certificate Basics">
+                  <i class="fa fa-chevron-left"></i> Certificate Basics
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/Java-Keytool/" rel="next" title="Java Keytool">
+                  Java Keytool <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

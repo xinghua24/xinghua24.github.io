@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Authentication Process">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Security - Authentication Process">
+<meta property="og:url" content="http://example.com/SpringSecurity/Spring-Security-Authentication-Process/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Authentication Process">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Authentication-Process.png">
+<meta property="article:published_time" content="2020-04-27T12:38:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.202Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Authentication-Process.png">
+
+
+<link rel="canonical" href="http://example.com/SpringSecurity/Spring-Security-Authentication-Process/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringSecurity/Spring-Security-Authentication-Process/","path":"SpringSecurity/Spring-Security-Authentication-Process/","title":"Spring Security - Authentication Process"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Security - Authentication Process | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Process-The-Big-Picture"><span class="nav-number">1.</span> <span class="nav-text">Authentication Process - The Big Picture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Filter"><span class="nav-number">2.</span> <span class="nav-text">Authentication Filter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManager"><span class="nav-number">3.</span> <span class="nav-text">AuthenticationManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationProvider"><span class="nav-number">4.</span> <span class="nav-text">AuthenticationProvider</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService"><span class="nav-number">5.</span> <span class="nav-text">UserDetailsService</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Process-Walkthrough"><span class="nav-number">6.</span> <span class="nav-text">Authentication Process Walkthrough</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Authentication-Filter-1"><span class="nav-number">6.1.</span> <span class="nav-text">Authentication Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ProviderManager"><span class="nav-number">6.2.</span> <span class="nav-text">ProviderManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaoAuthenticationProvider"><span class="nav-number">6.3.</span> <span class="nav-text">DaoAuthenticationProvider</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InMemoryUserDetailsManager"><span class="nav-number">6.4.</span> <span class="nav-text">InMemoryUserDetailsManager</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationException"><span class="nav-number">7.</span> <span class="nav-text">AuthenticationException</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringSecurity/Spring-Security-Authentication-Process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Security - Authentication Process | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Security - Authentication Process
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-04-27 08:38:00" itemprop="dateCreated datePublished" datetime="2020-04-27T08:38:00-04:00">2020-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Authentication Process</p>
+<span id="more"></span>
+
+<h1 id="Authentication-Process-The-Big-Picture"><a href="#Authentication-Process-The-Big-Picture" class="headerlink" title="Authentication Process - The Big Picture"></a>Authentication Process - The Big Picture</h1><p><img src="/Authentication-Process.png"></p>
+<h1 id="Authentication-Filter"><a href="#Authentication-Filter" class="headerlink" title="Authentication Filter"></a>Authentication Filter</h1><p>Authentication filter usually extends  <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.html">AbstractAuthenticationProcessingFilter</a>  class.</p>
+<p>Example Authentication Filters are</p>
+<ul>
+<li>UsernamePasswordAuthenticationFilter</li>
+<li>CasAuthenticationFilter</li>
+<li>OAuth2LoginAuthenticationFilter</li>
+<li>OpenIDAuthenticationFilter</li>
+<li>Saml2WebSsoAuthenticationFilter</li>
+</ul>
+<p>Authentication Filter’s basic responsibility</p>
+<ol>
+<li>Authentication Filter creates Authentication from the user Request. For example, UsernamePasswordAuthenticationFilter creates UsernamePasswordAuthenticationToken</li>
+<li>Authentication Filter delegates the work to AuthenticationManager</li>
+<li>If authentication is success, then set the Authetnication on the SecurityContextHolder</li>
+</ol>
+<h1 id="AuthenticationManager"><a href="#AuthenticationManager" class="headerlink" title="AuthenticationManager"></a>AuthenticationManager</h1><ul>
+<li><strong>AuthenticationManager</strong> is one of the most important class in Spring Security. </li>
+<li>Responsible for processing Authentication request and returns a fully populated Authentication object.</li>
+<li>AuthenticationManager is an interface, the most common implementation is <strong><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-providermanager">ProviderManager</a></strong>.  ProviderManager delegates to a List of AuthenticationProviders.</li>
+<li>You don’t usually work with AuthenticationManager directly, you use AuthenticationManagerBuilder to create it.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-authenticationmanager">Spring Security Reference on AuthenticationManager</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/authentication/AuthenticationManager.html">java doc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/AuthenticationManager.java">source code</a></li>
+</ul>
+<p>AuthenticationManager Interface source code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AuthenticationManager</span> &#123;</span><br><span class="line">    Authentication <span class="title function_">authenticate</span><span class="params">(Authentication authentication)</span></span><br><span class="line">		<span class="keyword">throws</span> AuthenticationException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>authenticate</code> method Attempts to authenticate the passed Authentication argument</p>
+<ul>
+<li>returning a fully populated Authentication object (including granted authorities, authenticated&#x3D;true) if successful. </li>
+<li>if input request is not valid, throw AuthenticationException</li>
+<li>reutrns null if can’t decide</li>
+</ul>
+<h1 id="AuthenticationProvider"><a href="#AuthenticationProvider" class="headerlink" title="AuthenticationProvider"></a>AuthenticationProvider</h1><ul>
+<li>It is the actual class that does the authentication.</li>
+<li>AuthenticationProvider has a supports method that tells AuthenticationManager what Authentication object it supports.</li>
+<li>An app can have multiple AuthenticationProviders(Ldap, Dao, OAuth2 etc)</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/authentication/AuthenticationProvider.html">java doc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/AuthenticationProvider.java">source code</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AuthenticationProvider</span> &#123;</span><br><span class="line">    Authentication <span class="title function_">authenticate</span><span class="params">(Authentication authentication)</span></span><br><span class="line">			<span class="keyword">throws</span> AuthenticationException;</span><br><span class="line">	    <span class="type">boolean</span> <span class="title function_">supports</span><span class="params">(Class&lt;?&gt; authentication)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>There are manay providers implements AuthenticationProvider interface. Some of the most important ones are</p>
+<ul>
+<li>DaoAuthenticationProvider - this is the most common AuthenticationProvider you will see</li>
+<li>LdapAuthenticationProvider</li>
+<li>JwtAuthenticationProvider</li>
+</ul>
+<h1 id="UserDetailsService"><a href="#UserDetailsService" class="headerlink" title="UserDetailsService"></a>UserDetailsService</h1><p>Core interface which loads user-specific data.</p>
+<p>It is used throughout the framework as a user DAO and is the strategy used by the DaoAuthenticationProvider.</p>
+<p>The interface requires only one read-only method, which simplifies support for new data-access strategies.</p>
+<p>UserDetailsService source code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserDetailsService</span> &#123;</span><br><span class="line">	UserDetails <span class="title function_">loadUserByUsername</span><span class="params">(String username)</span> <span class="keyword">throws</span> UsernameNotFoundException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Known Implementing Classes:</p>
+<ul>
+<li>CachingUserDetailsService</li>
+<li>InMemoryUserDetailsManager</li>
+<li>JdbcDaoImpl</li>
+<li>JdbcUserDetailsManager</li>
+<li>LdapUserDetailsManager</li>
+<li>LdapUserDetailsService</li>
+</ul>
+<h1 id="Authentication-Process-Walkthrough"><a href="#Authentication-Process-Walkthrough" class="headerlink" title="Authentication Process Walkthrough"></a>Authentication Process Walkthrough</h1><p>We can walkthrough a In-memory authentication process to understand how Spring Security authentication works.</p>
+<h2 id="Authentication-Filter-1"><a href="#Authentication-Filter-1" class="headerlink" title="Authentication Filter"></a>Authentication Filter</h2><ul>
+<li>UsernamePasswordAuthenticationFilter Extends AbstractAuthenticationProcessingFilter abstract class. </li>
+<li>is the filter used for username password authentication. </li>
+<li>Processses authentication submission using request parameter “username” and “password”.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/UsernamePasswordAuthenticationToken.java">Source code</a></li>
+</ul>
+<p>AbstractAuthenticationProcessingFilter.doFilter method - This is the entry point for UsernamePasswordAuthenticationFilter</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest req, ServletResponse res, FilterChain chain)</span></span><br><span class="line">		<span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">HttpServletRequest</span> <span class="variable">request</span> <span class="operator">=</span> (HttpServletRequest) req;</span><br><span class="line">	<span class="type">HttpServletResponse</span> <span class="variable">response</span> <span class="operator">=</span> (HttpServletResponse) res;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!requiresAuthentication(request, response)) &#123;</span><br><span class="line">		chain.doFilter(request, response);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">		logger.debug(<span class="string">&quot;Request is to process authentication&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Authentication authResult;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		authResult = attemptAuthentication(request, response);</span><br><span class="line">		<span class="keyword">if</span> (authResult == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="comment">// return immediately as subclass has indicated that it hasn&#x27;t completed</span></span><br><span class="line">			<span class="comment">// authentication</span></span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		sessionStrategy.onAuthentication(authResult, request, response);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (InternalAuthenticationServiceException failed) &#123;</span><br><span class="line">		logger.error(</span><br><span class="line">				<span class="string">&quot;An internal error occurred while trying to authenticate the user.&quot;</span>,</span><br><span class="line">				failed);</span><br><span class="line">		unsuccessfulAuthentication(request, response, failed);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (AuthenticationException failed) &#123;</span><br><span class="line">		<span class="comment">// Authentication failed</span></span><br><span class="line">		unsuccessfulAuthentication(request, response, failed);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Authentication success</span></span><br><span class="line">	<span class="keyword">if</span> (continueChainBeforeSuccessfulAuthentication) &#123;</span><br><span class="line">		chain.doFilter(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	successfulAuthentication(request, response, chain, authResult);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The most important method call is <code>authResult = attemptAuthentication(request, response);</code>. If method call is successful it calls successfulAuthentication method, otherwise call unsuccessfulAuthentication method.</p>
+<p>attemptAuthentication method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Authentication <span class="title function_">attemptAuthentication</span><span class="params">(HttpServletRequest request,</span></span><br><span class="line"><span class="params">		HttpServletResponse response)</span> <span class="keyword">throws</span> AuthenticationException &#123;</span><br><span class="line">	<span class="keyword">if</span> (postOnly &amp;&amp; !request.getMethod().equals(<span class="string">&quot;POST&quot;</span>)) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">AuthenticationServiceException</span>(</span><br><span class="line">				<span class="string">&quot;Authentication method not supported: &quot;</span> + request.getMethod());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> obtainUsername(request);</span><br><span class="line">	<span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> obtainPassword(request);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (username == <span class="literal">null</span>) &#123;</span><br><span class="line">		username = <span class="string">&quot;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (password == <span class="literal">null</span>) &#123;</span><br><span class="line">		password = <span class="string">&quot;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	username = username.trim();</span><br><span class="line"></span><br><span class="line">	<span class="type">UsernamePasswordAuthenticationToken</span> <span class="variable">authRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UsernamePasswordAuthenticationToken</span>(</span><br><span class="line">			username, password);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Allow subclasses to set the &quot;details&quot; property</span></span><br><span class="line">	setDetails(request, authRequest);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.getAuthenticationManager().authenticate(authRequest);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>attemptAuthentication method gets request parameter “username” and “password”, trim it and then create a UsernamePasswordAuthenticationToken object. UsernamePasswordAuthenticationToken is an implementation of Authentication. UsernamePasswordAuthenticationFilter delegates the authentication to AuthenticationManager.</p>
+<p>successfulAuthentication method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">successfulAuthentication</span><span class="params">(HttpServletRequest request,</span></span><br><span class="line"><span class="params">		HttpServletResponse response, FilterChain chain, Authentication authResult)</span></span><br><span class="line">		<span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">		logger.debug(<span class="string">&quot;Authentication success. Updating SecurityContextHolder to contain: &quot;</span></span><br><span class="line">				+ authResult);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	SecurityContextHolder.getContext().setAuthentication(authResult);</span><br><span class="line"></span><br><span class="line">	rememberMeServices.loginSuccess(request, response, authResult);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Fire event</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">this</span>.eventPublisher != <span class="literal">null</span>) &#123;</span><br><span class="line">		eventPublisher.publishEvent(<span class="keyword">new</span> <span class="title class_">InteractiveAuthenticationSuccessEvent</span>(</span><br><span class="line">				authResult, <span class="built_in">this</span>.getClass()));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	successHandler.onAuthenticationSuccess(request, response, authResult);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If authentication is successful, UsernamePasswordAuthenticationFilter calls <code>SecurityContextHolder.getContext().setAuthentication(authResult);</code> to set the SecurityContext.</p>
+<p>Then call <code>successHandler.onAuthenticationSuccess</code> to let the successHandler handle the redirect</p>
+<p>unsuccessfulAuthentication method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">unsuccessfulAuthentication</span><span class="params">(HttpServletRequest request,</span></span><br><span class="line"><span class="params">		HttpServletResponse response, AuthenticationException failed)</span></span><br><span class="line">		<span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">	SecurityContextHolder.clearContext();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">		logger.debug(<span class="string">&quot;Authentication request failed: &quot;</span> + failed.toString(), failed);</span><br><span class="line">		logger.debug(<span class="string">&quot;Updated SecurityContextHolder to contain null Authentication&quot;</span>);</span><br><span class="line">		logger.debug(<span class="string">&quot;Delegating to authentication failure handler &quot;</span> + failureHandler);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	rememberMeServices.loginFail(request, response);</span><br><span class="line"></span><br><span class="line">	failureHandler.onAuthenticationFailure(request, response, failed);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If login attempt is unsuccessful, clear the SecurityContextHolder.</p>
+<p>Then call <code>failureHandler.onAuthenticationFailure</code>  to let the failureHandler handle the redirect</p>
+<h2 id="ProviderManager"><a href="#ProviderManager" class="headerlink" title="ProviderManager"></a>ProviderManager</h2><ul>
+<li>ProviderManager is the most used AuthenticationManager. authenticate method is the most important method of ProviderManager</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/authentication/ProviderManager.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/ProviderManager.java">source code</a></li>
+</ul>
+<p>authenticate method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> Authentication <span class="title function_">authenticate</span><span class="params">(Authentication authentication)</span></span><br><span class="line">			<span class="keyword">throws</span> AuthenticationException &#123;</span><br><span class="line">		Class&lt;? <span class="keyword">extends</span> <span class="title class_">Authentication</span>&gt; toTest = authentication.getClass();</span><br><span class="line">		<span class="type">AuthenticationException</span> <span class="variable">lastException</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="type">AuthenticationException</span> <span class="variable">parentException</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="type">Authentication</span> <span class="variable">result</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="type">Authentication</span> <span class="variable">parentResult</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="type">boolean</span> <span class="variable">debug</span> <span class="operator">=</span> logger.isDebugEnabled();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (AuthenticationProvider provider : getProviders()) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!provider.supports(toTest)) &#123;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				result = provider.authenticate(authentication);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">					copyDetails(authentication, result);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">catch</span> (AccountStatusException | InternalAuthenticationServiceException e) &#123;</span><br><span class="line">				prepareException(e, authentication);</span><br><span class="line">				<span class="comment">// SEC-546: Avoid polling additional providers if auth failure is due to</span></span><br><span class="line">				<span class="comment">// invalid account status</span></span><br><span class="line">				<span class="keyword">throw</span> e;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (AuthenticationException e) &#123;</span><br><span class="line">				lastException = e;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// skip code not related to the main authentication process</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (eraseCredentialsAfterAuthentication</span><br><span class="line">					&amp;&amp; (result <span class="keyword">instanceof</span> CredentialsContainer)) &#123;</span><br><span class="line">				<span class="comment">// Authentication is complete. Remove credentials and other secret data</span></span><br><span class="line">				<span class="comment">// from authentication</span></span><br><span class="line">				((CredentialsContainer) result).eraseCredentials();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// If the parent AuthenticationManager was attempted and successful than it will publish an AuthenticationSuccessEvent</span></span><br><span class="line">			<span class="comment">// This check prevents a duplicate AuthenticationSuccessEvent if the parent AuthenticationManager already published it</span></span><br><span class="line">			<span class="keyword">if</span> (parentResult == <span class="literal">null</span>) &#123;</span><br><span class="line">				eventPublisher.publishAuthenticationSuccess(result);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> result;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// skip the remaining code for authenticate method</span></span><br><span class="line">    <span class="keyword">throw</span> lastException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ProviderManager contains a list of AuthenticationProviders. AuthenticationProviders will tried until an AuthenticationProvider can support indicated Authentication, the AuthenticationProvider will do the authentication. if the process is successful, then remove credentials and other secret data from authentication and return it. If none of the AuthenticationProviders can successfully authenticate the request, an AuthentiationException is thrown.</p>
+<h2 id="DaoAuthenticationProvider"><a href="#DaoAuthenticationProvider" class="headerlink" title="DaoAuthenticationProvider"></a>DaoAuthenticationProvider</h2><ul>
+<li>DaoAuthenticationProvider is the most used AuthenticationProvider</li>
+<li>It retrieves userdetails from UserDetailsService. Then compare the password with the saved password.</li>
+<li>DaoAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider. </li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/authentication/dao/DaoAuthenticationProvider.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/dao/DaoAuthenticationProvider.java">Source code</a></li>
+</ul>
+<p>support method - DaoAuthenticationProvider supports Authentication of type UsernamePasswordAuthenticationToken</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">supports</span><span class="params">(Class&lt;?&gt; authentication)</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> (UsernamePasswordAuthenticationToken.class</span><br><span class="line">			.isAssignableFrom(authentication));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>authenticate method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Authentication <span class="title function_">authenticate</span><span class="params">(Authentication authentication)</span></span><br><span class="line">		<span class="keyword">throws</span> AuthenticationException &#123;</span><br><span class="line">	Assert.isInstanceOf(UsernamePasswordAuthenticationToken.class, authentication,</span><br><span class="line">			() -&gt; messages.getMessage(</span><br><span class="line">					<span class="string">&quot;AbstractUserDetailsAuthenticationProvider.onlySupports&quot;</span>,</span><br><span class="line">					<span class="string">&quot;Only UsernamePasswordAuthenticationToken is supported&quot;</span>));</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Determine username</span></span><br><span class="line">	<span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> (authentication.getPrincipal() == <span class="literal">null</span>) ? <span class="string">&quot;NONE_PROVIDED&quot;</span></span><br><span class="line">			: authentication.getName();</span><br><span class="line"></span><br><span class="line">	<span class="type">boolean</span> <span class="variable">cacheWasUsed</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="type">UserDetails</span> <span class="variable">user</span> <span class="operator">=</span> <span class="built_in">this</span>.userCache.getUserFromCache(username);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (user == <span class="literal">null</span>) &#123;</span><br><span class="line">		cacheWasUsed = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			user = retrieveUser(username,</span><br><span class="line">					(UsernamePasswordAuthenticationToken) authentication);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (UsernameNotFoundException notFound) &#123;</span><br><span class="line">			logger.debug(<span class="string">&quot;User &#x27;&quot;</span> + username + <span class="string">&quot;&#x27; not found&quot;</span>);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (hideUserNotFoundExceptions) &#123;</span><br><span class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadCredentialsException</span>(messages.getMessage(</span><br><span class="line">						<span class="string">&quot;AbstractUserDetailsAuthenticationProvider.badCredentials&quot;</span>,</span><br><span class="line">						<span class="string">&quot;Bad credentials&quot;</span>));</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">throw</span> notFound;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		Assert.notNull(user,</span><br><span class="line">				<span class="string">&quot;retrieveUser returned null - a violation of the interface contract&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		preAuthenticationChecks.check(user);</span><br><span class="line">		additionalAuthenticationChecks(user,</span><br><span class="line">				(UsernamePasswordAuthenticationToken) authentication);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (AuthenticationException exception) &#123;</span><br><span class="line">		<span class="keyword">if</span> (cacheWasUsed) &#123;</span><br><span class="line">			<span class="comment">// There was a problem, so try again after checking</span></span><br><span class="line">			<span class="comment">// we&#x27;re using latest data (i.e. not from the cache)</span></span><br><span class="line">			cacheWasUsed = <span class="literal">false</span>;</span><br><span class="line">			user = retrieveUser(username,</span><br><span class="line">					(UsernamePasswordAuthenticationToken) authentication);</span><br><span class="line">			preAuthenticationChecks.check(user);</span><br><span class="line">			additionalAuthenticationChecks(user,</span><br><span class="line">					(UsernamePasswordAuthenticationToken) authentication);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">throw</span> exception;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	postAuthenticationChecks.check(user);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!cacheWasUsed) &#123;</span><br><span class="line">		<span class="built_in">this</span>.userCache.putUserInCache(user);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">Object</span> <span class="variable">principalToReturn</span> <span class="operator">=</span> user;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (forcePrincipalAsString) &#123;</span><br><span class="line">		principalToReturn = user.getUsername();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> createSuccessAuthentication(principalToReturn, authentication, user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>authenticate method retrieve user by calling retrieveUser method. if user is not found, then throw BadCredentialsException. If authentication checks fail, throw BadCredentialsException too. If check is successful, call createSuccessAuthentication method.</p>
+<p>retrieveUser method retrieve user using its UserDetailsService.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">final</span> UserDetails <span class="title function_">retrieveUser</span><span class="params">(String username,</span></span><br><span class="line"><span class="params">		UsernamePasswordAuthenticationToken authentication)</span></span><br><span class="line">		<span class="keyword">throws</span> AuthenticationException &#123;</span><br><span class="line">	prepareTimingAttackProtection();</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="type">UserDetails</span> <span class="variable">loadedUser</span> <span class="operator">=</span> <span class="built_in">this</span>.getUserDetailsService().loadUserByUsername(username);</span><br><span class="line">		<span class="keyword">if</span> (loadedUser == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InternalAuthenticationServiceException</span>(</span><br><span class="line">					<span class="string">&quot;UserDetailsService returned null, which is an interface contract violation&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> loadedUser;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (UsernameNotFoundException ex) &#123;</span><br><span class="line">		mitigateAgainstTimingAttack(authentication);</span><br><span class="line">		<span class="keyword">throw</span> ex;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (InternalAuthenticationServiceException ex) &#123;</span><br><span class="line">		<span class="keyword">throw</span> ex;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InternalAuthenticationServiceException</span>(ex.getMessage(), ex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>additionalAuthenticationChecks method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">additionalAuthenticationChecks</span><span class="params">(UserDetails userDetails,</span></span><br><span class="line"><span class="params">		UsernamePasswordAuthenticationToken authentication)</span></span><br><span class="line">		<span class="keyword">throws</span> AuthenticationException &#123;</span><br><span class="line">	<span class="keyword">if</span> (authentication.getCredentials() == <span class="literal">null</span>) &#123;</span><br><span class="line">		logger.debug(<span class="string">&quot;Authentication failed: no credentials provided&quot;</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadCredentialsException</span>(messages.getMessage(</span><br><span class="line">				<span class="string">&quot;AbstractUserDetailsAuthenticationProvider.badCredentials&quot;</span>,</span><br><span class="line">				<span class="string">&quot;Bad credentials&quot;</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">String</span> <span class="variable">presentedPassword</span> <span class="operator">=</span> authentication.getCredentials().toString();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!passwordEncoder.matches(presentedPassword, userDetails.getPassword())) &#123;</span><br><span class="line">		logger.debug(<span class="string">&quot;Authentication failed: password does not match stored value&quot;</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BadCredentialsException</span>(messages.getMessage(</span><br><span class="line">				<span class="string">&quot;AbstractUserDetailsAuthenticationProvider.badCredentials&quot;</span>,</span><br><span class="line">				<span class="string">&quot;Bad credentials&quot;</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>additionalAuthenticationChecks method - gets credentials from Authentication and them compare it with password from userdetails. Throws BadCredentialsException if password not found or password does not match.</p>
+<h2 id="InMemoryUserDetailsManager"><a href="#InMemoryUserDetailsManager" class="headerlink" title="InMemoryUserDetailsManager"></a>InMemoryUserDetailsManager</h2><ul>
+<li>InMemoryUserDetailsManager implements UserDetailsManager and UserDetailsPasswordService interface. </li>
+<li>The most important method is loadUserByUsername. This method loads <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/core/userdetails/UserDetails.html">UserDetails</a> given the username</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/provisioning/InMemoryUserDetailsManager.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/28d2cfa14aeea54c20cd87f294fc7546063b0713/core/src/main/java/org/springframework/security/provisioning/InMemoryUserDetailsManager.java">Source code</a></li>
+</ul>
+<p>loadUserByUsername method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> UserDetails <span class="title function_">loadUserByUsername</span><span class="params">(String username)</span></span><br><span class="line">		<span class="keyword">throws</span> UsernameNotFoundException &#123;</span><br><span class="line">	<span class="type">UserDetails</span> <span class="variable">user</span> <span class="operator">=</span> users.get(username.toLowerCase());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (user == <span class="literal">null</span>) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">UsernameNotFoundException</span>(username);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">User</span>(user.getUsername(), user.getPassword(), user.isEnabled(),</span><br><span class="line">			user.isAccountNonExpired(), user.isCredentialsNonExpired(),</span><br><span class="line">			user.isAccountNonLocked(), user.getAuthorities());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="AuthenticationException"><a href="#AuthenticationException" class="headerlink" title="AuthenticationException"></a>AuthenticationException</h1><ul>
+<li>Abstract superclass for all exceptions related to an Authentication object being invalid for whatever reason.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/provisioning/InMemoryUserDetailsManager.html">Java doc</a></li>
+</ul>
+<p>BadCredentialsException and UsernameNotFoundException are both subclasses of AuthenticationException. There are other subclasses of AuthenticationException that may be thrown during authentication process.</p>
+<p>UsernamePasswordAuthenticationFilter will call unsuccessfulAuthentication method to handle the exception. see unsuccessfulAuthentication method from above.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringSecurity/Spring-Security-Understanding-Security-Context/" rel="prev" title="Spring Security - Understanding Security Context">
+                  <i class="fa fa-chevron-left"></i> Spring Security - Understanding Security Context
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringSecurity/Spring-Security-InMemoryAuthenticaion/" rel="next" title="Spring Security - In-Memory Authentication">
+                  Spring Security - In-Memory Authentication <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Key Kubernetes concetps.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes Concepts">
+<meta property="og:url" content="http://example.com/Kubernetes/Kubernetes-Concepts/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Key Kubernetes concetps.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png">
+<meta property="article:published_time" content="2019-09-04T00:41:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.175Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png">
+
+
+<link rel="canonical" href="http://example.com/Kubernetes/Kubernetes-Concepts/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Kubernetes/Kubernetes-Concepts/","path":"Kubernetes/Kubernetes-Concepts/","title":"Kubernetes Concepts"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubernetes Concepts | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kubernetes"><span class="nav-number">1.</span> <span class="nav-text">Kubernetes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cluster"><span class="nav-number">2.</span> <span class="nav-text">Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Master"><span class="nav-number">2.1.</span> <span class="nav-text">Master</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node"><span class="nav-number">2.2.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-Pools"><span class="nav-number">2.3.</span> <span class="nav-text">Node Pools</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Workloads"><span class="nav-number">3.</span> <span class="nav-text">Workloads</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod"><span class="nav-number">3.1.</span> <span class="nav-text">Pod</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReplicaSet"><span class="nav-number">3.2.</span> <span class="nav-text">ReplicaSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deployment"><span class="nav-number">3.3.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StatefulSet"><span class="nav-number">3.4.</span> <span class="nav-text">StatefulSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaemonSet"><span class="nav-number">3.5.</span> <span class="nav-text">DaemonSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Job"><span class="nav-number">3.6.</span> <span class="nav-text">Job</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CronJob"><span class="nav-number">3.7.</span> <span class="nav-text">CronJob</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Networking"><span class="nav-number">4.</span> <span class="nav-text">Networking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Service"><span class="nav-number">4.1.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ingress"><span class="nav-number">4.2.</span> <span class="nav-text">Ingress</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConfigMaps-and-Secrets"><span class="nav-number">5.</span> <span class="nav-text">ConfigMaps and Secrets</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Namespace"><span class="nav-number">6.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Label-and-Selector"><span class="nav-number">7.</span> <span class="nav-text">Label and Selector</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Annotations"><span class="nav-number">8.</span> <span class="nav-text">Annotations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Architecture"><span class="nav-number">9.</span> <span class="nav-text">Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Master-1"><span class="nav-number">9.1.</span> <span class="nav-text">Master</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-1"><span class="nav-number">9.2.</span> <span class="nav-text">Node</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">10.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Kubernetes/Kubernetes-Concepts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubernetes Concepts | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes Concepts
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-09-03 20:41:00" itemprop="dateCreated datePublished" datetime="2019-09-03T20:41:00-04:00">2019-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Key Kubernetes concetps.</p>
+<span id="more"></span>
+
+<h1 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h1><p>Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation.</p>
+<p>Kubernetes makes it easy to scale application, reduce downtime and increase security.</p>
+<p>Key Features of Kubernetes</p>
+<ul>
+<li>Horizontal Scaling</li>
+<li>Self Healing</li>
+<li>Automated Rollouts and Rollbacks</li>
+<li>Built-in Service Discovery</li>
+<li>Built-in Load-Balancer</li>
+</ul>
+<h1 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h1><p>A Kubernetes cluster consists of at least one master and multiple workers called nodes.</p>
+<h2 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h2><p>The cluster master runs the Kubernetes control plane processes, including the Kubernetes API server, scheduler, and core resource controllers.</p>
+<p>Users interact with Kubernetes using Kubernetes API calls. Master runs <strong>API Server</strong> to handle the request.</p>
+<p>Master also schedule workloads and manage network and storage resources for the workloads.</p>
+<h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><p>Node is worker machines controlled by Master. Nodes runs containerized application s and other workloads. </p>
+<h2 id="Node-Pools"><a href="#Node-Pools" class="headerlink" title="Node Pools"></a>Node Pools</h2><p>A <a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools">node pool</a> is a group of nodes within a cluster that all have the same configuration. </p>
+<p>Custom node pools are useful when you need to schedule Pods that require more resources than others, such as more memory or more local disk space.</p>
+<h1 id="Workloads"><a href="#Workloads" class="headerlink" title="Workloads"></a>Workloads</h1><h2 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h2><p><strong><a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/pod">Pods</a></strong> are the smallest, most basic deployable objects in Kubernetes. A Pod represents a single instance of a running process in your cluster. </p>
+<p>Pods contain one or more containers. one-container-per-Pod model is the most basic Kubernetes use case. Containers in a Pod share storage and network. A sidecar container can be added to the pod. The sidecar container can provide log forwarding and proxying to other service.</p>
+<p>A Pod can specify a set of shared storage Volumes . All containers in the Pod can access the shared volumes. </p>
+<p>Each Pod is assigned a unique IP address. However, these IP addresses are not stable.</p>
+<h2 id="ReplicaSet"><a href="#ReplicaSet" class="headerlink" title="ReplicaSet"></a>ReplicaSet</h2><p>A Deployment creates ReplicaSet. <strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet</a></strong> manages groups of identical, replicated pods. It creates and deletes Pods to reach a specified number.</p>
+<p>It is possible to create ReplicaSet directly, but it is not recommended. Deployment will automatically create replicaset. </p>
+<h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><p><strong><a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/deployment">Deployments</a></strong> represent a set of multiple, identical Pods with no unique identities. A Deployment runs multiple replicas of your application and automatically replaces any instances that fail or become unresponsive.</p>
+<p>Deployment is used to run stateless applications. Example ofa stateless application is a frontend applications.</p>
+<p>You can create Deployment using <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply">kubectl apply</a> or <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create">kubectl create</a> command. </p>
+<h2 id="StatefulSet"><a href="#StatefulSet" class="headerlink" title="StatefulSet"></a>StatefulSet</h2><p>A <a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/statefulset">StatefulSet</a> is the workload API object used to manage stateful applications.</p>
+<p>A stateful application requires its state to be persisted. examples are MySQL, MongoDB, Kafka, and Apache ZooKeeper. </p>
+<p>For stateless applications, use Deployment instead.</p>
+<h2 id="DaemonSet"><a href="#DaemonSet" class="headerlink" title="DaemonSet"></a>DaemonSet</h2><p>A <a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/daemonset">DaemonSet</a> ensures exactly one instance of pod is run on a node. It is a one-Pod-per-node model.</p>
+<p>Example are storage daemons like cept, log collection daemons like fluentd, and node monitoring daemons like collectd.</p>
+<h2 id="Job"><a href="#Job" class="headerlink" title="Job"></a>Job</h2><p>A <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">job</a> creates one or more Pods and ensures that a specified number of them successfully terminate. </p>
+<h2 id="CronJob"><a href="#CronJob" class="headerlink" title="CronJob"></a>CronJob</h2><p>A <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/">Cron Job</a> creates Jobs on a time-based schedule.</p>
+<h1 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h1><p>Kubernetes Cluster allocates IP addresses and assigns IP addresses to nodes, pods and services.</p>
+<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>a <a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/service">Service</a> is an abstract way to expose an application running on a set of Pods as a network service.</p>
+<p>With Kubernetes you don’t need to modify your application to use an unfamiliar service discovery mechanism. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.</p>
+<h2 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h2><p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/services-networking/ingress/#what-is-ingress">Ingress</a> exposes HTTP and HTTPS routes from outside the cluster to services within the cluster.</p>
+<p>An Ingress can be configured to give services externally-reachable URLs, load balanc traffic, terminal SSL&#x2F;TLS, and offer name based virtual hosting. </p>
+<p>An Ingress does not expose artitrary ports or protocols. Exposing services other than HTTP and HTTPS to the internet typically uses a service of type <code>Service.Type=NodePort</code> or <code>Service.Type=LoadBalancer</code>.</p>
+<h1 id="ConfigMaps-and-Secrets"><a href="#ConfigMaps-and-Secrets" class="headerlink" title="ConfigMaps and Secrets"></a>ConfigMaps and Secrets</h1><p><a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/configmap">ConfigMaps</a> are used to store and sharing non-sensitive unencrypted configuration environment variables that can be passed to the running workloads.</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/secret">Secrets</a> are similar to ConfigMaps. It stores sensitvive data such as passwords, OAuth tokens, SSH keys. </p>
+<h1 id="Namespace"><a href="#Namespace" class="headerlink" title="Namespace"></a>Namespace</h1><ul>
+<li>Each resource can only have one namespace</li>
+<li>Namespace are intended for multiple teams sharing the same cluster</li>
+<li>Namespaces are a way to divide cluster resources between multiple users</li>
+<li>use labels to distinguish resources within the same namespace.</li>
+</ul>
+<p>Kubernetes starts with three initial namespaces:</p>
+<ul>
+<li><strong>default</strong></li>
+<li><strong>kube-system</strong></li>
+<li><strong>kube-public</strong></li>
+</ul>
+<h1 id="Label-and-Selector"><a href="#Label-and-Selector" class="headerlink" title="Label and Selector"></a>Label and Selector</h1><p><strong>Labels</strong> are key&#x2F;value pairs that are attached to objects, such as pods. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but do not directly imply semantics to the core system. </p>
+<p>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">metadata:</span><br><span class="line">  labels:</span><br><span class="line">      app: nginx</span><br><span class="line">      environment: production</span><br><span class="line">      version: 1.0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p><strong>Selectors</strong> select the matched resources from query. The API currently supports two types of selectors: equality-based and set-based. </p>
+<p>Equality- or inequality-based requirements allow filtering by label keys and values. Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment = production</span><br><span class="line">tier != frontend</span><br></pre></td></tr></table></figure>
+
+<p>Set-based label requirements allow filtering keys according to a set of values. Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">environment in (production, qa)</span><br><span class="line">tier notin (frontend, backend)</span><br><span class="line">partition</span><br><span class="line">!partition</span><br></pre></td></tr></table></figure>
+
+<p>Not all concepts are listed. For details of a concept, see <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/">https://kubernetes.io/docs/concepts/</a></p>
+<h1 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h1><p>You can use Kubernetes <strong>annotations</strong> to attach arbitrary non-identifying metadata to objects. Clients such as tools and libraries can retrieve this metadata.</p>
+<p>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">metadata:</span><br><span class="line">  annotations:</span><br><span class="line">      key1: value1</span><br><span class="line">      key2&quot;: value2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Kubernetes.png" />
+By Khtan66 - https://commons.wikimedia.org/wiki/File:Kubernetes.png
+
+
+<h2 id="Master-1"><a href="#Master-1" class="headerlink" title="Master"></a>Master</h2><p>Master is the node that manages others nodes.</p>
+<p>It runs the following components</p>
+<ul>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver">kube-apiserver</a></strong> - exposes the Kubernetes API. It is the front-end for the Kubernetes control plane. Kubernetes API is a Restful API for user to interact with its components.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#etcd">etcd</a></strong> - consistent and highly-available key value store used as Kubernetes’s backing store for all cluster data.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#kube-scheduler">kube-scheduler</a></strong> - component on the master that watches newly created pods that have no node assigned, and selects a node for them to run on</li>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#kube-controller-manager">kube-controller-manager</a></strong> - component on the master that runs controllers</li>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#cloud-controller-manager">cloud-controller manager</a></strong> - runs controllers that interact with the underlying cloud providers.</li>
+</ul>
+<h2 id="Node-1"><a href="#Node-1" class="headerlink" title="Node"></a>Node</h2><p>A Pod always runs on a <strong>Node</strong>. A node is a worker machine in Kubernetes that is managed by a Master. Master is also a node. It manages the other nodes in the cluster.</p>
+<p>Node contains the following components</p>
+<ul>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#kubelet">kubelet</a></strong> - An agent that runs on each node in the cluster.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#kube-proxy">kube-proxy</a></strong> - kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.</li>
+<li><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/#container-runtime">Container Runtime</a></strong> - The container runtime is the software that is responsible for running containers.</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/">Kubernetes Concepts</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/components/">Kubernetes Components</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/deployment">Kubernetes Concept - Deployment</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/pod">Kubernetes Concept - Pod</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.google.com/kubernetes-engine/docs/concepts/service">Kubernetes Concept - Service</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/key-kubernetes-concepts-62939f4bc08e">Key Kubernetes Concepts by Jeff Hale</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespaces</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Labels</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/">Kubernetes Concept - Annotations</a></li>
+<li>Khtan66 [CC BY-SA 4.0 (<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0)]">https://creativecommons.org/licenses/by-sa/4.0)]</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Kubernetes/Kubernetes-Getting-Started/" rel="prev" title="Kubernetes Getting Started">
+                  <i class="fa fa-chevron-left"></i> Kubernetes Getting Started
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Kubernetes/Kubernetes-Running-Applications/" rel="next" title="Kubernetes - Running Application Using Deployment">
+                  Kubernetes - Running Application Using Deployment <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

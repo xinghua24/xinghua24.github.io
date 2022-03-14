@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Docker Compose is a tool for defining and running multi-container Docker applications.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Compose">
+<meta property="og:url" content="http://example.com/Docker/Docker-Compose/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Docker Compose is a tool for defining and running multi-container Docker applications.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Docker/Docker-Compose/result.png">
+<meta property="article:published_time" content="2019-01-12T06:45:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.164Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Docker/Docker-Compose/result.png">
+
+
+<link rel="canonical" href="http://example.com/Docker/Docker-Compose/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Docker/Docker-Compose/","path":"Docker/Docker-Compose/","title":"Docker Compose"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docker Compose | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Service"><span class="nav-number">1.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Simple-Example"><span class="nav-number">3.</span> <span class="nav-text">Simple Example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Common-docker-compose-Commands"><span class="nav-number">4.</span> <span class="nav-text">Common docker-compose  Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-compose-yml-file"><span class="nav-number">5.</span> <span class="nav-text">docker-compose.yml file</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-Configuration"><span class="nav-number">5.1.</span> <span class="nav-text">Service Configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Volume-Configuration"><span class="nav-number">5.2.</span> <span class="nav-text">Volume Configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Network-Configuration"><span class="nav-number">5.3.</span> <span class="nav-text">Network Configuration</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other-Examples"><span class="nav-number">6.</span> <span class="nav-text">Other Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Running-Postgres-and-Adminer"><span class="nav-number">6.1.</span> <span class="nav-text">Running Postgres and Adminer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wordpress"><span class="nav-number">6.2.</span> <span class="nav-text">Wordpress</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Docker/Docker-Compose/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Docker Compose | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker Compose
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-12 01:45:00" itemprop="dateCreated datePublished" datetime="2019-01-12T01:45:00-05:00">2019-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Docker Compose is a tool for defining and running multi-container Docker applications. </p>
+<span id="more"></span>
+
+<p>It uses YAML files to configure application’s services.</p>
+<h1 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h1><p><code>Services</code> are really just “containers in production.”. A Service runs one image and it defines ports, volumes, resource limitation, restart policy and replicas.</p>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Instruction to install Compose is <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/#install-compose">here</a></p>
+<p>To install in Linux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># download latest version of Docker Compose</span><br><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"># apply executable permissions to binary</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"># test installation</span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+
+<h1 id="Simple-Example"><a href="#Simple-Example" class="headerlink" title="Simple Example"></a>Simple Example</h1><p>Here is the example from <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/gettingstarted/">Get Started with Docker Compose</a></p>
+<p>Files Structure</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">composetest/</span><br><span class="line">├── app.py</span><br><span class="line">├── docker-compose.yml</span><br><span class="line">├── Dockerfile</span><br><span class="line">└── requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>app.py</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">import redis</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">cache = redis.Redis(host=&#x27;redis&#x27;, port=6379)</span><br><span class="line"></span><br><span class="line">def get_hit_count():</span><br><span class="line">    retries = 5</span><br><span class="line">    while True:</span><br><span class="line">        try:</span><br><span class="line">            return cache.incr(&#x27;hits&#x27;)</span><br><span class="line">        except redis.exceptions.ConnectionError as exc:</span><br><span class="line">            if retries == 0:</span><br><span class="line">                raise exc</span><br><span class="line">            retries -= 1</span><br><span class="line">            time.sleep(0.5)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&#x27;/&#x27;)</span><br><span class="line">def hello():</span><br><span class="line">    count = get_hit_count()</span><br><span class="line">    return &#x27;Hello World! I have been seen &#123;&#125; times.\n&#x27;.format(count)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    app.run(host=&quot;0.0.0.0&quot;, debug=True)</span><br></pre></td></tr></table></figure>
+
+<p><strong>requirements.txt</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flask</span><br><span class="line">redis</span><br></pre></td></tr></table></figure>
+
+<p><strong>Dockerfile</strong></p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.4</span>-alpine</span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> . /code</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /code</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip install -r requirements.txt</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;app.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>docker-compose.yml</strong> - defines two service, web and redis.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;5000:5000&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - .:/code</span><br><span class="line">  redis:</span><br><span class="line">    image: &quot;redis:alpine&quot;</span><br></pre></td></tr></table></figure>
+
+<p>use <code>docker-compose up -d</code> to start the services</p>
+<img src="/Docker/Docker-Compose/result.png" class="" title="Result">
+
+
+<h1 id="Common-docker-compose-Commands"><a href="#Common-docker-compose-Commands" class="headerlink" title="Common docker-compose  Commands"></a>Common docker-compose  Commands</h1><p><code>docker-compose up -d</code> is the most used command to start service in the background</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose up -d</span><br><span class="line">Starting composetest_web_1   ... done</span><br><span class="line">Starting composetest_redis_1 ... done</span><br></pre></td></tr></table></figure>
+
+<p>The default compose file to be used is docker-compose.yml, you can set alternative file using <code>-f</code> option.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose -f docker-compose.dev.yml  up -d</span><br></pre></td></tr></table></figure>
+
+
+<p>use <code>docker-compose ps</code> to list containers. If a container is not <em>UP</em>, you can usually use <code>docker log</code> command to see if there is error starting the container.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose ps</span><br><span class="line">       Name                      Command               State           Ports</span><br><span class="line">-------------------------------------------------------------------------------------</span><br><span class="line">composetest_redis_1   docker-entrypoint.sh redis ...   Up      6379/tcp</span><br><span class="line">composetest_web_1     python app.py                    Up      0.0.0.0:5000-&gt;5000/tcp</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>docker-compose build</code> command to rebuild the containers. This is useful after a change to a service</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose build</span><br></pre></td></tr></table></figure>
+
+<p>use <code>docker-compose stop</code> to stop the containers without removing them. You can use <code>docker-compose start</code> to start the services again</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose stop</span><br><span class="line">Stopping composetest_web_1   ... done</span><br><span class="line">Stopping composetest_redis_1 ... done</span><br></pre></td></tr></table></figure>
+
+<p>use <code>docker-compose down</code> to stop containers and removes containers, networks created by up. use <code>-v</code> to remove volumes and use <code>--rmi</code> to remove image</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose down -v --rmi all</span><br><span class="line">Stopping composetest_web_1   ... done</span><br><span class="line">Stopping composetest_redis_1 ... done</span><br><span class="line">Removing composetest_web_1   ... done</span><br><span class="line">Removing composetest_redis_1 ... done</span><br><span class="line">Removing network composetest_default</span><br><span class="line">Removing image composetest_web</span><br><span class="line">Removing image redis:alpine</span><br></pre></td></tr></table></figure>
+
+<p>Print out log messages from all container.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose logs -f --tail=0</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>docker help</code> command to display the help menu.</p>
+<p>For all the command reference, see <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/reference/">docker-compose command-line Reference</a></p>
+<h1 id="docker-compose-yml-file"><a href="#docker-compose-yml-file" class="headerlink" title="docker-compose.yml file"></a>docker-compose.yml file</h1><p>Compose file has a version number. current version is version 3.</p>
+<p>You can include the version number at the top of docker-compose.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Service-Configuration"><a href="#Service-Configuration" class="headerlink" title="Service Configuration"></a>Service Configuration</h2><p>Then <code>services</code> list all the services to create.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/#build">build</a> - usually a path to a build context. It can also specify context and optionally Dockerfile and args.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/#image">image</a> - Specify the image to start the container from.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">image:</span> <span class="string">&quot;redis:alpine&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/#environment">environment</a> - sets environment variable</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">RACK_ENV=development</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">SHOW=true</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">SESSION_SECRET</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/#ports">ports</a> - specify ports(Host:Container)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ports:</span><br><span class="line">  - &quot;5000:5000&quot;</span><br><span class="line">  - &quot;1234:1234&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/#volumes">volumes</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">volumes:</span><br><span class="line">  - .:/code</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/#depends_on">depends_on</a> - sets dependency between services.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">      - redis</span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">  db:</span><br><span class="line">    image: postgres</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/#restart">Restart</a> - sets restart policy. Default is “no”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">restart: &quot;no&quot;</span><br><span class="line">restart: always</span><br><span class="line">restart: on-failure</span><br><span class="line">restart: unless-stopped</span><br></pre></td></tr></table></figure>
+
+<h2 id="Volume-Configuration"><a href="#Volume-Configuration" class="headerlink" title="Volume Configuration"></a>Volume Configuration</h2><p>you can create named volumes in compose file</p>
+<p>Example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: db</span><br><span class="line">    volumes:</span><br><span class="line">      - data-volume:/var/lib/db</span><br><span class="line">  backup:</span><br><span class="line">    image: backup-service</span><br><span class="line">    volumes:</span><br><span class="line">      - data-volume:/var/lib/backup/data</span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  data-volume:</span><br></pre></td></tr></table></figure>
+
+<h2 id="Network-Configuration"><a href="#Network-Configuration" class="headerlink" title="Network Configuration"></a>Network Configuration</h2><p>by default, Compose set up a bridge network for your app. You can customize it.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">networks:</span><br><span class="line">    my_network:</span><br><span class="line">        driver: bridge</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Other-Examples"><a href="#Other-Examples" class="headerlink" title="Other Examples"></a>Other Examples</h1><h2 id="Running-Postgres-and-Adminer"><a href="#Running-Postgres-and-Adminer" class="headerlink" title="Running Postgres and Adminer"></a>Running Postgres and Adminer</h2><p>Two services will be started. postgres database and adminer</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use postgres/example user/password credentials</span></span><br><span class="line">version: <span class="string">&#x27;3.1&#x27;</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: postgres</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      POSTGRES_PASSWORD: example</span><br><span class="line"></span><br><span class="line">  adminer:</span><br><span class="line">    image: adminer</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="number">5555</span>:<span class="number">8080</span></span><br></pre></td></tr></table></figure>
+<p>example from <a target="_blank" rel="noopener" href="https://hub.docker.com/_/postgres">https://hub.docker.com/_&#x2F;postgres</a></p>
+<h2 id="Wordpress"><a href="#Wordpress" class="headerlink" title="Wordpress"></a>Wordpress</h2><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  db:</span><br><span class="line">    image: mysql:<span class="number">5.7</span></span><br><span class="line">    volumes:</span><br><span class="line">      - db_data:/var/lib/mysql</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_DATABASE: exampledb</span><br><span class="line">      MYSQL_USER: exampleuser</span><br><span class="line">      MYSQL_PASSWORD: examplepass</span><br><span class="line">      MYSQL_RANDOM_ROOT_PASSWORD: <span class="string">&#x27;1&#x27;</span></span><br><span class="line"></span><br><span class="line">  web:</span><br><span class="line">    image: wordpress</span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">    volumes:</span><br><span class="line">      - wordpress_files:/var/www/html</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;80:80&quot;</span></span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      WORDPRESS_DB_HOST: db:<span class="number">3306</span></span><br><span class="line">      WORDPRESS_DB_USER: exampleuser</span><br><span class="line">      WORDPRESS_DB_PASSWORD: examplepass</span><br><span class="line">      WORDPRESS_DB_NAME: exampledb</span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  wordpress_files:</span><br><span class="line">  db_data:</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/gettingstarted/">Get started with Docker Compose</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/reference/">docker-compose command-line Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/">docker-compose.yml file reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.freecodecamp.org/the-ups-and-downs-of-docker-compose-how-to-run-multi-container-applications-bf7a8e33017e">The ups and downs of docker-compose — how to run multi-container applications</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Docker/Docker-Networking/" rel="prev" title="Docker Networking">
+                  <i class="fa fa-chevron-left"></i> Docker Networking
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Docker/Docker-Machine/" rel="next" title="Docker Machine">
+                  Docker Machine <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

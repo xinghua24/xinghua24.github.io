@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Git Introduction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://example.com/Git/Git/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Git Introduction">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Git/Git/local_operations.png">
+<meta property="og:image" content="http://example.com/Git/Git/gitflow.png">
+<meta property="og:image" content="http://example.com/Git/Git/conflict.png">
+<meta property="article:published_time" content="2019-08-10T22:20:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.166Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Git/Git/local_operations.png">
+
+
+<link rel="canonical" href="http://example.com/Git/Git/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Git/Git/","path":"Git/Git/","title":"Git"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Core-Concept"><span class="nav-number">1.</span> <span class="nav-text">Core Concept</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Commands"><span class="nav-number">2.</span> <span class="nav-text">Basic Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Config"><span class="nav-number">3.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-checkout"><span class="nav-number">4.</span> <span class="nav-text">Git checkout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Back-out-uncommitted-Changes"><span class="nav-number">5.</span> <span class="nav-text">Back out uncommitted Changes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reset-to-a-Commit"><span class="nav-number">6.</span> <span class="nav-text">Reset to a Commit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Revert-Pushed-Commit"><span class="nav-number">7.</span> <span class="nav-text">Revert Pushed Commit</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Upstream"><span class="nav-number">8.</span> <span class="nav-text">Upstream</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Remote"><span class="nav-number">9.</span> <span class="nav-text">Remote</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Branching-amp-Merge"><span class="nav-number">10.</span> <span class="nav-text">Branching &amp; Merge</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-and-Pull"><span class="nav-number">11.</span> <span class="nav-text">Fetch and Pull</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Push"><span class="nav-number">12.</span> <span class="nav-text">Push</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Rebase"><span class="nav-number">13.</span> <span class="nav-text">Rebase</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Diff"><span class="nav-number">14.</span> <span class="nav-text">Diff</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tagging"><span class="nav-number">15.</span> <span class="nav-text">Tagging</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stash"><span class="nav-number">16.</span> <span class="nav-text">Stash</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Subtree"><span class="nav-number">17.</span> <span class="nav-text">Subtree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gitignore"><span class="nav-number">18.</span> <span class="nav-text">.gitignore</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gitflow"><span class="nav-number">19.</span> <span class="nav-text">Gitflow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other-Stuffs"><span class="nav-number">20.</span> <span class="nav-text">Other Stuffs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Commands"><span class="nav-number">20.1.</span> <span class="nav-text">Other Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-push-u-flag"><span class="nav-number">20.2.</span> <span class="nav-text">git push -u flag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cherry-Pick"><span class="nav-number">20.3.</span> <span class="nav-text">Cherry-Pick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Alias"><span class="nav-number">20.4.</span> <span class="nav-text">Alias</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resolving-the-conflict-between-Git-branches"><span class="nav-number">20.5.</span> <span class="nav-text">Resolving the conflict between Git branches</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Git/Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Git | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-10 18:20:00" itemprop="dateCreated datePublished" datetime="2019-08-10T18:20:00-04:00">2019-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Git Introduction</p>
+<span id="more"></span>
+
+<h1 id="Core-Concept"><a href="#Core-Concept" class="headerlink" title="Core Concept"></a>Core Concept</h1><p>The Three areas</p>
+<ul>
+<li><strong>Working Tree</strong> - files you are currently working on. It is a tree because it implies the entire directory structure. It is used to be called ‘working directory’ until git v2.9.</li>
+<li><strong>Index</strong> - contains changes about what will go into the next commit. Technical name in Git is “index”. It is called “Staging Area” sometimes.</li>
+<li><strong>Repository</strong>(.git folder) - where git stores the metadata and object database for the project.</li>
+</ul>
+<img src="local_operations.png" />
+<small>Working directory, staging area, and Git directory. Image from [https://git-scm.com/book/en/v1/Getting-Started-Git-Basics](https://git-scm.com/book/en/v1/Getting-Started-Git-Basics)</small>
+
+
+<p><strong>HEAD</strong> - This is a pointer normally points to a named branch(e.g. master). When we use a checkout command to checkout<br>a specific commit, HEAD is in Detached state.</p>
+<p><strong>Tilde vs caret</strong><br></p>
+<ul>
+<li>HEAD^ - first parent of HEAD. same as HEAD^1.</li>
+<li>HEAD^2 - second parent of HEAD.</li>
+<li>HEAD^^ - first parent of the first parent of HEAD. Not the same as HEAD^2. Equivalent of HEAD~2.</li>
+</ul>
+<p>see <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git">Tilde vs caret</a></p>
+<br>
+
+<h1 id="Basic-Commands"><a href="#Basic-Commands" class="headerlink" title="Basic Commands"></a>Basic Commands</h1><p>These are the most commonly used commands.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create a git repo</span></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># Clone existing repository into a new directory</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;repository_url&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># check status</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># check short status</span></span><br><span class="line">git status -s</span><br><span class="line">git status --short</span><br><span class="line"></span><br><span class="line"><span class="comment"># stage a file. The file is in stage area/Index now. use &#x27;.&#x27; to stage all change</span></span><br><span class="line">git add &lt;file&gt;</span><br><span class="line">git add *.java</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># commit changes in staged area</span></span><br><span class="line">git commit -m <span class="string">&quot;message&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># push current branch to remote</span></span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line"><span class="comment"># push current branch to remote and keeps track of the change from the remote branch. Note: You usually use this command in a new local branch.</span></span><br><span class="line">git push -u &lt;remote&gt; &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update the remote-tracking branches for the repository you cloned from, </span></span><br><span class="line"><span class="comment"># then merge one of them into your current branch</span></span><br><span class="line"><span class="comment"># If conflict exist, it will abort</span></span><br><span class="line"><span class="comment"># use `git stash` to save changes, or use `git reset --hard origin/master` to abort changes</span></span><br><span class="line"><span class="comment"># then continue with `git pull`</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+<h1 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h1><p>The global configuration can be manually modified in ~&#x2F;.gitconfig</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&#x27;First Last&#x27;</span></span><br><span class="line">git config --global user.email <span class="string">&#x27;me@company.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># configure &#x27;push.default&#x27; to push only current branch to remote branch. This is prefered</span></span><br><span class="line">git config --global push.default simple</span><br><span class="line"></span><br><span class="line"><span class="comment"># configure &#x27;push.default&#x27; to push all local branches to remote branches. Do not use!</span></span><br><span class="line"><span class="comment"># git config --global push.default matching</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set core editor</span></span><br><span class="line">git config --global core.editor <span class="string">&quot;vim&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set a diff tool</span></span><br><span class="line">git config --global diff.tool gvimdiff</span><br></pre></td></tr></table></figure>
+
+<p><strong>Line Ending Conversions</strong><br><br>There are 3 config options regarding how git handles line ending conversions. </p>
+<ul>
+<li>Checkout Windows-style, commit Unix-style line endings. Git converts LF to CRLF when checking out text files. Recommended for windows. (“core.autocrlf” is set to “true”)</li>
+<li>Checkout as-is, commit Unix-style line endings. Recommended for Unix. (“core.autocrlf” is set to “input”)</li>
+<li>Checkout as-is, commit as-is. Not recommended for cross-platform projects. (“core.autocrlf” is set to “false”)</li>
+</ul>
+<p>if “core.autocrlf” is set to “input”, a warning will be displayed when adding text files to index in Windows. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">warning: CRLF will be replaced by LF in foo.txt.</span><br><span class="line">The file will have its original line endings in your working directory.</span><br></pre></td></tr></table></figure>
+
+<p>Set “safecrlf” to be “false” to hide the warning message. So these two commands can go together.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf input</span><br><span class="line">git config --global core.safecrlf false</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Git-checkout"><a href="#Git-checkout" class="headerlink" title="Git checkout"></a>Git checkout</h1><p>Most common use is to switch branch. Can also be used to revert file to a commit or restore file.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># switch branch</span></span><br><span class="line">git checkout &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># switch to local master branch</span></span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line"><span class="comment"># create a new branch and switch to it</span></span><br><span class="line">git checkout -b &lt;newbranch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># checkout a remote branch</span></span><br><span class="line">git checkout feature</span><br><span class="line"></span><br><span class="line"><span class="comment"># if you have multiple remote, then</span></span><br><span class="line">git checkout -b feature origin/feature</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example to revert Makefile to two revisions back, </span></span><br><span class="line">git checkout master~2 Makefile   <span class="comment"># checkout a file out of a commit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># delete hello.c by mistake, and then restore it back from index</span></span><br><span class="line"><span class="built_in">rm</span> -f hello.c</span><br><span class="line">git checkout hello.c  <span class="comment"># undo the delete by restoring hello.c</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># &#x27;detached HEAD&#x27; state</span></span><br><span class="line"><span class="comment"># you enter detached head state by checking out a specific commit</span></span><br><span class="line"><span class="comment"># git checkout &lt;commit&gt;</span></span><br><span class="line"><span class="comment"># see git checkout --help for more info about detached HEAD</span></span><br><span class="line"><span class="comment"># see https://git-scm.com/docs/git-checkout#_detached_head for the visual</span></span><br><span class="line">git checkout c6c8007 <span class="comment"># or</span></span><br><span class="line">git checkout master^^</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+<h1 id="Back-out-uncommitted-Changes"><a href="#Back-out-uncommitted-Changes" class="headerlink" title="Back out uncommitted Changes"></a>Back out uncommitted Changes</h1><p>git-reset - Reset current HEAD to the specified state. <code>--hard</code> flag resets the index and working tree. <code>--soft</code> flag doesn’t touch the idnex file or the working tree at all.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># back out all the changes since last commit, staged or not.</span></span><br><span class="line">git reset --hard</span><br><span class="line"></span><br><span class="line"><span class="comment"># Unstage a file</span></span><br><span class="line">git reset HEAD &lt;file&gt;...</span><br><span class="line"></span><br><span class="line"><span class="comment"># discard changes in working tree</span></span><br><span class="line">git checkout -- path/to/the/file.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Undo delete file</span></span><br><span class="line"><span class="comment"># this restores the file status in the index</span></span><br><span class="line">git reset -- &lt;file&gt;</span><br><span class="line"><span class="comment"># then check out a copy from the index</span></span><br><span class="line">git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>git reset --hard</code> is the most commonly used command to undo uncommitted changes.</p>
+<br>
+
+<h1 id="Reset-to-a-Commit"><a href="#Reset-to-a-Commit" class="headerlink" title="Reset to a Commit"></a>Reset to a Commit</h1><p>If you haven’t push the commit, you can fix the commit locally. DO NOT use these command if you have already pushed the changes.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reset to the target commit. Both change in the working tree and the index will be kept</span></span><br><span class="line">git reset --soft commitID</span><br><span class="line"></span><br><span class="line"><span class="comment"># reset to the target commit. Throw away change in working tree and index. </span></span><br><span class="line">git reset --hard commitID</span><br><span class="line"></span><br><span class="line"><span class="comment"># reset to use origin/master</span></span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Revert-Pushed-Commit"><a href="#Revert-Pushed-Commit" class="headerlink" title="Revert Pushed Commit"></a>Revert Pushed Commit</h1><p>Revert will create new commits to undo the previous commit. <code>git revert</code> require your working tree to be clean.</p>
+<p>If you want to throw away all uncommitted changes in your working directory, you should see <code>git-reset</code> instead.</p>
+<p>To revert a pushed commit, first get the commit ID</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline</span><br></pre></td></tr></table></figure>
+
+<p>Then execute <code>git revert commit-id</code> to revert the commit. This will create a commit that undos the commit to be revert. You can also use this command to undo a range of commits</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to revert multiple commits, start with 901300d, then 7806790 and 01926a4</span></span><br><span class="line">git revert 901300d 7806790 01926a4</span><br><span class="line"></span><br><span class="line"><span class="comment"># Revert the last two commits</span></span><br><span class="line">git revert HEAD~2..HEAD</span><br><span class="line"></span><br><span class="line"><span class="comment"># Revert a range of commits. The first hash is exclusive. The second hash is inclusive</span></span><br><span class="line">git revert 874845a..4dd4b4e</span><br></pre></td></tr></table></figure>
+
+<p>If you don’t want to create a commit, add <code>-n</code> or <code>--no-commit</code> option. Changes to revert the commit will be in stage area. No commit is created.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert -n 874845a..4dd4b4e</span><br></pre></td></tr></table></figure>
+
+<p>Revert a merge commit</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># To revert a merge commit. Merge commit has two parents. You must use -m flag to specify the mainline. </span></span><br><span class="line"><span class="comment"># Parent number starts with 1. The other commit that is not consider mainline will be un-merge.</span></span><br><span class="line">git revert -m 1 8f937c6</span><br><span class="line"></span><br><span class="line"><span class="comment"># To revert a merge commit without commit use -n or --no-commit flag </span></span><br><span class="line">git revert -m 1 -n 8f937c6</span><br></pre></td></tr></table></figure>
+
+<p>If there is conflict, you can choose to resolve the conflict or use <code>git revert --abort</code> to abort the operation.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># abort the revert operation</span></span><br><span class="line">git revert --abort</span><br></pre></td></tr></table></figure>
+
+
+
+<p>see <a target="_blank" rel="noopener" href="http://schacon.github.io/git/git-revert.html">git revert man page</a> for more information</p>
+<h1 id="Upstream"><a href="#Upstream" class="headerlink" title="Upstream"></a>Upstream</h1><p>The term upstream and downstream refers to the repository. Generally, upstream is from where you clone the repository, and downstream is any project that integrates your work with other works. </p>
+<p>set the upstream when pushing a new local branch</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin new-branch</span><br></pre></td></tr></table></figure>
+
+
+<p>You can set the upstream for an existing branch</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to=origin/some-branch some-branch</span><br></pre></td></tr></table></figure>
+
+<p>You can also unset a upstream</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --unset-upstream</span><br></pre></td></tr></table></figure>
+
+<p>find out which remote branch a local branch is tracking</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -vv</span><br></pre></td></tr></table></figure>
+
+<p>Reference: </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.javatpoint.com/git-upstream-and-downstream">Upstream and Downstream by Javatpoint</a></li>
+</ul>
+<h1 id="Remote"><a href="#Remote" class="headerlink" title="Remote"></a>Remote</h1><p><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Pro Git working with Remote</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show remote URLs</span></span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># add a remote</span></span><br><span class="line">git remote add &lt;name&gt; &lt;url&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># favor SSH protocol to HTTPS</span></span><br><span class="line"><span class="comment"># HTTPS requires you to enter user name and password</span></span><br><span class="line"><span class="comment"># setting remote url to use SSH protocol</span></span><br><span class="line">git remote set-url &lt;name&gt; &lt;newUrl&gt;</span><br><span class="line">git remote set-url origin git@gitlab.com:xinghua24/GitCommands.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove and add origin</span></span><br><span class="line">git remote <span class="built_in">rm</span> origin</span><br><span class="line">git remote add origin git@gitlab.com:xinghua24/GitCommands.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># show remote branches</span></span><br><span class="line">git remote show &lt;remote&gt;</span><br><span class="line">git remote show origin</span><br></pre></td></tr></table></figure>
+
+<br>
+
+
+<h1 id="Branching-amp-Merge"><a href="#Branching-amp-Merge" class="headerlink" title="Branching &amp; Merge"></a>Branching &amp; Merge</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">Pro Git Branch</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">Basic Merging</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-merge">Git merge command</a></li>
+</ul>
+<br>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show local branches. * points to the branch that is checked out</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># show local and remote branch</span></span><br><span class="line">git branch -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># rename a branch</span></span><br><span class="line">git branch -m &lt;oldname&gt; &lt;newname&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># rename current branch</span></span><br><span class="line">git branch -m &lt;new-branch-name&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># new branch. new branch name can be feature/xfeature</span></span><br><span class="line">git checkout -b &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># switch branch</span></span><br><span class="line">git checkout &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># merge a branch. first checkout the branch you wish to merge into and then git merge &lt;branch&gt;</span></span><br><span class="line"><span class="comment"># merge change is made to the current branch(branch to merge into). The branch from parameter is not changed.</span></span><br><span class="line">git merge &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># no parameter git merge</span></span><br><span class="line"><span class="comment"># if no commit is given, then merge the remote-tracking branch</span></span><br><span class="line">git merge</span><br><span class="line"></span><br><span class="line"><span class="comment"># After seeing a conflict, you can abort the merge or resolve the conflicts.</span></span><br><span class="line"><span class="comment"># The easiest way to resolve merge conflict is edit conflict file in VSCode.</span></span><br><span class="line"><span class="comment"># Then add edited files to index, and then run git commit.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># merge origin/master to current branch</span></span><br><span class="line">git merge origin/master</span><br><span class="line"></span><br><span class="line"><span class="comment"># no fast-forward merge</span></span><br><span class="line">git merge newbranch --no-ff</span><br><span class="line"></span><br><span class="line"><span class="comment"># abort the merge due to conflict</span></span><br><span class="line">git merge --abort</span><br><span class="line"></span><br><span class="line"><span class="comment"># show branches merged into master</span></span><br><span class="line">git branch --merged master</span><br><span class="line"></span><br><span class="line"><span class="comment"># show branches merged into HEAD</span></span><br><span class="line">git branch --merged</span><br><span class="line"></span><br><span class="line"><span class="comment"># show branches not merged into HEAD</span></span><br><span class="line">git branch --no-merged</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete a local branch. use -D to force an unmerged delete</span></span><br><span class="line"><span class="comment"># can&#x27;t use this command delete the current branch</span></span><br><span class="line">git branch -d &lt;branch&gt;</span><br><span class="line">git branch -D &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Fetch-and-Pull"><a href="#Fetch-and-Pull" class="headerlink" title="Fetch and Pull"></a>Fetch and Pull</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fetch - only download all branches from remote, do not merge</span></span><br><span class="line">git fetch &lt;remote&gt;</span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line"><span class="comment"># git pull = git fetch + git merge.</span></span><br><span class="line"><span class="comment"># Better to simply use git fetch and merge explicitly</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># fetch all remotes</span></span><br><span class="line">git pull --all</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete a remote branch</span></span><br><span class="line">git push &lt;remote&gt; --delete &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Push"><a href="#Push" class="headerlink" title="Push"></a>Push</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># push a new branch to remote. -u is short for --set-upstream</span></span><br><span class="line">git push -u origin &lt;branch&gt;</span><br><span class="line">git push --set-upstream origin &lt;branch&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># if remote branch is named differently</span></span><br><span class="line">git push &lt;remote&gt; &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># push changes in local branch to remote branch</span></span><br><span class="line">git push &lt;remote&gt; &lt;branch&gt;</span><br><span class="line">git push origin &lt;branch&gt;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>If the current branch only exist in local and not in remote, then the following error will occur. In this case,<br>Use <code>-u</code> or <code>--set-upstream</code> flag to set the up stream.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fatal: The current branch master has no upstream branch.</span><br><span class="line">To push the current branch and set the remote as upstream, use</span><br><span class="line"></span><br><span class="line">    git push --set-upstream origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">Pro Git Rebase</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-rebase">Git rebase command</a></li>
+</ul>
+<br>
+
+<p>git rebase - Reapply commits on top of another base tip. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this command only make change in the current branch. The branch from parameter is not changed</span></span><br><span class="line">git rebase &lt;branch&gt;</span><br><span class="line">git rebase master</span><br><span class="line"></span><br><span class="line"><span class="comment"># abort the rebase</span></span><br><span class="line">git rebase --abort</span><br><span class="line"></span><br><span class="line"><span class="comment"># fix the conflict, add modified files to index, then use continue to finish rebase</span></span><br><span class="line"><span class="comment"># do not use merge in the middle of rebase</span></span><br><span class="line">git rebase --<span class="built_in">continue</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># after &#x27;git fetch&#x27;, if &#x27;git status&#x27; shows local branch and remote branch have diverged, then</span></span><br><span class="line"><span class="comment"># can use &#x27;git pull&#x27; to merge or rather use &#x27;git pull --rebase&#x27; to rebase</span></span><br><span class="line">git pull --rebase origin master</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+<h1 id="Diff"><a href="#Diff" class="headerlink" title="Diff"></a>Diff</h1><p>most common commands are <strong>git diff</strong> and <strong>git diff –cached</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  you can use &#x27;difftool&#x27; instead of &#x27;diff&#x27; if &#x27;tool.diff&#x27; is setup</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># diff takes two references. it can be hash, pointer(HEAD) or branch name</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Changes in the working tree not yet staged for the next commit.</span></span><br><span class="line">git diff</span><br><span class="line">git diff -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Changes between the index and last commit;</span></span><br><span class="line"><span class="comment"># what you would be committing if you run &quot;git commit&quot; without &quot;-a&quot; option</span></span><br><span class="line">git diff --cached</span><br><span class="line">git diff --staged HEAD</span><br><span class="line">git diff --cached -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Changes in the working tree since last commit;</span></span><br><span class="line"><span class="comment"># what you would be committing if you run &quot;git commit -a&quot;</span></span><br><span class="line">git diff HEAD</span><br><span class="line">git diff HEAD -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># comparing with arbitrary commits</span></span><br><span class="line">git diff HEAD^ HEAD <span class="comment"># between before the last commit and the last commit</span></span><br><span class="line">git diff HEAD HEAD^ <span class="comment"># between the last commit and before the last commit</span></span><br><span class="line">git diff 3c797b7 HEAD <span class="comment"># compare using commit hash</span></span><br><span class="line">git diff 3c797b7 07568da</span><br><span class="line"></span><br><span class="line"><span class="comment"># Compare two branch</span></span><br><span class="line">git diff master origin/master</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h1 id="Tagging"><a href="#Tagging" class="headerlink" title="Tagging"></a>Tagging</h1><p>Tagging allows you to tag specific points in a repository’s history as being important.</p>
+<p>There are two types of tags</p>
+<ul>
+<li><strong>Lightweight</strong> tag - just a pointer to a specific commit</li>
+<li><strong>Annotated</strong> tag - stores as full object in the Git database. They’re checksummed; contain the tagger name, email, and data; have a tagging message.</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># List tags with optional -l or --list</span></span><br><span class="line">git tag </span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a tag</span></span><br><span class="line">git tag v1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a Annotated Tag. -m specifies a tagging message</span></span><br><span class="line">git tag -a v1.2 -m <span class="string">&quot;my version v1.2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># show git data</span></span><br><span class="line">git show v1.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tag a specific commit</span></span><br><span class="line">git tag -a v1.3 89414fb</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deleting a tag</span></span><br><span class="line">git tag -d v1.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sharing Tags</span></span><br><span class="line">git push origin v1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># Checking out Tags</span></span><br><span class="line">git checkout v1.0</span><br></pre></td></tr></table></figure>
+
+<p>For more information on tagging see</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">Git Basics Tagging</a></li>
+</ul>
+<br>
+
+<h1 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h1><p>Stash - Use git stash when you want to record the current state of the working tree and the index, but want to go back to a clean working tree.<br>Ref Doc: <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-stash">https://git-scm.com/docs/git-stash</a>.</p>
+<p>One way to use Stash is to stash before running <em>git pull</em> command. after pull is completed,<br>run <em>git stash apply</em>. this way no merge conflict will occur when pulling files from remote.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># save a stash</span></span><br><span class="line"><span class="comment"># uncommited work in Working directory and Staging Area are saved to stash</span></span><br><span class="line">git stash</span><br><span class="line">git stash save &lt;descriptive_message&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># show stashes</span></span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"><span class="comment"># show stash change files</span></span><br><span class="line">git stash show &lt;stash&gt;</span><br><span class="line">git stash show stash@&#123;0&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># show stash in patch form using -p option</span></span><br><span class="line">git stash show -p stash@&#123;0&#125;</span><br><span class="line">git stash show -p stash@&#123;1&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># apply stash stash@&#123;0&#125;. If there is conflict, edit the conflict</span></span><br><span class="line">git stash apply stash@&#123;0&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># also applies stash</span></span><br><span class="line"><span class="comment"># apply doesn&#x27;t remove the stash from queue. but pop does.</span></span><br><span class="line">git stash pop stage@&#123;0&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove a single stash from list of stash entries</span></span><br><span class="line">git stash drop stash@&#123;0&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove all stash entries</span></span><br><span class="line">git stash clear</span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+<h1 id="Subtree"><a href="#Subtree" class="headerlink" title="Subtree"></a>Subtree</h1><p>Git subtree allows one repository to exist inside the parent repository as a sub-directory. Useful for maintaining sub-project.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add subtree</span></span><br><span class="line">git subtree add --prefix=path/to-repo repo-name branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># Push to subtree&#x27;s repo</span></span><br><span class="line">git subtree push --prefix=path/to-repo repo-name branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pull changes from subtree&#x27;s repo back to parent repo</span></span><br><span class="line">git subtree pull --prefix=path/to-repo repo-name branch</span><br></pre></td></tr></table></figure>
+
+<p>The main drawback for subtree is you have to specify the directory path for every push&#x2F;pull.</p>
+<p>Reference</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=E7YWeRFHpXg">A Git Subtrees Primer</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.atlassian.com/blog/git/alternatives-to-git-submodule-git-subtree">Git subtree: the alternative to Git submodule</a></li>
+</ul>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p>The rules for the patterns you can put in the .gitignore file are as follows:</p>
+<ul>
+<li>Blank lines or lines starting with # are ignored.</li>
+<li>Standard glob patterns work, and will be applied recursively throughout the entire working tree.</li>
+<li>You can start patterns with a forward slash (&#x2F;) to avoid recursivity.</li>
+<li>You can end patterns with a forward slash (&#x2F;) to specify a directory.</li>
+<li>You can negate a pattern by starting it with an exclamation point (!).</li>
+</ul>
+<p>Example .gitignore file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># ignore all .a files</span><br><span class="line">*.a</span><br><span class="line"></span><br><span class="line"># but do track lib.a, even though you&#x27;re ignoring .a files above</span><br><span class="line">!lib.a</span><br><span class="line"></span><br><span class="line"># only ignore the node_modules file in the current directory, not subdir/TODO</span><br><span class="line">/node_modules</span><br><span class="line"></span><br><span class="line"># ignore node_modules directory at any level </span><br><span class="line">node_modules/</span><br><span class="line"></span><br><span class="line"># ignore doc/notes.txt, but not doc/server/arch.txt</span><br><span class="line">doc/*.txt</span><br><span class="line"></span><br><span class="line"># ignore all .pdf files in the doc/ directory and any of its subdirectories</span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
+
+<p>More on .gitignore</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">Pro Git</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/github/gitignore">Sample .gitignore</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore">Atlassian .gitignore file explain</a></li>
+</ul>
+<br>
+
+
+
+<h1 id="Gitflow"><a href="#Gitflow" class="headerlink" title="Gitflow"></a>Gitflow</h1><p><a target="_blank" rel="noopener" href="https://nvie.com/posts/a-successful-git-branching-model/">Gitflow</a> is a popular branching model for Git. it was introduced by Vincent Driessen.</p>
+<p>There are two main branches</p>
+<ul>
+<li><strong>master</strong> - branch that is always production-ready and contains the last release version fo source code in production</li>
+<li><strong>develop</strong> - reflects the development changes. This is where feature branches merges to.</li>
+</ul>
+<p>Other branches</p>
+<ul>
+<li><strong>feature</strong> - derive from develop branch. used to develop features. Merged to develop branch.</li>
+<li><strong>release</strong> - derived from develop branch that is used for release. merged to master and develop. release is merged to develop branch so that important updates is not lost. After the merge, release branch can be deleted.</li>
+<li><strong>hotfix</strong> - derived from master branch. It is used to fix a bug in production. It is merged to master and develop branch like the release branch.</li>
+</ul>
+<img src="gitflow.png" />
+Author: Vincent Driessen
+
+<p>For more details on Gitflow, see <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow workflow by Atlassian</a></p>
+<p>For a practical example of Gitflow workflow, see <a target="_blank" rel="noopener" href="https://leanpub.com/git-flow/read">Git Flow Workflow
+</a></p>
+<h1 id="Other-Stuffs"><a href="#Other-Stuffs" class="headerlink" title="Other Stuffs"></a>Other Stuffs</h1><h2 id="Other-Commands"><a href="#Other-Commands" class="headerlink" title="Other Commands"></a>Other Commands</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show files being tracked</span></span><br><span class="line">git ls-files</span><br><span class="line"></span><br><span class="line"><span class="comment"># rename or move</span></span><br><span class="line">git <span class="built_in">mv</span> &lt;old_file_path&gt; &lt;new_file_path&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># if rename or move using bash command mv, use git add -A to indicate a rename</span></span><br><span class="line"><span class="comment"># git add -A adds all changes in the working tree including rename and delete</span></span><br><span class="line">git add -A</span><br><span class="line"></span><br><span class="line"><span class="comment"># remove a file</span></span><br><span class="line">git <span class="built_in">rm</span> &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># replace commit with a new commit message OR make forgotten changes, stage them and commit again</span></span><br><span class="line">git commit --amend</span><br><span class="line"></span><br><span class="line"><span class="comment"># Log</span></span><br><span class="line"><span class="comment"># show logs. top logs are more recent</span></span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line">git <span class="built_in">log</span> --oneline</span><br><span class="line">git <span class="built_in">log</span> --all --decorate --oneline --graph</span><br><span class="line">git <span class="built_in">log</span> -n 20 --decorate --oneline --graph</span><br><span class="line"></span><br><span class="line"><span class="comment"># show log of one file</span></span><br><span class="line">git <span class="built_in">log</span> --oneline -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># create Alias &quot;graph&quot; to show graph</span></span><br><span class="line">git config --global alias.graph <span class="string">&quot;log --all --decorate --oneline --graph&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># getting help</span></span><br><span class="line">git <span class="built_in">help</span> &lt;verb&gt;</span><br><span class="line">man git-&lt;verb&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fix &#x27;detached HEAD&#x27; state</span></span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line"><span class="comment"># Better checkout only a file, this way you will not go to &#x27;detached HEAD&#x27; state</span></span><br><span class="line">git checkout c6c8007 -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># quick lookup a Git command</span></span><br><span class="line">git &lt;verb&gt; -h</span><br><span class="line"></span><br><span class="line"><span class="comment"># full help document </span></span><br><span class="line">git &lt;verb&gt; --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># open gui</span></span><br><span class="line">git gui</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-push-u-flag"><a href="#git-push-u-flag" class="headerlink" title="git push -u flag"></a>git push -u flag</h2><p>When you create a local branch and then push it to the remote repository. You can add a -u flag when doing a git push.  It adds a tracking reference to the upstream you are pushing to. There is a ‘link’ between local and remote branch. So when you do a <code>git pull</code> without any argument, git will fetch and update local branch. If you do it without -u flag, local branch will not keep track of the change in the remote repository.</p>
+<p>-u flag is the same as –set-upstream.</p>
+<p>Example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin new-branch</span><br></pre></td></tr></table></figure>
+
+<p>From <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-push">git-push documentation</a></p>
+<blockquote>
+<p>For every branch that is up to date or successfully pushed, add upstream (tracking) reference, used by argument-less git-pull and other commands. </p>
+</blockquote>
+<h2 id="Cherry-Pick"><a href="#Cherry-Pick" class="headerlink" title="Cherry-Pick"></a>Cherry-Pick</h2><p>Apply the commit from other branch to the current branch. see <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-cherry-pick">Documentation</a>.<br>If there are multiple commits to cherry-pick, apply the older ones first.<br>git config –global core.editor “</p>
+<p>usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick &lt;commit sha1&gt;...</span><br></pre></td></tr></table></figure>
+
+<h2 id="Alias"><a href="#Alias" class="headerlink" title="Alias"></a>Alias</h2><p>Sometimes it is convenient to create alias in ~&#x2F;.bashrc for git commands.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> gst=<span class="string">&#x27;git status&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gadd=<span class="string">&#x27;git add .&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gac=<span class="string">&#x27;git add . &amp;&amp; git commit -m&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gp=<span class="string">&#x27;git push&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gl=<span class="string">&#x27;git pull&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> glog=<span class="string">&#x27;git log -n 20 --decorate --oneline --graph&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> gpom=<span class="string">&#x27;git push origin main&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Resolving-the-conflict-between-Git-branches"><a href="#Resolving-the-conflict-between-Git-branches" class="headerlink" title="Resolving the conflict between Git branches"></a>Resolving the conflict between Git branches</h2><p>Pull Request with conflict:<br><br><img src="conflict.png"></p>
+<p>The following steps will resolve conflict regardless if Pull Request is created or not.</p>
+<p>Assuming</p>
+<ul>
+<li>Destination branch is <em>master</em></li>
+<li>Source branch is <em>feature</em></li>
+</ul>
+<ol>
+<li><p>pull the latest changes from destination branch</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>make sure you are on the source branch(<em>feature</em> in this case). pull if necessary</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>merge branch master into feature</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>resolve the conflicts</p>
+</li>
+<li><p>commit the change and push</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>Reference</strong>:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2">Pro Git Book</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs">Git Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=FyAAIHHClqI">Youtube Git Branching and Merging</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory">Working tree vs Working directory</a></li>
+<li><a target="_blank" rel="noopener" href="https://bitsofco.de/git-aliases-for-lazy-developers/">Git aliases for lazy developers</a> by Ire Aderinokun</li>
+<li><a target="_blank" rel="noopener" href="https://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model by Vincent Driessen</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.axosoft.com/gitflow/">gitflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit">Stackoverflow - How do I revert a Git repository to a previous commit?</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-MongoDB/" rel="prev" title="Spring Boot - MongoDB">
+                  <i class="fa fa-chevron-left"></i> Spring Boot - MongoDB
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-Error-Handling/" rel="next" title="Spring Boot - Error Handling">
+                  Spring Boot - Error Handling <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

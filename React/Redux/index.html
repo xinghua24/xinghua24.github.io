@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Redux Basics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux">
+<meta property="og:url" content="http://example.com/React/Redux/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Redux Basics">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-25T04:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.196Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/React/Redux/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/React/Redux/","path":"React/Redux/","title":"Redux"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Redux | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Redux"><span class="nav-number">1.</span> <span class="nav-text">What is Redux?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#When-to-use-Redux"><span class="nav-number">2.</span> <span class="nav-text">When to use Redux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Three-Principles"><span class="nav-number">3.</span> <span class="nav-text">Three Principles</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">4.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Counter-Example-without-Redux"><span class="nav-number">5.</span> <span class="nav-text">Counter Example without Redux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Actions"><span class="nav-number">6.</span> <span class="nav-text">Actions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reducers"><span class="nav-number">7.</span> <span class="nav-text">Reducers</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Store"><span class="nav-number">8.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dispatch"><span class="nav-number">9.</span> <span class="nav-text">Dispatch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dataflow"><span class="nav-number">10.</span> <span class="nav-text">Dataflow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Counter-Example-with-Redux"><span class="nav-number">11.</span> <span class="nav-text">Counter Example with Redux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">12.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/React/Redux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Redux | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redux
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-25T00:00:00-04:00">2020-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Redux Basics</p>
+<span id="more"></span>
+
+<h1 id="What-is-Redux"><a href="#What-is-Redux" class="headerlink" title="What is Redux?"></a>What is Redux?</h1><p><strong>Redux is a library for managing and updating application state, using events called “actions”</strong>. It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.</p>
+<p>The patterns and tools provided by Redux make it easier to understand when, where, why, and how the state in your application is being updated, and how your application logic will behave when those changes occur. </p>
+<h1 id="When-to-use-Redux"><a href="#When-to-use-Redux" class="headerlink" title="When to use Redux"></a>When to use Redux</h1><ul>
+<li>You have large amounts of application state that are needed in many places in the app</li>
+<li>The app state is updated frequently over time</li>
+<li>The logic to update that state may be complex</li>
+<li>The app has a medium or large-sized codebase, and might be worked on by many people</li>
+</ul>
+<h1 id="Three-Principles"><a href="#Three-Principles" class="headerlink" title="Three Principles"></a>Three Principles</h1><p>Redux can be described in three fundamental principles:</p>
+<ul>
+<li><strong>Single source of truth</strong> The state of your whole application is stored in an object tree within a single store</li>
+<li><strong>State is read-only</strong> The only way to change the state is to emit an action, an object describing what happened</li>
+<li><strong>Changes are amde with pure function</strong> To specify how the state tree is transformed by actions, you write pure reducers</li>
+</ul>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>To use Redux, need to first install redux and react-redux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install redux react-redux</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Counter-Example-without-Redux"><a href="#Counter-Example-without-Redux" class="headerlink" title="Counter Example without Redux"></a>Counter Example without Redux</h1><p>We can convert a Counter component from using state to use Redux to store its state. </p>
+<p>Counter component that doesn’t use Redux:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">function Counter() &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line">  const [step, setStep] = useState(1);</span><br><span class="line">  return (</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;step&quot;</span> <span class="attr">value</span>=<span class="string">&#123;step&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;</span> <span class="attr">e</span> =&gt;</span> setStep(parseInt(e.target.value)) &#125; /&gt;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count + step)&#125;&gt;Increase<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> setCount(count - step)&#125;&gt;Decrease<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;count&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default Counter;</span><br></pre></td></tr></table></figure>
+<p>Currently the count is a local state to the Counter component, we will move the count to Redux store and create actions and reducers to change this state.</p>
+<h1 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h1><p>An <strong>action</strong> is a plain JavaScript object that has a <code>type</code> field. You can think of an action as an event that describes something that happened in the application. Actions usually contains payloads that is needed to update the state.</p>
+<p>An action creator is a function that creates and returns an action object. We typically use these so we don’t have to write the action object by hand every time:</p>
+<p>actions&#x2F;index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">increase</span> = step =&gt; (&#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&quot;INCREASE&quot;</span>,</span><br><span class="line">  <span class="attr">payload</span>: &#123;</span><br><span class="line">    step</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">decrease</span> = step =&gt; (&#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&quot;DECREASE&quot;</span>,</span><br><span class="line">  <span class="attr">payload</span>: &#123;</span><br><span class="line">    step</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Here we define two action creators, <em>increase</em> and <em>decrease</em>.</p>
+<h1 id="Reducers"><a href="#Reducers" class="headerlink" title="Reducers"></a>Reducers</h1><p>A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: <code>(state, action) =&gt; newState.</code></p>
+<p>Reducers must always follow some specific rules:</p>
+<ul>
+<li>They should only calculate the new state value based on the <code>state</code> and <code>action</code> arguments</li>
+<li>They are not allowed to modify the existing <code>state</code>. Instead, they must make immutable updates, by copying the existing <code>state</code> and making changes to the copied values.</li>
+<li>They must not do any asynchronous logic, calculate random values, or cause other “side effects”</li>
+</ul>
+<p>reducers&#x2F;counter.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> initialState = &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">0</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">counter</span> = (<span class="params">state = initialState, action</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.<span class="property">type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;INCREASE&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, </span><br><span class="line">        <span class="attr">value</span>: state.<span class="property">value</span> + action.<span class="property">payload</span>.<span class="property">step</span> </span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;DECREASE&quot;</span>:</span><br><span class="line">      <span class="keyword">return</span> &#123; ...state, </span><br><span class="line">        <span class="attr">value</span>: state.<span class="property">value</span> - action.<span class="property">payload</span>.<span class="property">step</span> </span><br><span class="line">      &#125;;</span><br><span class="line">    <span class="attr">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> counter;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Here the initialState is a javascript object that contains a number.</p>
+<p><strong>Redux expects that all state updates are done immutably.</strong> so you need to return a new object&#x2F;array instead of modifying the existing state.</p>
+<p>There are usually multiple Reducers, we can use <em>combineReducers</em> function to combine multiple reducers.</p>
+<p>reducers&#x2F;index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> counter <span class="keyword">from</span> <span class="string">&#x27;./counter&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">combineReducers</span>(&#123;</span><br><span class="line">    counter</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h1><p>The current Redux application state lives in an object called the <strong>store</strong>.</p>
+<p>The store is created by passing in a reducer.</p>
+<p>index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Provider</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react-redux&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> rootReducer <span class="keyword">from</span> <span class="string">&#x27;./reducers&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="title function_">createStore</span>(rootReducer)</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">React.StrictMode</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">React.StrictMode</span>&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>Optional: To use Redux with <a target="_blank" rel="noopener" href="https://github.com/zalmoxisus/redux-devtools-extension">Redux DevTools Extension</a>, you need to add an extract argument to createStore function.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="title function_">createStore</span>(</span><br><span class="line">  reducer, <span class="comment">/* preloadedState, */</span></span><br><span class="line">  <span class="variable language_">window</span>.<span class="property">__REDUX_DEVTOOLS_EXTENSION__</span> &amp;&amp; <span class="variable language_">window</span>.<span class="title function_">__REDUX_DEVTOOLS_EXTENSION__</span>()</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Dispatch"><a href="#Dispatch" class="headerlink" title="Dispatch"></a>Dispatch</h1><p>The Redux store has a method called <code>dispatch</code>. The only way to update the state is to call <code>store.dispatch()</code> and pass in an action object. <strong>You can think of dispatching actions as “triggering an event” in the application.</strong></p>
+<p>One way to use dispatch is to use <code>useDispatch</code> hook.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dispatch = <span class="title function_">useDispatch</span>();</span><br></pre></td></tr></table></figure>
+
+<p>Counter Component</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState &#125; from &quot;react&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; connect &#125; from &quot;react-redux&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; increase, decrease &#125; from &quot;../actions&quot;;</span><br><span class="line"></span><br><span class="line">function Counter(props) &#123;</span><br><span class="line">  const [step, setStep] = useState(1);</span><br><span class="line">  return (</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">          <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">placeholder</span>=<span class="string">&quot;step&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">value</span>=<span class="string">&#123;step&#125;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">onChange</span>=<span class="string">&#123;e</span> =&gt;</span> setStep(parseInt(e.target.value, 10))&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> props.incr(step)&#125;&gt;Increase<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> props.decr(step)&#125;&gt;Decrease<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;props.count&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mapStateToProps = state =&gt; &#123;</span><br><span class="line">  return &#123; count: state.counter.value &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const mapDispatchToProps = dispatch =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    incr: step =&gt; dispatch(increase(step)),</span><br><span class="line">    decr: step =&gt; dispatch(decrease(step))</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">export default connect(</span><br><span class="line">  mapStateToProps,</span><br><span class="line">  mapDispatchToProps</span><br><span class="line">)(Counter);</span><br></pre></td></tr></table></figure>
+
+<p>React Redux provides a <a target="_blank" rel="noopener" href="https://react-redux.js.org/api/connect">connect</a> function for you to read values from the Redux store and dispatch actions. connect function accepts two parameters. </p>
+<ul>
+<li>mapStateToProps - function that transforms the current Redux store state into props of the component</li>
+<li>mapDispatchToProps - function or object. If it is a function. it should return an object full of functions that use <code>dispatch</code> to dispatch actions. If it is an object, it will contain functions that use <code>dispatch</code> to dispatch actions.</li>
+</ul>
+<h1 id="Dataflow"><a href="#Dataflow" class="headerlink" title="Dataflow"></a>Dataflow</h1><p>Initial setup: A redux store is created with a root reducer function. </p>
+<p>Update</p>
+<ol>
+<li>When user clicks a button, app code dispatch an action to the Redux store. <code>&#123;type: &#39;INCREASE&#39;, step: 2&#125;</code></li>
+<li>Reducer function runs with the previous state and current action. Return value as the new state.</li>
+<li>Store notify all parts of the UI that are subscribed that the store has been updated</li>
+<li>UI component re-render with the new state.</li>
+</ol>
+<h1 id="Counter-Example-with-Redux"><a href="#Counter-Example-with-Redux" class="headerlink" title="Counter Example with Redux"></a>Counter Example with Redux</h1><p>Here is the complete code for Counter example that uses Redux </p>
+<iframe
+     src="https://codesandbox.io/embed/redux-intro1-3kp1o?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="Redux Intro1"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts">Redux Essentials, Part 1: Redux Overview and Concepts</a></li>
+<li><a target="_blank" rel="noopener" href="https://react-redux.js.org/introduction/basic-tutorial">React Redux Basic Tutorial</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/React/React-Test/" rel="prev" title="React Test">
+                  <i class="fa fa-chevron-left"></i> React Test
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/React/Redux-middleware/" rel="next" title="Redux Middleware">
+                  Redux Middleware <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="ps - display current processes. ps is short for Process Status.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Command - ps">
+<meta property="og:url" content="http://example.com/Linux/Linux-Command-ps/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="ps - display current processes. ps is short for Process Status.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-12-26T22:32:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.185Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Linux/Linux-Command-ps/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Linux/Linux-Command-ps/","path":"Linux/Linux-Command-ps/","title":"Linux Command - ps"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux Command - ps | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process"><span class="nav-number">3.1.</span> <span class="nav-text">Display all process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process-with-full-format"><span class="nav-number">3.2.</span> <span class="nav-text">Display all process with full format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-process-owned-by-root"><span class="nav-number">3.3.</span> <span class="nav-text">Display process owned by root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process-BSD-syntax"><span class="nav-number">3.4.</span> <span class="nav-text">Display all process(BSD syntax)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search-for-a-process%E2%80%99s-PID"><span class="nav-number">3.5.</span> <span class="nav-text">search for a process’s PID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-kill-a-process"><span class="nav-number">3.6.</span> <span class="nav-text">To kill a process</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Linux/Linux-Command-ps/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux Command - ps | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux Command - ps
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-26 17:32:00" itemprop="dateCreated datePublished" datetime="2018-12-26T17:32:00-05:00">2018-12-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><code>ps</code> - display current processes. ps is short for Process Status.</p>
+<span id="more"></span>
+
+<p><code>ps</code> displays information about a selection of the active processes. If you want a repetitive update of the selection and the displayed information, use top(1) instead.</p>
+<p><code>ps</code> has several options</p>
+<ol>
+<li>Unix Option - may be grouped and must be preceded by a dash</li>
+<li>BSD option - may be grouped and must NOT be preceded by a dash</li>
+<li>GNU long options, which are preceded by two dashes.</li>
+</ol>
+<p>By default, <code>ps</code> selects all processes with the same effective user ID (euid&#x3D;EUID) as the current user and associated with the same terminal as the invoker.</p>
+<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps [options]</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>show processes not associated with a terminal</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>Select all processes. Identical to -e.</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>long format</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>full-format listing</td>
+</tr>
+<tr>
+<td>-u <em>userlist</em></td>
+<td>select by effective user ID or name</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Lift the BSD-style “only yourself” restriction</td>
+</tr>
+<tr>
+<td>u</td>
+<td>display user-oriented format</td>
+</tr>
+<tr>
+<td>x</td>
+<td>Lift the BSD-style “must have a tty” restriction</td>
+</tr>
+<tr>
+<td>l</td>
+<td>display BSD long format</td>
+</tr>
+</tbody></table>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Display-all-process"><a href="#Display-all-process" class="headerlink" title="Display all process"></a>Display all process</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -e</span><br></pre></td></tr></table></figure>
+
+<p>Sample output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PID TTY          TIME CMD</span><br><span class="line">  1 ?        00:01:05 systemd</span><br><span class="line">  2 ?        00:00:00 kthreadd</span><br><span class="line">  4 ?        00:00:00 kworker/0:0H</span><br><span class="line">  6 ?        00:00:00 mm_percpu_wq</span><br><span class="line">  7 ?        00:00:00 ksoftirqd/0</span><br></pre></td></tr></table></figure>
+
+<h2 id="Display-all-process-with-full-format"><a href="#Display-all-process-with-full-format" class="headerlink" title="Display all process with full format"></a>Display all process with full format</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef</span><br></pre></td></tr></table></figure>
+
+<p>sample output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">xing      4470  3241  0 Dec25 ?        00:00:00 /usr/bin/zeitgeist-daemon</span><br><span class="line">xing      4477  3241  0 Dec25 ?        00:00:00 /usr/lib/zeitgeist/zeitgeist/zeitgeist-fts</span><br><span class="line">xing      4558  3405  0 Dec25 tty2     00:00:06 /usr/bin/gnome-software --gapplication-service</span><br><span class="line">xing      4559  3405  0 Dec25 tty2     00:00:01 update-notifier</span><br><span class="line">xing      4566  4559  0 Dec25 tty2     00:00:00 [livepatch-notif] &lt;defunct&gt;</span><br><span class="line">root      4584     1  0 Dec25 ?        00:00:02 /usr/lib/fwupd/fwupd</span><br><span class="line">root      4587     2  0 23:14 ?        00:00:00 [kworker/1:1]</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="Display-process-owned-by-root"><a href="#Display-process-owned-by-root" class="headerlink" title="Display process owned by root"></a>Display process owned by root</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -f -u root</span><br></pre></td></tr></table></figure>
+
+<p>sample output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">root         1     0  0 Dec25 ?        00:01:06 /sbin/init splash</span><br><span class="line">root         2     0  0 Dec25 ?        00:00:00 [kthreadd]</span><br><span class="line">root         4     2  0 Dec25 ?        00:00:00 [kworker/0:0H]</span><br><span class="line">root         6     2  0 Dec25 ?        00:00:00 [mm_percpu_wq]</span><br><span class="line">root         7     2  0 Dec25 ?        00:00:00 [ksoftirqd/0]</span><br><span class="line">root         8     2  0 Dec25 ?        00:01:11 [rcu_sched]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Display-all-process-BSD-syntax"><a href="#Display-all-process-BSD-syntax" class="headerlink" title="Display all process(BSD syntax)"></a>Display all process(BSD syntax)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
+
+<p>sample output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">systemd+  6459  0.0  0.0  14280  1812 ?        S    Dec25   0:00 nginx: worker p</span><br><span class="line">xing      6824  0.0  0.0  79960  5544 ?        S    Dec25   0:00 /usr/lib/x86_64</span><br><span class="line">xing      7724  0.0  0.0 370520  7428 ?        Sl   Dec25   0:00 /usr/lib/gvfs/g</span><br><span class="line">xing      7756  0.0  0.0 381288  7292 ?        Sl   Dec25   0:00 /usr/lib/gvfs/g</span><br><span class="line">root     10242  0.0  0.0  10792  4840 ?        Sl   Dec25   0:02 containerd-shim</span><br><span class="line">root     10262  0.0  0.0  18508  3472 pts/0    Ss+  Dec25   0:00 /bin/bash</span><br><span class="line">root     11740  0.0  0.1 108092  8244 ?        Ss   09:36   0:00 /usr/sbin/cupsd</span><br><span class="line">root     11741  0.0  0.1 303672 10620 ?        Ssl  09:36   0:00 /usr/sbin/cups-</span><br><span class="line">xing     13042  0.0  1.8 1780472 146144 tty2   Sl+  10:05   0:37 /usr/lib/chromi</span><br><span class="line">xing     13499  0.1  1.5 1751396 124020 tty2   Sl+  10:18   0:48 /usr/lib/chromi</span><br></pre></td></tr></table></figure>
+
+<h2 id="search-for-a-process’s-PID"><a href="#search-for-a-process’s-PID" class="headerlink" title="search for a process’s PID"></a>search for a process’s PID</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep node</span><br></pre></td></tr></table></figure>
+
+<p>sample output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu      9058  1.8  4.0 583200 39792 pts/4    Sl+  04:37   0:00 node index.js</span><br><span class="line">ubuntu      9092  0.0  0.0   8160   736 pts/6    S+   04:38   0:00 grep --color=auto node</span><br></pre></td></tr></table></figure>
+
+<p><code>ps aux | grep</code> doesn’t show the header. To show process with header</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep -v grep | grep -i -e VSZ -e node</span><br></pre></td></tr></table></figure>
+
+<p>You can also use <code>pgrep process_name</code> command to get the process id.</p>
+<h2 id="To-kill-a-process"><a href="#To-kill-a-process" class="headerlink" title="To kill a process"></a>To kill a process</h2><p>use <code>ps aux</code> or <code>pgreg</code> command to get the process’s PID.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep node</span><br></pre></td></tr></table></figure>
+
+<p>With the process id,  You can use <code>kill &lt;pid&gt;</code> to terminate the program. The default sends SIGTERM signal. You can use <code>kill -9 &lt;pid&gt;</code> command to  send SIGKILL to terminate immediately. SIGKILL is hard kill.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> 9058</span><br></pre></td></tr></table></figure>
+
+
+
+<p>If you know the name of the process, you can use <code>pkill [OPTIONS] &lt;PATTERN&gt;</code> to kill all running programs that match with the given name.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/ps">ps online man page</a></li>
+<li><a target="_blank" rel="noopener" href="https://linuxize.com/post/pkill-command-in-linux/">pkill</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Linux/Linux-Command-id/" rel="prev" title="Linux Command - id">
+                  <i class="fa fa-chevron-left"></i> Linux Command - id
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Linux/Linux-Command-wc/" rel="next" title="Linux Command - wc">
+                  Linux Command - wc <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

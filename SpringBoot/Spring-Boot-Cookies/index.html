@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Lets learn how to use cookies for a Spring Boot application.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot - Cookies">
+<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-Cookies/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Lets learn how to use cookies for a Spring Boot application.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Cookies.png">
+<meta property="article:published_time" content="2020-06-11T00:11:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.198Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Cookies.png">
+
+
+<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-Cookies/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-Cookies/","path":"SpringBoot/Spring-Boot-Cookies/","title":"Spring Boot - Cookies"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Boot - Cookies | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-HTTP-Cookies"><span class="nav-number">1.</span> <span class="nav-text">What is HTTP Cookies</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookies-Operations"><span class="nav-number">2.</span> <span class="nav-text">Cookies Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-Cookie"><span class="nav-number">2.1.</span> <span class="nav-text">Set Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-a-Cookie"><span class="nav-number">2.2.</span> <span class="nav-text">Get a Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-all-Cookies"><span class="nav-number">2.3.</span> <span class="nav-text">Get all Cookies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Delete-a-Cookie"><span class="nav-number">2.4.</span> <span class="nav-text">Delete a Cookie</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-Cookies/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Boot - Cookies | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot - Cookies
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-10 20:11:00" itemprop="dateCreated datePublished" datetime="2020-06-10T20:11:00-04:00">2020-06-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Lets learn how to use cookies for a Spring Boot application.</p>
+<span id="more"></span>
+
+<h1 id="What-is-HTTP-Cookies"><a href="#What-is-HTTP-Cookies" class="headerlink" title="What is HTTP Cookies"></a>What is HTTP Cookies</h1><p>An <strong>HTTP cookie</strong> (web cookie, browser cookie) is a small piece of data that a server sends to the user’s web browser. The browser may store it and send it back with later requests to the same server. Typically, it’s used to tell if two requests came from the same browser — keeping a user logged-in, for example. It remembers stateful information for the stateless HTTP protocol.</p>
+<p><strong>Session management</strong> Logins, shopping carts, game scores, or anything else the server should remember</p>
+<p><strong>Personalization</strong> User preferences, themes, and other settings</p>
+<p><strong>Tracking</strong> Recording and analyzing user behavior</p>
+<p>The <code>Set-Cookie</code> HTTP response header from the server sets the cookie in the client side. Here is an example HTTP Response that sets a cookie with key <code>foo</code>. This cookie expires at 18-Jun-2020 02:39:49 GMT.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200</span><br><span class="line">Set-Cookie: foo=bar; Max-Age=604800; Expires=Thu, 18-Jun-2020 02:39:49 GMT</span><br><span class="line">Content-Type: text/html;charset=UTF-8</span><br><span class="line">Content-Length: 16</span><br><span class="line">Date: Thu, 11 Jun 2020 02:39:49 GMT</span><br><span class="line">Keep-Alive: timeout=60</span><br><span class="line">Connection: keep-alive</span><br></pre></td></tr></table></figure>
+
+<p>The subsequent HTTP Request will have <code>Cookie</code> header set to include the Cookie value. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET /readCookie HTTP/1.1</span><br><span class="line">Host: localhost:8080</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: en-US,en;</span><br><span class="line">Cookie: foo=bar</span><br></pre></td></tr></table></figure>
+
+<p>You can also use Javascript to set a cookie. Hre is an example to set a cookie named <code>foo</code> with value <code>bar</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.cookie = &quot;foo=bar&quot;</span><br></pre></td></tr></table></figure>
+
+<p>You can inspect a site’s cookie in the Application tab under storage&#x2F;Cookies session.</p>
+<p><img src="/Cookies.png"></p>
+<h1 id="Cookies-Operations"><a href="#Cookies-Operations" class="headerlink" title="Cookies Operations"></a>Cookies Operations</h1><h2 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set Cookie"></a>Set Cookie</h2><p>You can create a cookie instance and add the cookie to the Http response. There are a few properties you can set for a Cookie.</p>
+<p>The <code>MaxAge</code> attribute of the cookie sets the expiration of a cookie. default is <code>-1</code>. <code>-1</code> means it is a Session Cookie. Session cookie will be erased when the user closes the browser.</p>
+<p>A cookie with the <code>Secure</code> attribute is sent to the server only with an encrypted request over the HTTPS protocol. Set this attribute to be true to prevent man-in-the-middle attach.</p>
+<p>A cookie with the <code>HttpOnly</code> attribute is inaccessible to the JavaScript Document.cookie API. Set this attribute to be true to prevent Cross-site scripting(XSS) attack.</p>
+<p>The <code>Domain</code> attribute specifies which hosts are allowed to receive the cookie. If unspecified, it defaults to the same origin that set the cookie, excluding subdomains. </p>
+<p>The <code>Path</code> attribute indicates a URL path that must exist in the requested URL in order to send the Cookie header.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http://localhost:8080/setCookie</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/setCookie&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">setCookie</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="type">Cookie</span> <span class="variable">cookie</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cookie</span>(<span class="string">&quot;foo&quot;</span>, <span class="string">&quot;bar&quot;</span>);</span><br><span class="line">    cookie.setSecure(<span class="literal">false</span>);</span><br><span class="line">    cookie.setHttpOnly(<span class="literal">false</span>);</span><br><span class="line">    cookie.setMaxAge(<span class="number">7</span> * <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span>); <span class="comment">// expires in 7 days</span></span><br><span class="line">    response.addCookie(cookie);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;cookie is added!&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Get-a-Cookie"><a href="#Get-a-Cookie" class="headerlink" title="Get a Cookie"></a>Get a Cookie</h2><p>You can use <code>@CookieValue</code> annotation to read a cookie’s value</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http://localhost:8080/readCookie</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/readCookie&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">readCookie</span><span class="params">(<span class="meta">@CookieValue(&quot;foo&quot;)</span> String fooCookieValue)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;The value of foo cookie is &quot;</span> + fooCookieValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Another way to get Cookie value is via <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/util/WebUtils.html">WebUtils</a>. WebUtils has a <code>getCookie</code> method to get the first cookie with the given name, or null if none is found.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Cookie</span> <span class="variable">cookie</span> <span class="operator">=</span> WebUtils.getCookie(request, <span class="string">&quot;foo&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Get-all-Cookies"><a href="#Get-all-Cookies" class="headerlink" title="Get all Cookies"></a>Get all Cookies</h2><p>You can get all cookies from Http Request.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http://localhost:8080/readAllCookie</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/readAllCookie&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">readAllCookie</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    Cookie[] cookies = request.getCookies();</span><br><span class="line">    <span class="keyword">if</span>( cookies != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> Stream.of(cookies).map(c-&gt; c.getName() + <span class="string">&quot;=&quot;</span> + c.getValue()).collect(Collectors.joining(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;No cookie is found!&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Delete-a-Cookie"><a href="#Delete-a-Cookie" class="headerlink" title="Delete a Cookie"></a>Delete a Cookie</h2><p>To delete a cookie, unset its value and set its MaxAge to be 0. Make sure the attributes also matches.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// http://localhost:8080/deleteCookie</span></span><br><span class="line"><span class="meta">@GetMapping(&quot;/deleteCookie&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">deleteCookie</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="type">Cookie</span> <span class="variable">cookie</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cookie</span>(<span class="string">&quot;foo&quot;</span>, <span class="literal">null</span>);</span><br><span class="line">    cookie.setMaxAge(<span class="number">0</span>);</span><br><span class="line">    cookie.setSecure(<span class="literal">false</span>);</span><br><span class="line">    cookie.setHttpOnly(<span class="literal">false</span>);</span><br><span class="line">    response.addCookie(cookie);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;cookie is deleted!&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>Reference</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">Using HTTP cookies by MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://dzone.com/articles/how-to-use-cookies-in-spring-boot">How to Use Cookies in Spring Boot by Atta Shah</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringSecurity/Spring-Security-Method-Security/" rel="prev" title="Spring Security - Method Security">
+                  <i class="fa fa-chevron-left"></i> Spring Security - Method Security
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-HttpSession/" rel="next" title="Spring Boot - HttpSession">
+                  Spring Boot - HttpSession <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="find - Find files or directories under the given directory tree, recursively.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Command - find">
+<meta property="og:url" content="http://example.com/Linux/Linux-Command-find/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="find - Find files or directories under the given directory tree, recursively.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-12-20T23:57:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.183Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Linux/Linux-Command-find/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Linux/Linux-Command-find/","path":"Linux/Linux-Command-find/","title":"Linux Command - find"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux Command - find | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Option"><span class="nav-number">2.</span> <span class="nav-text">Option</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Expression"><span class="nav-number">3.</span> <span class="nav-text">Expression</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tests"><span class="nav-number">3.1.</span> <span class="nav-text">Tests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Action"><span class="nav-number">3.2.</span> <span class="nav-text">Action</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#find-by-name-pattern"><span class="nav-number">4.1.</span> <span class="nav-text">find by name pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-by-type"><span class="nav-number">4.2.</span> <span class="nav-text">find by type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-files-not-matching-a-pattern"><span class="nav-number">4.3.</span> <span class="nav-text">find files not matching a pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-files-at-certain-level"><span class="nav-number">4.4.</span> <span class="nav-text">find files at certain level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-by-size"><span class="nav-number">4.5.</span> <span class="nav-text">find by size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-by-permission"><span class="nav-number">4.6.</span> <span class="nav-text">find by permission</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-by-path"><span class="nav-number">4.7.</span> <span class="nav-text">find by path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#excluding-path"><span class="nav-number">4.8.</span> <span class="nav-text">excluding path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-by-user"><span class="nav-number">4.9.</span> <span class="nav-text">find by user</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-by-group"><span class="nav-number">4.10.</span> <span class="nav-text">find by group</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-files-accessed-last-week-in-current-directory-hierarchy"><span class="nav-number">4.11.</span> <span class="nav-text">find files accessed last week in current directory hierarchy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-files-modified-in-24-hours-in-current-directory-hierarchy"><span class="nav-number">4.12.</span> <span class="nav-text">find files modified in 24 hours in current directory hierarchy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-files-with-status-change-last-week-in-current-directory-hierarchy"><span class="nav-number">4.13.</span> <span class="nav-text">find files with status change last week in current directory hierarchy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-empty-files-in-current-directory-hierarchy"><span class="nav-number">4.14.</span> <span class="nav-text">find empty files in current directory hierarchy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Linux/Linux-Command-find/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux Command - find | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux Command - find
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-20 18:57:00" itemprop="dateCreated datePublished" datetime="2018-12-20T18:57:00-05:00">2018-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><code>find</code> - Find files or directories under the given directory tree, <strong>recursively</strong>.</p>
+<span id="more"></span>
+
+
+<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [options] [root_path] [expression]</span><br></pre></td></tr></table></figure>
+
+<h1 id="Option"><a href="#Option" class="headerlink" title="Option"></a>Option</h1><p>If no paths are given, the current directory is used.</p>
+<p>The -H, -L and -P options control the treatment of symbolic links.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-H</td>
+<td>Do not follow symbolic links, except while processing the command line arguments.</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>Follow symbolic links.</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>Never follow symbolic links.</td>
+</tr>
+</tbody></table>
+<h1 id="Expression"><a href="#Expression" class="headerlink" title="Expression"></a>Expression</h1><p>The expression is made up of <strong>options</strong> (which affect overall operation rather than the processing of a specific file, and always return true), <strong>tests</strong> (which return a true or false value), and <strong>actions</strong> (which have side effects and return a true or false value), all separated by operators. -and is assumed where the operator is omitted.</p>
+<h2 id="Tests"><a href="#Tests" class="headerlink" title="Tests"></a>Tests</h2><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-name pattern</td>
+<td>Base of file name matches shell pattern pattern.</td>
+</tr>
+<tr>
+<td>-type c</td>
+<td>files of type c.</td>
+</tr>
+<tr>
+<td>-size n[cwbkMG] file uses n units of space</td>
+<td></td>
+</tr>
+<tr>
+<td>-perm -mode</td>
+<td>File’s permission bits are exactly mode</td>
+</tr>
+<tr>
+<td>-atime n</td>
+<td>File was last accessed n*24 hours ago.</td>
+</tr>
+<tr>
+<td>-cmin n</td>
+<td>File’s status was last changed n minutes ago.</td>
+</tr>
+<tr>
+<td>-cnewer file</td>
+<td>File’s status was last changed more recently than file was modified.</td>
+</tr>
+<tr>
+<td>-ctime n</td>
+<td>File’s status was last changed n*24 hours ago.</td>
+</tr>
+<tr>
+<td>-mtime n</td>
+<td>File’s data was last modified n*24 hours ago.</td>
+</tr>
+<tr>
+<td>-empty</td>
+<td>File is empty and is either a regular file or a directory.</td>
+</tr>
+</tbody></table>
+<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><table>
+<thead>
+<tr>
+<th>Action</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-print</td>
+<td>print the full file name on the standard output, followed by a newline</td>
+</tr>
+<tr>
+<td>-print0</td>
+<td>print the full file name on the standard output, followed by a null character</td>
+</tr>
+<tr>
+<td>-delete</td>
+<td>Delete files;</td>
+</tr>
+<tr>
+<td>-exec command</td>
+<td>Execute command;</td>
+</tr>
+</tbody></table>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="find-by-name-pattern"><a href="#find-by-name-pattern" class="headerlink" title="find by name pattern"></a>find by name pattern</h2><p>use <code>-name</code> option to find by name. This is the most common use case. </p>
+<p>find .jpg files in ~&#x2F;Pictures directory hierarchy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ~/Pictures -name &quot;*.jpg&quot;</span><br></pre></td></tr></table></figure>
+
+
+<p>You can also use pattern. Find a file starts with digit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name &quot;[0-9]*.log&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-by-type"><a href="#find-by-type" class="headerlink" title="find by type"></a>find by type</h2><p>use <code>-type</code> option to find by file type.</p>
+<p>File type</p>
+<ul>
+<li>f - regular file</li>
+<li>d - directory</li>
+<li>b - block (buffered) special</li>
+<li>c - character (unbuffered) special</li>
+<li>p - named pipe (FIFO)</li>
+<li>l - symbolic link</li>
+<li>s - socket</li>
+<li>D - door (Solaris)</li>
+</ul>
+<p>find regular file in current directory hierarchy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -type f</span><br></pre></td></tr></table></figure>
+
+<p>find directory in current directory hierarchy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -type d</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-files-not-matching-a-pattern"><a href="#find-files-not-matching-a-pattern" class="headerlink" title="find files not matching a pattern"></a>find files not matching a pattern</h2><p>use “not” operator to find a list of files not ending with .png file extension</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -not -name &quot;*.png&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-files-at-certain-level"><a href="#find-files-at-certain-level" class="headerlink" title="find files at certain level"></a>find files at certain level</h2><p>Use <code>-maxdepth levels</code> <code>-mindepth levels</code> to specify the depth. depth 0 means the command line arguments.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -maxdepth 1 -type f -name &quot;*.png&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-by-size"><a href="#find-by-size" class="headerlink" title="find by size"></a>find by size</h2><p>use <code>-size</code> option to find files by size</p>
+<p>find .java files with size greater than 2k in current directory hierarchy</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -type f -size 2k -name &quot;*.java&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-by-permission"><a href="#find-by-permission" class="headerlink" title="find by permission"></a>find by permission</h2><p>There are three variations.</p>
+<ul>
+<li><strong>-perm mode</strong> File’s permission bits are exactly mode (octal or symbolic).</li>
+<li><strong>-perm -mode</strong> All of the permission bits mode are set for the file.</li>
+<li><strong>-perm &#x2F;mode</strong> Any of the permission bits mode are set for the file.</li>
+</ul>
+<p>find files that is readable, writable for owner, but only readable for the group and other users.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -perm 644</span><br></pre></td></tr></table></figure>
+
+<p>find files that is readable, writable for owner. group and other users doesn’t matter</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -perm 600</span><br></pre></td></tr></table></figure>
+
+<p>find files that can be read by either owner or group</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -perm /440</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-by-path"><a href="#find-by-path" class="headerlink" title="find by path"></a>find by path</h2><p>use <code>-path</code> option to find file by path.</p>
+<p>find .css files in node_modules folder</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*.css&quot; -path &quot;**/node_modules/**&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="excluding-path"><a href="#excluding-path" class="headerlink" title="excluding path"></a>excluding path</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*.css&quot; -not -path  &quot;**/node_modules/**&quot;</span><br></pre></td></tr></table></figure>
+
+<p>To exclude multiple paths</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*.css&quot; -not -path  &quot;**/node_modules/**&quot; -not -path &quot;**/.deploy_git/**&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-by-user"><a href="#find-by-user" class="headerlink" title="find by user"></a>find by user</h2><p>find file owned by root</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -user root </span><br></pre></td></tr></table></figure>
+
+<h2 id="find-by-group"><a href="#find-by-group" class="headerlink" title="find by group"></a>find by group</h2><p>find file owned by root group</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -group root </span><br></pre></td></tr></table></figure>
+
+<h2 id="find-files-accessed-last-week-in-current-directory-hierarchy"><a href="#find-files-accessed-last-week-in-current-directory-hierarchy" class="headerlink" title="find files accessed last week in current directory hierarchy"></a>find files accessed last week in current directory hierarchy</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -atime -7</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-files-modified-in-24-hours-in-current-directory-hierarchy"><a href="#find-files-modified-in-24-hours-in-current-directory-hierarchy" class="headerlink" title="find files modified in 24 hours in current directory hierarchy"></a>find files modified in 24 hours in current directory hierarchy</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -mtime -1</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-files-with-status-change-last-week-in-current-directory-hierarchy"><a href="#find-files-with-status-change-last-week-in-current-directory-hierarchy" class="headerlink" title="find files with status change last week in current directory hierarchy"></a>find files with status change last week in current directory hierarchy</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -ctime -7</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-empty-files-in-current-directory-hierarchy"><a href="#find-empty-files-in-current-directory-hierarchy" class="headerlink" title="find empty files in current directory hierarchy"></a>find empty files in current directory hierarchy</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -empty</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/find">find online man page</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Linux/Linux-Command-locate/" rel="prev" title="Linux Command - locate">
+                  <i class="fa fa-chevron-left"></i> Linux Command - locate
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Linux/Linux-Command-find-with-exec-action/" rel="next" title="Linux Command - find with -exec action">
+                  Linux Command - find with -exec action <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

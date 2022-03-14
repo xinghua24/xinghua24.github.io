@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Python Introduction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Introduction">
+<meta property="og:url" content="http://example.com/Others/Python-Introduction/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Python Introduction">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-06T22:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.189Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Others/Python-Introduction/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Others/Python-Introduction/","path":"Others/Python-Introduction/","title":"Python Introduction"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python Introduction | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Python3"><span class="nav-number">1.</span> <span class="nav-text">Install Python3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#print"><span class="nav-number">2.</span> <span class="nav-text">print()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variable"><span class="nav-number">3.</span> <span class="nav-text">Variable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting-input"><span class="nav-number">4.</span> <span class="nav-text">Getting input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Build-in-Types"><span class="nav-number">5.</span> <span class="nav-text">Build-in Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#None"><span class="nav-number">6.</span> <span class="nav-text">None</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operators"><span class="nav-number">7.</span> <span class="nav-text">Operators</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arithmetic-Operator"><span class="nav-number">7.1.</span> <span class="nav-text">Arithmetic Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparison-Operator"><span class="nav-number">7.2.</span> <span class="nav-text">Comparison Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Assignment-Operator"><span class="nav-number">7.3.</span> <span class="nav-text">Assignment Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logical-Operator"><span class="nav-number">7.4.</span> <span class="nav-text">Logical Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Membership-operator"><span class="nav-number">7.5.</span> <span class="nav-text">Membership operator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">8.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Control-Statement-and-Iterator"><span class="nav-number">9.</span> <span class="nav-text">Control Statement and Iterator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#If-Statement"><span class="nav-number">9.1.</span> <span class="nav-text">If Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#While-Statement"><span class="nav-number">9.2.</span> <span class="nav-text">While Statement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#For-loop"><span class="nav-number">9.3.</span> <span class="nav-text">For loop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#range-function"><span class="nav-number">9.4.</span> <span class="nav-text">range function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pass-statement"><span class="nav-number">9.5.</span> <span class="nav-text">Pass statement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-Tuple-and-Dictionary"><span class="nav-number">10.</span> <span class="nav-text">List, Tuple and Dictionary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">10.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuple"><span class="nav-number">10.2.</span> <span class="nav-text">Tuple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dicutionary"><span class="nav-number">10.3.</span> <span class="nav-text">Dicutionary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">11.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Files"><span class="nav-number">12.</span> <span class="nav-text">Files</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class"><span class="nav-number">13.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Module"><span class="nav-number">14.</span> <span class="nav-text">Module</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Package"><span class="nav-number">15.</span> <span class="nav-text">Package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Main-method"><span class="nav-number">16.</span> <span class="nav-text">Main method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">17.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Others/Python-Introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python Introduction | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python Introduction
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-06 18:00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T18:00:00-04:00">2019-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Python Introduction</p>
+<span id="more"></span>
+
+<h1 id="Install-Python3"><a href="#Install-Python3" class="headerlink" title="Install Python3"></a>Install Python3</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3</span><br></pre></td></tr></table></figure>
+
+<p>To check python3 version</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+<p>You can now run the python3 interpreter using <code>python3</code> command. </p>
+<p>You can create python program using text editors such as VS Code and run the python program using <code>python3</code> command. VS Code has Python Extension that provides intelliSense and debugging support. You can also use PyCharm if you prefer an IDE.</p>
+<h1 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h1><p>print objects. print() is a build-in function. <a target="_blank" rel="noopener" href="https://docs.python.org/3.6/library/functions.html#print">print() reference</a></p>
+<p>method signature</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(*objects, sep=<span class="string">&#x27; &#x27;</span>, end=<span class="string">&#x27;\n&#x27;</span>, file=sys.stdout, flush=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Demo</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello python&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;python&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">234.56</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># use **** as separator, separtor can be anything or empty string</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;python&quot;</span>, <span class="string">&quot;3&quot;</span>, sep=<span class="string">&quot;****&quot;</span>)   <span class="comment"># =&gt; hello****python****3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;python&quot;</span>, <span class="string">&quot;3&quot;</span>, sep=<span class="string">&quot;&quot;</span>)    <span class="comment"># =&gt; hellopython3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;python&quot;</span>, <span class="string">&quot;3&quot;</span>, sep=<span class="string">&quot;\n&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h1><ul>
+<li>Python variables can only begin with a letter(A-Za-z) or an underscore(_).</li>
+<li>Python variables are dynamically-typed. Do not specify variable type when declaring one.</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeting = <span class="string">&quot;Hello World&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Getting-input"><a href="#Getting-input" class="headerlink" title="Getting input"></a>Getting input</h1><p>Use input([promp]) build-in function to get input. <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#input">input reference</a></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># getting input</span></span><br><span class="line">inputString = <span class="built_in">input</span>(<span class="string">&quot;please enter a string&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># It is useful to keep window open after script complete execution</span></span><br><span class="line"><span class="built_in">input</span>(<span class="string">&quot;press close to exit&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>To get input as int. Note that you need to use Ctrl+D to send EOF to indicate no more input.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">a = <span class="built_in">int</span>(sys.stdin.read())</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Build-in-Types"><a href="#Build-in-Types" class="headerlink" title="Build-in Types"></a>Build-in Types</h1><p>Python has 5 standard data types</p>
+<ul>
+<li>Numbers(integers, floating point numbers, and complex numbers)</li>
+<li>String</li>
+<li>Boolean(value are True or False)</li>
+<li>sequence types(List, Tuple, Dictionary)</li>
+</ul>
+<p><strong>Infinity</strong><br><br>In python, you can have a number with infinity value</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line">a=math.inf</span><br><span class="line">b=-math.inf</span><br></pre></td></tr></table></figure>
+
+<p><strong>use type() to get object type</strong><br><br>type() is also a build-in function. <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#type">type() reference</a></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(<span class="number">123</span>)    <span class="comment"># =&gt; &lt;class &#x27;int&#x27;&gt;</span></span><br><span class="line"><span class="built_in">type</span>(<span class="number">123.45</span>)    <span class="comment"># =&gt; &lt;class &#x27;float&#x27;&gt;</span></span><br><span class="line"><span class="built_in">type</span>(<span class="string">&quot;foo&quot;</span>)    <span class="comment"># =&gt; &lt;class &#x27;str&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="None"><a href="#None" class="headerlink" title="None"></a>None</h1><p>Many languages has null value. In python, the equivelent is <code>None</code>. <code>None</code> is the only instance of class <code>NoneType</code> You can assign <code>None</code> to a variable. Use identity operator <code>is</code> to check if a variable has <code>None</code> value. </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">my_var = <span class="literal">None</span></span><br><span class="line"><span class="keyword">if</span> my_var <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">&quot;my_var is empty&quot;</span>)   <span class="comment"># &quot;my_var is empty&quot;</span></span><br><span class="line"></span><br><span class="line">my_var = <span class="string">&quot;123&quot;</span></span><br><span class="line"><span class="keyword">if</span> my_var <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">     <span class="built_in">print</span>(<span class="string">&quot;my_var is not empty&quot;</span>) <span class="comment"># &#x27;my_var is not empty&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h1><h2 id="Arithmetic-Operator"><a href="#Arithmetic-Operator" class="headerlink" title="Arithmetic Operator"></a>Arithmetic Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>addition</td>
+</tr>
+<tr>
+<td>-</td>
+<td>subtraction</td>
+</tr>
+<tr>
+<td>*</td>
+<td>multiplication</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>division</td>
+</tr>
+<tr>
+<td>&#x2F;&#x2F;</td>
+<td>floor division</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulus</td>
+</tr>
+<tr>
+<td>**</td>
+<td>exponentiation</td>
+</tr>
+</tbody></table>
+<h2 id="Comparison-Operator"><a href="#Comparison-Operator" class="headerlink" title="Comparison Operator"></a>Comparison Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;</td>
+<td>less than</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>greeter than</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;</td>
+<td>equal to</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>not equal to</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>less than or equal to</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>greeter than or equal to</td>
+</tr>
+</tbody></table>
+<h2 id="Assignment-Operator"><a href="#Assignment-Operator" class="headerlink" title="Assignment Operator"></a>Assignment Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>assign</td>
+</tr>
+<tr>
+<td>+&#x3D;</td>
+<td>add and assign</td>
+</tr>
+<tr>
+<td>-&#x3D;</td>
+<td>subtract and assign</td>
+</tr>
+<tr>
+<td>&#x2F;&#x3D;</td>
+<td>divide and assign</td>
+</tr>
+<tr>
+<td>* &#x3D;</td>
+<td>multiple and assign</td>
+</tr>
+<tr>
+<td>%&#x3D;</td>
+<td>modulus and assign</td>
+</tr>
+<tr>
+<td>**&#x3D;</td>
+<td>exponent and assign</td>
+</tr>
+<tr>
+<td>&#x2F;&#x2F;&#x3D;</td>
+<td>floor-divide and assign</td>
+</tr>
+</tbody></table>
+<h2 id="Logical-Operator"><a href="#Logical-Operator" class="headerlink" title="Logical Operator"></a>Logical Operator</h2><table>
+<thead>
+<tr>
+<th>operator</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>and</td>
+<td>return true when both statement are true</td>
+</tr>
+<tr>
+<td>or</td>
+<td>return true when either statement is true</td>
+</tr>
+<tr>
+<td>not</td>
+<td>inverts the Boolean value of an expresion</td>
+</tr>
+</tbody></table>
+<h2 id="Membership-operator"><a href="#Membership-operator" class="headerlink" title="Membership operator"></a>Membership operator</h2><p>There are two membership operators ‘in’ and ‘not in’</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;tea&#x27;</span> <span class="keyword">in</span> [<span class="string">&#x27;latte&#x27;</span>, <span class="string">&#x27;tea&#x27;</span>, <span class="string">&#x27;coke&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;tea&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">&#x27;latte&#x27;</span>, <span class="string">&#x27;tea&#x27;</span>, <span class="string">&#x27;coke&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str">str reference</a></p>
+<ul>
+<li>You can use single quotes or double quotes</li>
+<li>If the string contains single quote, then it is better to use double quotes</li>
+<li>tripple quotes “”” and ‘’’ can be used for multiline string</li>
+<li>use square brackets for slicing</li>
+<li>use + to concatenate strings</li>
+<li>use len() function to return a string’s length</li>
+<li>use &#x3D;&#x3D; to compare strings</li>
+<li>Use <code>in</code> operator or find method to check if a string is a substring of another string</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello World&quot;</span></span><br><span class="line">s[<span class="number">0</span>]    <span class="comment"># =&gt; H</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># slicing</span></span><br><span class="line">s[<span class="number">0</span>:<span class="number">3</span>]    <span class="comment"># =&gt; Hel</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># String concat</span></span><br><span class="line"><span class="string">&quot;Hello&quot;</span> + <span class="string">&quot; &quot;</span> + <span class="string">&quot;World&quot;</span>   <span class="comment"># Hello World</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># formatting</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;My name is %s and I am %d years old&quot;</span> % (<span class="string">&quot;Mark&quot;</span>, <span class="number">42</span>))    <span class="comment"># =&gt; My name is Mark and I am 42 years old</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get string length</span></span><br><span class="line"><span class="built_in">len</span>(s)</span><br><span class="line"></span><br><span class="line"><span class="comment"># search for a substring</span></span><br><span class="line">s.find(<span class="string">&quot;Wor&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># upper case</span></span><br><span class="line">s.upper()</span><br><span class="line"></span><br><span class="line"><span class="comment"># lower case</span></span><br><span class="line">s.lower()</span><br><span class="line"></span><br><span class="line"><span class="comment"># format</span></span><br><span class="line"><span class="string">&quot;the Sum of 1 + 2 is &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(<span class="number">1</span>+<span class="number">2</span>)    <span class="comment"># =&gt; &#x27;the Sum of 1 + 2 is 3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># convert number to string</span></span><br><span class="line"><span class="built_in">str</span>(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># check string contains</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;de&quot;</span> <span class="keyword">in</span> <span class="string">&quot;abcde&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;de is found&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Control-Statement-and-Iterator"><a href="#Control-Statement-and-Iterator" class="headerlink" title="Control Statement and Iterator"></a>Control Statement and Iterator</h1><h2 id="If-Statement"><a href="#If-Statement" class="headerlink" title="If Statement"></a>If Statement</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;x:&quot;</span>)</span><br><span class="line">y = <span class="built_in">input</span>(<span class="string">&quot;y:&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> x &lt; y:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;x is less than y&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> x &gt; y:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;x is greater than y&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;x and y are equal&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="While-Statement"><a href="#While-Statement" class="headerlink" title="While Statement"></a>While Statement</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> count &lt; <span class="number">10</span>:</span><br><span class="line">     <span class="built_in">print</span>(count)</span><br><span class="line">     count += <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>The <strong>break</strong> statement terminates the loop containing it.</p>
+<p>The <strong>continue</strong> statement is used to skip the rest of the code inside a loop for the current iteration only. </p>
+<h2 id="For-loop"><a href="#For-loop" class="headerlink" title="For loop"></a>For loop</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">    <span class="built_in">print</span>(i)  <span class="comment"># output 1 3 7 10</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="range-function"><a href="#range-function" class="headerlink" title="range function"></a>range function</h2><p>for loop with range() function.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># output 0 to 4</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output 10 to 0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<p>range() function generate a sequence of numbers  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">range</span>(start, stop, step)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pass-statement"><a href="#Pass-statement" class="headerlink" title="Pass statement"></a>Pass statement</h2><p><code>pass</code> statement does nothing. It is usally used when we have a loop or function that is not implemented yet.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="List-Tuple-and-Dictionary"><a href="#List-Tuple-and-Dictionary" class="headerlink" title="List, Tuple and Dictionary"></a>List, Tuple and Dictionary</h1><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
+<li>ordered list</li>
+<li>use [index] to get the item in the list</li>
+<li>if the index is negative, then it will count from the right instead of left</li>
+<li>use in operator to check if an item is in the list</li>
+<li>use len() function to get the string length</li>
+<li>use append method to append item to a list</li>
+</ul>
+<p>see <a target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">https://docs.python.org/3/tutorial/datastructures.html#more-on-lists</a> for all list operations</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">empytList = []    <span class="comment"># empty list</span></span><br><span class="line"></span><br><span class="line">people = [<span class="string">&quot;Alice&quot;</span>, <span class="string">&quot;Bob&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(people[<span class="number">0</span>])    <span class="comment"># =&gt; Alice</span></span><br><span class="line">people[<span class="number">1</span>] = <span class="string">&quot;Ted&quot;</span>    <span class="comment"># =&gt; change list item value</span></span><br><span class="line"></span><br><span class="line">people.append(<span class="string">&quot;Cathy&quot;</span>) <span class="comment"># append new element</span></span><br><span class="line">people.remove(<span class="string">&quot;Cathy&quot;</span>) <span class="comment"># remove element</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Use List as Stack</strong><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">stack.append(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(stack.pop())    <span class="comment"># 4</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Queue</strong><br><br>Using list as Queue is not efficient. Use <code>collections.deque</code> because it has fast appends and pops at both ends.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line">queue = deque([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">queue.append(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(queue.popleft())    <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h2><p>Tuple - tuple is like an immutable list.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numbers = (<span class="number">2</span>, <span class="number">4</span> ,<span class="number">6</span> ,<span class="number">8</span>)</span><br><span class="line">numbers[<span class="number">0</span>]     <span class="comment"># print 2</span></span><br><span class="line">numbers[<span class="number">1</span>:<span class="number">3</span>]   <span class="comment"># print (4, 6)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Dicutionary"><a href="#Dicutionary" class="headerlink" title="Dicutionary"></a>Dicutionary</h2><p>Dictionary - like a Map, it stores key-value pairs. Order doesn’t matter for a dictionary.</p>
+<p>see <a target="_blank" rel="noopener" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">https://docs.python.org/3/tutorial/datastructures.html#dictionaries</a> for all dictionary operations</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">employees = &#123; <span class="string">&quot;alice&quot;</span>: <span class="string">&quot;developer&quot;</span>, <span class="string">&quot;bob&quot;</span>: <span class="string">&quot;sales&quot;</span> &#125;</span><br><span class="line">employees[<span class="string">&quot;alice&quot;</span>]            <span class="comment"># output &#x27;developer&#x27;</span></span><br><span class="line">employees[<span class="string">&quot;alice&quot;</span>] = <span class="string">&quot;CEO&quot;</span>    <span class="comment"># sets value of &#x27;alice&#x27; to be &#x27;CEO&#x27;</span></span><br><span class="line">employees.keys()              <span class="comment"># dict_keys([&#x27;alice&#x27;, &#x27;bob&#x27;])</span></span><br><span class="line">employees.values()            <span class="comment"># dict_values([&#x27;CEO&#x27;, &#x27;sales&#x27;])</span></span><br><span class="line"><span class="keyword">del</span> employees[<span class="string">&quot;alice&quot;</span>]        <span class="comment"># delete key &quot;alice&quot;</span></span><br><span class="line">employees[<span class="string">&quot;abc&quot;</span>]              <span class="comment"># KeyError: &#x27;abc&#x27;</span></span><br><span class="line">employees.get(<span class="string">&quot;abc&quot;</span>)          <span class="comment"># None</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><p>Functions are defined using ‘def’</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">num1, num2</span>):</span><br><span class="line">     <span class="keyword">return</span> num1 + num2</span><br><span class="line"> </span><br><span class="line">add(<span class="number">2</span>, <span class="number">3</span>)  <span class="comment"># =&gt; 5</span></span><br></pre></td></tr></table></figure>
+
+<p>Python supports multiple return values.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">num1, num2</span>):</span><br><span class="line">     <span class="keyword">return</span> num1+num2, num1-num2</span><br><span class="line"></span><br><span class="line">x,y = cal(<span class="number">10</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h1><p>By default, files are open in reading mode. modes are ‘r’, ‘w’, ‘x’(exclusive creation), ‘a’, ‘b’, ‘+’(reading and writing).</p>
+<p>read file and write file.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># write file</span></span><br><span class="line">myfile = <span class="built_in">open</span>(<span class="string">&#x27;output.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">myfile.write(<span class="string">&quot;ABC\n&quot;</span>)</span><br><span class="line">myfile.write(<span class="string">&quot;DEF\n&quot;</span>)</span><br><span class="line">myfile.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># read file</span></span><br><span class="line">myfile = <span class="built_in">open</span>(<span class="string">&#x27;output.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">content = myfile.read()</span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">myfile.close()</span><br></pre></td></tr></table></figure>
+
+<br>
+With statement
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;sample.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> myFile:</span><br><span class="line">    myFile.write(<span class="string">&quot;ABC\n&quot;</span>)</span><br><span class="line">    myFile.write(<span class="string">&quot;DEF\n&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;sample.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> myFile:</span><br><span class="line">    <span class="built_in">print</span>(myFile.read())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>Read file line by line</strong><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;file.txt&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f: </span><br><span class="line">    <span class="built_in">print</span>(line.strip())</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<p>Reference:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.programiz.com/python-programming/file-operation">Python Tutorial - File operation</a></li>
+</ul>
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><p>You can assign attributes to an Object. functions defined in an class should have a ‘self’<br>reference to the instance by convention. It can be named differently but not recommended.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(self.sound)</span><br><span class="line"></span><br><span class="line">animal = Animal()</span><br><span class="line">animal.sound = <span class="string">&quot;...&quot;</span></span><br><span class="line">animal.speak()</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>init method</strong><br><br>the init method is <strong>init</strong>(two underscore characters, followed by init, and then two more underscores)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, sound</span>):</span><br><span class="line">    self.sound = sound</span><br></pre></td></tr></table></figure>
+
+<p><strong>toString method</strong><br><br><strong>str</strong> is supposed to return a string representation of an object.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Animal&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Inheritance</strong><br><br>syntax</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BaseClass</span>:</span><br><span class="line">  Body of base <span class="keyword">class</span></span><br><span class="line"><span class="title class_">class</span> DerivedClass(BaseClass):</span><br><span class="line">  Body of derived <span class="keyword">class</span></span><br></pre></td></tr></table></figure>
+
+<p>Sample</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(self.sound)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span>(<span class="title class_ inherited__">Animal</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">speak</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;meow&quot;</span>)</span><br><span class="line"></span><br><span class="line">cat = Cat()</span><br><span class="line">cat.speak()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p>A module is a file containing Python definitions and statements. The file name is the module name with the suffix .py appended. </p>
+<p>A module can contain executable statements as well as function definitions.</p>
+<p>calc.py file defines module calc with two functions</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">num1, num2</span>):</span><br><span class="line">    <span class="keyword">return</span> num1 + num2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">subtract</span>(<span class="params">num1, num2</span>):</span><br><span class="line">    <span class="keyword">return</span> num1 - num2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Import calc module and use its functions</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> calc</span><br><span class="line"><span class="built_in">print</span>(calc.add(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(calc.subtract(<span class="number">2</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong>Importing build-in Module</strong><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import a math module</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.sqrt(<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<p><strong>from … import …</strong><br><br>import specific functions from a module</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> ceil, floor</span><br><span class="line"><span class="built_in">print</span>(ceil(<span class="number">3.7</span>))   <span class="comment"># =&gt; 4.0</span></span><br><span class="line"><span class="built_in">print</span>(floor(<span class="number">3.7</span>))  <span class="comment"># =&gt; 3.0</span></span><br></pre></td></tr></table></figure>
+
+<p>import functions and datatypes</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple, deque</span><br></pre></td></tr></table></figure>
+
+<p>**from … import * **<br><br>import all functions in a module, not recommended</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> *</span><br><span class="line"><span class="built_in">print</span>(sqrt(<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h1><p>A package is a collection of related python modules. A Package must contain a special file <strong>__init__.py</strong>. The initialization code in <strong>__init__.py</strong> will be executed when package is imported. You will usually see import statements in <strong>__init__.py</strong> file.</p>
+<h1 id="Main-method"><a href="#Main-method" class="headerlink" title="Main method"></a>Main method</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;in main method&quot;</span>) <span class="comment"># =&gt; in main method</span></span><br></pre></td></tr></table></figure>
+<p>The above code snippe is used quite often. It checks if a module is being imported or not.</p>
+<p>In other words, the code within the ‘if’ block will be executed only when the code runs directly. Here ‘directly’ means ‘not imported’.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.programiz.com/python-programming/first-program">Python Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://realpython.com/python-modules-packages/">Python Modules and Packages – An Introduction by John Sturtz</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Linux/Run-Command-in-Background/" rel="prev" title="Run Command in the Background">
+                  <i class="fa fa-chevron-left"></i> Run Command in the Background
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-MongoDB/" rel="next" title="Spring Boot - MongoDB">
+                  Spring Boot - MongoDB <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Spring Security Introduction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Security - Intro">
+<meta property="og:url" content="http://example.com/SpringSecurity/Spring-Security-Intro/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Spring Security Introduction">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Intro/login.png">
+<meta property="og:image" content="http://example.com/basic-auth.png">
+<meta property="og:image" content="http://example.com/filter-chain.png">
+<meta property="og:image" content="http://example.com/debug-FilterChainProxy.png">
+<meta property="article:published_time" content="2020-04-25T22:37:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.205Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/SpringSecurity/Spring-Security-Intro/login.png">
+
+
+<link rel="canonical" href="http://example.com/SpringSecurity/Spring-Security-Intro/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringSecurity/Spring-Security-Intro/","path":"SpringSecurity/Spring-Security-Intro/","title":"Spring Security - Intro"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Security - Intro | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Security-Basic-Concepts"><span class="nav-number">1.</span> <span class="nav-text">Security Basic Concepts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dependency"><span class="nav-number">2.</span> <span class="nav-text">Dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Security-In-Action"><span class="nav-number">3.</span> <span class="nav-text">Spring Security In Action</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Security-Configuration"><span class="nav-number">4.</span> <span class="nav-text">Security Configuration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-Spring-Security-Works"><span class="nav-number">5.</span> <span class="nav-text">How Spring Security Works</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Documentation"><span class="nav-number">6.</span> <span class="nav-text">Documentation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringSecurity/Spring-Security-Intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Security - Intro | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Security - Intro
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-04-25 18:37:00" itemprop="dateCreated datePublished" datetime="2020-04-25T18:37:00-04:00">2020-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Spring Security Introduction</p>
+<span id="more"></span>
+
+<p>Spring Security is a very popular authentication and authorization framework. If you are building Spring based web application, Spring Security should be your go to framework for securing your application.</p>
+<p>Note that this post and the following sprint security blog posts are used for Spring Boot application.</p>
+<h1 id="Security-Basic-Concepts"><a href="#Security-Basic-Concepts" class="headerlink" title="Security Basic Concepts"></a>Security Basic Concepts</h1><ul>
+<li><strong>Authentication</strong> - validate the user’s credentials</li>
+<li><strong>Authorization</strong> - verify the authenticated user has permission to access certain feature of the application</li>
+<li><strong>Principal</strong> - The user that is currently logged in.</li>
+<li><strong>Role</strong> - Coarse grained representation of a set of Authorities. A user can have multiple roles. Roles usually starts with <code>ROLE_</code> prefix</li>
+<li><strong>Granted Authority</strong> - individual privilege.</li>
+</ul>
+<h1 id="Dependency"><a href="#Dependency" class="headerlink" title="Dependency"></a>Dependency</h1><p>Spring Boot provides a spring-boot-starter-security starter that aggregates Spring Security-related dependencies together.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>For spring security test support</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Spring-Security-In-Action"><a href="#Spring-Security-In-Action" class="headerlink" title="Spring Security In Action"></a>Spring Security In Action</h1><p>After adding spring security dependency, Spring will enable Form Authentication automatically. The default username is <strong>user</strong> and the password will be print to the console. The password will be different for every application startup.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using generated security password: 74fbc0b8-c18e-49a0-9144-95cd019d8010</span><br></pre></td></tr></table></figure>
+
+<img src="login.png" />
+Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-9144-95cd019d8010**
+
+<p>Go to <code>http://localhost:8080/logout</code> page to invalidate the session and logout of the application.</p>
+<p>You can set a custom user name and password in application.properties file. Spring Security will use in memory authentication with the provided username and password</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.security.user.name=user</span><br><span class="line">spring.security.user.password=password</span><br></pre></td></tr></table></figure>
+
+<h1 id="Security-Configuration"><a href="#Security-Configuration" class="headerlink" title="Security Configuration"></a>Security Configuration</h1><p>We configure Spring security by creating a configuration class that extends <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.html">WebSecurityConfigurerAdapter</a>.</p>
+<p>We also need to add @EnableWebSecurity annotation to the configuration class.  @EnableWebSecurity enable Spring Security’s web security support and provide the Spring MVC integration. </p>
+<p>Here is what a Spring Security configuration looks like:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfiguration</span> <span class="keyword">extends</span> <span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        http.authorizeRequests().anyRequest().authenticated().and().httpBasic();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In this example, we override <code>configure(HttpSecurity http)</code> method. The configuration  will secure all requests and use Basic authentication instead of form base authentication.</p>
+<p>With the above configuration we switch from form base authentication to basic authentication:<br><img src="/basic-auth.png"></p>
+<h1 id="How-Spring-Security-Works"><a href="#How-Spring-Security-Works" class="headerlink" title="How Spring Security Works"></a>How Spring Security Works</h1><p>Spring Security maintains a filter chain. All the requests has to gone through the filter chain in order to visite the resource. Each filter has a specific responsbility. You can add, remove and replace filters in the filter chain. </p>
+<p>To learn more on filter chain, see <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture">Servlet Security Reference: The Big Picture</a></p>
+<p><img src="/filter-chain.png"></p>
+<p>Here are some of the <strong>IMPORTANT</strong> Filters you need to understand: </p>
+<p><strong>FilterChainProxy</strong><br>Spring Security’s FilterChainProxy is the entry point for all web base security. You can put a breakpoint at FilterChainProxy’s <em>doFilterInternal</em> method to see all the Filters used.  </p>
+<p><img src="/debug-FilterChainProxy.png" alt="Debug FilterChianProxy class"></p>
+<p><strong>SecurityContextPersistenceFilter</strong><br><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/context/SecurityContextPersistenceFilter.html">SecurityContextPersistenceFilter</a> populates the SecurityContextHolder with information obtained from the configured SecurityContextRepository prior to the request and stores it back in the repository once the request has completed and clearing the context holder. By default it uses an HttpSessionSecurityContextRepository. </p>
+<p><strong>Authentication processing filter</strong><br><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.html">UsernamePasswordAuthenticationFilter</a>, CasAuthenticationFilter, BasicAuthenticationFilter, OAuth2LoginAuthenticationFilter etc - Processes an authentication. Then putting the valid authentication token into the SecurityContextHolder.</p>
+<p><strong>ExceptionTranslationFilter</strong><br>The <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/access/ExceptionTranslationFilter.html">ExceptionTranslationFilter</a> allows translation of AccessDeniedException and AuthenticationException into HTTP responses.</p>
+<p><strong>FilterSecurityInterceptor</strong><br>The <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/access/intercept/FilterSecurityInterceptor.html">FilterSecurityInterceptor</a> provides authorization for HttpServletRequests. If access is denied, an AccessDeniedException is thrown. ExceptionTranslationFilter handles the AccessDeniedException.</p>
+<h1 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/">Spring security Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html">Spring Security Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security">Spring Security source code in Github</a></li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/java-config-spring-security">Introduction to Java Config for Spring Security by Baeldung</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=I0poT4UxFxE">Authentication vs authorization by Java Brains</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41480102/how-spring-security-filter-chain-works">Stackoverflow - How Spring Security Filter Chain works</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/Wiremock/" rel="prev" title="WireMock">
+                  <i class="fa fa-chevron-left"></i> WireMock
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringSecurity/Spring-Security-Understanding-Security-Context/" rel="next" title="Spring Security - Understanding Security Context">
+                  Spring Security - Understanding Security Context <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

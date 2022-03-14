@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Let’s learn how to use Java Persistence API(JPA) to map objects to relational databases using an example project.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot - JPA">
+<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-JPA/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Let’s learn how to use Java Persistence API(JPA) to map objects to relational databases using an example project.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-26T05:39:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.200Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-JPA/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-JPA/","path":"SpringBoot/Spring-Boot-JPA/","title":"Spring Boot - JPA"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Boot - JPA | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven-dependency"><span class="nav-number">1.</span> <span class="nav-text">Maven dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Datasource"><span class="nav-number">2.</span> <span class="nav-text">Datasource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Entity"><span class="nav-number">3.</span> <span class="nav-text">Entity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solving-JSON-recursive-dependency"><span class="nav-number">3.1.</span> <span class="nav-text">Solving JSON recursive dependency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Used-with-Lombok"><span class="nav-number">3.2.</span> <span class="nav-text">Used with Lombok</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JpaRepository"><span class="nav-number">4.</span> <span class="nav-text">JpaRepository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-Jpa-Entity"><span class="nav-number">5.</span> <span class="nav-text">Using Jpa Entity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#About-Lazy-Loading"><span class="nav-number">6.</span> <span class="nav-text">About Lazy Loading</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction"><span class="nav-number">7.</span> <span class="nav-text">Transaction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-JPA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Boot - JPA | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot - JPA
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-26 01:39:00" itemprop="dateCreated datePublished" datetime="2019-05-26T01:39:00-04:00">2019-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Let’s learn how to use Java Persistence API(JPA) to map objects to relational databases using an example project.</p>
+<span id="more"></span>
+
+<h1 id="Maven-dependency"><a href="#Maven-dependency" class="headerlink" title="Maven dependency"></a>Maven dependency</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.h2database<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>spring-boot-starter-data-jpa contains the following dependencies:</p>
+<ul>
+<li>Hibernate: One of the most popular JPA implementations.</li>
+<li>Spring ORMs: Core ORM support from the Spring Framework.</li>
+<li>Spring Data JPA: Makes it easy to implement JPA-based repositories.</li>
+</ul>
+<h1 id="Datasource"><a href="#Datasource" class="headerlink" title="Datasource"></a>Datasource</h1><p>application.properties - configure data source and related settings</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># data source</span><br><span class="line">spring.datasource.driver-class-name=org.h2.Driver</span><br><span class="line">spring.datasource.url=jdbc:h2:mem:testdb</span><br><span class="line">spring.datasource.username=sa</span><br><span class="line">spring.datasource.password=</span><br><span class="line">spring.jpa.database-platform=org.hibernate.dialect.H2Dialect</span><br><span class="line"></span><br><span class="line"># Console access: http://localhost:8080/h2-console</span><br><span class="line">spring.h2.console.enabled=true</span><br><span class="line"></span><br><span class="line">spring.jpa.hibernate.ddl-auto=none</span><br><span class="line"></span><br><span class="line">spring.jpa.properties.hibernate.show_sql=true</span><br><span class="line">spring.jpa.properties.hibernate.use_sql_comments=true</span><br><span class="line">spring.jpa.properties.hibernate.format_sql=true</span><br></pre></td></tr></table></figure>
+
+<p>schema.sql - H2 SQL Script to create Database</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` (</span><br><span class="line">`id` <span class="type">bigint</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">`username` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`password` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`enabled` <span class="type">boolean</span>,</span><br><span class="line">`created` <span class="type">date</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `role` (</span><br><span class="line">`id` <span class="type">bigint</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `user_role` (</span><br><span class="line">`user_id` <span class="type">bigint</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`role_id` <span class="type">bigint</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (`user_id`) <span class="keyword">REFERENCES</span> <span class="keyword">user</span>(`id`),</span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (`role_id`) <span class="keyword">REFERENCES</span> role(`id`)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>data.sql</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(`username`, `password`, `enabled`, `created`) <span class="keyword">values</span>( <span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;pass&#x27;</span>, <span class="literal">true</span>, <span class="string">&#x27;2019-01-02&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> role(`name`) <span class="keyword">values</span>(<span class="string">&#x27;user&#x27;</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> role(`name`) <span class="keyword">values</span>(<span class="string">&#x27;admin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> user_role(`user_id`, `role_id`) <span class="keyword">values</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> user_role(`user_id`, `role_id`) <span class="keyword">values</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h1><p>Traditionally, JPA entities are specified in persistence.xml file. With Spring Boot, you can define entity with annotations. classes annotated with @Entity, @Embeddable or @MappedSuperclass are used as entity.</p>
+<p>User Entity</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;user&quot;)</span></span><br><span class="line"><span class="meta">@JsonIdentityInfo(</span></span><br><span class="line"><span class="meta">        generator = ObjectIdGenerators.PropertyGenerator.class,</span></span><br><span class="line"><span class="meta">        property = &quot;id&quot;)</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.AUTO)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> enabled;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LocalDate created;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToMany(cascade = &#123;CascadeType.ALL&#125;, fetch = FetchType.EAGER)</span></span><br><span class="line">    <span class="meta">@JoinTable(</span></span><br><span class="line"><span class="meta">            name=&quot;user_role&quot;,</span></span><br><span class="line"><span class="meta">            joinColumns = &#123;@JoinColumn(name=&quot;user_id&quot;)&#125;,</span></span><br><span class="line"><span class="meta">            inverseJoinColumns = &#123;@JoinColumn(name=&quot;role_id&quot;)&#125;</span></span><br><span class="line"><span class="meta">    )</span></span><br><span class="line">    Set&lt;Role&gt; roles = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ToStringBuilder</span>(<span class="built_in">this</span>).append(username).append(enabled).toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HashCodeBuilder</span>().append(username).append(enabled).toHashCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="built_in">this</span>) &#123; <span class="keyword">return</span> <span class="literal">true</span>; &#125;</span><br><span class="line">        <span class="keyword">if</span> (obj.getClass() != getClass()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">User</span> <span class="variable">rhs</span> <span class="operator">=</span> (User) obj;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EqualsBuilder</span>()</span><br><span class="line">                .append(id, rhs.id)</span><br><span class="line">                .append(username, rhs.username)</span><br><span class="line">                .append(enabled, rhs.enabled)</span><br><span class="line">                .isEquals();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Role Entity</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;role&quot;)</span></span><br><span class="line"><span class="meta">@JsonIdentityInfo(</span></span><br><span class="line"><span class="meta">        generator = ObjectIdGenerators.PropertyGenerator.class,</span></span><br><span class="line"><span class="meta">        property = &quot;id&quot;)</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Role</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.AUTO)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToMany(mappedBy=&quot;roles&quot;, fetch = FetchType.LAZY)</span></span><br><span class="line">    <span class="meta">@JsonIgnore</span></span><br><span class="line">    <span class="keyword">private</span> Set&lt;User&gt; users = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ToStringBuilder</span>(<span class="built_in">this</span>).append(name).toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HashCodeBuilder</span>().append(name).toHashCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="built_in">this</span>) &#123; <span class="keyword">return</span> <span class="literal">true</span>; &#125;</span><br><span class="line">        <span class="keyword">if</span> (obj.getClass() != getClass()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Role</span> <span class="variable">rhs</span> <span class="operator">=</span> (Role) obj;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">EqualsBuilder</span>()</span><br><span class="line">                .append(id, rhs.id)</span><br><span class="line">                .append(name, rhs.name)</span><br><span class="line">                .isEquals();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Here we define a Many to Many relationship suing  @ManyToMany, @JoinTable and @JoinColumn annotations. User entity owns the relationship be cuase it has @JoinTable annotation.</p>
+<p>The Role entity has mappedBy attribute to indicate the relationship is mapped by User entity’s roles collection.</p>
+<p>To learn more about creating One-to-One, One-to-Many and Many-to-Many relationship in JPA. see the following post:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/jpa-one-to-one">One-to-One Relationship in JPA by baeldung</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/hibernate-one-to-many">Hibernate One to Many Annotation Tutorial by baeldung</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/hibernate-many-to-many">Hibernate Many to Many Annotation Tutorial by Zeger Hendrikse</a></li>
+</ul>
+<h2 id="Solving-JSON-recursive-dependency"><a href="#Solving-JSON-recursive-dependency" class="headerlink" title="Solving JSON recursive dependency"></a>Solving JSON recursive dependency</h2><p>When using Jackson to serialize JPA Entities with one-to-many or many-to-many relationship, you can easily get infinite recursion problem because they are bidirection relation. To avoid the error, add <strong>@JsonIdentityInfo</strong> annotation to tell Jackson the iendity info.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;user&quot;)</span></span><br><span class="line"><span class="meta">@JsonIdentityInfo(</span></span><br><span class="line"><span class="meta">        generator = ObjectIdGenerators.PropertyGenerator.class,</span></span><br><span class="line"><span class="meta">        property = &quot;id&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> </span><br><span class="line"></span><br><span class="line">    <span class="comment">//......</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;role&quot;)</span></span><br><span class="line"><span class="meta">@JsonIdentityInfo(</span></span><br><span class="line"><span class="meta">        generator = ObjectIdGenerators.PropertyGenerator.class,</span></span><br><span class="line"><span class="meta">        property = &quot;id&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Role</span> &#123;</span><br><span class="line">    <span class="comment">//......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>@JsonIdentityInfo</code> is not the only way to solve this problem, you can also use </p>
+<ul>
+<li><code>@JsonBackReference</code> and <code>@JsonManagedReference</code> to handle the relationship</li>
+<li><code>@JsonIgnore</code> or <code>@JsonIgnoreProperties</code> annotation to ignore the serialization of one or more property.</li>
+</ul>
+<p>Refer to this post to see how they are used to handle bidirectional relationship in Json: <a target="_blank" rel="noopener" href="https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion">https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion</a></p>
+<h2 id="Used-with-Lombok"><a href="#Used-with-Lombok" class="headerlink" title="Used with Lombok"></a>Used with Lombok</h2><p>Like Json serialization, you can also get stackoverflow when using auto generated methods from Lombok.</p>
+<p>It is very common to use lombok to generate a class’s getters, setters etc to reduce boilerplate code.  However, the default implementation for toString, equals and hashCode method will cause recursion for a many-to-many relationship. To solve this problem, either stop using <strong>@Data</strong> annotation to generate code or explicitly define <em>toString</em>, <em>hashCode</em> and <em>equals</em> method.</p>
+<p>The User and Role entity class both explicitely define <em>toString</em>, <em>hashCode</em> and <em>equals</em> method to avoid recusion.</p>
+<h1 id="JpaRepository"><a href="#JpaRepository" class="headerlink" title="JpaRepository"></a>JpaRepository</h1><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html">JpaRepository</a> extends <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html">CrudRepository</a> and <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html">PagingAndSortingRepository</a>. <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html">CrudRepository</a> provides methods for generic CRUD operations. <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html">PagingAndSortingRepository</a> extends CrudRepository and provides additional methods to retrieve entities using pagination and sorting.</p>
+<p>Class extends <em>JpaRepository</em> interface will have all the basic CRUB methods defined and implemented. </p>
+<p>You can also add customize methods and queries to the interface. <strong>Spring Data will analyze the methods defined by the interfaces and tries to automatically generate queries from the method name.</strong> For more information on Query methods and @Query annotation, see <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/data-jpa/docs/current/reference/html/#jpa.query-methods">Spring Data JPA Query Methods</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;User, Long&gt; &#123;</span><br><span class="line">    <span class="meta">@Query(&quot;from User where created between :start and :end&quot;)</span></span><br><span class="line">    List&lt;User&gt; <span class="title function_">findByDateRange</span><span class="params">(<span class="meta">@Param(&quot;start&quot;)</span> LocalDate start, <span class="meta">@Param(&quot;end&quot;)</span> LocalDate end)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Using-Jpa-Entity"><a href="#Using-Jpa-Entity" class="headerlink" title="Using Jpa Entity"></a>Using Jpa Entity</h1><p>You can now autowire the JpaRepository to service class and use it.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="keyword">public</span> User <span class="title function_">findByUsername</span><span class="params">(String username)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userRepository.findByUsername(username).orElse(<span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="About-Lazy-Loading"><a href="#About-Lazy-Loading" class="headerlink" title="About Lazy Loading"></a>About Lazy Loading</h1><p>You can set the loading strategy by setting fetch attribute. The value can be <code> fetchType.LAZY</code> or <code>fetchType.EAGER</code>. </p>
+<p>If you encounter LazyInitializationException when using lazy loading, add <code>@Transactional</code> to the service method because session is needed for lazy loading otherwise a lazyinitializationexception will be thrown.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Caused by: org.hibernate.LazyInitializationException: failed to lazily initialize a collection of role: com.xinghua24.bookmark.entity.User.roles, could not initialize proxy - no Session</span><br><span class="line">	at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]</span><br><span class="line">	at org.hibernate.collection.internal.AbstractPersistentCollection.withTemporarySessionIfNeeded(AbstractPersistentCollection.java:218) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]</span><br><span class="line">	at org.hibernate.collection.internal.AbstractPersistentCollection.initialize(AbstractPersistentCollection.java:585) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]</span><br><span class="line">	at org.hibernate.collection.internal.AbstractPersistentCollection.read(AbstractPersistentCollection.java:149) ~[hibernate-core-5.4.12.Final.jar:5.4.12.Final]</span><br></pre></td></tr></table></figure>
+
+<p>For more on Lazy loading, see <a target="_blank" rel="noopener" href="https://www.baeldung.com/hibernate-lazy-eager-loading">Eager&#x2F;Lazy Loading In Hibernate by baeldung</a></p>
+<h1 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h1><p>If we use spring-boot-starter-jdbc or spring-boot-starter-data-jpa, Spring Boot will turn on <code>@EnableTransactionManagement</code> by default. You can use <code>@Transaction</code> to declare transaction at class level or method level. <code>@Transaction</code> by default rolls back on all transactions. You can use rollbackOn and dontRollbackOn attribute to customize the exceptions to rollback.</p>
+<p>Service method with <code>@Transactional</code> annotation</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="meta">@Transactional(rollbackOn = IllegalArgumentException.class)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testTransaction</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userRepo.findById(<span class="number">1L</span>).orElse(<span class="literal">null</span>);</span><br><span class="line">        user.setUsername(<span class="string">&quot;Name shouldn&#x27;t be changed!!!!&quot;</span>);</span><br><span class="line">        userRepo.save(user);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;ILLEGAL OPERATION&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>When this method is called, even if the repository saves the change, the exception will cause the transaction to roll back and undo the previous change.</p>
+<p>Note that <strong>@Transaction</strong> should be apply to service class(with @Service annotation). Don’t apply this annotation to multiple layers of the application. Also, the method should be declare public for the transaction to work.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/data-jpa/docs/current/reference/html/">Spring Data JPA Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa">Baeldung - Introduction to Spring Data JPA by Eugen Paraschiv </a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-data-jpa-query">Baeldung - Spring Data JPA @Query</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/transaction-configuration-with-jpa-and-spring">Baeldung - Transactions with Spring and JPA by Eugen Paraschiv </a></li>
+</ul>
+<p>Furthur research on Spring Data, see Baeldung’s Spring Data Topic <a target="_blank" rel="noopener" href="https://www.baeldung.com/category/persistence/spring-persistence/spring-data/">https://www.baeldung.com/category/persistence/spring-persistence/spring-data/</a></p>
+<p>Source Code: <a target="_blank" rel="noopener" href="https://github.com/xinghua24/SpringBootExamples/tree/master/jpa">https://github.com/xinghua24/SpringBootExamples/tree/master/jpa</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Others/Devops/" rel="prev" title="DevOps">
+                  <i class="fa fa-chevron-left"></i> DevOps
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-Actuator/" rel="next" title="Spring Boot - Actuator">
+                  Spring Boot - Actuator <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

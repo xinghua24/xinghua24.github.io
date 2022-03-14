@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="ExecutorService allows users to run asynchronous tasks.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Concurrency - ExecutorService">
+<meta property="og:url" content="http://example.com/Java/Java-Concurrency-ExecutorService/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="ExecutorService allows users to run asynchronous tasks.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-10T02:57:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.172Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Concurrency">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Java/Java-Concurrency-ExecutorService/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Java/Java-Concurrency-ExecutorService/","path":"Java/Java-Concurrency-ExecutorService/","title":"Java Concurrency - ExecutorService"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java Concurrency - ExecutorService | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ExecutorService"><span class="nav-number">1.</span> <span class="nav-text">ExecutorService</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Creating-ExecutorService"><span class="nav-number">2.</span> <span class="nav-text">Creating ExecutorService</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Running-Tasks"><span class="nav-number">3.</span> <span class="nav-text">Running Tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#execute-Runnable"><span class="nav-number">3.1.</span> <span class="nav-text">execute(Runnable)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#submit-Callable"><span class="nav-number">3.2.</span> <span class="nav-text">submit(Callable)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#invokeAll-Collection"><span class="nav-number">3.3.</span> <span class="nav-text">invokeAll(Collection)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shutdown"><span class="nav-number">4.</span> <span class="nav-text">Shutdown</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ScheduledExecutorService"><span class="nav-number">5.</span> <span class="nav-text">ScheduledExecutorService</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Callable-Interface"><span class="nav-number">6.</span> <span class="nav-text">Callable Interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Future-Interface"><span class="nav-number">7.</span> <span class="nav-text">Future Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#get-method"><span class="nav-number">7.1.</span> <span class="nav-text">get() method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cancel-method"><span class="nav-number">7.2.</span> <span class="nav-text">cancel() method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Java/Java-Concurrency-ExecutorService/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java Concurrency - ExecutorService | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java Concurrency - ExecutorService
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-09 21:57:00" itemprop="dateCreated datePublished" datetime="2019-02-09T21:57:00-05:00">2019-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/ExecutorService.html">ExecutorService</a> allows users to run asynchronous tasks.</p>
+<span id="more"></span>
+
+<h1 id="ExecutorService"><a href="#ExecutorService" class="headerlink" title="ExecutorService"></a>ExecutorService</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html">ExecutorService</a> is an Interface in java.util.concurrent package. It extends <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html">Executor</a> interface. </p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html">Executor</a> defines a single method <em>execute(Runnable command)</em>. It is used to execute the submitted Runnable task.</p>
+<h1 id="Creating-ExecutorService"><a href="#Creating-ExecutorService" class="headerlink" title="Creating ExecutorService"></a>Creating ExecutorService</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html">Executors</a> class provides factory methods to create ExecutorService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newSingleThreadExecutor();</span><br><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Running-Tasks"><a href="#Running-Tasks" class="headerlink" title="Running Tasks"></a>Running Tasks</h1><h2 id="execute-Runnable"><a href="#execute-Runnable" class="headerlink" title="execute(Runnable)"></a>execute(Runnable)</h2><p><strong>execute(Runnable)</strong> method is inherited from <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html">Executor</a> interface. It is used to execute a runnable task. The return type is void.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newSingleThreadExecutor();</span><br><span class="line"><span class="type">Runnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> () -&gt; &#123;</span><br><span class="line">     System.out.println(Thread.currentThread().getName() + <span class="string">&quot; - Hello&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">executor.execute(myRunnable);</span><br><span class="line">executor.shutdown();</span><br></pre></td></tr></table></figure>
+
+<h2 id="submit-Callable"><a href="#submit-Callable" class="headerlink" title="submit(Callable)"></a>submit(Callable)</h2><p>Submits a <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html">Callable</a> task.  submit() method executes the <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html">Callable</a> and returns a <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html">Future</a>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newSingleThreadExecutor();</span><br><span class="line">Callable&lt;String&gt; myCallable = () -&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Task1&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Future&lt;String&gt; mycallableFuture = executor.submit(myCallable);</span><br><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> mycallableFuture.get();</span><br><span class="line">System.out.println(result);</span><br><span class="line">executor.shutdown();</span><br></pre></td></tr></table></figure>
+<p>Here we call <em>Future.get()</em> method to get the result of the execution.</p>
+<h2 id="invokeAll-Collection"><a href="#invokeAll-Collection" class="headerlink" title="invokeAll(Collection)"></a>invokeAll(Collection)</h2><p>invoke all will execute a collection of Callable tasks andreturn a list of Futures.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newSingleThreadExecutor();</span><br><span class="line">List&lt;Callable&lt;String&gt;&gt; myCallables = Arrays.asList(</span><br><span class="line">        () -&gt; &#123;<span class="keyword">return</span> <span class="string">&quot;Task1&quot;</span>;&#125;,</span><br><span class="line">        () -&gt; &#123;<span class="keyword">return</span> <span class="string">&quot;Task2&quot;</span>;&#125;</span><br><span class="line">);</span><br><span class="line">List&lt;Future&lt;String&gt;&gt; futures = executor.invokeAll(myCallables);</span><br><span class="line">futures.forEach(f -&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> f.get();</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">executor.shutdown();</span><br></pre></td></tr></table></figure>
+
+<h1 id="Shutdown"><a href="#Shutdown" class="headerlink" title="Shutdown"></a>Shutdown</h1><p>ExecutorService will keep the JVM running if you don’t shut it down.</p>
+<p><strong>shutdown()</strong> method will initiate an orderly shutdown. Once <em>Shutdown()</em> is called, no new tasks will be accepted. Tasks submitted before <em>shutdown()</em> call will not be cancelled. Once all threads are finished, ExecutorService will shutdown.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">executorService.shutdown();</span><br></pre></td></tr></table></figure>
+
+<p><strong>shutdownNow()</strong> attemps to shutdown ExecutorService immediately and return a list of tasks that were awaiting execution. There is no guarantees all executing tasks wll be stopped.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">executorService.shutdownNow();</span><br></pre></td></tr></table></figure>
+
+<p><strong>awaitTermination(long timeout, TimeUnit unit)</strong> will block until all tasks have completed execution after a shutdown request. Usually called after <em>shutdown()</em> or <em>shutdownNow()</em>.</p>
+<p>Example code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">executorService.shutdown();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!executorService.awaitTermination(<span class="number">800</span>, TimeUnit.MILLISECONDS)) &#123;</span><br><span class="line">        executorService.shutdownNow();</span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    executorService.shutdownNow();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html">ScheduledExecutorService</a> is an Interface that extends <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/ExecutorService.html">ExecutorService</a>. It can schedule tasks to run after a given delay, or execute periodically.</p>
+<p>use <code>schedule()</code> method to schedule a task to run after 3 seconds</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ScheduledExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newScheduledThreadPool(<span class="number">1</span>);</span><br><span class="line"><span class="type">Runnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> () -&gt; &#123;</span><br><span class="line">    System.out.println(Thread.currentThread().getName() + <span class="string">&quot; - Hello&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">executor.schedule(myRunnable, <span class="number">3</span>, TimeUnit.SECONDS);</span><br><span class="line">executor.shutdown();</span><br></pre></td></tr></table></figure>
+
+<p>use <code>scheduleAtFixedRate()</code> method to schedule at a fixed rate of 2 seconds.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ScheduledExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newScheduledThreadPool(<span class="number">1</span>);</span><br><span class="line"><span class="type">Runnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> () -&gt; &#123;</span><br><span class="line">    System.out.println(Thread.currentThread().getName() + <span class="string">&quot; - Hello&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line">executor.scheduleAtFixedRate(myRunnable, <span class="number">0</span>, <span class="number">2</span>, TimeUnit.SECONDS);</span><br><span class="line">TimeUnit.SECONDS.sleep(<span class="number">5</span>);</span><br><span class="line">executor.shutdown();</span><br></pre></td></tr></table></figure>
+
+<h1 id="Callable-Interface"><a href="#Callable-Interface" class="headerlink" title="Callable Interface"></a>Callable Interface</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html">Callable</a> is very similar to Runnable. It is a task that returns a result while <code>Runnable</code>‘s run() method returns void.</p>
+<p>Callable Interface Definition</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt; &#123;</span><br><span class="line">    V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Create a Callable</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Callable&lt;String&gt; myCallable = () -&gt; &#123;</span><br><span class="line">    TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Task1&quot;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Future-Interface"><a href="#Future-Interface" class="headerlink" title="Future Interface"></a>Future Interface</h1><p>A Future represents the result of an asynchronous computation. </p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html">Future&lt;V&gt;</a> Interface is in java.util.concurrent package.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Future</span>&lt;V&gt; &#123;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">cancel</span><span class="params">(<span class="type">boolean</span> mayInterruptIfRunning)</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">isCancelled</span><span class="params">()</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">isDone</span><span class="params">()</span>;</span><br><span class="line">    V <span class="title function_">get</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, ExecutionException;</span><br><span class="line">    V <span class="title function_">get</span><span class="params">(<span class="type">long</span> timeout, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException, ExecutionException, TimeoutException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="get-method"><a href="#get-method" class="headerlink" title="get() method"></a>get() method</h2><p>get() method will block the current thread and waits for the execution to be finished. You can also add timeout to prevent long running threads. e.g. <em>future.get(100, TimeUnit.SECONDS)</em>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> mycallableFuture.get();</span><br><span class="line">System.out.println(result);</span><br></pre></td></tr></table></figure>
+
+<p>get() throws InterruptedException and ExecutionException. They are both checked exceptions.</p>
+<h2 id="cancel-method"><a href="#cancel-method" class="headerlink" title="cancel() method"></a>cancel() method</h2><p>attempts to cancel execution of this task. You can set mayInterruptIfRunning parameter to be true so that an InterruptedException is throwed for the executing task.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newSingleThreadExecutor();</span><br><span class="line">Callable&lt;String&gt; myCallable = () -&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;task started&quot;</span>);</span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">3</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;task finished&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span>( InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Task1&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Future&lt;String&gt; future = executor.submit(myCallable);</span><br><span class="line">TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line"><span class="type">boolean</span> <span class="variable">cancelled</span> <span class="operator">=</span> future.cancel(<span class="literal">true</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;cancelled: &quot;</span> + cancelled);</span><br><span class="line">executor.shutdown();</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">task started</span><br><span class="line">cancelled: true</span><br><span class="line">java.lang.InterruptedException: sleep interrupted</span><br><span class="line">	at java.lang.Thread.sleep(Native Method)</span><br><span class="line">	at java.lang.Thread.sleep(Thread.java:340)</span><br><span class="line">	at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386)</span><br><span class="line">	at com.example.App.lambda$main$0(App.java:15)</span><br><span class="line">	at java.util.concurrent.FutureTask.run(FutureTask.java:266)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</span><br><span class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:748)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/java-executor-service-tutorial">Java Executor Service Tutorial by Baeldung</a></li>
+<li><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-util-concurrent/executorservice.html">ExecutorService by Jenkov</a></li>
+<li><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-util-concurrent/java-callable.html">Callable by Jenkov</a></li>
+<li><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-util-concurrent/java-future.html">Future by Jenkov</a></li>
+<li><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/java-util-concurrent/scheduledexecutorservice.html">ScheduledExecutorService by Jenkov</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Concurrency/" rel="tag"># Concurrency</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/Java-8-Interface-Default-and-Static-Method/" rel="prev" title="Java 8 Interface Default and Static Method">
+                  <i class="fa fa-chevron-left"></i> Java 8 Interface Default and Static Method
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/Java-Concurrency-Thread-join/" rel="next" title="Java Concurrency - Thread.join()">
+                  Java Concurrency - Thread.join() <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

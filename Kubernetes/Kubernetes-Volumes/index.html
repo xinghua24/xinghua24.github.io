@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes - Volumes">
+<meta property="og:url" content="http://example.com/Kubernetes/Kubernetes-Volumes/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-15T05:18:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.180Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Kubernetes/Kubernetes-Volumes/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Kubernetes/Kubernetes-Volumes/","path":"Kubernetes/Kubernetes-Volumes/","title":"Kubernetes - Volumes"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubernetes - Volumes | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#emptyDir"><span class="nav-number">1.</span> <span class="nav-text">emptyDir</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PersistentVolume"><span class="nav-number">2.</span> <span class="nav-text">PersistentVolume</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step1-Create-PersistentVolume"><span class="nav-number">2.1.</span> <span class="nav-text">Step1: Create PersistentVolume</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step2-Create-PersistentVolumeClaim"><span class="nav-number">2.2.</span> <span class="nav-text">Step2: Create PersistentVolumeClaim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step3-Create-Pod-that-uses-the-PersistentVolumeClaim"><span class="nav-number">2.3.</span> <span class="nav-text">Step3: Create Pod that uses the PersistentVolumeClaim</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Kubernetes/Kubernetes-Volumes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubernetes - Volumes | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes - Volumes
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-09-15 01:18:00" itemprop="dateCreated datePublished" datetime="2019-09-15T01:18:00-04:00">2019-09-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Disk files for a container is ephemeral. To persist data over container restart, we need to use PersistentVolume</p>
+<span id="more"></span>
+
+<p>Kubernetes supports many Volume Types</p>
+<ul>
+<li>emptyDir</li>
+<li>azureDisk</li>
+<li>awsElasticBlockStore</li>
+<li>gcePersistentDisk</li>
+<li>…</li>
+</ul>
+<h1 id="emptyDir"><a href="#emptyDir" class="headerlink" title="emptyDir"></a>emptyDir</h1><p>An <strong>emptyDir</strong> volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node. It can be used for Pods to share files. </p>
+<p>By default, emptyDir volumes are stored on whatever medium is backing the node - that might be disk or SSD or network storage, depending on your environment. </p>
+<p>All containers in a pod can share an emptyDir. emptyDir volume can mount to the same or different path.</p>
+<p>emptyDir volume is removed when a Pod is removed.</p>
+<p>Example</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">test-pd</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">k8s.gcr.io/test-webserver</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">test-container</span></span><br><span class="line">    <span class="attr">volumeMounts:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">mountPath:</span> <span class="string">/cache</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">cache-volume</span></span><br><span class="line">  <span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cache-volume</span></span><br><span class="line">    <span class="attr">emptyDir:</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="PersistentVolume"><a href="#PersistentVolume" class="headerlink" title="PersistentVolume"></a>PersistentVolume</h1><p>For persistent volume use PersistentVolume(PV) and PersistentVolumeClaim(PVC).</p>
+<ul>
+<li>PersistentVolume is usually managed by administrators</li>
+<li>PersistentVolume can be requested by PersistentVolumeClaim</li>
+</ul>
+<p>There are three steps to use PersistentVolume.</p>
+<ol>
+<li>Administrator create PersistentVolume</li>
+<li>Developer create PersistentVolumeClaim that claims part of that PersistentVolume disk space</li>
+<li>Developer create pod that that uses PersistentVolumeClaim</li>
+</ol>
+<h2 id="Step1-Create-PersistentVolume"><a href="#Step1-Create-PersistentVolume" class="headerlink" title="Step1: Create PersistentVolume"></a>Step1: Create PersistentVolume</h2><p>mongo-pv.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolume</span></span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line">  <span class="attr">labels:</span> </span><br><span class="line">    <span class="attr">type:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mongo-pv</span></span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line">  <span class="attr">storageClassName:</span> <span class="string">mongo-demo</span></span><br><span class="line">  <span class="attr">accessModes:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">capacity:</span> </span><br><span class="line">    <span class="attr">storage:</span> <span class="string">1Gi</span></span><br><span class="line">  <span class="attr">hostPath:</span> </span><br><span class="line">    <span class="attr">path:</span> <span class="string">/data/mongo_data</span></span><br></pre></td></tr></table></figure>
+
+<p>use <code>kubectl get pv</code> to display PersistentVolume resources. <strong>storageClassName</strong> is very important. It is used to tie PersistentVolume and PersistentVolumeClaim. The status is <em>Available</em> at this time. If a PersistentVolumeClaim is bound, the status will be <em>Bound</em>. </p>
+<p>3 Access Modes</p>
+<ul>
+<li>ReadWriteOnce: The Volume can be mounted as read-write by a single node.</li>
+<li>ReadOnlyMany: The Volume can be mounted read-only by many nodes.</li>
+<li>ReadWriteMany: The Volume can be mounted as read-write by many nodes. PersistentVolumes that are backed by Compute Engine persistent disks don’t support this access mode.</li>
+</ul>
+<p>use <code>kubectl get pv</code> command to display the PersistentVolumes.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pv</span><br><span class="line">NAME       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE</span><br><span class="line">mongo-pv   1Gi        RWO            Retain           Available           mongo-demo              6s</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step2-Create-PersistentVolumeClaim"><a href="#Step2-Create-PersistentVolumeClaim" class="headerlink" title="Step2: Create PersistentVolumeClaim"></a>Step2: Create PersistentVolumeClaim</h2><p>mongo-pvc.yml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">PersistentVolumeClaim</span></span><br><span class="line"><span class="attr">metadata:</span> </span><br><span class="line">  <span class="attr">name:</span> <span class="string">mongo-pvc</span></span><br><span class="line"><span class="attr">spec:</span> </span><br><span class="line">  <span class="attr">storageClassName:</span> <span class="string">mongo-demo</span></span><br><span class="line">  <span class="attr">accessModes:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="string">ReadWriteOnce</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">requests:</span> </span><br><span class="line">      <span class="attr">storage:</span> <span class="string">250Mi</span></span><br></pre></td></tr></table></figure>
+
+<p>use <code>kubectl get pvc</code> to display PersistentVolumeClaim</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pvc</span><br><span class="line">NAME             STATUS   VOLUME     CAPACITY   ACCESS MODES   STORAGECLASS   AGE</span><br><span class="line">mongo-pv-claim   Bound    mongo-pv   1Gi        RWO            mongo-demo     8s</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step3-Create-Pod-that-uses-the-PersistentVolumeClaim"><a href="#Step3-Create-Pod-that-uses-the-PersistentVolumeClaim" class="headerlink" title="Step3: Create Pod that uses the PersistentVolumeClaim"></a>Step3: Create Pod that uses the PersistentVolumeClaim</h2><p>mongo.yml: defines a service and statefulset that uses PersistentVolume.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Service</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"> <span class="attr">name:</span> <span class="string">mongo</span></span><br><span class="line"> <span class="attr">labels:</span></span><br><span class="line">  <span class="attr">app:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"> <span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">port:</span> <span class="number">27017</span></span><br><span class="line">    <span class="attr">targetPort:</span> <span class="number">27017</span></span><br><span class="line"> <span class="attr">clusterIP:</span> <span class="string">None</span></span><br><span class="line"> <span class="attr">selector:</span></span><br><span class="line">  <span class="attr">app:</span> <span class="string">mongo</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">StatefulSet</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">mongo</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">mongo</span></span><br><span class="line">  <span class="attr">serviceName:</span> <span class="string">&quot;mongo&quot;</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">mongo</span></span><br><span class="line">    <span class="attr">spec:</span></span><br><span class="line">      <span class="attr">terminationGracePeriodSeconds:</span> <span class="number">10</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">mongo</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line">        <span class="attr">command:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">mongod</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">&quot;--bind_ip&quot;</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">27017</span></span><br><span class="line">        <span class="attr">volumeMounts:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">mongo-volume</span></span><br><span class="line">          <span class="attr">mountPath:</span> <span class="string">/data/db</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">mongo-volume</span></span><br><span class="line">        <span class="attr">persistentVolumeClaim:</span></span><br><span class="line">          <span class="attr">claimName:</span> <span class="string">mongo-pvc</span></span><br></pre></td></tr></table></figure>
+
+<p>After the statefulset is created, use <code>kubectl get statefulsets</code> to check the statefulset status</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get statefulsets</span><br><span class="line">NAME    READY   AGE</span><br><span class="line">mongo   1/1     11m</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>kubectl exec -it mongo-0 /bin/bash</code> to get into the container and use the mongodb database. The data will persiste over pod restart.</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/storage/volumes">Kubernetes volume</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir volume</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.alibabacloud.com/blog/kubernetes-volume-basics-emptydir-and-persistentvolume_594834">Kubernetes Volume Basics: emptyDir and PersistentVolume by Alibaba Clouder</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Kubernetes/Kubernetes-Namespaces/" rel="prev" title="Kubernetes - Namespaces">
+                  <i class="fa fa-chevron-left"></i> Kubernetes - Namespaces
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Kubernetes/Kubernetes-Liveness-And-Readiness/" rel="next" title="Kubernetes - Liveness and Readiness">
+                  Kubernetes - Liveness and Readiness <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

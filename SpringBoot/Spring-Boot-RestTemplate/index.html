@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="RestTemplate Explained.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot - RestTemplate">
+<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-RestTemplate/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="RestTemplate Explained.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-07T03:51:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.201Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-RestTemplate/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-RestTemplate/","path":"SpringBoot/Spring-Boot-RestTemplate/","title":"Spring Boot - RestTemplate"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Boot - RestTemplate | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RestTemplate-Bean"><span class="nav-number">1.</span> <span class="nav-text">RestTemplate Bean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RestTemplate-Demo"><span class="nav-number">2.</span> <span class="nav-text">RestTemplate Demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interceptor"><span class="nav-number">3.</span> <span class="nav-text">Interceptor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebClient"><span class="nav-number">4.</span> <span class="nav-text">WebClient</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-RestTemplate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Boot - RestTemplate | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot - RestTemplate
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-05-06 23:51:00" itemprop="dateCreated datePublished" datetime="2019-05-06T23:51:00-04:00">2019-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>RestTemplate Explained.</p>
+<span id="more"></span>
+<p>RestTemplate is a synchronous client to perform HTTP requests.</p>
+<h1 id="RestTemplate-Bean"><a href="#RestTemplate-Bean" class="headerlink" title="RestTemplate Bean"></a>RestTemplate Bean</h1><p>RestTemplate is best decalred as a java bean for reusability.</p>
+<p>Create RestTemplate bean and RestTemplate bean with connection timeout</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RestTemplateConfig</span> &#123;</span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="meta">@Primary</span></span><br><span class="line">	<span class="keyword">public</span> RestTemplate <span class="title function_">restTemplate</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RestTemplate</span>();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean(&quot;restTemplateWithTimeout&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> RestTemplate <span class="title function_">restTemplateWithTimeout</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">timeout</span> <span class="operator">=</span> <span class="number">5000</span>;</span><br><span class="line">		<span class="type">HttpComponentsClientHttpRequestFactory</span> <span class="variable">clientHttpRequestFactory</span></span><br><span class="line">			<span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpComponentsClientHttpRequestFactory</span>();</span><br><span class="line">		clientHttpRequestFactory.setConnectTimeout(timeout);</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RestTemplate</span>(clientHttpRequestFactory);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="RestTemplate-Demo"><a href="#RestTemplate-Demo" class="headerlink" title="RestTemplate Demo"></a>RestTemplate Demo</h1><p>Methods</p>
+<ul>
+<li>getForObject</li>
+<li>getForEntity()</li>
+<li>postForEntity()</li>
+<li>exchange()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">simpleGet</span><span class="params">()</span> &#123;</span><br><span class="line">	log.info(<span class="string">&quot;------------RestTemplate.getForEntity()-----------&quot;</span>);</span><br><span class="line">	ResponseEntity&lt;Post&gt; response = restTemplate.getForEntity(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span>, Post.class );</span><br><span class="line">	assertThat(response.getStatusCode(), is(HttpStatus.OK));</span><br><span class="line">	log.info(<span class="string">&quot;Response body: &quot;</span> + response.getBody());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">simpleGetArray</span><span class="params">()</span> &#123;</span><br><span class="line">	log.info(<span class="string">&quot;------------RestTemplate.getForEntity() getting Array -----------&quot;</span>);</span><br><span class="line">	ResponseEntity&lt;Post[]&gt;  response = restTemplate.getForEntity(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span>, Post[].class );</span><br><span class="line">	assertThat(response.getStatusCode(), is(HttpStatus.OK));</span><br><span class="line">	log.info(<span class="string">&quot;Response body array length is &quot;</span> + response.getBody().length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">simplePost</span><span class="params">()</span> &#123;</span><br><span class="line">	log.info(<span class="string">&quot;------------RestTemplate.postForEntity()-----------&quot;</span>);</span><br><span class="line">	<span class="type">Post</span> <span class="variable">post</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Post</span>();</span><br><span class="line">	post.setTitle(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">	post.setBody(<span class="string">&quot;some content&quot;</span>);</span><br><span class="line">	post.setId(<span class="number">333</span>);</span><br><span class="line">	post.setUserId(<span class="number">234</span>);</span><br><span class="line">	HttpEntity&lt;Post&gt; requestEntity = <span class="keyword">new</span> <span class="title class_">HttpEntity</span>&lt;&gt;(post);</span><br><span class="line">	ResponseEntity&lt;Post&gt; response = restTemplate.postForEntity(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span>, requestEntity, Post.class);</span><br><span class="line">	assertThat(response.getStatusCode(), is(HttpStatus.CREATED));</span><br><span class="line">	log.info(<span class="string">&quot;Response body is &quot;</span> + response.getBody());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">exchangeWithHeader</span><span class="params">()</span> &#123;</span><br><span class="line">	log.info(<span class="string">&quot;------------RestTemplate.exchange() POST-----------&quot;</span>);</span><br><span class="line">	<span class="type">Post</span> <span class="variable">post</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Post</span>();</span><br><span class="line">	post.setTitle(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">	post.setBody(<span class="string">&quot;some content&quot;</span>);</span><br><span class="line">	post.setId(<span class="number">333</span>);</span><br><span class="line">	post.setUserId(<span class="number">234</span>);</span><br><span class="line">	<span class="type">HttpHeaders</span> <span class="variable">headers</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpHeaders</span>();</span><br><span class="line">	headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);</span><br><span class="line">	headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);</span><br><span class="line">	HttpEntity&lt;Post&gt; requestEntity = <span class="keyword">new</span> <span class="title class_">HttpEntity</span>&lt;&gt;(post,headers);</span><br><span class="line">	ResponseEntity&lt;Post&gt; response = restTemplate.exchange(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span>, HttpMethod.POST, requestEntity, Post.class);</span><br><span class="line">	assertThat(response.getStatusCode(), is(HttpStatus.CREATED));</span><br><span class="line">	log.info(<span class="string">&quot;Response body is &quot;</span> + response.getBody());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">simplePut</span><span class="params">()</span> &#123;</span><br><span class="line">	log.info(<span class="string">&quot;------------RestTemplate.exchange() PUT-----------&quot;</span>);</span><br><span class="line">	<span class="type">Post</span> <span class="variable">post</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Post</span>();</span><br><span class="line">	post.setTitle(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">	post.setBody(<span class="string">&quot;some content&quot;</span>);</span><br><span class="line">	post.setId(<span class="number">333</span>);</span><br><span class="line">	post.setUserId(<span class="number">234</span>);</span><br><span class="line">	HttpEntity&lt;Post&gt; requestEntity = <span class="keyword">new</span> <span class="title class_">HttpEntity</span>&lt;&gt;(post);</span><br><span class="line">	ResponseEntity&lt;Post&gt; response = restTemplate.exchange(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span>,HttpMethod.PUT, requestEntity, Post.class);</span><br><span class="line">	assertThat(response.getStatusCode(), is(HttpStatus.OK));</span><br><span class="line">	log.info(<span class="string">&quot;Response body is &quot;</span> + response.getBody());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">simpleDelete</span><span class="params">()</span> &#123;</span><br><span class="line">	log.info(<span class="string">&quot;------------RestTemplate.delete()-----------&quot;</span>);</span><br><span class="line">	restTemplate.delete(<span class="string">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Interceptor"><a href="#Interceptor" class="headerlink" title="Interceptor"></a>Interceptor</h1><p>Spring RestTemplate allows us to add interceptors that implement ClientHttpRequestInterceptor interface.<br>The <code>intercept(HttpRequest, byte[], ClientHttpRequestExecution)</code> method of this interface will intercept<br>the given request and return the response by giving us access to the request, body and execution objects.</p>
+<p>Define a RestTemplate Interceptor that logs request headers, request body and response headers</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RestClientLogInterceptor</span> <span class="keyword">implements</span> <span class="title class_">ClientHttpRequestInterceptor</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">LOG</span> <span class="operator">=</span> LoggerFactory.getLogger(RestClientLogInterceptor.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ClientHttpResponse <span class="title function_">intercept</span><span class="params">(HttpRequest request, <span class="type">byte</span>[] body, ClientHttpRequestExecution execution)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        request.getHeaders().forEach((k,v) -&gt; LOG.debug(<span class="string">&quot;Request Header[&#123;&#125;]: &#123;&#125;&quot;</span>, k, v));</span><br><span class="line">		LOG.debug(<span class="string">&quot;Request body: &#123;&#125;&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>(reqBody));</span><br><span class="line">        <span class="type">ClientHttpResponse</span> <span class="variable">response</span> <span class="operator">=</span> execution.execute(request, body);</span><br><span class="line">        response.getHeaders().forEach((k,v) -&gt; LOG.debug(<span class="string">&quot;Response Header[&#123;&#125;]: &#123;&#125;&quot;</span>, k, v));</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>create RestTemplate bean with Interceptor</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean(&quot;restTemplateWithInterceptor&quot;)</span></span><br><span class="line"><span class="keyword">public</span> RestTemplate <span class="title function_">restTemplateWithInterceptor</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="type">RestTemplate</span> <span class="variable">restTemplate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RestTemplate</span>();</span><br><span class="line">	restTemplate.setInterceptors(Collections.singletonList(<span class="keyword">new</span> <span class="title class_">RestClientLogInterceptor</span>()));</span><br><span class="line">	<span class="keyword">return</span> restTemplate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="WebClient"><a href="#WebClient" class="headerlink" title="WebClient"></a>WebClient</h1><p>RestTemplate is synchronous. It will be deprecated in the future version. <a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.html">WebClient</a> is an modern webclient that can perform sync and async requests. see <a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-5-webclient">https://www.baeldung.com/spring-5-webclient</a> for more details.</p>
+<p>Reference</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html">RestTemplate Reference</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.baeldung.com/rest-template">baeldung RestTemplate Tutorial</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.baeldung.com/spring-rest-template-interceptor">RestTemplate Interceptor</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-Filters-and-Interceptors/" rel="prev" title="Spring Boot - Filters and Interceptors">
+                  <i class="fa fa-chevron-left"></i> Spring Boot - Filters and Interceptors
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-Handling-Date-Request-Parameter/" rel="next" title="Spring Boot - Handling Date Request Parameter">
+                  Spring Boot - Handling Date Request Parameter <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

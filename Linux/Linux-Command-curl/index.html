@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="curl - transfer data to and from the web. With curl you can easily interact with REST API.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Command - curl">
+<meta property="og:url" content="http://example.com/Linux/Linux-Command-curl/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="curl - transfer data to and from the web. With curl you can easily interact with REST API.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-01-10T05:14:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.182Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Linux/Linux-Command-curl/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Linux/Linux-Command-curl/","path":"Linux/Linux-Command-curl/","title":"Linux Command - curl"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux Command - curl | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-file"><span class="nav-number">3.1.</span> <span class="nav-text">Download file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Curl-with-Basic-authentication"><span class="nav-number">3.2.</span> <span class="nav-text">Curl with Basic authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-GET-Request"><span class="nav-number">3.3.</span> <span class="nav-text">Make a GET Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#With-Http-Header"><span class="nav-number">3.4.</span> <span class="nav-text">With Http Header</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-PUT-Request"><span class="nav-number">3.5.</span> <span class="nav-text">Make a PUT Request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-a-POST-Request"><span class="nav-number">3.6.</span> <span class="nav-text">Make a POST Request</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Linux/Linux-Command-curl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux Command - curl | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux Command - curl
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-10 00:14:00" itemprop="dateCreated datePublished" datetime="2019-01-10T00:14:00-05:00">2019-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><code>curl</code> - transfer data to and from the web. With <code>curl</code> you can easily interact with REST API.</p>
+<span id="more"></span>
+
+<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl [options] [URL]</span><br></pre></td></tr></table></figure>
+
+<h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
+<thead>
+<tr>
+<th>Common Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-O</td>
+<td>write output to a local file named like the remote file we got</td>
+</tr>
+<tr>
+<td>-o <em>file</em></td>
+<td>write output to <em>file</em> instead of stdout</td>
+</tr>
+<tr>
+<td>-i&#x2F;--include</td>
+<td>fetch the HTTP header in the output</td>
+</tr>
+<tr>
+<td>-I&#x2F;--head</td>
+<td>fetch the HTTP header only</td>
+</tr>
+<tr>
+<td>-H <em>header</em></td>
+<td>Extra header to use when getting a web page.</td>
+</tr>
+<tr>
+<td>-X <em>Http_Method</em></td>
+<td>Specifies a custom request method to use when communicating with the HTTP server.</td>
+</tr>
+<tr>
+<td>-d&#x2F;--data <em>data</em></td>
+<td>send POST request to HTTP server with data</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>follow redirect. redirect happens when server response is 3xx</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>(SSL) This option explicitly allows curl to perform “insecure” SSL connections and transfers.</td>
+</tr>
+<tr>
+<td>-u <em>user:password</em></td>
+<td>specify user name and password to use server authentication</td>
+</tr>
+<tr>
+<td>--retry <em>num</em></td>
+<td>retry num times</td>
+</tr>
+<tr>
+<td>--retry-delay <em>seconds</em></td>
+<td>set retry delay in seconds</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>Silent or quiet mode. Don’t show progress meter or error messages. Makes Curl mute.</td>
+</tr>
+</tbody></table>
+<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Download-file"><a href="#Download-file" class="headerlink" title="Download file"></a>Download file</h2><p>Download file in silent mode</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -O  https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
+
+<p>You can also use -o to rename the downloaded file</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s -o funny-octocats.zip  https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Curl-with-Basic-authentication"><a href="#Curl-with-Basic-authentication" class="headerlink" title="Curl with Basic authentication"></a>Curl with Basic authentication</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -u username:password http://mydomain.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Make-a-GET-Request"><a href="#Make-a-GET-Request" class="headerlink" title="Make a GET Request"></a>Make a GET Request</h2><p>send a GET request to server and display response</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
+
+<p>Same as </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
+
+<h2 id="With-Http-Header"><a href="#With-Http-Header" class="headerlink" title="With Http Header"></a>With Http Header</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i -X GET http://127.0.0.1:5984/demo</span><br></pre></td></tr></table></figure>
+
+<h2 id="Make-a-PUT-Request"><a href="#Make-a-PUT-Request" class="headerlink" title="Make a PUT Request"></a>Make a PUT Request</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X PUT http://172.17.0.4/newdb</span><br></pre></td></tr></table></figure>
+
+<h2 id="Make-a-POST-Request"><a href="#Make-a-POST-Request" class="headerlink" title="Make a POST Request"></a>Make a POST Request</h2><p>Make a Post request to create a customer</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST  -H &#x27;Content-Type: application/json&#x27; http://localhost:8080/customers/ -d &#x27;&#123;&quot;name&quot;: &quot;Dave&quot;, &quot;age&quot;: &quot;25&quot;&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/curl">curl online man page</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.couchdb.org/en/stable/intro/curl.html">cURL: Your Command Line Friend by CouchDB</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Linux/Linux-Command-wget/" rel="prev" title="Linux Command - wget">
+                  <i class="fa fa-chevron-left"></i> Linux Command - wget
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Docker/Docker-Intro/" rel="next" title="Docker Intro">
+                  Docker Intro <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="You don’t need to understand all the OAuth2 classes to use OAuth2.0 login. However, knowing the core OAuth2 classes and internals will help you configure OAuth2 authentication process and take full ad">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Security - OAuth2 Core Classes">
+<meta property="og:url" content="http://example.com/SpringSecurity/Spring-Security-OAuth2-Core-Classes/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="You don’t need to understand all the OAuth2 classes to use OAuth2.0 login. However, knowing the core OAuth2 classes and internals will help you configure OAuth2 authentication process and take full ad">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-21T04:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.208Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/SpringSecurity/Spring-Security-OAuth2-Core-Classes/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringSecurity/Spring-Security-OAuth2-Core-Classes/","path":"SpringSecurity/Spring-Security-OAuth2-Core-Classes/","title":"Spring Security - OAuth2 Core Classes"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Security - OAuth2 Core Classes | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2LoginAuthenticationToken"><span class="nav-number">1.</span> <span class="nav-text">OAuth2LoginAuthenticationToken</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2AuthenticationToken"><span class="nav-number">2.</span> <span class="nav-text">OAuth2AuthenticationToken</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2User-and-OidcUser"><span class="nav-number">3.</span> <span class="nav-text">OAuth2User and OidcUser</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClientRegistration"><span class="nav-number">4.</span> <span class="nav-text">ClientRegistration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClientRegistrationRepository"><span class="nav-number">5.</span> <span class="nav-text">ClientRegistrationRepository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2AuthorizedClient"><span class="nav-number">6.</span> <span class="nav-text">OAuth2AuthorizedClient</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2AuthorizedClientRepository"><span class="nav-number">7.</span> <span class="nav-text">OAuth2AuthorizedClientRepository</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AuthenticatedPrincipalOAuth2AuthorizedClientRepository"><span class="nav-number">7.1.</span> <span class="nav-text">AuthenticatedPrincipalOAuth2AuthorizedClientRepository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HttpSessionOAuth2AuthorizedClientRepository"><span class="nav-number">7.2.</span> <span class="nav-text">HttpSessionOAuth2AuthorizedClientRepository</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth2AuthorizedClientService"><span class="nav-number">8.</span> <span class="nav-text">OAuth2AuthorizedClientService</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#InMemoryOAuth2AuthorizedClientService"><span class="nav-number">8.1.</span> <span class="nav-text">InMemoryOAuth2AuthorizedClientService</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringSecurity/Spring-Security-OAuth2-Core-Classes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Security - OAuth2 Core Classes | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Security - OAuth2 Core Classes
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:00-04:00">2020-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>You don’t need to understand all the OAuth2 classes to use OAuth2.0 login. However, knowing the core OAuth2 classes and internals will help you configure OAuth2 authentication process and take full advantage of Spring Boot’s OAuth2.0 support.</p>
+<span id="more"></span>
+<p>If you are not familiar with OAuth2, see this post <a href="../../Security/OAuth2">OAuth2</a> to understand OAuth2 concepts first.</p>
+<h1 id="OAuth2LoginAuthenticationToken"><a href="#OAuth2LoginAuthenticationToken" class="headerlink" title="OAuth2LoginAuthenticationToken"></a>OAuth2LoginAuthenticationToken</h1><ul>
+<li>An AbstractAuthenticationToken for OAuth 2.0 Login, which leverages the OAuth 2.0 Authorization Code Grant Flow.</li>
+<li>OAuth2LoginAuthenticationToken is used in OAuth2LoginAuthenticationFilter for login purpose</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/cOAuth2LoginAuthenticationTokenurrent/api/index.html?org/springframework/security/oauth2/client/authentication/OAuth2LoginAuthenticationToken.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blOAuth2LoginAuthenticationTokenob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2LoginAuthenticationToken.java">Source code</a></li>
+</ul>
+<p>OAuth2LoginAuthenticationToken contains the following fields</p>
+<ul>
+<li>principal of type OAuth2User</li>
+<li><strong>ClientRegistration</strong></li>
+<li><strong>OAuth2AuthorizationExchange</strong></li>
+<li><strong>OAuth2AccessToken</strong></li>
+<li><strong>OAuth2RefreshToken</strong> - this field is optional</li>
+</ul>
+<h1 id="OAuth2AuthenticationToken"><a href="#OAuth2AuthenticationToken" class="headerlink" title="OAuth2AuthenticationToken"></a>OAuth2AuthenticationToken</h1><ul>
+<li>An implementation of an AbstractAuthenticationToken that represents an OAuth 2.0 Authentication.</li>
+<li>OAuth2AuthenticationToken is created in OAuth2LoginAuthenticationFilter</li>
+<li>When the user login successfully, OAuth2AuthenticationToken is created and stored in SecurityContext</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java">Source Code</a></li>
+</ul>
+<p>OAuth2AuthenticationToken contains the following fields</p>
+<ul>
+<li>principal of type OAuth2User</li>
+<li>authorizedClientRegistrationId</li>
+</ul>
+<p>Note that OAuth2AuthenticationToken doesn’t contain AccessToken or RefreshToken, If you need to use AccessToken or RefreshToken, you can get it from OAuth2AuthorizedClient.</p>
+<h1 id="OAuth2User-and-OidcUser"><a href="#OAuth2User-and-OidcUser" class="headerlink" title="OAuth2User and OidcUser"></a>OAuth2User and OidcUser</h1><ul>
+<li>OAuth2User is an Interface that extends OAuth2AuthenticatedPrincipal. DefaultOAuth2User is the default implementation</li>
+<li>OAuth2AuthenticationToken contains OAuth2User.</li>
+</ul>
+<p>OAuth2AuthenticatedPrincipal is an AuthenticatedPrincipal that represents the principal associated with an OAuth 2.0 token. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OAuth2AuthenticatedPrincipal</span> <span class="keyword">extends</span> <span class="title class_">AuthenticatedPrincipal</span> &#123;</span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="keyword">default</span> &lt;A&gt; A <span class="title function_">getAttribute</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> (A) getAttributes().get(name);</span><br><span class="line">	&#125;</span><br><span class="line">	Map&lt;String, Object&gt; <span class="title function_">getAttributes</span><span class="params">()</span>;</span><br><span class="line">	Collection&lt;? <span class="keyword">extends</span> <span class="title class_">GrantedAuthority</span>&gt; getAuthorities();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OAuth2User is an interface that extends OAuth2AuthenticatedPrincipal</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OAuth2User</span> <span class="keyword">extends</span> <span class="title class_">OAuth2AuthenticatedPrincipal</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OidcUser extends OAuth2User. It is created when OpenID Connect is used. This class contains additional information including ID Token. ID Token is a Jwt returned only for OpenID Connect authentication.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OidcUser</span> <span class="keyword">extends</span> <span class="title class_">OAuth2User</span>, IdTokenClaimAccessor &#123;</span><br><span class="line">	Map&lt;String, Object&gt; <span class="title function_">getClaims</span><span class="params">()</span>;</span><br><span class="line">	OidcUserInfo <span class="title function_">getUserInfo</span><span class="params">()</span>;</span><br><span class="line">	OidcIdToken <span class="title function_">getIdToken</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OAuth2User or OidcUser can be retrieved when @AuthenticationPrincipal annotation is used. it can also be retrieved from OAuth2AuthenticationToken.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(value=&quot;/&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">sayHello</span><span class="params">(<span class="meta">@AuthenticationPrincipal</span> OidcUser principal)</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;Hello, &quot;</span> + principal.getAttribute(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="ClientRegistration"><a href="#ClientRegistration" class="headerlink" title="ClientRegistration"></a>ClientRegistration</h1><ul>
+<li><code>ClientRegistration</code> is a representation of a client registration with an OAuth 2.0 or OpenID Connect 1.0 Provider.</li>
+<li>A client registration holds information, such as client id, client secret, authorization grant type, redirect URI, scope(s), authorization URI, token URI, and other details.</li>
+<li>It has a Builder static nested class </li>
+<li>Its <code>registrationId</code> uniquely identifies the <code>ClientRegistration</code>.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/9f6af4f3b8e79a8a45369d99862cd3d96f4083ce/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/registration/ClientRegistration.java">source code</a></li>
+</ul>
+<p>See the member variables here:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">ClientRegistration</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String registrationId;  </span><br><span class="line">    <span class="keyword">private</span> String clientId;    </span><br><span class="line">    <span class="keyword">private</span> String clientSecret;    </span><br><span class="line">    <span class="keyword">private</span> ClientAuthenticationMethod clientAuthenticationMethod;  </span><br><span class="line">    <span class="keyword">private</span> AuthorizationGrantType authorizationGrantType;  </span><br><span class="line">    <span class="keyword">private</span> String redirectUriTemplate; </span><br><span class="line">    <span class="keyword">private</span> Set&lt;String&gt; scopes; </span><br><span class="line">    <span class="keyword">private</span> ProviderDetails providerDetails;</span><br><span class="line">    <span class="keyword">private</span> String clientName;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProviderDetails</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> String authorizationUri;    </span><br><span class="line">        <span class="keyword">private</span> String tokenUri;    </span><br><span class="line">        <span class="keyword">private</span> UserInfoEndpoint userInfoEndpoint;</span><br><span class="line">        <span class="keyword">private</span> String jwkSetUri;   </span><br><span class="line">        <span class="keyword">private</span> Map&lt;String, Object&gt; configurationMetadata;  </span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserInfoEndpoint</span> &#123;</span><br><span class="line">            <span class="keyword">private</span> String uri; </span><br><span class="line">            <span class="keyword">private</span> AuthenticationMethod authenticationMethod;  </span><br><span class="line">            <span class="keyword">private</span> String userNameAttributeName;   </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>see <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2Client-client-registration">ClientRegistration Documentation</a> for explaination of each field.</p>
+<p>Client Registration can be configured in application.yml file.</p>
+<p><code>spring.security.oauth2.client.registration</code> is the base property prefix for OAuth Client properties</p>
+<p>application.yml - example to configure a Google oauth2 ClientRegistration. Here the registrationId is “google”.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">security:</span></span><br><span class="line">    <span class="attr">oauth2:</span></span><br><span class="line">      <span class="attr">client:</span></span><br><span class="line">        <span class="attr">registration:</span>   </span><br><span class="line">          <span class="attr">google:</span>   </span><br><span class="line">            <span class="attr">client-id:</span> <span class="string">$&#123;GOOGLE_CLIENT_ID&#125;</span></span><br><span class="line">            <span class="attr">client-secret:</span> <span class="string">$&#123;GOOGLE_CLIENT_SECRET&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>see <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#oauth2login-boot-property-mappings">Spring Boot 2.x Property Mappings for ClientRegistration</a> for all the properties avaialble for client registration</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/config/src/main/java/org/springframework/security/config/oauth2/client/CommonOAuth2Provider.java">CommonOAuth2Provider</a> preconfigure Client Registration Builders for Google, Github, Facebook and OKTA. That is why you only need to set client ID and client secret for Google ClientRegistration. Scope, authoriztionUri tokenUri etc are preconfigured already. If the provider is not one of them, you need to provide the necessary information.</p>
+<p>The common way is to define ClientRegistration in application.yml. Another approach is to manually define ClientRegistration and provide the custom ClientRegistration to ClientRegistrationRepository.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OAuth2LoginConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> ClientRegistrationRepository <span class="title function_">clientRegistrationRepository</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">InMemoryClientRegistrationRepository</span>(<span class="built_in">this</span>.googleClientRegistration());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ClientRegistration <span class="title function_">googleClientRegistration</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ClientRegistration.withRegistrationId(<span class="string">&quot;google&quot;</span>)</span><br><span class="line">            .clientId(<span class="string">&quot;google-client-id&quot;</span>)</span><br><span class="line">            .clientSecret(<span class="string">&quot;google-client-secret&quot;</span>)</span><br><span class="line">            .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)</span><br><span class="line">            .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)</span><br><span class="line">            .redirectUriTemplate(<span class="string">&quot;&#123;baseUrl&#125;/login/oauth2/code/&#123;registrationId&#125;&quot;</span>)</span><br><span class="line">            .scope(<span class="string">&quot;openid&quot;</span>, <span class="string">&quot;profile&quot;</span>, <span class="string">&quot;email&quot;</span>, <span class="string">&quot;address&quot;</span>, <span class="string">&quot;phone&quot;</span>)</span><br><span class="line">            .authorizationUri(<span class="string">&quot;https://accounts.google.com/o/oauth2/v2/auth&quot;</span>)</span><br><span class="line">            .tokenUri(<span class="string">&quot;https://www.googleapis.com/oauth2/v4/token&quot;</span>)</span><br><span class="line">            .userInfoUri(<span class="string">&quot;https://www.googleapis.com/oauth2/v3/userinfo&quot;</span>)</span><br><span class="line">            .userNameAttributeName(IdTokenClaimNames.SUB)</span><br><span class="line">            .jwkSetUri(<span class="string">&quot;https://www.googleapis.com/oauth2/v3/certs&quot;</span>)</span><br><span class="line">            .clientName(<span class="string">&quot;Google&quot;</span>)</span><br><span class="line">            .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="ClientRegistrationRepository"><a href="#ClientRegistrationRepository" class="headerlink" title="ClientRegistrationRepository"></a>ClientRegistrationRepository</h1><ul>
+<li>A ClientRegistrationRepository is a repository of ClientRegistration(s).</li>
+<li>The auto-configuration registers the ClientRegistrationRepository as a <code>@Bean</code> in the ApplicationContext so that it is available for dependency-injection</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/registration/ClientRegistrationRepository.html">Javadoc</a> for ClientRegistrationRepository</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/registration/ClientRegistrationRepository.java">Source code</a></li>
+</ul>
+<p>ClientRegistrationRepository Interface</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ClientRegistrationRepository</span> &#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Returns the client registration identified by the provided &#123;<span class="doctag">@code</span> registrationId&#125;, or &#123;<span class="doctag">@code</span> null&#125; if not found.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	ClientRegistration <span class="title function_">findByRegistrationId</span><span class="params">(String registrationId)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/registration/InMemoryClientRegistrationRepository.java">InMemoryClientRegistrationRepository</a> is an in-memory implementation of ClientRegistrationRepository. It uses a UnmodifiableConcurrentMap to store registration information. Spring Security does not provide another implementation.</p>
+<p>If you don’t provide a ClientRegistrationRepository bean, Spring Security will create an InMemoryClientRegistrationRepository bean for you. </p>
+<h1 id="OAuth2AuthorizedClient"><a href="#OAuth2AuthorizedClient" class="headerlink" title="OAuth2AuthorizedClient"></a>OAuth2AuthorizedClient</h1><ul>
+<li><strong>A representation of an OAuth 2.0 Authorized Client.</strong> A client is considered “authorized” when the End-User (Resource Owner) has granted authorization to the client to access it’s protected resources.</li>
+<li>OAuth2AuthorizedClient serves the purpose of associating an OAuth2AccessToken (and optional OAuth2RefreshToken) to a ClientRegistration (client) and resource owner, who is the Principal end-user that granted the authorization.</li>
+<li>You can get the current user’s OAuth2AuthorizedClient using OAuth2AuthorizedClientService.loadAuthorizedClient method.</li>
+<li>OAuth2AuthorizedClient contains <strong>accessToken</strong> and an optional <strong>refreshToken</strong>. </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClient.java">Source Code</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/OAuth2AuthorizedClient.html">Javadoc</a></li>
+</ul>
+<p>source code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OAuth2AuthorizedClient</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> SpringSecurityCoreVersion.SERIAL_VERSION_UID;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> ClientRegistration clientRegistration;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> String principalName;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> OAuth2AccessToken accessToken;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> OAuth2RefreshToken refreshToken;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">OAuth2AuthorizedClient</span><span class="params">(ClientRegistration clientRegistration, </span></span><br><span class="line"><span class="params">            String principalName, OAuth2AccessToken accessToken)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>(clientRegistration, principalName, accessToken, <span class="literal">null</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">OAuth2AuthorizedClient</span><span class="params">(ClientRegistration clientRegistration, String principalName,</span></span><br><span class="line"><span class="params">			OAuth2AccessToken accessToken, <span class="meta">@Nullable</span> OAuth2RefreshToken refreshToken)</span> &#123;</span><br><span class="line">		Assert.notNull(clientRegistration, <span class="string">&quot;clientRegistration cannot be null&quot;</span>);</span><br><span class="line">		Assert.hasText(principalName, <span class="string">&quot;principalName cannot be empty&quot;</span>);</span><br><span class="line">		Assert.notNull(accessToken, <span class="string">&quot;accessToken cannot be null&quot;</span>);</span><br><span class="line">		<span class="built_in">this</span>.clientRegistration = clientRegistration;</span><br><span class="line">		<span class="built_in">this</span>.principalName = principalName;</span><br><span class="line">		<span class="built_in">this</span>.accessToken = accessToken;</span><br><span class="line">		<span class="built_in">this</span>.refreshToken = refreshToken;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> ClientRegistration <span class="title function_">getClientRegistration</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.clientRegistration;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getPrincipalName</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.principalName;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> OAuth2AccessToken <span class="title function_">getAccessToken</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.accessToken;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="meta">@Nullable</span> OAuth2RefreshToken <span class="title function_">getRefreshToken</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.refreshToken;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="OAuth2AuthorizedClientRepository"><a href="#OAuth2AuthorizedClientRepository" class="headerlink" title="OAuth2AuthorizedClientRepository"></a>OAuth2AuthorizedClientRepository</h1><ul>
+<li>Repository for OAuth2AuthorizedClient(s)</li>
+<li>Implementations of this interface are responsible for the persistence of Authorized Client(s) between requests.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/web/OAuth2AuthorizedClientRepository.java">Source code</a></li>
+</ul>
+<p>OAuth2AuthorizedClientRepository Interface source code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OAuth2AuthorizedClientRepository</span> &#123;</span><br><span class="line">	&lt;T <span class="keyword">extends</span> <span class="title class_">OAuth2AuthorizedClient</span>&gt; T <span class="title function_">loadAuthorizedClient</span><span class="params">(String clientRegistrationId, </span></span><br><span class="line"><span class="params">            Authentication principal, HttpServletRequest request)</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">saveAuthorizedClient</span><span class="params">(OAuth2AuthorizedClient authorizedClient, Authentication principal,</span></span><br><span class="line"><span class="params">			HttpServletRequest request, HttpServletResponse response)</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">removeAuthorizedClient</span><span class="params">(String clientRegistrationId, Authentication principal,</span></span><br><span class="line"><span class="params">			HttpServletRequest request, HttpServletResponse response)</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Two of the implementations are</p>
+<ul>
+<li><strong>AuthenticatedPrincipalOAuth2AuthorizedClientRepository</strong> - the default repository to use. see details below</li>
+<li><strong>HttpSessionOAuth2AuthorizedClientRepository</strong> - An implementation of an OAuth2AuthorizedClientRepository that stores OAuth2AuthorizedClient’s in the HttpSession.</li>
+</ul>
+<p>AuthenticatedPrincipalOAuth2AuthorizedClientRepository is the default bean to use when no OAuth2AuthorizedClientRepository bean is found</p>
+<h2 id="AuthenticatedPrincipalOAuth2AuthorizedClientRepository"><a href="#AuthenticatedPrincipalOAuth2AuthorizedClientRepository" class="headerlink" title="AuthenticatedPrincipalOAuth2AuthorizedClientRepository"></a>AuthenticatedPrincipalOAuth2AuthorizedClientRepository</h2><ul>
+<li>An implementation of an OAuth2AuthorizedClientRepository that delegates to the provided <strong>OAuth2AuthorizedClientService</strong> if the current Principal is authenticated, otherwise, to the default (or provided) OAuth2AuthorizedClientRepository if the current request is unauthenticated (or anonymous).</li>
+</ul>
+<p>AuthenticatedPrincipalOAuth2AuthorizedClientRepository source code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">AuthenticatedPrincipalOAuth2AuthorizedClientRepository</span> <span class="keyword">implements</span> <span class="title class_">OAuth2AuthorizedClientRepository</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">AuthenticationTrustResolver</span> <span class="variable">authenticationTrustResolver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AuthenticationTrustResolverImpl</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> OAuth2AuthorizedClientService authorizedClientService;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">OAuth2AuthorizedClientRepository</span> <span class="variable">anonymousAuthorizedClientRepository</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpSessionOAuth2AuthorizedClientRepository</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">AuthenticatedPrincipalOAuth2AuthorizedClientRepository</span><span class="params">(OAuth2AuthorizedClientService authorizedClientService)</span> &#123;</span><br><span class="line">        Assert.notNull(authorizedClientService, <span class="string">&quot;authorizedClientService cannot be null&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.authorizedClientService = authorizedClientService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAnonymousAuthorizedClientRepository</span><span class="params">(OAuth2AuthorizedClientRepository anonymousAuthorizedClientRepository)</span> &#123;</span><br><span class="line">        Assert.notNull(anonymousAuthorizedClientRepository, <span class="string">&quot;anonymousAuthorizedClientRepository cannot be null&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.anonymousAuthorizedClientRepository = anonymousAuthorizedClientRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T <span class="keyword">extends</span> <span class="title class_">OAuth2AuthorizedClient</span>&gt; T <span class="title function_">loadAuthorizedClient</span><span class="params">(String clientRegistrationId, Authentication principal, HttpServletRequest request)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.isPrincipalAuthenticated(principal) ? <span class="built_in">this</span>.authorizedClientService.loadAuthorizedClient(clientRegistrationId, principal.getName()) : <span class="built_in">this</span>.anonymousAuthorizedClientRepository.loadAuthorizedClient(clientRegistrationId, principal, request);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">saveAuthorizedClient</span><span class="params">(OAuth2AuthorizedClient authorizedClient, Authentication principal, HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isPrincipalAuthenticated(principal)) &#123;</span><br><span class="line">            <span class="built_in">this</span>.authorizedClientService.saveAuthorizedClient(authorizedClient, principal);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.anonymousAuthorizedClientRepository.saveAuthorizedClient(authorizedClient, principal, request, response);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">removeAuthorizedClient</span><span class="params">(String clientRegistrationId, Authentication principal, HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isPrincipalAuthenticated(principal)) &#123;</span><br><span class="line">            <span class="built_in">this</span>.authorizedClientService.removeAuthorizedClient(clientRegistrationId, principal.getName());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.anonymousAuthorizedClientRepository.removeAuthorizedClient(clientRegistrationId, principal, request, response);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isPrincipalAuthenticated</span><span class="params">(Authentication authentication)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> authentication != <span class="literal">null</span> &amp;&amp; !<span class="built_in">this</span>.authenticationTrustResolver.isAnonymous(authentication) &amp;&amp; authentication.isAuthenticated();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="HttpSessionOAuth2AuthorizedClientRepository"><a href="#HttpSessionOAuth2AuthorizedClientRepository" class="headerlink" title="HttpSessionOAuth2AuthorizedClientRepository"></a>HttpSessionOAuth2AuthorizedClientRepository</h2><p>To use HttpSessionOAuth2AuthorizedClientRepository instead of the default, just create the bean.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfiguration</span> <span class="keyword">extends</span> <span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> OAuth2AuthorizedClientRepository <span class="title function_">oAuth2AuthorizedClientRepository</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HttpSessionOAuth2AuthorizedClientRepository</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="OAuth2AuthorizedClientService"><a href="#OAuth2AuthorizedClientService" class="headerlink" title="OAuth2AuthorizedClientService"></a>OAuth2AuthorizedClientService</h1><ul>
+<li>Implementations of this interface are responsible for the management of Authorized Client(s), which provide the purpose of associating an Access Token credential to a Client and Resource Owner, who is the Principal that originally granted the authorization.</li>
+<li>The default implementation of OAuth2AuthorizedClientService is InMemoryOAuth2AuthorizedClientService</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/OAuth2AuthorizedClientService.java">source code</a></li>
+</ul>
+<p>OAuth2AuthorizedClientService Interface</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">OAuth2AuthorizedClientService</span> &#123;</span><br><span class="line">	&lt;T <span class="keyword">extends</span> <span class="title class_">OAuth2AuthorizedClient</span>&gt; T <span class="title function_">loadAuthorizedClient</span><span class="params">(String clientRegistrationId, String principalName)</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">saveAuthorizedClient</span><span class="params">(OAuth2AuthorizedClient authorizedClient, Authentication principal)</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">removeAuthorizedClient</span><span class="params">(String clientRegistrationId, String principalName)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>implementations are </p>
+<ul>
+<li>InMemoryOAuth2AuthorizedClientService - this is the default</li>
+<li>JdbcOAuth2AuthorizedClientService</li>
+</ul>
+<h2 id="InMemoryOAuth2AuthorizedClientService"><a href="#InMemoryOAuth2AuthorizedClientService" class="headerlink" title="InMemoryOAuth2AuthorizedClientService"></a>InMemoryOAuth2AuthorizedClientService</h2><ul>
+<li>InMemoryOAuth2AuthorizedClientService is the default implementation of OAuth2AuthorizedClientService</li>
+<li>It uses ConcurrentHashMap to store OAuth2AuthorizedClient.</li>
+<li>OAuth2AuthorizedClient is retrieved using OAuth2AuthorizedClientId, which is composed of clientRegistrationId and principalName</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/oauth2/client/InMemoryOAuth2AuthorizedClientService.html">Javadoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/InMemoryOAuth2AuthorizedClientService.java">Source Code</a></li>
+</ul>
+<p>InMemoryOAuth2AuthorizedClientService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">InMemoryOAuth2AuthorizedClientService</span> <span class="keyword">implements</span> <span class="title class_">OAuth2AuthorizedClientService</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Map&lt;OAuth2AuthorizedClientId, OAuth2AuthorizedClient&gt; authorizedClients;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> ClientRegistrationRepository clientRegistrationRepository;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">InMemoryOAuth2AuthorizedClientService</span><span class="params">(ClientRegistrationRepository clientRegistrationRepository)</span> &#123;</span><br><span class="line">		Assert.notNull(clientRegistrationRepository, <span class="string">&quot;clientRegistrationRepository cannot be null&quot;</span>);</span><br><span class="line">		<span class="built_in">this</span>.clientRegistrationRepository = clientRegistrationRepository;</span><br><span class="line">		<span class="built_in">this</span>.authorizedClients = <span class="keyword">new</span> <span class="title class_">ConcurrentHashMap</span>&lt;&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">InMemoryOAuth2AuthorizedClientService</span><span class="params">(ClientRegistrationRepository clientRegistrationRepository,</span></span><br><span class="line"><span class="params">													Map&lt;OAuth2AuthorizedClientId, OAuth2AuthorizedClient&gt; authorizedClients)</span> &#123;</span><br><span class="line">		Assert.notNull(clientRegistrationRepository, <span class="string">&quot;clientRegistrationRepository cannot be null&quot;</span>);</span><br><span class="line">		Assert.notEmpty(authorizedClients, <span class="string">&quot;authorizedClients cannot be empty&quot;</span>);</span><br><span class="line">		<span class="built_in">this</span>.clientRegistrationRepository = clientRegistrationRepository;</span><br><span class="line">		<span class="built_in">this</span>.authorizedClients = <span class="keyword">new</span> <span class="title class_">ConcurrentHashMap</span>&lt;&gt;(authorizedClients);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">	<span class="keyword">public</span> &lt;T <span class="keyword">extends</span> <span class="title class_">OAuth2AuthorizedClient</span>&gt; T <span class="title function_">loadAuthorizedClient</span><span class="params">(String clientRegistrationId, String principalName)</span> &#123;</span><br><span class="line">		Assert.hasText(clientRegistrationId, <span class="string">&quot;clientRegistrationId cannot be empty&quot;</span>);</span><br><span class="line">		Assert.hasText(principalName, <span class="string">&quot;principalName cannot be empty&quot;</span>);</span><br><span class="line">		<span class="type">ClientRegistration</span> <span class="variable">registration</span> <span class="operator">=</span> <span class="built_in">this</span>.clientRegistrationRepository.findByRegistrationId(clientRegistrationId);</span><br><span class="line">		<span class="keyword">if</span> (registration == <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> (T) <span class="built_in">this</span>.authorizedClients.get(<span class="keyword">new</span> <span class="title class_">OAuth2AuthorizedClientId</span>(clientRegistrationId, principalName));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">saveAuthorizedClient</span><span class="params">(OAuth2AuthorizedClient authorizedClient, Authentication principal)</span> &#123;</span><br><span class="line">		Assert.notNull(authorizedClient, <span class="string">&quot;authorizedClient cannot be null&quot;</span>);</span><br><span class="line">		Assert.notNull(principal, <span class="string">&quot;principal cannot be null&quot;</span>);</span><br><span class="line">		<span class="built_in">this</span>.authorizedClients.put(<span class="keyword">new</span> <span class="title class_">OAuth2AuthorizedClientId</span>(authorizedClient.getClientRegistration().getRegistrationId(),</span><br><span class="line">				principal.getName()), authorizedClient);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">removeAuthorizedClient</span><span class="params">(String clientRegistrationId, String principalName)</span> &#123;</span><br><span class="line">		Assert.hasText(clientRegistrationId, <span class="string">&quot;clientRegistrationId cannot be empty&quot;</span>);</span><br><span class="line">		Assert.hasText(principalName, <span class="string">&quot;principalName cannot be empty&quot;</span>);</span><br><span class="line">		<span class="type">ClientRegistration</span> <span class="variable">registration</span> <span class="operator">=</span> <span class="built_in">this</span>.clientRegistrationRepository.findByRegistrationId(clientRegistrationId);</span><br><span class="line">		<span class="keyword">if</span> (registration != <span class="literal">null</span>) &#123;</span><br><span class="line">			<span class="built_in">this</span>.authorizedClients.remove(<span class="keyword">new</span> <span class="title class_">OAuth2AuthorizedClientId</span>(clientRegistrationId, principalName));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringSecurity/Spring-Security-Github-Login/" rel="prev" title="Spring Security - Github Login">
+                  <i class="fa fa-chevron-left"></i> Spring Security - Github Login
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringSecurity/Spring-Security-OAuth2-Process/" rel="next" title="Spring Security - OAuth2 Process">
+                  Spring Security - OAuth2 Process <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

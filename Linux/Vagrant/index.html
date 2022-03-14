@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Vagrant is a command line utility for managing the lifecycle of virtual machines.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vagrant Introduction">
+<meta property="og:url" content="http://example.com/Linux/Vagrant/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Vagrant is a command line utility for managing the lifecycle of virtual machines.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-14T17:22:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.188Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Linux/Vagrant/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Linux/Vagrant/","path":"Linux/Vagrant/","title":"Vagrant Introduction"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Vagrant Introduction | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Start-a-Virtual-Machine"><span class="nav-number">2.</span> <span class="nav-text">Start a Virtual Machine</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Synced-Folders"><span class="nav-number">3.</span> <span class="nav-text">Synced Folders</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Networking"><span class="nav-number">4.</span> <span class="nav-text">Networking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Port-Forwarding"><span class="nav-number">4.1.</span> <span class="nav-text">Port Forwarding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Private-Network"><span class="nav-number">4.2.</span> <span class="nav-text">Private Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Public-Network"><span class="nav-number">4.3.</span> <span class="nav-text">Public Network</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Provisioning"><span class="nav-number">5.</span> <span class="nav-text">Provisioning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vagrant-box-Commands"><span class="nav-number">6.</span> <span class="nav-text">Vagrant box Commands</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Linux/Vagrant/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Vagrant Introduction | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vagrant Introduction
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-14 13:22:00" itemprop="dateCreated datePublished" datetime="2021-03-14T13:22:00-04:00">2021-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://www.vagrantup.com/">Vagrant</a> is a command line utility for managing the lifecycle of virtual machines.</p>
+<span id="more"></span>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Vagrant can run on top of VirtualBox. You need to install VirtualBox first. go to <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Linux_Downloads">https://www.virtualbox.org/wiki/Linux_Downloads</a> and Install VirtualBox first. </p>
+<p>Download Vagrant package to Install in Ubuntu</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O https://releases.hashicorp.com/vagrant/2.2.14/vagrant_2.2.14_x86_64.deb</span><br></pre></td></tr></table></figure>
+
+<p>Once <code>.dev</code> file is downloaded, install it</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ./vagrant_2.2.14_x86_64.deb</span><br></pre></td></tr></table></figure>
+
+<p>To verify the installation is successful</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant --version</span><br></pre></td></tr></table></figure>
+
+<h1 id="Start-a-Virtual-Machine"><a href="#Start-a-Virtual-Machine" class="headerlink" title="Start a Virtual Machine"></a>Start a Virtual Machine</h1><p>Create a directory and cd into the directory</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> vagrant-project &amp;&amp; <span class="built_in">cd</span> vagrant-project</span><br></pre></td></tr></table></figure>
+
+<p>To start a vagrant virtual machine, you need to first set the box we want to use. <strong>Boxes</strong> are the package format for Vagrant environments. A box can be used by anyone on any platform that Vagrant supports to bring up an identical working environment. There are many boxes available. You can search for the boxes in  <a target="_blank" rel="noopener" href="https://app.vagrantup.com/">https://app.vagrantup.com/</a>.</p>
+<p>Initialize a new Vagrantfile and specify the box you want to you.  In this example, we will use ubuntu&#x2F;bionic64 box.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init ubuntu/bionic64</span><br></pre></td></tr></table></figure>
+
+<p>The generated Vagrantfile contains a lot of comments to help you configure the Vagrant file. Without the comments, the Vagrantfile looks like this</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |<span class="params">config</span>|</span><br><span class="line">  config.vm.box = <span class="string">&quot;ubuntu/bionic64&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>Run <code>vagrant up</code> to create the virtual machine</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+
+<p>Output</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bringing machine &#x27;default&#x27; up with &#x27;virtualbox&#x27; provider...</span><br><span class="line">==&gt; default: Importing base box &#x27;ubuntu/bionic64&#x27;...</span><br><span class="line">==&gt; default: Matching MAC address for NAT networking...</span><br><span class="line">==&gt; default: Checking if box &#x27;ubuntu/bionic64&#x27; version &#x27;20210305.0.0&#x27; is up to date...</span><br></pre></td></tr></table></figure>
+
+<p>To ssh into the newly created machine</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant ssh</span><br></pre></td></tr></table></figure>
+
+<p>To stop the vagrant machine</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br></pre></td></tr></table></figure>
+
+<p>To stop and delete all traces of the vagrant machine</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant destroy</span><br></pre></td></tr></table></figure>
+
+<h1 id="Synced-Folders"><a href="#Synced-Folders" class="headerlink" title="Synced Folders"></a>Synced Folders</h1><p>You can sync a folder on the host machine to the guest machine. By default, Vagrant share the project directory to <code>/vagrant</code> on the guest machine. You can add more share directory using <code>synced_folder</code> method.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">&quot;ubuntu/bionic64&quot;</span></span><br><span class="line">  config.vm.synced_folder <span class="string">&quot;../data&quot;</span>, <span class="string">&quot;/vagrant_data&quot;</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h1 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h1><p>Vagrant allows various networking options to access the guest machine from host machine.</p>
+<h2 id="Port-Forwarding"><a href="#Port-Forwarding" class="headerlink" title="Port Forwarding"></a>Port Forwarding</h2><p>In the example below. Access to <a target="_blank" rel="noopener" href="http://localhost:8080/">h</a>ost machine’s port 8080 will forward to  port 80 of the guest machine. Note that this allows public access.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.vm.network <span class="string">&quot;forwarded_port&quot;</span>, guest: 80, host: 8080</span><br></pre></td></tr></table></figure>
+
+<p>Here is another example of port forwarding but only allow access from host machine.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.vm.network <span class="string">&quot;forwarded_port&quot;</span>, guest: 80, host: 8080, host_ip: <span class="string">&quot;127.0.0.1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Private-Network"><a href="#Private-Network" class="headerlink" title="Private Network"></a>Private Network</h2><p>Create a private network. Only host can access the guest machine using this specific IP.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.vm.network <span class="string">&quot;private_network&quot;</span>, ip: <span class="string">&quot;192.168.33.10&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Public-Network"><a href="#Public-Network" class="headerlink" title="Public Network"></a>Public Network</h2><p>Create a public network to allow public access. You can ssh into the guest machine and then use <code>ifconfig</code> to get the public IP address of the guest machine.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.vm.network <span class="string">&quot;public_network&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Provisioning"><a href="#Provisioning" class="headerlink" title="Provisioning"></a>Provisioning</h1><p>Provisioners in Vagrant allow you to automatically install software, alter configurations, and more. Provisioning automates the tedious process of software installation so you can quickly start working once the virtual machine is up and running.  </p>
+<p>Provisioning happends when</p>
+<ul>
+<li><code>vagrant up</code> command is executed to create the environment.</li>
+<li><code>vagrant provision</code> is used on a running environment.</li>
+<li><code>vagran reload --provision</code> is called to reload the environment.</li>
+</ul>
+<p>You can provision using shell script. Here is the example to do apt update and install apache2 packages. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">&quot;ubuntu/bionic64&quot;</span></span><br><span class="line"></span><br><span class="line">  config.vm.provision <span class="string">&quot;shell&quot;</span>, inline: &lt;&lt;-<span class="string">SHELL</span></span><br><span class="line"><span class="string">    apt-get update</span></span><br><span class="line"><span class="string">    apt-get install -y apache2</span></span><br><span class="line"><span class="string">  SHELL</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>Each provisioner has a type. the above configuration use <code>&quot;shell&quot;</code> as the provider. You can also use ansible, Chef, Puppet.</p>
+<p>Example: Vagrantfile with Ansible provisioner</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Vagrant.configure(&quot;2&quot;)</span> <span class="string">do</span> <span class="string">|config|</span></span><br><span class="line">  <span class="string">config.vm.box</span> <span class="string">=</span> <span class="string">&quot;ubuntu/bionic64&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="string">config.vm.provision</span> <span class="string">&quot;ansible&quot;</span> <span class="string">do</span> <span class="string">|ansible|</span></span><br><span class="line">    <span class="string">ansible.playbook</span> <span class="string">=</span> <span class="string">&quot;playbook.yml&quot;</span></span><br><span class="line">  <span class="string">end</span></span><br><span class="line"><span class="string">end</span></span><br></pre></td></tr></table></figure>
+
+<p>playbook.yml - A simple playbook that installs zip and nginx package</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">hosts:</span> <span class="string">all</span></span><br><span class="line">  <span class="attr">become:</span> <span class="literal">yes</span></span><br><span class="line">  <span class="attr">become_method:</span> <span class="string">sudo</span></span><br><span class="line">  <span class="attr">tasks:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Update</span> <span class="string">OS</span></span><br><span class="line">    <span class="attr">package:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line">      <span class="attr">state:</span> <span class="string">latest</span></span><br><span class="line">  </span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Basic</span> <span class="string">packages</span></span><br><span class="line">    <span class="attr">package:</span> </span><br><span class="line">      <span class="attr">name:</span> [<span class="string">zip</span>, <span class="string">nginx</span>]</span><br></pre></td></tr></table></figure>
+
+<h1 id="Vagrant-box-Commands"><a href="#Vagrant-box-Commands" class="headerlink" title="Vagrant box Commands"></a>Vagrant box Commands</h1><p>vagrant downloads boxes to spin up vagrant environment. If you have too many boxes, it will occupy a lot of disk space. You may need to remove the boxes you don’t need.</p>
+<p>You use <code>vagrant box</code> command to manage boxes.</p>
+<p>Add a box, use –insecure flag if you get certificate error</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add ubuntu/focal64 --insecure</span><br></pre></td></tr></table></figure>
+
+<p>To list vagrant boxes</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box list</span><br></pre></td></tr></table></figure>
+
+<p>Remove a vagrant box</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box remove &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Linux/Ubuntu-APT-Install-Software/" rel="prev" title="Package Management in Ubuntu">
+                  <i class="fa fa-chevron-left"></i> Package Management in Ubuntu
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/Gradle/" rel="next" title="Gradle Introduction">
+                  Gradle Introduction <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

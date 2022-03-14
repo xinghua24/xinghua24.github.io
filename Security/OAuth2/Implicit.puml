@@ -1,0 +1,17 @@
+@startuml
+autonumber
+title "Authorization Code Flow"
+
+participant "User Agent" as UserAgent
+participant "Client App" as Client
+participant "Authorization Server" as AuthServer
+
+
+UserAgent -> Client : Open Web Page
+UserAgent -> AuthServer : Redirect to AuthServer
+
+UserAgent -> AuthServer : Uesr Login
+AuthServer -> UserAgent : Redirect to Client Redirect URI \n w/ Access Token
+
+UserAgent -> Client: Redirect to Client Redirect URI \n w/ Access Token
+@enduml

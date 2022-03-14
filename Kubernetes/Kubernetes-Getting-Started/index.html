@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes Getting Started">
+<meta property="og:url" content="http://example.com/Kubernetes/Kubernetes-Getting-Started/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-03T00:41:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.179Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Kubernetes/Kubernetes-Getting-Started/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Kubernetes/Kubernetes-Getting-Started/","path":"Kubernetes/Kubernetes-Getting-Started/","title":"Kubernetes Getting Started"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kubernetes Getting Started | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prerequisite"><span class="nav-number">1.</span> <span class="nav-text">Prerequisite</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Kubectl"><span class="nav-number">2.</span> <span class="nav-text">Install Kubectl</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Minikube"><span class="nav-number">3.</span> <span class="nav-text">Install Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set-Up-a-Cluster-with-Minikube"><span class="nav-number">4.</span> <span class="nav-text">Set Up a Cluster with Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More-on-Minikube"><span class="nav-number">5.</span> <span class="nav-text">More on Minikube</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Other-Ways-to-setup-a-Cluster"><span class="nav-number">6.</span> <span class="nav-text">Other Ways to setup a Cluster</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Resources"><span class="nav-number">7.</span> <span class="nav-text">Resources</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">8.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Kubernetes/Kubernetes-Getting-Started/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kubernetes Getting Started | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes Getting Started
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-09-02 20:41:00" itemprop="dateCreated datePublished" datetime="2019-09-02T20:41:00-04:00">2019-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Kubernetes/" itemprop="url" rel="index"><span itemprop="name">Kubernetes</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Let’s setup Kubectl and Minikube and use Minikube to setup a one node cluster.</p>
+<span id="more"></span>
+
+
+<h1 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h1><p>Download and install VirtualBox. see Download page <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Linux_Downloads">https://www.virtualbox.org/wiki/Linux_Downloads</a></p>
+<h1 id="Install-Kubectl"><a href="#Install-Kubectl" class="headerlink" title="Install Kubectl"></a>Install Kubectl</h1><p>The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. Installation instruction is in <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux">https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux</a>. </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl</span><br><span class="line"><span class="built_in">chmod</span> +x ./kubectl</span><br><span class="line">sudo <span class="built_in">mv</span> ./kubectl /usr/local/bin/kubectl</span><br><span class="line">kubectl version</span><br></pre></td></tr></table></figure>
+
+<p>To check kubectl installation</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl version</span><br></pre></td></tr></table></figure>
+
+<p>The config file is in the $HOME&#x2F;.kube directory. This file defines clusters, context and users. You can view the file using command <code>kubectl config view</code>.</p>
+<p>If the configuration file is not working as expected, use <code>rm -rf ~/.kube</code> command to remove the existing configuration and cache.</p>
+<p>Useful links for kubectl:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/kubectl/overview/">Kubectl Overview</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl cheatsheet</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">kubectl command reference</a></li>
+</ul>
+<h1 id="Install-Minikube"><a href="#Install-Minikube" class="headerlink" title="Install Minikube"></a>Install Minikube</h1><p>minikube is a tool that runs a single-node Kubernetes cluster in a virtual machine on your personal computer. see Install Instructions <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a></p>
+<p>Download and install minikube</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \</span><br><span class="line">&amp;&amp; <span class="built_in">chmod</span> +x minikube</span><br><span class="line">sudo install minikube /usr/local/bin</span><br></pre></td></tr></table></figure>
+
+<p>You can check minikube version using <code>minikube version</code> command. </p>
+<p>Note hat Minikube can only set up a one node cluster. </p>
+<h1 id="Set-Up-a-Cluster-with-Minikube"><a href="#Set-Up-a-Cluster-with-Minikube" class="headerlink" title="Set Up a Cluster with Minikube"></a>Set Up a Cluster with Minikube</h1><p>A brief guide to start use, and delete Minikube locally. See <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-minikube/">https://kubernetes.io/docs/tasks/tools/install-minikube/</a></p>
+<p>1 - Start Minikube and create a cluster. You can optionally specify cpu and memory.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ minikube start --memory=10000 --cpus=4</span><br><span class="line">😄  minikube v1.3.1 on Ubuntu 19.04</span><br><span class="line">🔥  Creating virtualbox VM (CPUs=4, Memory=10000MB, Disk=20000MB) ...</span><br><span class="line">🐳  Preparing Kubernetes v1.15.2 on Docker 18.09.8 ...</span><br><span class="line">💾  Downloading kubeadm v1.15.2</span><br><span class="line">💾  Downloading kubelet v1.15.2</span><br><span class="line">🚜  Pulling images ...</span><br><span class="line">🚀  Launching Kubernetes ... </span><br><span class="line">⌛  Waiting <span class="keyword">for</span>: apiserver proxy etcd scheduler controller dns</span><br><span class="line">🏄  Done! kubectl is now configured to use <span class="string">&quot;minikube&quot;</span></span><br></pre></td></tr></table></figure>
+<p>You can use <code>minikube status</code> to check its status. also use <code>kubectl get pods --all-namespaces</code> command to ensure all pods are running without error.</p>
+<p>Now minikube will start a Virtual Machine. The cluster runs on that Virtual Machine. If you open VirtualBox Manager, you will see a virtual machine named “minikube”.</p>
+<p>check cluster info using <code>kubectl cluster-info</code> command</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl cluster-info</span><br><span class="line">Kubernetes master is running at https://192.168.99.101:8443</span><br><span class="line">KubeDNS is running at https://192.168.99.101:8443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy</span><br><span class="line"></span><br><span class="line">To further debug and diagnose cluster problems, use &#x27;kubectl cluster-info dump&#x27;.</span><br></pre></td></tr></table></figure>
+
+<p>To view the nodes, use <code>kubectl get nodes</code> command</p>
+<p>2 - create a deployment </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.10 --port=8080</span><br></pre></td></tr></table></figure>
+
+<p>You can use <code>kubectl get deployments</code> to list deployments and <code>kubectl describe deployments/hello-minikube</code> to get details of a particular deployment.</p>
+<p>3 - Expose deployment as a service</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl expose deployment hello-minikube --type=NodePort</span><br></pre></td></tr></table></figure>
+
+<p>4 - If you check the pods, it should return a pod</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl get pods</span><br><span class="line">NAME                              READY   STATUS    RESTARTS   AGE</span><br><span class="line">hello-minikube-856979d68c-rndtw   1/1     Running   0          82s</span><br></pre></td></tr></table></figure>
+
+<p>You can use <code>kubectl scale deployments/hello-minikube --replicas=3</code> to scale the deployment to 3 replicas</p>
+<p>5 - Get the url of the exposed service</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ minikube service hello-minikube --url</span><br><span class="line">http://192.168.99.101:31777</span><br></pre></td></tr></table></figure>
+<p>Note that the port number is randomly assigned</p>
+<p>6 - View the web page using the URL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://192.168.99.101:31777</span><br><span class="line"></span><br><span class="line">Hostname: hello-minikube-856979d68c-rndtw</span><br><span class="line"></span><br><span class="line">Pod Information:</span><br><span class="line">	-no pod information available-</span><br><span class="line"></span><br><span class="line">Server values:</span><br><span class="line">	server_version=nginx: 1.13.3 - lua: 10008</span><br><span class="line"></span><br><span class="line">Request Information:</span><br><span class="line">	client_address=172.17.0.1</span><br><span class="line">	method=GET</span><br><span class="line">	real path=/</span><br><span class="line">	query=</span><br><span class="line">	request_version=1.1</span><br><span class="line">	request_scheme=http</span><br><span class="line">	request_uri=http://192.168.99.101:8080/</span><br><span class="line"></span><br><span class="line">Request Headers:</span><br><span class="line">	accept=text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span><br><span class="line">	accept-encoding=gzip, deflate</span><br><span class="line">	accept-language=en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7,zh-TW;q=0.6</span><br><span class="line">	cache-control=max-age=0</span><br><span class="line">	connection=keep-alive</span><br><span class="line">	host=192.168.99.101:31777</span><br><span class="line">	upgrade-insecure-requests=1</span><br><span class="line">	user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36</span><br><span class="line"></span><br><span class="line">Request Body:</span><br><span class="line">	-no body in request-</span><br></pre></td></tr></table></figure>
+
+<p>7 - Open dashboard</p>
+<p>Dashboard is a web-based Kubernetes user interface. You can use Dashboard to deploy containerized applications to a Kubernetes cluster, troubleshoot your containerized application, and manage the cluster resources. </p>
+<p>run this command to open dashboard in the browser</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ minikube dashboard</span><br></pre></td></tr></table></figure>
+
+<p>Dashboard is a great tool to monitor minikube cluster.</p>
+<p>8 - Delete the service</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete services hello-minikube</span><br><span class="line">service &quot;hello-minikube&quot; deleted</span><br></pre></td></tr></table></figure>
+
+
+<p>9 - Delete the deployment</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ kubectl delete deployment hello-minikube</span><br><span class="line">deployment.extensions &quot;hello-minikube&quot; deleted</span><br></pre></td></tr></table></figure>
+
+
+<p>10 - Stop the local Minikube cluster</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ minikube stop</span><br><span class="line">✋  Stopping <span class="string">&quot;minikube&quot;</span> <span class="keyword">in</span> virtualbox ...</span><br><span class="line">🛑  <span class="string">&quot;minikube&quot;</span> stopped.</span><br></pre></td></tr></table></figure>
+
+<p>10 - Delete minikube cluster<br><br>If you don’t need the cluster any more, delete the cluster.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ minikube delete</span><br><span class="line">🔥  Deleting <span class="string">&quot;minikube&quot;</span> <span class="keyword">in</span> virtualbox ...</span><br><span class="line">💔  The <span class="string">&quot;minikube&quot;</span> cluster has been deleted.</span><br></pre></td></tr></table></figure>
+
+<h1 id="More-on-Minikube"><a href="#More-on-Minikube" class="headerlink" title="More on Minikube"></a>More on Minikube</h1><p>By Default. Minikube creates node on Virtualbox VM. the default settings is CPUs&#x3D;2, Memory&#x3D;2000MB, Disk&#x3D;20000MB. You can override the default settings: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube start --memory=6000 --cpus=4 --disk-size=10000</span><br></pre></td></tr></table></figure>
+<p>For more options, see <a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/reference/commands/start/">start command</a></p>
+<p>Other minikube commands</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check minikube status</span></span><br><span class="line">minikube states</span><br><span class="line"></span><br><span class="line"><span class="comment"># retrieves the IP address of the running cluster</span></span><br><span class="line">minikube ip</span><br><span class="line"></span><br><span class="line"><span class="comment"># get a list of service and URLs</span></span><br><span class="line">minikube service list</span><br><span class="line"></span><br><span class="line"><span class="comment"># Log into or run a command on a machine with SSH</span></span><br><span class="line"><span class="comment"># You can then use `free -h` to check memory usage and `df -h` to check disk usage</span></span><br><span class="line">minikube ssh</span><br></pre></td></tr></table></figure>
+
+<p>You can configure docker CLI to use minikube’s Docker Daemon.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ minikube docker-env</span><br><span class="line">export DOCKER_TLS_VERIFY=&quot;1&quot;</span><br><span class="line">export DOCKER_HOST=&quot;tcp://192.168.99.109:2376&quot;</span><br><span class="line">export DOCKER_CERT_PATH=&quot;/home/xing/.minikube/certs&quot;</span><br><span class="line"># Run this command to configure your shell:</span><br><span class="line"># eval $(minikube docker-env)</span><br><span class="line"></span><br><span class="line">$ eval $(minikube docker-env)</span><br></pre></td></tr></table></figure>
+
+
+<p>For more information on Minikube, see [Minikube documentation](<a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/">https://minikube.sigs.k8s.io/docs/</a></p>
+<h1 id="Other-Ways-to-setup-a-Cluster"><a href="#Other-Ways-to-setup-a-Cluster" class="headerlink" title="Other Ways to setup a Cluster"></a>Other Ways to setup a Cluster</h1><p>Minikube creates a single node cluster. If you want to create a multi-node cluster, checkout<br><strong><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">kubeadm</a></strong>.</p>
+<p>A more convenient way to run a multi-node cluster is <strong><a target="_blank" rel="noopener" href="https://github.com/kubernetes-sigs/kind">kind</a></strong>. With kindl you can easily setup local Kubernetes clusters using Docker container </p>
+<p>There is also online option to play with Kubernetes. <strong><a target="_blank" rel="noopener" href="https://www.katacoda.com/courses/kubernetes/playground">Katacoda Playground</a></strong> sets up a two node cluster cluster for you to play with. Another online kubernetes playgound is <a target="_blank" rel="noopener" href="https://labs.play-with-k8s.com/">play-with-k8s</a></p>
+<h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p>These are the resources for learning Kubernetes</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://kubectl.docs.kubernetes.io/">Kubectl Gitbook</a></li>
+</ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Install and Set Up kubectl</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-minikube/">Install Minikube</a></li>
+<li><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/setup/learning-environment/minikube/">Installing Kubernetes with Minikube</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/Maven-Deploy-Artifacts-to-Nexus3/" rel="prev" title="Maven - Deploy Artifacts to Nexus3">
+                  <i class="fa fa-chevron-left"></i> Maven - Deploy Artifacts to Nexus3
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Kubernetes/Kubernetes-Concepts/" rel="next" title="Kubernetes Concepts">
+                  Kubernetes Concepts <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

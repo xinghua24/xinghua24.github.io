@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="OAuth2 Explained">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OAuth2">
+<meta property="og:url" content="http://example.com/Security/OAuth2/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="OAuth2 Explained">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/AuthorizationCode.png">
+<meta property="og:image" content="http://example.com/Implicit.png">
+<meta property="og:image" content="http://example.com/ClientCredentials.png">
+<meta property="og:image" content="http://example.com/PasswordCredentails.png">
+<meta property="article:published_time" content="2020-06-12T15:15:17.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.197Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/AuthorizationCode.png">
+
+
+<link rel="canonical" href="http://example.com/Security/OAuth2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Security/OAuth2/","path":"Security/OAuth2/","title":"OAuth2"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>OAuth2 | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth-Overview"><span class="nav-number">1.</span> <span class="nav-text">OAuth Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Four-Roles"><span class="nav-number">2.</span> <span class="nav-text">Four Roles</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Client"><span class="nav-number">3.</span> <span class="nav-text">Client</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OAuth-Flows"><span class="nav-number">4.</span> <span class="nav-text">OAuth Flows</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authorization-Code-Flow"><span class="nav-number">5.</span> <span class="nav-text">Authorization Code Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Implicit-Flow"><span class="nav-number">6.</span> <span class="nav-text">Implicit Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Client-Credential-Flow"><span class="nav-number">7.</span> <span class="nav-text">Client Credential Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Password-Credentials-Flow"><span class="nav-number">8.</span> <span class="nav-text">Password Credentials Flow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenID-Connect"><span class="nav-number">9.</span> <span class="nav-text">OpenID Connect</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">10.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Security/OAuth2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="OAuth2 | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OAuth2
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-06-12 11:15:17" itemprop="dateCreated datePublished" datetime="2020-06-12T11:15:17-04:00">2020-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Security/" itemprop="url" rel="index"><span itemprop="name">Security</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>OAuth2 Explained</p>
+<span id="more"></span>
+
+<h1 id="OAuth-Overview"><a href="#OAuth-Overview" class="headerlink" title="OAuth Overview"></a>OAuth Overview</h1><p>The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service, either on behalf of a resource owner, or by allowing the third-party application to obtain access on its own behalf.</p>
+<p>Oauth 2.0 is defined in <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749">RFC 6749</a></p>
+<p>Note that OAuth is an authorization framework. It is not an authentication protocol.</p>
+<p>One use case is allowing a photo printing web application to access photo stored in a photo storage application. One way is to give your credentials to the photo printing application. This will give too much power to the photo printing application. It is very risky because the photo printing application may access your photo after printing the photo. If the credentials are leak from the photo printing application and the credentials are used elsewhere, the user’s other accounts are exposed too. A better way is to use OAuth 2.0 to grant temporary access to photo printing application.</p>
+<h1 id="Four-Roles"><a href="#Four-Roles" class="headerlink" title="Four Roles"></a>Four Roles</h1><p>OAuth 2.0 defines four roles:</p>
+<ul>
+<li><strong>resource owner</strong> A user or application that owns the data. A github user or Google user can be a resource owner</li>
+<li><strong>client</strong> A client that request access to resources on the resource server. A Web application, User agent or native application can be client.</li>
+<li><strong>resource server</strong> The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.</li>
+<li><strong>authorization server</strong> The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.</li>
+</ul>
+<p>Authorization Server and Resource Server can be the same server or separated.</p>
+<h1 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h1><p>OAuth defines two client types, based on their ability to authenticate securely with the authorization server</p>
+<ul>
+<li>confidential client is capable of maintaining the confidentiality of their credentials(e.g. back-end web server)</li>
+<li>public client is incapable of maintaining the condidentiality of their credentials.(e.g. browser-based app)</li>
+</ul>
+<p>Before using OAuth, the client needs to register with the authorization server.</p>
+<p>When registering a client, the client developer SHALL:</p>
+<ul>
+<li>provide its client redirection URIs </li>
+<li>Include any other information required by the authorization server(e.g., application name, website, description, logo image, the acceptance of legal terms).</li>
+</ul>
+<p>After registration, the authorization server will provide client_id and client_secret to the client.</p>
+<h1 id="OAuth-Flows"><a href="#OAuth-Flows" class="headerlink" title="OAuth Flows"></a>OAuth Flows</h1><p>An authorization grant is a credential representing the resource owner’s authorization. There are 4 types of Authorization Grant:</p>
+<ul>
+<li>Authorization Code</li>
+<li>Implicit</li>
+<li>Resource Owner Password Credentials</li>
+<li>Client Credential</li>
+</ul>
+<p>Different Authorization grants result in different flows.</p>
+<h1 id="Authorization-Code-Flow"><a href="#Authorization-Code-Flow" class="headerlink" title="Authorization Code Flow"></a>Authorization Code Flow</h1><p>This is the most secured and most used flow. Typically used by a web application with a back-end.</p>
+<p><img src="/AuthorizationCode.png"></p>
+<ol>
+<li><p>Resource Owner(User) open Client(Web Application)’s page in the browser</p>
+</li>
+<li><p>User wants to login via Authorization Server. The login link is provided by the client. User clicks the login link and then user is redirect to Authorization Server. Here is an Example login URL. The response_type must be <em>code</em>. The state parameter contains a random string.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://authorization-server.com/authorize?</span><br><span class="line">  response_type=code</span><br><span class="line">  &amp;client_id=2N3NrUzg7AxWMAOELxx_24hG</span><br><span class="line">  &amp;redirect_uri=https://www.oauth.com/playground/authorization-code.html</span><br><span class="line">  &amp;scope=photo+offline_access</span><br><span class="line">  &amp;state=C4mziU0jkQIq-c3G</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>User successfully login to the Authorization Server. It can be username&#x2F;password authentication or MFA</p>
+</li>
+<li><p>Authorization Server sends a link that can redirect Client app to Authorization Server. This link contains Authorization Code. Example Redirect URI with authorication code</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://www.oauth.com/playground/authorization-code.html?</span><br><span class="line">  state=C4mziU0jkQIq-c3G</span><br><span class="line">  &amp;code=1QwsiJ5o5_3BEfl1n5QqJT5yZygTms3hkB1VIHHS4AEHgRo7</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>The browser redirect the link to Client app</p>
+</li>
+<li><p>Client receive the Authorization Code. If state parameter exist, client can validate the state to mitigate CSRF attacks. If the request is valid, client sends a POST request to Authorization Server that contains Authorization Code its client_id and client_secret. Example Post Request</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">POST https://authorization-server.com/token HTTP/1.1</span><br><span class="line">Host: server.example.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">grant_type=authorization_code</span><br><span class="line">  &amp;client_id=2N3NrUzg7AxWMAOELxx_24hG</span><br><span class="line">  &amp;client_secret=W9An-Y0nS8is_pV2oVBPxwRZcQ1l3LU24KwEqz2Qpa9FhNLH</span><br><span class="line">  &amp;redirect_uri=https://www.oauth.com/playground/authorization-code.html</span><br><span class="line">  &amp;code=1QwsiJ5o5_3BEfl1n5QqJT5yZygTms3hkB1VIHHS4AEHgRo7</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Authorization Server issue an Access Token and an optional Refresh Token to the Client App. Example response body with Access token and refresh token</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;token_type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Bearer&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;expires_in&quot;</span><span class="punctuation">:</span> <span class="number">86400</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;access_token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpvbVm88ClZu1RKvnnn0-7lDRhMGd_fqI_R2imfW-1AVCQ-SoYefGfwMWToDtP1luIyoTxIy&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scope&quot;</span><span class="punctuation">:</span> <span class="string">&quot;photo offline_access&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;refresh_token&quot;</span><span class="punctuation">:</span> <span class="string">&quot;8Ns_B4371QudQR9PlO_75upx&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Client request resource from the Resource Server. The access token will be used in Authorication HTTP Header.</p>
+</li>
+<li><p>Resource Server verify the access token provided by the Client App with Authorization Server and verify that the access token has proper scope to access the resource</p>
+</li>
+<li><p>After the access token is validated, return the requested resource to Client App</p>
+</li>
+<li><p>Display User’s page</p>
+</li>
+</ol>
+<h1 id="Implicit-Flow"><a href="#Implicit-Flow" class="headerlink" title="Implicit Flow"></a>Implicit Flow</h1><p>Implicit Flow is used by public clients. These clients are typically implemented in a browser using Javascript. Examples are React application or Angular applciation. Implicit flow is not as secured as Authorication Code flow. Try to use Authorication Code instead.</p>
+<p><img src="/Implicit.png"></p>
+<p>The above sequence diagram doesn’t include interaction with resource server because it is the same as authorization code flow.</p>
+<p>Example Request</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://authorization-server.com/authorize?</span><br><span class="line">  response_type=token</span><br><span class="line">  &amp;client_id=2N3NrUzg7AxWMAOELxx_24hG</span><br><span class="line">  &amp;redirect_uri=https://www.oauth.com/playground/implicit.html</span><br><span class="line">  &amp;scope=photo</span><br><span class="line">  &amp;state=vi3DgldxpCIUFoK3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>response_type is required. value is <em>token</em></li>
+<li>client_id isrequired</li>
+<li>redirect_uri is optional</li>
+<li>scope is optional</li>
+<li>state is optional but recommended.</li>
+</ul>
+<h1 id="Client-Credential-Flow"><a href="#Client-Credential-Flow" class="headerlink" title="Client Credential Flow"></a>Client Credential Flow</h1><p>Used for System to System communication.</p>
+<p><img src="/ClientCredentials.png"></p>
+<p>Example Request</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">POST /token HTTP/1.1</span><br><span class="line">Host: server.example.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">grant_type=client_credentials&amp;</span><br><span class="line">  client_id=iB4Riw198z&amp;</span><br><span class="line">  client_secret=28eThNzbz7&amp;</span><br><span class="line">  scope=read</span><br></pre></td></tr></table></figure>
+<ul>
+<li>The grant_type parameter is required. Must be <code>client_credentials</code>. </li>
+<li>scope is optional</li>
+</ul>
+<h1 id="Password-Credentials-Flow"><a href="#Password-Credentials-Flow" class="headerlink" title="Password Credentials Flow"></a>Password Credentials Flow</h1><p>This flow is not very common. Usually used for backward compatibility.</p>
+<p><img src="/PasswordCredentails.png"></p>
+<p>Example Request</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">POST /token HTTP/1.1</span><br><span class="line">Host: server.example.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">grant_type=password&amp;</span><br><span class="line">  username=jamessmith&amp;</span><br><span class="line">  password=Mwf5itvGB1&amp;</span><br><span class="line">  client_id=5fODxSi6Ws&amp;</span><br><span class="line">  scope=read</span><br></pre></td></tr></table></figure>
+<ul>
+<li>The grant_type parameter is required. Must be <code>password</code>. </li>
+<li>username and password parameter are also requried. </li>
+<li>scope is optional</li>
+</ul>
+<h1 id="OpenID-Connect"><a href="#OpenID-Connect" class="headerlink" title="OpenID Connect"></a>OpenID Connect</h1><p>OpenID Connect(ODIC) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.</p>
+<p>OpenID Connect allows a range of kinds of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end-users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.</p>
+<p>Since OpenID Connect builds on top of OAuth 2.0. The flow is the same as OAuth2.0. OpenID Connect. </p>
+<p>After Client sends Authorization Code to exchange for access token, OpenID Connect not only returns access token and an optional refresh token, it contains <strong>id_token</strong> too.</p>
+<p><strong>id_token</strong> is A JWT that contains identity information about the user that is digitally signed by Google. You can use <a target="_blank" rel="noopener" href="https://www.jsonwebtoken.io/">https://www.jsonwebtoken.io/</a> to parse a JWT.</p>
+<p>Example response from Authorization Server that contains an ID Token</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;token_type&quot;: &quot;Bearer&quot;,</span><br><span class="line">  &quot;expires_in&quot;: 86400,</span><br><span class="line">  &quot;access_token&quot;: &quot;E0jbEcCzezAxuyAUYt75qs-gubCo5t1krx9MJLh9CIVcP3PoD4iUIeJMeFjs_8Ho18CUTSEC&quot;,</span><br><span class="line">  &quot;scope&quot;: &quot;openid profile email photo&quot;,</span><br><span class="line">  &quot;id_token&quot;: &quot;eyJraWQiOiJzMTZ0cVNtODhwREo4VGZCXzdrSEtQUkFQRjg1d1VEVGxteW85SUxUZTdzIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJuYXVnaHR5LWhvcnNlQGV4YW1wbGUuY29tIiwibmFtZSI6Ik5hdWdodHkgSG9yc2UiLCJlbWFpbCI6Im5hdWdodHktaG9yc2VAZXhhbXBsZS5jb20iLCJpc3MiOiJodHRwczovL3BrLWRlbW8ub2t0YS5jb20vb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiIyTjNOclV6ZzdBeFdNQU9FTHh4XzI0aEciLCJpYXQiOjE1OTIxNTE2NTUsImV4cCI6MTU5NDc0MzY1NSwiYW1yIjpbInB3ZCJdfQ.ZoPvZPaomdOnnz2GFRGbgaW7PPWIMFDqSBp0gbN4An4a9F-Bc-4_T9EBGV8aGetyjZYAON0gjNV0p0NGFiwettePWKuxBzusuGCEd9iXWWUO9-WTF5e2AGr3_jkg34dbxfiFXy3KgH7m0czm809cMaiZ_ofLYgJHVD8lqMQoWifhoNhpjPqa19Svc3nCHzSYHUgTXQWvA56NmQvyVPh_OM7GMpc6zHopmihJqt3eREof8N-bOd7FL39jeam2-k1TFSDogyJE513aC0OssRADr_TWvtL8xoaPkXM_7bXYs9_7erXmzF9la0hvmOuasieetpLhOvFeoiOJWCU9xhxj4Q&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>You can try OpenID Connect using <a target="_blank" rel="noopener" href="https://www.oauth.com/playground/">OAuth 2.0 Playground</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://tutorials.jenkov.com/oauth2/index.html">OAuth 2.0 Tutorial by Jenkov</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.oauth.com/playground/">OAuth 2.0 Playground</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=996OiexHze0">OAuth 2.0 and OpenID Connect (in plain English)</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OpenID_Connect">OpenID Connect Wikpedia</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-HttpSession/" rel="prev" title="Spring Boot - HttpSession">
+                  <i class="fa fa-chevron-left"></i> Spring Boot - HttpSession
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-Spring-Data-Redis/" rel="next" title="Spring Boot - Spring Data Redis">
+                  Spring Boot - Spring Data Redis <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

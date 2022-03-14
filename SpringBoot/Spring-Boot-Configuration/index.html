@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="There are many ways to set configuration to a Spring Boot application.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot - Configuration">
+<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-Configuration/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="There are many ways to set configuration to a Spring Boot application.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-04-16T05:21:00.000Z">
+<meta property="article:modified_time" content="2022-03-14T06:57:48.198Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-Configuration/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-Configuration/","path":"SpringBoot/Spring-Boot-Configuration/","title":"Spring Boot - Configuration"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Boot - Configuration | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Property-in-Spring-Boot"><span class="nav-number">1.</span> <span class="nav-text">What is Property in Spring Boot</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Command-Line-Properties"><span class="nav-number">2.</span> <span class="nav-text">Command Line Properties</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#application-properties-File"><span class="nav-number">3.</span> <span class="nav-text">application.properties File</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-application-properties"><span class="nav-number">3.1.</span> <span class="nav-text">Common application properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Random-Values"><span class="nav-number">3.2.</span> <span class="nav-text">Use Random Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference-a-Value"><span class="nav-number">3.3.</span> <span class="nav-text">Reference a Value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Value-Annotation"><span class="nav-number">4.</span> <span class="nav-text">@Value Annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Value-from-application-properties-file"><span class="nav-number">4.1.</span> <span class="nav-text">Value from application.properties file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Value-from-System-Property"><span class="nav-number">4.2.</span> <span class="nav-text">Value from System Property</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Value-from-Environment-Variable"><span class="nav-number">4.3.</span> <span class="nav-text">Value from Environment Variable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bind-Configuration-to-Java-Object"><span class="nav-number">5.</span> <span class="nav-text">Bind Configuration to Java Object</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Register-a-Properties-file"><span class="nav-number">6.</span> <span class="nav-text">Register a Properties file</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Environment-Bean"><span class="nav-number">7.</span> <span class="nav-text">Environment Bean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Profile-specific-Properties-file"><span class="nav-number">8.</span> <span class="nav-text">Profile specific Properties file</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">9.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-Configuration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Boot - Configuration | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot - Configuration
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-16 01:21:00" itemprop="dateCreated datePublished" datetime="2019-04-16T01:21:00-04:00">2019-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-03-14 02:57:48" itemprop="dateModified" datetime="2022-03-14T02:57:48-04:00">2022-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>There are many ways to set configuration to a Spring Boot application.</p>
+<span id="more"></span>
+
+<h1 id="What-is-Property-in-Spring-Boot"><a href="#What-is-Property-in-Spring-Boot" class="headerlink" title="What is Property in Spring Boot"></a>What is Property in Spring Boot</h1><p><strong>Properties</strong> play an important role in almost all applications, and may originate from a variety of sources: properties files, JVM system properties, system environment variables, JNDI, servlet context parameters, ad-hoc Properties objects, Maps, and so on.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html">Environment</a> is an interface representing the environment in which the current application is running. Spring Boot stores properties in an Environment bean.</p>
+<h1 id="Command-Line-Properties"><a href="#Command-Line-Properties" class="headerlink" title="Command Line Properties"></a>Command Line Properties</h1><p>We can set properties from the command line. Spring Boot will add them to Spring Environment. Command line properties take precedence over the other property sources.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar app.jar --server.port=8000</span><br></pre></td></tr></table></figure>
+
+<p>you can ualso use system properties.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dserver.port=&quot;8000&quot; -jar app.jar</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="application-properties-File"><a href="#application-properties-File" class="headerlink" title="application.properties File"></a>application.properties File</h1><p>The default Property File is <strong>application.properties</strong> in src&#x2F;main&#x2F;resources folder. </p>
+<p>application.properties example</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/persondb</span><br><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=123456</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
+
+<p>YAML based configuration is also supported. so the same config in .yml format would be</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://stage-server:3306/persondb</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br></pre></td></tr></table></figure>
+
+<p>You can get System Property value with the following system. In case when the system property is not defined, default value will be used.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.tmp=$&#123;java.io.tmpdir:/mytmp&#125;</span><br></pre></td></tr></table></figure>
+
+<p>You can also reference an environment variable like the system properties.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.secret=$&#123;MY_SECRET:defaultsecret&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Common-application-properties"><a href="#Common-application-properties" class="headerlink" title="Common application properties"></a>Common application properties</h2><p>Various properties can be specified inside your application.properties file, inside your application.yml file, or as command line switches. </p>
+<p>Spring boot defines common application properties in <strong><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html">Appendix A. Common application properties</a></strong>. We can also create our own properties for our application.</p>
+<h2 id="Use-Random-Values"><a href="#Use-Random-Values" class="headerlink" title="Use Random Values"></a>Use Random Values</h2><p>You can provide random values in the config files.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">myRand:</span></span><br><span class="line">  <span class="attr">randStr:</span> <span class="string">$&#123;random.value&#125;</span></span><br><span class="line">  <span class="attr">randInt:</span> <span class="string">$&#123;random.int&#125;</span></span><br><span class="line">  <span class="attr">randLong:</span> <span class="string">$&#123;random.long&#125;</span></span><br><span class="line">  <span class="attr">randUuid:</span> <span class="string">$&#123;random.uuid&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Reference-a-Value"><a href="#Reference-a-Value" class="headerlink" title="Reference a Value"></a>Reference a Value</h2><p>You can reference another property in a config file.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">app:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">my-spring-boot-app</span></span><br><span class="line">  <span class="attr">author:</span> <span class="string">xing</span></span><br><span class="line">  <span class="attr">intro:</span> <span class="string">This</span> <span class="string">is</span> <span class="string">$&#123;app.name&#125;</span> <span class="string">created</span> <span class="string">by</span> <span class="string">$&#123;app.author&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Value-Annotation"><a href="#Value-Annotation" class="headerlink" title="@Value Annotation"></a>@Value Annotation</h1><p>You can inject some default value as string using @Value annotation</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;Some Default  String Value&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String someValue;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Value-from-application-properties-file"><a href="#Value-from-application-properties-file" class="headerlink" title="Value from application.properties file"></a>Value from application.properties file</h2><p>You can also get property value from a application.properties file. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServiceConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;myservice.url&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In this example, you get <code>myservice.url</code> property from the application.properties file.</p>
+<p>You can also provide some default value for the property. Here when app.secret is not defined in application.proerties file, “mydefaultsecret” will be used as the value</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;app.secret:mydefaultsecret&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String secret;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Value-from-System-Property"><a href="#Value-from-System-Property" class="headerlink" title="Value from System Property"></a>Value from System Property</h2><p>You can also get System property with the same syntax</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;java.io.tmpdir&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String tmpDir;</span><br></pre></td></tr></table></figure>
+
+<p>You can also use SpEL to get system property too</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;#&#123;systemProperties[&#x27;java.io.tmpdir&#x27;]&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String tmpdir;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Value-from-Environment-Variable"><a href="#Value-from-Environment-Variable" class="headerlink" title="Value from Environment Variable"></a>Value from Environment Variable</h2><p>You can also get environment variables such as <code>HOME</code>, <code>PATH</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;HOME&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String homeDir;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Bind-Configuration-to-Java-Object"><a href="#Bind-Configuration-to-Java-Object" class="headerlink" title="Bind Configuration to Java Object"></a>Bind Configuration to Java Object</h1><p>use @ConfigurationProperties annotaiton to bind configuration to Java Object</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;myservice&quot;, ignoreUnknownFields = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ServiceConfig</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> String url;</span><br><span class="line">  <span class="keyword">private</span> String username;</span><br><span class="line">  <span class="keyword">private</span> String password;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>You can also use @ConfigurationProperties annotation with @Bean annotation to bind configuration to a bean in a Config class file.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServiceConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;myservice&quot;, ignoreUnknownFields = true)</span></span><br><span class="line">    <span class="keyword">public</span> MyService <span class="title function_">myService</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyService</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>For more information on @ConfigurationProperties annotation, see <a target="_blank" rel="noopener" href="https://www.baeldung.com/configuration-properties-in-spring-boot">Guide to @ConfigurationProperties in Spring Boot</a></p>
+<h1 id="Register-a-Properties-file"><a href="#Register-a-Properties-file" class="headerlink" title="Register a Properties file"></a>Register a Properties file</h1><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html">@PropertySource</a> is an annotation that provides a convenient and declarative mechanism for adding a PropertySource to Spring’s Environment. To be used in conjunction with @Configuration classes.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource(&quot;classpath:customdbsource.yml&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomDBConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;spring.datasource.customsource.driver-class-name&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here @PropertySource is used with @Configuration annotation, you can also use it with @SpringBootApplication annotation. You can use @Value to inject properties from property source. Or you can use Environment bean to get the property value.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource(&quot;classpath:customdbsource.yml&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomDBConfig</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Environment env; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getServiceUrl</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> env.getProperty(<span class="string">&quot;other-service.url&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean(name=&quot;customDataSource&quot;)</span></span><br><span class="line">    <span class="meta">@Qualifier(&quot;customDataSource&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> DataSource <span class="title function_">CustomDataSource</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create()</span><br><span class="line">            .driverClassName(env.getProperty(<span class="string">&quot;spring.datasource.customsource.driver-class-name&quot;</span>))</span><br><span class="line">            .url(env.getProperty(<span class="string">&quot;spring.datasource.customsource.jdbc-url&quot;</span>))</span><br><span class="line">            .username(env.getProperty(<span class="string">&quot;spring.datasource.customsource.username&quot;</span>))</span><br><span class="line">            .password(env.getProperty(<span class="string">&quot;spring.datasource.customsource.password&quot;</span>)).build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>If you have multiple config files, you can use multiple <code>@PropertySource</code> annotation or use <code>@PropertySources</code> to group them together.</p>
+<p>for more info on <code>@PropertySource</code>, see <a target="_blank" rel="noopener" href="https://www.mkyong.com/spring/spring-propertysources-example/">Spring @PropertySource example by Mkyong</a></p>
+<h1 id="Environment-Bean"><a href="#Environment-Bean" class="headerlink" title="Environment Bean"></a>Environment Bean</h1><p>You can use @Value to get the property value. An alternative is to use <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html">Environment</a> bean to get the value.</p>
+<p>In Sprint Boot, first autowire Environment bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> Environment env;  </span><br></pre></td></tr></table></figure>
+
+<p>Then we can get property value like this</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">env.getProperty(&quot;JAVA_HOME&quot;)</span><br><span class="line"></span><br><span class="line">env.getProperty(&quot;app.name&quot;)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Profile-specific-Properties-file"><a href="#Profile-specific-Properties-file" class="headerlink" title="Profile specific Properties file"></a>Profile specific Properties file</h1><p>Applications are usually deployed to different environments. We can use add configurations for different environments. Just define “application-{environment}.properties” in src&#x2F;main&#x2F;resources directory.</p>
+<p>Profile-specific properties files will <strong>override</strong> the non-profile specific properties file.</p>
+<p>application-dev.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://dev-server:3306/mydb</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br></pre></td></tr></table></figure>
+
+<p>application-stage.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://stage-server:3306/mydb</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br></pre></td></tr></table></figure>
+
+<p>You can set active profile  in the command line</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar app.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config">Spring Boot Documentation - Externalized Configuration</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/properties-with-spring">Baeldung - Properties with Spring and Spring Boot</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/spring_boot/spring_boot_application_properties.htm">Spring Boot application properties</a></li>
+</ul>
+<p>Source Code: <a target="_blank" rel="noopener" href="https://github.com/xinghua24/SpringBootExamples/tree/master/config">SpringBootExamples - config</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-Code-Structure/" rel="prev" title="Spring Boot - Code Structure">
+                  <i class="fa fa-chevron-left"></i> Spring Boot - Code Structure
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/Non-static-vs-Static-Nested-class/" rel="next" title="Non-static vs Static Nested class">
+                  Non-static vs Static Nested class <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

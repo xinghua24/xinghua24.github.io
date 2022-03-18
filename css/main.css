@@ -1811,12 +1811,12 @@ pre code {
 }
 @media (min-width: 992px) {
   .post-body {
-    text-align: justify;
+    text-align: left;
   }
 }
 @media (max-width: 991px) {
   .post-body {
-    text-align: justify;
+    text-align: left;
   }
 }
 .post-body h1 .header-anchor,
@@ -2746,7 +2746,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #3ee0b6;
+  background: #5386ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);

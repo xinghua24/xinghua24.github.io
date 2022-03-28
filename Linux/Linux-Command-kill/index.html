@@ -290,7 +290,7 @@
 <td>to list signal names</td>
 </tr>
 </tbody></table>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="kill-a-process"><a href="#kill-a-process" class="headerlink" title="kill a process"></a>kill a process</h2><p>kill without option will send SIGTERM signal</p>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="kill-a-process"><a href="#kill-a-process" class="headerlink" title="kill a process"></a>kill a process</h2><p>kill without option will send SIGTERM signal. Use <code>ps aux | grep &lt;search keywork&gt;</code> to get the process id.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill 16575</span><br></pre></td></tr></table></figure>
 
 <h2 id="Send-KILL-signal-to-a-process"><a href="#Send-KILL-signal-to-a-process" class="headerlink" title="Send KILL signal to a process"></a>Send KILL signal to a process</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 16575</span><br></pre></td></tr></table></figure>
@@ -302,7 +302,7 @@
 <h2 id="List-signal-names"><a href="#List-signal-names" class="headerlink" title="List signal names"></a>List signal names</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -l</span><br></pre></td></tr></table></figure>
 
 <h2 id="pkill-command"><a href="#pkill-command" class="headerlink" title="pkill command"></a>pkill command</h2><p>If you know the name of the process, you can use <code>pkill [OPTIONS] &lt;PATTERN&gt;</code> to kill all running programs that match with the given name. To kill all python3 process: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill python3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkill python3</span><br><span class="line">pkill node</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>

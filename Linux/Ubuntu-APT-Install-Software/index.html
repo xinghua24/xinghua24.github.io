@@ -274,10 +274,12 @@
 <h1 id="Install-Package"><a href="#Install-Package" class="headerlink" title="Install Package"></a>Install Package</h1><p>Example to install tree package</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install tree</span><br></pre></td></tr></table></figure>
 
-<h1 id="List-Packages"><a href="#List-Packages" class="headerlink" title="List Packages"></a>List Packages</h1><p>You can use <code>dpkg -l</code> or <code>apt-cache pkgnames</code> to list packages that are install.</p>
+<h1 id="List-Packages"><a href="#List-Packages" class="headerlink" title="List Packages"></a>List Packages</h1><p>You can use <code>dpkg -l</code> to list packages that are install. Combine with grep command to search for the package installed.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l</span><br></pre></td></tr></table></figure>
 
-<h1 id="Remove-Package"><a href="#Remove-Package" class="headerlink" title="Remove Package"></a>Remove Package</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt remove tree</span><br></pre></td></tr></table></figure>
+<h1 id="Remove-Package"><a href="#Remove-Package" class="headerlink" title="Remove Package"></a>Remove Package</h1><p>After you get the package name using <code>dpkg -l</code> command, you can remove the package using <code>apt remove</code> command to remove the package.</p>
+<p>To remove tree package</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt remove tree</span><br></pre></td></tr></table></figure>
 
 <p><code>apt remove</code> command removes apackage, but doesn’t remove package configuration file. Use <code>apt purge</code> to remove package and configuration file.</p>
 <p>Example: to purge virtualbox pacakges </p>

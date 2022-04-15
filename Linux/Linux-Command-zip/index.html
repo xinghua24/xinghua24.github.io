@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-count">195</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -305,12 +305,16 @@
 <p>You can use <code>vi compressed.zip</code> command to view the content of a zip file.</p>
 <h2 id="Remove-file-from-archive"><a href="#Remove-file-from-archive" class="headerlink" title="Remove file from archive"></a>Remove file from archive</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -d compressed.zip file1</span><br></pre></td></tr></table></figure>
 <p>will remove file1 from compressed.zip</p>
-<h2 id="Unzip-compressed-archive"><a href="#Unzip-compressed-archive" class="headerlink" title="Unzip compressed archive"></a>Unzip compressed archive</h2><p>use <code>unzip</code> command to unzip compressed archive</p>
+<h2 id="Unzip-compressed-archive"><a href="#Unzip-compressed-archive" class="headerlink" title="Unzip compressed archive"></a>Unzip compressed archive</h2><p>use <code>unzip</code> command to unzip compressed archive to the current directory.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip compressed.zip</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>-d</code> argument to set an optional directory to which to extract files</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip myapp.zip -d myapp</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/zip">zip online man page</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/unzip">unzip online man page</a></li>
 </ul>
 
     </div>

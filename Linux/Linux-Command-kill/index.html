@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kill-a-process"><span class="nav-number">3.1.</span> <span class="nav-text">kill a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Send-KILL-signal-to-a-process"><span class="nav-number">3.2.</span> <span class="nav-text">Send KILL signal to a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-signal-names"><span class="nav-number">3.3.</span> <span class="nav-text">List signal names</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pkill-command"><span class="nav-number">3.4.</span> <span class="nav-text">pkill command</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pkill-command"><span class="nav-number">3.</span> <span class="nav-text">pkill command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#kill-a-process"><span class="nav-number">4.1.</span> <span class="nav-text">kill a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Send-KILL-signal-to-a-process"><span class="nav-number">4.2.</span> <span class="nav-text">Send KILL signal to a process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-signal-names"><span class="nav-number">4.3.</span> <span class="nav-text">List signal names</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-kill-a-process-by-pid"><span class="nav-number">4.4.</span> <span class="nav-text">To kill a process by pid</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-count">199</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -290,6 +290,10 @@
 <td>to list signal names</td>
 </tr>
 </tbody></table>
+<h1 id="pkill-command"><a href="#pkill-command" class="headerlink" title="pkill command"></a>pkill command</h1><p>If you know the name of the process, you can use <code>pkill [OPTIONS] &lt;PATTERN&gt;</code> to kill all running programs that match with the given name. To kill all python3 process: </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkill node <span class="comment"># kill all node applications</span></span><br></pre></td></tr></table></figure>
+
+
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="kill-a-process"><a href="#kill-a-process" class="headerlink" title="kill a process"></a>kill a process</h2><p>kill without option will send SIGTERM signal. Use <code>ps aux | grep &lt;search keywork&gt;</code> to get the process id. Then use kill command to kill the process.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill 16575</span><br></pre></td></tr></table></figure>
 
@@ -301,8 +305,16 @@
 
 <h2 id="List-signal-names"><a href="#List-signal-names" class="headerlink" title="List signal names"></a>List signal names</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -l</span><br></pre></td></tr></table></figure>
 
-<h2 id="pkill-command"><a href="#pkill-command" class="headerlink" title="pkill command"></a>pkill command</h2><p>If you know the name of the process, you can use <code>pkill [OPTIONS] &lt;PATTERN&gt;</code> to kill all running programs that match with the given name. To kill all python3 process: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pkill python3</span><br><span class="line">pkill node</span><br></pre></td></tr></table></figure>
+
+<h2 id="To-kill-a-process-by-pid"><a href="#To-kill-a-process-by-pid" class="headerlink" title="To kill a process by pid"></a>To kill a process by pid</h2><p>use <code>ps aux</code> or <code>pgreg</code> command to get the process’s PID.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep node</span><br></pre></td></tr></table></figure>
+
+<p>In MacOS, if you only know the port number used by the application, you can get the PID and command using the following command</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -iTCP -sTCP:LISTEN -n -P</span><br></pre></td></tr></table></figure>
+
+<p>With the process id,  You can use <code>kill &lt;pid&gt;</code> to terminate the program. The default sends SIGTERM signal. You can use <code>kill -9 &lt;pid&gt;</code> command to  send SIGKILL to terminate immediately. SIGKILL is hard kill.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -9 9058</span><br></pre></td></tr></table></figure>
+
 
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>

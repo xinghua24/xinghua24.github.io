@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process"><span class="nav-number">3.1.</span> <span class="nav-text">Display all process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process-with-full-format"><span class="nav-number">3.2.</span> <span class="nav-text">Display all process with full format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-process-owned-by-root"><span class="nav-number">3.3.</span> <span class="nav-text">Display process owned by root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process-BSD-syntax"><span class="nav-number">3.4.</span> <span class="nav-text">Display all process(BSD syntax)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search-for-a-process%E2%80%99s-PID"><span class="nav-number">3.5.</span> <span class="nav-text">search for a process’s PID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-kill-a-process"><span class="nav-number">3.6.</span> <span class="nav-text">To kill a process</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process"><span class="nav-number">3.1.</span> <span class="nav-text">Display all process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process-with-full-format"><span class="nav-number">3.2.</span> <span class="nav-text">Display all process with full format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-process-owned-by-root"><span class="nav-number">3.3.</span> <span class="nav-text">Display process owned by root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-all-process-BSD-syntax"><span class="nav-number">3.4.</span> <span class="nav-text">Display all process(BSD syntax)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search-for-a-process%E2%80%99s-PID"><span class="nav-number">3.5.</span> <span class="nav-text">search for a process’s PID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">198</span>
+          <span class="site-state-item-count">199</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -350,15 +350,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep -v grep | grep -i -e VSZ -e node</span><br></pre></td></tr></table></figure>
 
 <p>You can also use <code>pgrep process_name</code> command to get the process id.</p>
-<h2 id="To-kill-a-process"><a href="#To-kill-a-process" class="headerlink" title="To kill a process"></a>To kill a process</h2><p>use <code>ps aux</code> or <code>pgreg</code> command to get the process’s PID.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep node</span><br></pre></td></tr></table></figure>
-
-<p>With the process id,  You can use <code>kill &lt;pid&gt;</code> to terminate the program. The default sends SIGTERM signal. You can use <code>kill -9 &lt;pid&gt;</code> command to  send SIGKILL to terminate immediately. SIGKILL is hard kill.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> 9058</span><br></pre></td></tr></table></figure>
-
-
-
-<p>If you know the name of the process, you can use <code>pkill [OPTIONS] &lt;PATTERN&gt;</code> to kill all running programs that match with the given name.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/ps">ps online man page</a></li>
 <li><a target="_blank" rel="noopener" href="https://linuxize.com/post/pkill-command-in-linux/">pkill</a></li>

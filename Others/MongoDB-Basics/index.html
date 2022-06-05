@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MongoDB Basics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB Basics">
+<meta property="og:url" content="http://example.com/Others/MongoDB-Basics/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="MongoDB Basics">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-05T02:39:44.000Z">
+<meta property="article:modified_time" content="2022-06-05T02:39:44.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="MongoDB">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Others/MongoDB-Basics/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Others/MongoDB-Basics/","path":"Others/MongoDB-Basics/","title":"MongoDB Basics"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MongoDB Basics | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MongoDB-Introduction"><span class="nav-number">1.</span> <span class="nav-text">MongoDB Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Document-and-Collection"><span class="nav-number">2.</span> <span class="nav-text">Document and Collection</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Running-MongoDB-as-Docker-Container"><span class="nav-number">3.</span> <span class="nav-text">Running MongoDB as Docker Container</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Database-Commands"><span class="nav-number">4.</span> <span class="nav-text">Database Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection-Commands"><span class="nav-number">5.</span> <span class="nav-text">Collection Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Document-Commands"><span class="nav-number">6.</span> <span class="nav-text">Document Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Insert"><span class="nav-number">6.1.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Query"><span class="nav-number">6.2.</span> <span class="nav-text">Query</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update"><span class="nav-number">6.3.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Delete"><span class="nav-number">6.4.</span> <span class="nav-text">Delete</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Index-Commands"><span class="nav-number">7.</span> <span class="nav-text">Index Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">201</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Others/MongoDB-Basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MongoDB Basics | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MongoDB Basics
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-04 22:39:44" itemprop="dateCreated datePublished" datetime="2022-06-04T22:39:44-04:00">2022-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>MongoDB Basics</p>
+<span id="more"></span>
+
+<h1 id="MongoDB-Introduction"><a href="#MongoDB-Introduction" class="headerlink" title="MongoDB Introduction"></a>MongoDB Introduction</h1><p><strong>MongoDB is a source-available cross-platform document-oriented database program.</strong> Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License (SSPL).</p>
+<p>Advantages of MongoDB</p>
+<ul>
+<li>Flexible schema - you don’t need to declare a schema to use MongoDB. This is useful when it comes to storing unstructed data.</li>
+<li>Scalability - MongoDB is a distributed database, so it can be horizontally scale with sharding.</li>
+<li>Powerful querying and analytics - MongoDB allows users to easily query the database and rarely use joins and transactions.</li>
+</ul>
+<p>When to avoid MongoDB</p>
+<ul>
+<li>Multi Object Transaction - MongoDB only allows ACID transaction for a single document.</li>
+<li>Relational data - If the dataset has many one-to-many or many-to-many relations and needs joins, you should use traditional SQL database instead.</li>
+</ul>
+<p>Use cases</p>
+<ul>
+<li>Personalization - track users search and activity to create personalized online experience.</li>
+<li>Product Catelog, asset managements - we can store product or asset data and their metadata in MongoDB because of its flexible schema and powerful query capability.</li>
+<li>IoT application - MongoDB is horizontally scalability makes it a better fit for data generated by IoT sensors. MongoDB also offers Time Series Collections for IoT applications.</li>
+</ul>
+<h1 id="Document-and-Collection"><a href="#Document-and-Collection" class="headerlink" title="Document and Collection"></a>Document and Collection</h1><p>MongoDB is a document database so it stores records as <strong>Document</strong>. MongoDB stores documents as BSON. It is a JSON like document format.</p>
+<p>Documents are organized as <strong>Collection</strong>. Collection is similar to Table in relational database.</p>
+<h1 id="Running-MongoDB-as-Docker-Container"><a href="#Running-MongoDB-as-Docker-Container" class="headerlink" title="Running MongoDB as Docker Container"></a>Running MongoDB as Docker Container</h1><p>Install using Docker</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mongo</span><br></pre></td></tr></table></figure>
+
+<p>Running mongo container</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name some-mongo -d -p 27017:27017 mongo</span><br></pre></td></tr></table></figure>
+
+<p>Running mongo container with username and password</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name some-mongo \</span><br><span class="line">  -e MONGO_INITDB_ROOT_USERNAME=myusername\</span><br><span class="line">  -e MONGO_INITDB_ROOT_PASSWORD=mypassword\</span><br><span class="line">  -p 27017:27017 \</span><br><span class="line">  mongo</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>docker exec</code> command to get shell access</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it [container-id] bash</span><br></pre></td></tr></table></figure>
+
+<p>You can now run <code>mongodb</code> command to start MongoDB Shell</p>
+<p>The MongoDB Shell, <strong>mongosh</strong>, is a fully functional JavaScript and Node.js 16.x REPL environment for interacting with MongoDB deployments. You can use the MongoDB Shell to test queries and operations directly with your database.</p>
+<h1 id="Database-Commands"><a href="#Database-Commands" class="headerlink" title="Database Commands"></a>Database Commands</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show all databases in the server</span></span><br><span class="line">show dbs</span><br><span class="line"></span><br><span class="line"><span class="comment"># show current database</span></span><br><span class="line">db</span><br><span class="line"></span><br><span class="line"><span class="comment"># `use &lt;db&gt;` to switch databse</span></span><br><span class="line">use <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Removes the current database.</span></span><br><span class="line">db.dropDatabase();</span><br></pre></td></tr></table></figure>
+
+<h1 id="Collection-Commands"><a href="#Collection-Commands" class="headerlink" title="Collection Commands"></a>Collection Commands</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show all collections</span></span><br><span class="line">show collections</span><br><span class="line"></span><br><span class="line"><span class="comment"># create collection products</span></span><br><span class="line">db.createCollection(<span class="string">&quot;products&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># show movie collection&#x27;s stats</span></span><br><span class="line">db.products.stats()</span><br><span class="line"></span><br><span class="line"><span class="comment"># drop products collection</span></span><br><span class="line">db.products.drop()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Count Documents in products Collection.</span></span><br><span class="line"><span class="comment"># query parameter is required for setting the criteria, pass &#123;&#125; to count all documenta</span></span><br><span class="line">db.products.countDocuments(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Document-Commands"><a href="#Document-Commands" class="headerlink" title="Document Commands"></a>Document Commands</h1><h2 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># db.collection.insertOne() inserts a single document into a collection.</span></span><br><span class="line">db.products.insertOne(</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&quot;Apple iPhone 13 Pro&quot;</span>,</span><br><span class="line">    category: <span class="string">&quot;Electronics&quot;</span>,</span><br><span class="line">    price: 1000.00,</span><br><span class="line">    color: <span class="string">&quot;Blue&quot;</span>,</span><br><span class="line">    created: new Date()</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"><span class="comment"># use db.collection.insertMany() method to insert multiple documents</span></span><br><span class="line">db.products.insertMany([</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&quot;Samsung TV&quot;</span>,</span><br><span class="line">    category: <span class="string">&quot;Electronics&quot;</span>,</span><br><span class="line">    price: 100.00,</span><br><span class="line">    created: new Date()</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&quot;Sleep Pillow&quot;</span>,</span><br><span class="line">    category: <span class="string">&quot;Home&quot;</span>,</span><br><span class="line">    price: 100.00,</span><br><span class="line">    size: <span class="string">&quot;King&quot;</span>,</span><br><span class="line">    created: new Date()</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get all documents in a collection</span></span><br><span class="line">db.products.find()</span><br><span class="line"></span><br><span class="line"><span class="comment"># find with query parameter: price is greater than 500</span></span><br><span class="line">db.products.find(&#123;</span><br><span class="line">  price: &#123;<span class="variable">$gt</span>: 50&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># find product that has category equals &quot;Electornics&quot; and price grreater than 50</span></span><br><span class="line">db.products.find(&#123;</span><br><span class="line">  <span class="variable">$and</span>: [</span><br><span class="line">    &#123;category: &#123;<span class="variable">$eq</span>: <span class="string">&quot;Electronics&quot;</span>&#125;&#125;,</span><br><span class="line">    &#123;price: &#123;<span class="variable">$gt</span>: 50&#125;&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># find using text search. </span></span><br><span class="line"><span class="comment"># Note that you need to create a text index before doing text search.</span></span><br><span class="line">db.products.find( &#123;<span class="variable">$text</span>: &#123;<span class="variable">$search</span>: <span class="string">&quot;iPhone&quot;</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>$gt</code>, <code>$and</code>, <code>$text</code> are all <a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/reference/operator/query">Query Selectors</a>. specifically, <code>$gt</code> is comparison operator and <code>$and</code> is logical operator.</p>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Modifies a single document in a collection.</span></span><br><span class="line">db.products.updateOne(</span><br><span class="line">   &#123; <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Sleep Pillow&quot;</span> &#125;,</span><br><span class="line">   &#123; <span class="variable">$set</span>: &#123; <span class="string">&quot;price&quot;</span> : 79.99 &#125; &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">db.products.updateMany(</span><br><span class="line">   &#123; <span class="string">&quot;name&quot;</span> : <span class="string">&quot;Sleep Pillow&quot;</span> &#125;,</span><br><span class="line">   &#123; <span class="variable">$set</span>: &#123; <span class="string">&quot;price&quot;</span> : 79.99 &#125; &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># update by _id</span></span><br><span class="line">db.products.updateOne(</span><br><span class="line">  &#123;<span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;629bb25a53cee9b4e83035a5&quot;</span>)&#125;,</span><br><span class="line">  &#123;<span class="variable">$set</span>: &#123; <span class="string">&quot;color&quot;</span>: <span class="string">&quot;green&quot;</span>&#125;&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># delete a single document that match the condition that price is greater than</span></span><br><span class="line">db.products.deleteOne(&#123;price: &#123;<span class="variable">$gt</span>: 500&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete by _id</span></span><br><span class="line">db.products.deleteOne(&#123;<span class="string">&quot;_id&quot;</span>: ObjectId(<span class="string">&quot;629bb25b53cee9b4e83035a7&quot;</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete all documents in products collection</span></span><br><span class="line">db.products.deleteMany(&#123;price: &#123;<span class="variable">$gt</span>: 500&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Index-Commands"><a href="#Index-Commands" class="headerlink" title="Index Commands"></a>Index Commands</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create index with name price_idx</span></span><br><span class="line"><span class="comment"># specify index value 1 for ascending. -1 for decending</span></span><br><span class="line">db.products.createIndex(&#123;price: 1&#125;, &#123;name: <span class="string">&quot;price_idx&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create text index</span></span><br><span class="line">db.products.createIndex(&#123;name: <span class="string">&quot;text&quot;</span>&#125;, &#123;name: <span class="string">&quot;name_idx&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get indexes</span></span><br><span class="line">db.products.getIndexes()</span><br><span class="line"></span><br><span class="line"><span class="comment"># get index size</span></span><br><span class="line">db.products.totalIndexSize()</span><br><span class="line"></span><br><span class="line"><span class="comment"># drop index</span></span><br><span class="line">db.products.dropIndex(<span class="string">&quot;price_idx&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># drop indexes</span></span><br><span class="line">db.products.dropIndexes()</span><br></pre></td></tr></table></figure>
+
+<p>createIndex can take a list of options. see <a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/reference/method/db.collection.createIndex/#options">Options</a> for the complete list of options.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MongoDB">Wikipedia MongoDB</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/advantages-of-mongodb">Advantages of using MongoDB</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4288615/why-not-mongodb/14678736">Stackoverflow - Why not MongoDB?</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/use-cases">MongoDB Use Cases</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/introduction/">MongoDB Manual</a></li>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/_/mongo">Official mongo imagein dockerhub</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/mongodb-shell/reference/methods/">MongoDB shell methods</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/reference/operator/query/">MongoDB query selector</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MongoDB/" rel="tag"># MongoDB</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/AWS/AWS-S3-with-Java/" rel="prev" title="AWS S3 with Java">
+                  <i class="fa fa-chevron-left"></i> AWS S3 with Java
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

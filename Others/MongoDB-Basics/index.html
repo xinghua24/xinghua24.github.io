@@ -296,9 +296,14 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name some-mongo \</span><br><span class="line">  -e MONGO_INITDB_ROOT_USERNAME=myusername\</span><br><span class="line">  -e MONGO_INITDB_ROOT_PASSWORD=mypassword\</span><br><span class="line">  -p 27017:27017 \</span><br><span class="line">  mongo</span><br></pre></td></tr></table></figure>
 
 <p>Use <code>docker exec</code> command to get shell access</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it [container-id] bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it [container-id] bash</span><br></pre></td></tr></table></figure>
 
-<p>You can now run <code>mongodb</code> command to start MongoDB Shell</p>
+<p>You can now run <code>mongodb</code> command to start MongoDB Shell.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodb</span><br></pre></td></tr></table></figure>
+
+<p>To connect to MongoDB using username and password</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodb -u myusername -p mypassword</span><br></pre></td></tr></table></figure>
+
 <p>The MongoDB Shell, <strong>mongosh</strong>, is a fully functional JavaScript and Node.js 16.x REPL environment for interacting with MongoDB deployments. You can use the MongoDB Shell to test queries and operations directly with your database.</p>
 <h1 id="Database-Commands"><a href="#Database-Commands" class="headerlink" title="Database Commands"></a>Database Commands</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show all databases in the server</span></span><br><span class="line">show dbs</span><br><span class="line"></span><br><span class="line"><span class="comment"># show current database</span></span><br><span class="line">db</span><br><span class="line"></span><br><span class="line"><span class="comment"># `use &lt;db&gt;` to switch databse</span></span><br><span class="line">use <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Removes the current database.</span></span><br><span class="line">db.dropDatabase();</span><br></pre></td></tr></table></figure>
 

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Java 8 introduces new Date Time API that is easier to used than the traditional java.util.Date class.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Date Time API">
+<meta property="og:url" content="http://example.com/Java/Java-Date-Time/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Java 8 introduces new Date Time API that is easier to used than the traditional java.util.Date class.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-26T16:00:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java8">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Java/Java-Date-Time/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Java/Java-Date-Time/","path":"Java/Java-Date-Time/","title":"Java Date Time API"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java Date Time API | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LocalDate"><span class="nav-number">1.</span> <span class="nav-text">LocalDate</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-LocalDate"><span class="nav-number">1.1.</span> <span class="nav-text">Create LocalDate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-fields"><span class="nav-number">1.2.</span> <span class="nav-text">Accessing fields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation-methods"><span class="nav-number">1.3.</span> <span class="nav-text">Calculation methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Formatting"><span class="nav-number">1.4.</span> <span class="nav-text">Formatting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-methods"><span class="nav-number">1.5.</span> <span class="nav-text">Other methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convert-to-java-util-Date"><span class="nav-number">1.6.</span> <span class="nav-text">convert to java.util.Date</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LocalTime"><span class="nav-number">2.</span> <span class="nav-text">LocalTime</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Constants"><span class="nav-number">2.1.</span> <span class="nav-text">Constants</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-LocalTime"><span class="nav-number">2.2.</span> <span class="nav-text">Create LocalTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-fields-1"><span class="nav-number">2.3.</span> <span class="nav-text">Accessing fields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation-methods-1"><span class="nav-number">2.4.</span> <span class="nav-text">Calculation methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Formatting-1"><span class="nav-number">2.5.</span> <span class="nav-text">Formatting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-methods-1"><span class="nav-number">2.6.</span> <span class="nav-text">Other methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LocalDateTime"><span class="nav-number">3.</span> <span class="nav-text">LocalDateTime</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-LocalDateTime"><span class="nav-number">3.1.</span> <span class="nav-text">Create LocalDateTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Fields"><span class="nav-number">3.2.</span> <span class="nav-text">Accessing Fields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation"><span class="nav-number">3.3.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Formatting-2"><span class="nav-number">3.4.</span> <span class="nav-text">Formatting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-methods-2"><span class="nav-number">3.5.</span> <span class="nav-text">Other methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZonedDateTime"><span class="nav-number">4.</span> <span class="nav-text">ZonedDateTime</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-a-ZonedDateTime"><span class="nav-number">4.1.</span> <span class="nav-text">Create a ZonedDateTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Fields-1"><span class="nav-number">4.2.</span> <span class="nav-text">Accessing Fields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation-1"><span class="nav-number">4.3.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Formatter"><span class="nav-number">4.4.</span> <span class="nav-text">Formatter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-methods-3"><span class="nav-number">4.5.</span> <span class="nav-text">Other methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OffsetDateTime"><span class="nav-number">5.</span> <span class="nav-text">OffsetDateTime</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-OffsetDateTime"><span class="nav-number">5.1.</span> <span class="nav-text">Create OffsetDateTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Fields-2"><span class="nav-number">5.2.</span> <span class="nav-text">Accessing Fields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation-2"><span class="nav-number">5.3.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Formatter-1"><span class="nav-number">5.4.</span> <span class="nav-text">Formatter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-methods-4"><span class="nav-number">5.5.</span> <span class="nav-text">Other methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Instant"><span class="nav-number">6.</span> <span class="nav-text">Instant</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-an-Instant"><span class="nav-number">6.1.</span> <span class="nav-text">Create an Instant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calculation-3"><span class="nav-number">6.2.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-methods-5"><span class="nav-number">6.3.</span> <span class="nav-text">Other methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZoneId"><span class="nav-number">7.</span> <span class="nav-text">ZoneId</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ZoneOffset"><span class="nav-number">8.</span> <span class="nav-text">ZoneOffset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DateTimeFormatter"><span class="nav-number">9.</span> <span class="nav-text">DateTimeFormatter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DateTimeFormatter-Constants"><span class="nav-number">9.1.</span> <span class="nav-text">DateTimeFormatter Constants</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-by-ofPattern-method"><span class="nav-number">9.2.</span> <span class="nav-text">Create by ofPattern method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-by-ofLocalizedDate-method"><span class="nav-number">9.3.</span> <span class="nav-text">Create by ofLocalizedDate method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TemporalAmount-Interface"><span class="nav-number">10.</span> <span class="nav-text">TemporalAmount Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Period"><span class="nav-number">10.1.</span> <span class="nav-text">Period</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-Period"><span class="nav-number">10.1.1.</span> <span class="nav-text">Create Period</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculation-4"><span class="nav-number">10.1.2.</span> <span class="nav-text">Calculation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accessors"><span class="nav-number">10.1.3.</span> <span class="nav-text">Accessors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-methods-6"><span class="nav-number">10.1.4.</span> <span class="nav-text">Other methods</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Duration"><span class="nav-number">10.2.</span> <span class="nav-text">Duration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-Duration"><span class="nav-number">10.2.1.</span> <span class="nav-text">Create Duration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculation-5"><span class="nav-number">10.2.2.</span> <span class="nav-text">Calculation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TemporalUnit-Interface"><span class="nav-number">11.</span> <span class="nav-text">TemporalUnit Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ChronoUnit"><span class="nav-number">11.1.</span> <span class="nav-text">ChronoUnit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TemporalField-Insterface"><span class="nav-number">12.</span> <span class="nav-text">TemporalField Insterface</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ChronoField"><span class="nav-number">12.1.</span> <span class="nav-text">ChronoField</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ChronoUnit-VS-ChronoField"><span class="nav-number">13.</span> <span class="nav-text">ChronoUnit VS ChronoField</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Temporal-Interface"><span class="nav-number">14.</span> <span class="nav-text">Temporal Interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TemporalAccessor-Interface"><span class="nav-number">15.</span> <span class="nav-text">TemporalAccessor Interface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">16.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">202</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Java/Java-Date-Time/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java Date Time API | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java Date Time API
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-26 12:00:00" itemprop="dateCreated datePublished" datetime="2022-06-26T12:00:00-04:00">2022-06-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Java 8 introduces new Date Time API that is easier to used than the traditional java.util.Date class.</p>
+<span id="more"></span>
+
+<h1 id="LocalDate"><a href="#LocalDate" class="headerlink" title="LocalDate"></a>LocalDate</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html">java.time.LocalDate</a> stores a date only such as 2022-01-01. No time info is stored.</p>
+<h2 id="Create-LocalDate"><a href="#Create-LocalDate" class="headerlink" title="Create LocalDate"></a>Create LocalDate</h2><p>Use static method now(), of() and parse() to create a date.</p>
+<p>static method now() - Obtains the current date from the system clock in the default time-zone. Internally calls <code>LocalDate.now(Clock.systemDefaultZone())</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.now();</span><br></pre></td></tr></table></figure>
+
+<p>You can provide a ZoneId to get current date from a specific time-zone.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>Obtains an instance of LocalDate from a year, month and day.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.of(<span class="number">2022</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">LocalDate.of(<span class="number">2022</span>, Month.JANUARY, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Obtain a LocalDate by parsing. You can specify a DateTimeFormatter if input is in in <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/format/DateTimeFormatter.html#ISO_LOCAL_DATE">DateTimeFormatter.ISO_LOCAL_DATE</a> format.<br>parse method throws DateTimeParseException if the text cannot be parsed</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.parse(<span class="string">&quot;2022-01-01&quot;</span>);</span><br><span class="line">LocalDate.parse(<span class="string">&quot;2022/01/01&quot;</span>, DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Accessing-fields"><a href="#Accessing-fields" class="headerlink" title="Accessing fields"></a>Accessing fields</h2><p>There are many getter methods to get individual fields</p>
+<ul>
+<li>getYear()</li>
+<li>getMonth()</li>
+<li>getDayOfYear()</li>
+<li>getDayOfMonth()</li>
+<li>getDayOfWeek()</li>
+<li>getLong(TemporalField field)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> LocalDate.now().getYear();</span><br><span class="line"><span class="type">Month</span> <span class="variable">month</span> <span class="operator">=</span> LocalDate.now().getMonth();</span><br><span class="line"><span class="type">int</span> <span class="variable">dayOfYear</span> <span class="operator">=</span> LocalDate.now().getDayOfYear();</span><br><span class="line"><span class="type">int</span> <span class="variable">dayOfMonth</span> <span class="operator">=</span> LocalDate.now().getDayOfMonth(); </span><br><span class="line"><span class="type">DayOfWeek</span> <span class="variable">dayOfWeek</span> <span class="operator">=</span> LocalDate.now().getDayOfWeek();</span><br></pre></td></tr></table></figure>
+
+<h2 id="Calculation-methods"><a href="#Calculation-methods" class="headerlink" title="Calculation methods"></a>Calculation methods</h2><p>Use the following methods to calculate dates. All of these return a copy of LocalDate.</p>
+<ul>
+<li>plus(long amountToAdd, TemporalUnit unit)</li>
+<li>plus(TemporalAmount amountToAdd)</li>
+<li>plusDays(long)</li>
+<li>plusWeeks(long)</li>
+<li>plusMonths(long)</li>
+<li>plusYears(long)</li>
+<li>minus(long amountToSubtract, TemporalUnit unit)</li>
+<li>minus(TemporalAmount amountToSubtract)</li>
+<li>minusDays(long)</li>
+<li>minusWeeks(long)</li>
+<li>minusMonths(long)</li>
+<li>minusYears(long)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.of(<span class="number">2022</span>, <span class="number">1</span>, <span class="number">1</span>).plus(<span class="number">3</span>, ChronoUnit.DAYS)</span><br><span class="line">LocalDate.of(<span class="number">2022</span>, <span class="number">1</span>, <span class="number">1</span>).plus(Period.ofDays(<span class="number">3</span>))</span><br><span class="line">LocalDate.now().plusDays(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Formatting"><a href="#Formatting" class="headerlink" title="Formatting"></a>Formatting</h2><p>LocalDate.toString method outputs the date in ISO-8601 format uuuu-MM-dd. If you need a specific format, use format method and pass a <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/format/DateTimeFormatter.html">java.time.format.DateTimeFormatter</a> instance.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// formatting example</span></span><br><span class="line">LocalDate.now().format(DateTimeFormatter.ISO_DATE); <span class="comment">// e.g. 2022-01-01</span></span><br><span class="line">LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE); <span class="comment">// e.g. 20220101</span></span><br><span class="line">LocalDate.now().format(DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd&quot;</span>)); <span class="comment">// e.g. 2022/01/01</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Other-methods"><a href="#Other-methods" class="headerlink" title="Other methods"></a>Other methods</h2><p>Methods to compare other date</p>
+<ul>
+<li>int compareTo(ChronoLocalDate other)</li>
+<li>boolean isAfter(ChronoLocalDate other)</li>
+<li>boolean isBefore(ChronoLocalDate other)</li>
+<li>boolean isEqual(ChronoLocalDate other)</li>
+</ul>
+<p>Convert to LocalDate</p>
+<ul>
+<li>atStartOfDay() - Combines this date with the time of midnight to create a LocalDateTime at the start of this date.</li>
+<li>atTime(int hour, int minute) - Combines this date with a time to create a LocalDateTime.</li>
+<li>atTime(int hour, int minute, int second) - Combines this date with a time to create a LocalDateTime.</li>
+<li>atTime(int hour, int minute, int second, int nanoOfSecond) - Combines this date with a time to create a LocalDateTime.</li>
+<li>atTime(LocalTime time) - Combines this date with a time to create a LocalDateTime.</li>
+</ul>
+<p>Convert to ZonedDateTime</p>
+<ul>
+<li>ZonedDateTime atStartOfDay(ZoneId zone) - Returns a zoned date-time from this date at the earliest valid time according to the rules in the time-zone.</li>
+</ul>
+<h2 id="convert-to-java-util-Date"><a href="#convert-to-java-util-Date" class="headerlink" title="convert to java.util.Date"></a>convert to java.util.Date</h2><p>convert to java.util.Date. First to Instant first, then use Date.from method to create a Date.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant());</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="LocalTime"><a href="#LocalTime" class="headerlink" title="LocalTime"></a>LocalTime</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalTime.html">java.time.LocalTime</a> stores a time only. No date is stored in LocalTime.</p>
+<p>LocalTime is an immutable date-time object that represents a time, often viewed as hour-minute-second. Time is represented to nanosecond precision. For example, the value “13:45.30.123456789” can be stored in a LocalTime.</p>
+<h2 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.MIN <span class="comment">// 00:00</span></span><br><span class="line">LocalTime.MAX <span class="comment">// 23:59:59.999999999</span></span><br><span class="line">LocalTime.MIDNIGHT <span class="comment">// 00:00</span></span><br><span class="line">LocalTime.NOON <span class="comment">// 12:00</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-LocalTime"><a href="#Create-LocalTime" class="headerlink" title="Create LocalTime"></a>Create LocalTime</h2><p>use static method now() to osbtains the current time from the system clock in the default time-zone.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.now();</span><br></pre></td></tr></table></figure>
+
+<p>You can provide a ZoneId to get current time for a time zone.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.now(ZoneId.systemDefault());</span><br></pre></td></tr></table></figure>
+
+<p>Use of method to create LocalTime</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.of(<span class="number">8</span>, <span class="number">0</span>); <span class="comment">// 8:00</span></span><br><span class="line">LocalTime.of(<span class="number">14</span>, <span class="number">30</span>, <span class="number">0</span>); <span class="comment">// 14:30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// pass 1000 nano seconds as the fourth argument</span></span><br><span class="line">LocalTime.of(<span class="number">14</span>, <span class="number">30</span>, <span class="number">10</span>, <span class="number">1000</span>); <span class="comment">// 14:30:10.000001</span></span><br></pre></td></tr></table></figure>
+
+<p>Parse from a String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.parse(<span class="string">&quot;14:30&quot;</span>);</span><br><span class="line">LocalTime.parse(<span class="string">&quot;14:30:00&quot;</span>);</span><br><span class="line">LocalTime.parse(<span class="string">&quot;00:00:00&quot;</span>, DateTimeFormatter.ISO_LOCAL_TIME);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-fields-1"><a href="#Accessing-fields-1" class="headerlink" title="Accessing fields"></a>Accessing fields</h2><ul>
+<li>getHour()     </li>
+<li>getMinute()</li>
+<li>getSecond()</li>
+<li>getNano()</li>
+<li>getLong(TemporalField field)</li>
+</ul>
+<h2 id="Calculation-methods-1"><a href="#Calculation-methods-1" class="headerlink" title="Calculation methods"></a>Calculation methods</h2><ul>
+<li>plus(long amountToAdd, TemporalUnit unit)</li>
+<li>plus(TemporalAmount amountToAdd)</li>
+<li>plusHours()</li>
+<li>plusMinutes()</li>
+<li>plusNanos()</li>
+<li>plusSeconds()</li>
+<li>minus(long amountToAdd, TemporalUnit unit)</li>
+<li>minus(TemporalAmount amountToAdd)</li>
+<li>minusHours()</li>
+<li>minusMinutes()</li>
+<li>minusNanos()</li>
+<li>minusSeconds()</li>
+</ul>
+<h2 id="Formatting-1"><a href="#Formatting-1" class="headerlink" title="Formatting"></a>Formatting</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LocalTime.now().format(DateTimeFormatter.ISO_TIME); <span class="comment">// 20:54:24.015</span></span><br><span class="line">LocalTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME); <span class="comment">// 20:54:24.015</span></span><br><span class="line">LocalTime.now().format(DateTimeFormatter.ofPattern(<span class="string">&quot;HH:mm:ss&quot;</span>)); <span class="comment">// 08:54:24</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Other-methods-1"><a href="#Other-methods-1" class="headerlink" title="Other methods"></a>Other methods</h2><p><code>truncatedTo(TemporalUnit unit)</code> - Returns a copy of this LocalTime with the time truncated.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalTime</span> <span class="variable">time</span> <span class="operator">=</span> LocalTime.now().truncatedTo(ChronoUnit.SECONDS);</span><br></pre></td></tr></table></figure>
+
+<p>LocalDateTime atDate(LocalDate date) - Combines this time with a date to create a LocalDateTime.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">tomorrowDateTime</span> <span class="operator">=</span> LocalTime.now().atDate(LocalDate.now().plusDays(<span class="number">1</span>)); <span class="comment">// 2022-06-18T23:32:00.615737</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="LocalDateTime"><a href="#LocalDateTime" class="headerlink" title="LocalDateTime"></a>LocalDateTime</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDateTime.html">java.time.LocalDateTime</a> - A date-time without a time-zone in the ISO-8601 calendar system, such as 2007-12-03T10:15:30.</p>
+<h2 id="Create-LocalDateTime"><a href="#Create-LocalDateTime" class="headerlink" title="Create LocalDateTime"></a>Create LocalDateTime</h2><p>use now() to get the current local date time. Provide a ZoneId to get the local time of a specific timezone.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">LocalDateTime.now(ZoneOffset.UTC); <span class="comment">// get UTC LocalDateTime 2022-06-19T18:19:32.505436</span></span><br></pre></td></tr></table></figure>
+
+<p>Use of() method to construct a local date time</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.of(<span class="number">2022</span>, Month.JANUARY, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>); <span class="comment">// 2022-01-01T00:00</span></span><br></pre></td></tr></table></figure>
+
+<p>parse from a String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.parse(<span class="string">&quot;2022-01-01T00:00&quot;</span>);</span><br><span class="line">LocalDateTime.parse(<span class="string">&quot;2022-06-19T13:53:59&quot;</span>, DateTimeFormatter.ISO_DATE_TIME)</span><br><span class="line">LocalDateTime.parse(<span class="string">&quot;2022-06-19T13:53:59Z&quot;</span>, DateTimeFormatter.ISO_DATE_TIME)</span><br><span class="line">LocalDateTime.parse(<span class="string">&quot;2022-06-19T13:53:59.478775&quot;</span>, DateTimeFormatter.ISO_DATE_TIME);</span><br><span class="line">LocalDateTime.parse(<span class="string">&quot;2022/08/17 21:19:55&quot;</span>, DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd HH:mm:ss&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>Convert an Instant to LocalDateTime</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// instant converted to LocalDateTime in US East timezone</span></span><br><span class="line"><span class="comment">// 2022-06-01T00:00:00.00Z ==&gt; 2022-05-31T20:00</span></span><br><span class="line">LocalDateTime.ofInstant(Instant.parse(<span class="string">&quot;2022-06-01T00:00:00.00Z&quot;</span>), ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-Fields"><a href="#Accessing-Fields" class="headerlink" title="Accessing Fields"></a>Accessing Fields</h2><ul>
+<li>getYear()</li>
+<li>getMonth()</li>
+<li>getDayOfYear()</li>
+<li>getDayOfMonth()</li>
+<li>getDayOfWeek()</li>
+<li>getHour()</li>
+<li>getMinute()</li>
+<li>getSecond()</li>
+<li>getNano()</li>
+<li>getLong(TemporalField field)</li>
+</ul>
+<h2 id="Calculation"><a href="#Calculation" class="headerlink" title="Calculation"></a>Calculation</h2><ul>
+<li>plus(long amountToAdd, TemporalUnit unit)</li>
+<li>plus(TemporalAmount amountToAdd)</li>
+<li>plusDays(long)</li>
+<li>plusWeeks(long)</li>
+<li>plusMonths(long)</li>
+<li>plusYears(long)</li>
+<li>plusHours()</li>
+<li>plusMinutes()</li>
+<li>plusNanos()</li>
+<li>plusSeconds()</li>
+<li>minus(long amountToAdd, TemporalUnit unit)</li>
+<li>minus(TemporalAmount amountToAdd)</li>
+<li>minusDays(long)</li>
+<li>minusWeeks(long)</li>
+<li>minusMonths(long)</li>
+<li>minusYears(long)</li>
+<li>minusHours()</li>
+<li>minusMinutes()</li>
+<li>minusNanos()</li>
+<li>minusSeconds()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.now().plus(<span class="number">1</span>, ChronoUnit.HOURS);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Formatting-2"><a href="#Formatting-2" class="headerlink" title="Formatting"></a>Formatting</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME); <span class="comment">// 2022-06-19T13:53:59.478775</span></span><br><span class="line">LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME); <span class="comment">// 2022-06-19T13:54:39.712041</span></span><br><span class="line">LocalDateTime.now().format(DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd HH:mm:ss&quot;</span>)); <span class="comment">// 2022/08/17 21:19:55</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h2 id="Other-methods-2"><a href="#Other-methods-2" class="headerlink" title="Other methods"></a>Other methods</h2><p>toLocalDate() - gets the local date part</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDate</span> <span class="variable">date</span> <span class="operator">=</span> LocalDateTime.now().toLocalDate(); <span class="comment">// 2022-06-19</span></span><br></pre></td></tr></table></figure>
+
+<p>toLocalTime() - gets the local time part</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.now().toLocalTime(); <span class="comment">//14:32:29.085858</span></span><br></pre></td></tr></table></figure>
+
+<p>atZone(ZoneId zone) - Combines this date-time with a time-zone to create a ZonedDateTime.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.now().atZone(ZoneOffset.UTC);</span><br></pre></td></tr></table></figure>
+
+<h1 id="ZonedDateTime"><a href="#ZonedDateTime" class="headerlink" title="ZonedDateTime"></a>ZonedDateTime</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html">java.time.ZonedDateTime</a> - datetime with ZoneId. represent an instant in a Timezone. </p>
+<h2 id="Create-a-ZonedDateTime"><a href="#Create-a-ZonedDateTime" class="headerlink" title="Create a ZonedDateTime"></a>Create a ZonedDateTime</h2><p>create a ZonedDateTime using now() method:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">utcNow</span> <span class="operator">=</span> ZonedDateTime.now(ZoneOffset.UTC); </span><br><span class="line"><span class="comment">// 2022-06-23T03:39:49.946535Z</span></span><br><span class="line"></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">usEastNow</span> <span class="operator">=</span> ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-06-22T23:40:02.226819-04:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
+
+<p>create ZonedDateTime from a LocalDateTime and a ZoneId.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.of(LocalDateTime.parse(<span class="string">&quot;2022-01-01T03:00&quot;</span>),</span><br><span class="line">    ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-01-01T00:00-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
+
+<p>create ZonedDateTime from a LocalDate, LocalTime and a ZoneId</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.of(LocalDate.parse(<span class="string">&quot;2022-01-01&quot;</span>), LocalTime.parse(<span class="string">&quot;03:00&quot;</span>),</span><br><span class="line">    ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-01-01T00:00-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
+
+<p>create an instance of ZonedDateTime from a year, month, day, hour, minute, second, nanosecond and time-zone.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.of(<span class="number">2022</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); <span class="comment">// 2022-01-01T03:00-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
+
+<p>create an instance of ZonedDateTime from an Instant.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.ofInstant(Instant.parse(<span class="string">&quot;2022-01-01T00:00:00Z&quot;</span>), ZoneId.of(<span class="string">&quot;Asia/Tokyo&quot;</span>)); <span class="comment">// 2022-01-01T09:00+09:00[Asia/Tokyo]</span></span><br></pre></td></tr></table></figure>
+
+<p>create ZonedDateTime by parsing String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.parse(<span class="string">&quot;2007-12-03T10:15:30+01:00[Europe/Paris]&quot;</span>);</span><br><span class="line">ZonedDateTime.parse(<span class="string">&quot;2007-12-03T10:15:30Z&quot;</span>, DateTimeFormatter.ISO_DATE_TIME);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-Fields-1"><a href="#Accessing-Fields-1" class="headerlink" title="Accessing Fields"></a>Accessing Fields</h2><ul>
+<li>getYear()</li>
+<li>getMonth()</li>
+<li>getDayOfYear()</li>
+<li>getDayOfMonth()</li>
+<li>getDayOfWeek()</li>
+<li>getHour()</li>
+<li>getMinute()</li>
+<li>getSecond()</li>
+<li>getNano()</li>
+<li>getLong(TemporalField field)</li>
+</ul>
+<p>ZonedDateTime has <code>getZone()</code> method to return ZoneId value and <code>getOffset()</code> method to get ZoneOffset.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).getZone(); <span class="comment">// returns ZoneId America/New_York</span></span><br><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).getOffset(); <span class="comment">// returns ZoneOffset -04:00 or -5:00</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Calculation-1"><a href="#Calculation-1" class="headerlink" title="Calculation"></a>Calculation</h2><ul>
+<li>plus(long amountToAdd, TemporalUnit unit)</li>
+<li>plus(TemporalAmount amountToAdd)</li>
+<li>plusDays(long)</li>
+<li>plusWeeks(long)</li>
+<li>plusMonths(long)</li>
+<li>plusYears(long)</li>
+<li>plusHours()</li>
+<li>plusMinutes()</li>
+<li>plusNanos()</li>
+<li>plusSeconds()</li>
+<li>minus(long amountToAdd, TemporalUnit unit)</li>
+<li>minus(TemporalAmount amountToAdd)</li>
+<li>minusDays(long)</li>
+<li>minusWeeks(long)</li>
+<li>minusMonths(long)</li>
+<li>minusYears(long)</li>
+<li>minusHours()</li>
+<li>minusMinutes()</li>
+<li>minusNanos()</li>
+<li>minusSeconds()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).plusDays(<span class="number">1</span>);</span><br><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).plus(<span class="number">1</span>, ChronoUnit.HOURS);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Formatter"><a href="#Formatter" class="headerlink" title="Formatter"></a>Formatter</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ISO_DATE_TIME); <span class="comment">// 2022-08-17T21:00:26.343-04:00[America/New_York]</span></span><br><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME); <span class="comment">// 2022-08-17T21:00:26.343</span></span><br><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME); <span class="comment">// 2022-08-17T21:01:54.186-04:00</span></span><br><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd HH:mm:ss z&quot;</span>)); <span class="comment">// 2022/08/17 21:01:13 EDT</span></span><br></pre></td></tr></table></figure>
+<h2 id="Other-methods-3"><a href="#Other-methods-3" class="headerlink" title="Other methods"></a>Other methods</h2><p>withZoneSameInstant &#x3D; used to convert between differnet timezone</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// convert between different timezone</span></span><br><span class="line"><span class="comment">// find time in Singapore timezone. wow! it is 13 hours ahead....</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">singaporeTime</span> <span class="operator">=</span> estTime.withZoneSameInstant(ZoneId.of(<span class="string">&quot;Asia/Singapore&quot;</span>)); <span class="comment">// 2022-01-01T13:00+08:00[Asia/Singapore]</span></span><br><span class="line">System.out.println(<span class="string">&quot;find time in Singapore timezone: &quot;</span> + singaporeTime);</span><br></pre></td></tr></table></figure>
+
+<h1 id="OffsetDateTime"><a href="#OffsetDateTime" class="headerlink" title="OffsetDateTime"></a>OffsetDateTime</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html">OffsetDateTime</a> - contains date-time and an offset such as  2022-01-01T03:00:00-05:00.</p>
+<p>Difference bewteen OffsetDateTime, ZonedDateTime and Instant - see <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/OffsetDateTime.html">Javadoc</a></p>
+<blockquote>
+<p>“OffsetDateTime, ZonedDateTime and Instant all store an instant on the time-line to nanosecond precision. Instant is the simplest, simply representing the instant. OffsetDateTime adds to the instant the offset from UTC&#x2F;Greenwich, which allows the local date-time to be obtained. ZonedDateTime adds full time-zone rules.” </p>
+</blockquote>
+<h2 id="Create-OffsetDateTime"><a href="#Create-OffsetDateTime" class="headerlink" title="Create OffsetDateTime"></a>Create OffsetDateTime</h2><p>create an OffsetDateTime using now() method:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">OffsetDateTime</span> <span class="variable">utcNow</span> <span class="operator">=</span> OffsetDateTime.now(ZoneOffset.UTC); </span><br><span class="line"><span class="comment">// 2022-06-23T03:38:41.164348Z</span></span><br><span class="line"></span><br><span class="line"><span class="type">OffsetDateTime</span> <span class="variable">usEastNow</span> <span class="operator">=</span> OffsetDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-06-22T23:39:07.345612-04:00</span></span><br><span class="line"></span><br><span class="line"><span class="type">OffsetDateTime</span> <span class="variable">usEastNow</span> <span class="operator">=</span> OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>));</span><br><span class="line"><span class="comment">// 2022-06-22T23:39:07.345612-04:00</span></span><br></pre></td></tr></table></figure>
+
+<p>create OffsetDateTime from a LocalDateTime and a ZoneOffset.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.of(LocalDateTime.parse(<span class="string">&quot;2022-01-01T15:00&quot;</span>),</span><br><span class="line">   ZoneOffset.of(<span class="string">&quot;-05:00&quot;</span>));</span><br><span class="line"><span class="comment">// 2022-01-01T15:00-05:00</span></span><br></pre></td></tr></table></figure>
+
+<p>create OffsetDateTime from a LocalDate, LocalTime and a ZoneOffset</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.of(LocalDate.parse(<span class="string">&quot;2022-01-01&quot;</span>), LocalTime.parse(<span class="string">&quot;15:00&quot;</span>),</span><br><span class="line">    ZoneOffset.of(<span class="string">&quot;-05:00&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-01-01T15:00-05:00</span></span><br></pre></td></tr></table></figure>
+
+<p>create an instance of OffsetDateTime from a year, month, day, hour, minute, second, nanosecond and ZoneOffset.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.of(<span class="number">2022</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-06-01T03:00-04:00</span></span><br></pre></td></tr></table></figure>
+
+<p>create an instance of OffsetDateTime from an Instant.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.ofInstant(Instant.parse(<span class="string">&quot;2022-01-01T00:00:00Z&quot;</span>), ZoneId.of(<span class="string">&quot;Asia/Tokyo&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-01-01T09:00+09:00</span></span><br></pre></td></tr></table></figure>
+
+<p>create OffsetDateTime by parsing String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.parse(<span class="string">&quot;2022-12-03T10:15:30+09:00&quot;</span>);</span><br><span class="line">OffsetDateTime.parse(<span class="string">&quot;2022-12-03T10:15:30+09:00&quot;</span>, DateTimeFormatter.ISO_OFFSET_DATE_TIME);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Accessing-Fields-2"><a href="#Accessing-Fields-2" class="headerlink" title="Accessing Fields"></a>Accessing Fields</h2><ul>
+<li>getYear()</li>
+<li>getMonth()</li>
+<li>getDayOfYear()</li>
+<li>getDayOfMonth()</li>
+<li>getDayOfWeek()</li>
+<li>getHour()</li>
+<li>getMinute()</li>
+<li>getSecond()</li>
+<li>getNano()</li>
+<li>getLong(TemporalField field)</li>
+</ul>
+<p>OffsetDateTime has <code>getOffset()</code> method to return ZoneOffset</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).getOffset(); <span class="comment">// returns ZoneOffset -04:00</span></span><br></pre></td></tr></table></figure>
+
+<p>methods to get part of an OffsetDateTime</p>
+<ul>
+<li>toLocalDate()</li>
+<li>toLocalDateTime()</li>
+<li>toLocalTime()</li>
+<li>toOffsetTime()</li>
+</ul>
+<h2 id="Calculation-2"><a href="#Calculation-2" class="headerlink" title="Calculation"></a>Calculation</h2><ul>
+<li>plus(long amountToAdd, TemporalUnit unit)</li>
+<li>plus(TemporalAmount amountToAdd)</li>
+<li>plusDays(long)</li>
+<li>plusWeeks(long)</li>
+<li>plusMonths(long)</li>
+<li>plusYears(long)</li>
+<li>plusHours()</li>
+<li>plusMinutes()</li>
+<li>plusNanos()</li>
+<li>plusSeconds()</li>
+<li>minus(long amountToAdd, TemporalUnit unit)</li>
+<li>minus(TemporalAmount amountToAdd)</li>
+<li>minusDays(long)</li>
+<li>minusWeeks(long)</li>
+<li>minusMonths(long)</li>
+<li>minusYears(long)</li>
+<li>minusHours()</li>
+<li>minusMinutes()</li>
+<li>minusNanos()</li>
+<li>minusSeconds()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).plusDays(<span class="number">1</span>);</span><br><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).plus(<span class="number">1</span>, ChronoUnit.HOURS);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Formatter-1"><a href="#Formatter-1" class="headerlink" title="Formatter"></a>Formatter</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME); <span class="comment">// 2022-06-23T00:01:19.596163-04:00</span></span><br><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).format(DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy/MM/dd HH:mm:ss X&quot;</span>)); <span class="comment">// 2022/06/23 00:02:48 -04</span></span><br></pre></td></tr></table></figure>
+<h2 id="Other-methods-4"><a href="#Other-methods-4" class="headerlink" title="Other methods"></a>Other methods</h2><p>atZoneSameInstant(ZoneId zone) - convert to ZonedDateTime by providing a ZoneId</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).atZoneSameInstant(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>toInstant() - convert to Instant</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).toInstant();</span><br></pre></td></tr></table></figure>
+
+<p>toEpochSecond() - get number of seconds since the epoch of 1970-01-01T00:00:00Z.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OffsetDateTime.now(ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>)).toEpochSecond();</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Instant"><a href="#Instant" class="headerlink" title="Instant"></a>Instant</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html">java.time.Instant</a> - An instantaneous point on the time-line.</p>
+<p>From javadoc:</p>
+<blockquote>
+<p>This class models a single instantaneous point on the time-line. This might be used to record event time-stamps in the application.</p>
+</blockquote>
+<blockquote>
+<p>The range of an instant requires the storage of a number larger than a long. To achieve this, the class stores a long representing epoch-seconds and an int representing nanosecond-of-second, which will always be between 0 and 999,999,999. The epoch-seconds are measured from the standard Java epoch of 1970-01-01T00:00:00Z where instants after the epoch have positive values, and earlier instants have negative values. For both the epoch-second and nanosecond parts, a larger value is always later on the time-line than a smaller value.</p>
+</blockquote>
+<h2 id="Create-an-Instant"><a href="#Create-an-Instant" class="headerlink" title="Create an Instant"></a>Create an Instant</h2><p>now() - create Instant from current epoch time.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">now</span> <span class="operator">=</span> Instant.now(); <span class="comment">// 2022-06-22T03:20:53.293075Z</span></span><br></pre></td></tr></table></figure>
+
+<p>ofEpochMilli(long epochMilli) - create Instant using milliseconds from the epoch of 1970-01-01T00:00:00Z.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Instant.ofEpochMilli(<span class="number">1655869466829L</span>); <span class="comment">// 2022-06-22T03:44:26.829Z</span></span><br></pre></td></tr></table></figure>
+
+<p>ofEpochSecond(long epochSecond) - create Instant using seconds from the epoch of 1970-01-01T00:00:00Z.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Instant.ofEpochSecond(<span class="number">1655869466L</span>); <span class="comment">// 2022-06-22T03:44:26Z</span></span><br></pre></td></tr></table></figure>
+
+<p>parse() - parse an Instant from epoch time, such as “2022-06-01T00:00:00.00Z”.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Instant.parse(<span class="string">&quot;2022-06-01T00:00:00.00Z&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Calculation-3"><a href="#Calculation-3" class="headerlink" title="Calculation"></a>Calculation</h2><ul>
+<li>plus(long amountToAdd, TemporalUnit unit)</li>
+<li>plus(TemporalAmount amountToAdd)</li>
+<li>plusMillis(long millisToAdd)</li>
+<li>plusNanos(long nanosToAdd)</li>
+<li>plusSeconds(long secondsToAdd)</li>
+<li>minus(long amountToSubtract, TemporalUnit unit)</li>
+<li>minus(TemporalAmount amountToSubtract)</li>
+<li>minusMillis(long millisToSubtract)</li>
+<li>minusNanos(long nanosToSubtract)</li>
+<li>minusSeconds(long secondsToSubtract)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Instant.now().plus(<span class="number">10</span>, ChronoUnit.HOURS);</span><br><span class="line">Instant.now().plus(Duration.ofHours(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="Other-methods-5"><a href="#Other-methods-5" class="headerlink" title="Other methods"></a>Other methods</h2><p>getEpochSecond() - Gets the number of seconds from the Java epoch of 1970-01-01T00:00:00Z.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Instant.now().getEpochSecond(); <span class="comment">// 1656043919</span></span><br></pre></td></tr></table></figure>
+
+<p>toEpochMilli() - returns a long representing the number of milliseconds from the epoch of 1970-01-01T00:00:00Z.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Instant.now().toEpochMilli(); <span class="comment">// 1655869466829</span></span><br></pre></td></tr></table></figure>
+
+<p>getLong(TemporalField field)<br>Gets the value of the specified field from this instant as a long.</p>
+<p>getNano() - Gets the number of nanoseconds from the start of the second.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Instant.now().getNano();</span><br></pre></td></tr></table></figure>
+
+<p>Compare with other Instant</p>
+<ul>
+<li>isAfter(Instant otherInstant)</li>
+<li>isBefore(Instant otherInstant)</li>
+</ul>
+<h1 id="ZoneId"><a href="#ZoneId" class="headerlink" title="ZoneId"></a>ZoneId</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZoneId.html">java.time.ZoneId</a> - A time-zone ID, such as <code>America/New_York</code>.</p>
+<p>To create a ZoneId</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>);</span><br><span class="line">ZoneId.of(<span class="string">&quot;Asia/Tokyo&quot;</span>);</span><br><span class="line">ZoneId.of(<span class="string">&quot;Z&quot;</span>); <span class="comment">// UTC TimeZone</span></span><br></pre></td></tr></table></figure>
+
+<p>get system default timezone</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZoneId.systemDefault();</span><br></pre></td></tr></table></figure>
+
+<p>To list all available ZoneIds</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Set&lt;String&gt; zoneIds= ZoneId.getAvailableZoneIds();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String zone : zoneIds) &#123;</span><br><span class="line">    System.out.println(zone);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="ZoneOffset"><a href="#ZoneOffset" class="headerlink" title="ZoneOffset"></a>ZoneOffset</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZoneOffset.html">java.time.ZoneOffset</a> - a subclass of ZoneId. It is a time-zone offset from UTC, such as -04:00.</p>
+<p>ZoneOffset.UTC is a constatn representing the UTC.</p>
+<p>create a ZoneOffset</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZoneOffset.of(<span class="string">&quot;-04:00&quot;</span>);</span><br><span class="line">ZoneOffset.ofHours(-<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="DateTimeFormatter"><a href="#DateTimeFormatter" class="headerlink" title="DateTimeFormatter"></a>DateTimeFormatter</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/format/DateTimeFormatter.html">java.time.format.DateTimeFormatter</a> is the formatter for printing and parsing date-time objects.</p>
+<h2 id="DateTimeFormatter-Constants"><a href="#DateTimeFormatter-Constants" class="headerlink" title="DateTimeFormatter Constants"></a>DateTimeFormatter Constants</h2><ul>
+<li>DateTimeFormatter.BASIC_ISO_DATE</li>
+<li>DateTimeFormatter.ISO_DATE</li>
+<li>DateTimeFormatter.ISO_DATE_TIME</li>
+<li>DateTimeFormatter.ISO_INSTANT</li>
+<li>DateTimeFormatter.ISO_LOCAL_DATE</li>
+<li>DateTimeFormatter.ISO_LOCAL_DATE_TIME</li>
+<li>DateTimeFormatter.ISO_LOCAL_TIME</li>
+<li>DateTimeFormatter.ISO_OFFSET_DATE</li>
+<li>DateTimeFormatter.ISO_OFFSET_DATE_TIME</li>
+<li>DateTimeFormatter.ISO_OFFSET_TIME</li>
+<li>DateTimeFormatter.ISO_ORDINAL_DATE</li>
+<li>DateTimeFormatter.ISO_TIME</li>
+<li>DateTimeFormatter.ISO_WEEK_DATE</li>
+<li>DateTimeFormatter.ISO_ZONED_DATE_TIME</li>
+<li>DateTimeFormatter.FC_1123_DATE_TIME</li>
+</ul>
+<p>Use DateTimeFormatter to parse a DateTime String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// parse using DateTime</span></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTime</span> <span class="operator">=</span> ZonedDateTime.parse(<span class="string">&quot;2022-06-26T17:05:41-04:00[America/New_York]&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Use DateTimeFormatter to format datetime</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ISO_INSTANT);</span><br><span class="line"><span class="comment">// ==&gt; &quot;2022-06-24T04:37:40.146679Z&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-by-ofPattern-method"><a href="#Create-by-ofPattern-method" class="headerlink" title="Create by ofPattern method"></a>Create by ofPattern method</h2><p>ofPattern(String) - Create DateTimeFormatter using pattern. For details on the Pattern symbol and their meaning, see <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/format/DateTimeFormatter.html">javadoc</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy MM dd HH:mm:ss&quot;</span>));</span><br><span class="line"><span class="comment">// ==&gt; &quot;2022 06 24 00:41:10&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Create-by-ofLocalizedDate-method"><a href="#Create-by-ofLocalizedDate-method" class="headerlink" title="Create by ofLocalizedDate method"></a>Create by ofLocalizedDate method</h2><p>create locale specific date time format using the following method</p>
+<ul>
+<li>ofLocalizedDate(FormatStyle)</li>
+<li>ofLocalizedTime(FormatStyle)</li>
+<li>ofLocalizedDateTime(FormatStyle)</li>
+</ul>
+<p>Usage</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));</span><br><span class="line"><span class="comment">// ==&gt; &quot;6/24/22&quot;</span></span><br><span class="line"></span><br><span class="line">LocalDate.now().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL));</span><br><span class="line"><span class="comment">// ==&gt; &quot;Friday, June 24, 2022&quot;</span></span><br><span class="line"></span><br><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT));</span><br><span class="line"><span class="comment">// ==&gt; &quot;6/24/22, 12:47 AM&quot;</span></span><br><span class="line"></span><br><span class="line">ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)).format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL));</span><br><span class="line"><span class="comment">// ==&gt; &quot;Friday, June 24, 2022 at 12:46:26 AM Eastern Daylight Time&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="TemporalAmount-Interface"><a href="#TemporalAmount-Interface" class="headerlink" title="TemporalAmount Interface"></a>TemporalAmount Interface</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/TemporalAmount.html">java.time.temporal.TemporalAmount</a> </p>
+<p>From javadoc:</p>
+<blockquote>
+<p>Framework-level interface defining an amount of time, such as “6 hours”, “8 days” or “2 years and 3 months”.<br>This is the base interface type for amounts of time. An amount is distinct from a date or time-of-day in that it is not tied to any specific point on the time-line.<br>Period is a date-based implementation, storing years, months and days. Duration is a time-based implementation, storing seconds and nanoseconds, but providing some access using other duration based units such as minutes, hours and fixed 24-hour days.</p>
+</blockquote>
+<h2 id="Period"><a href="#Period" class="headerlink" title="Period"></a>Period</h2><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Period.html">java.time.period</a></p>
+<blockquote>
+<p>A date-based amount of time in the ISO-8601 calendar system, such as ‘2 years, 3 months and 4 days’.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.digi.com/resources/documentation/digidocs/90001437-13/reference/r_iso_8601_duration_format.htm">ISO-8601 period format</a> is used by parse() and toString() method. ISO-8601 Period has the following format:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(n)Y(n)M(n)DT(n)H(n)M(n)S</span><br></pre></td></tr></table></figure>
+
+<h3 id="Create-Period"><a href="#Create-Period" class="headerlink" title="Create Period"></a>Create Period</h3><p>Create a Period using ofXXX static methods</p>
+<ul>
+<li>of(int years, int months, int days)</li>
+<li>ofDays(int days)</li>
+<li>ofMonths(int months)</li>
+<li>ofWeeks(int weeks)</li>
+<li>ofYears(int years)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Period.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>);</span><br><span class="line"><span class="comment">// ==&gt; P1Y2M</span></span><br><span class="line"></span><br><span class="line">Period.ofYears(-<span class="number">1</span>);</span><br><span class="line"><span class="comment">// ==&gt; P-1Y</span></span><br><span class="line"></span><br><span class="line">Period.ofWeeks(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// ==&gt; P700D</span></span><br></pre></td></tr></table></figure>
+
+<p>between(LocalDate startDateInclusive, LocalDate endDateExclusive)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Period.between( LocalDate.parse(<span class="string">&quot;2022-02-01&quot;</span>), LocalDate.parse(<span class="string">&quot;2022-03-15&quot;</span>));</span><br><span class="line"><span class="comment">// ==&gt; P1M14D</span></span><br></pre></td></tr></table></figure>
+
+<p>parse(CharSequence text) - Obtains a Period from a text string in <a target="_blank" rel="noopener" href="https://www.digi.com/resources/documentation/digidocs/90001437-13/reference/r_iso_8601_duration_format.htm">ISO-8601 period format</a>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Period.parse(<span class="string">&quot;P1Y2M3W4D&quot;</span>);</span><br><span class="line"><span class="comment">// ==&gt; P1Y2M25D</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Calculation-4"><a href="#Calculation-4" class="headerlink" title="Calculation"></a>Calculation</h3><ul>
+<li>plus(TemporalAmount amountToAdd)</li>
+<li>plusDays(long daysToAdd)</li>
+<li>plusMonths(long monthsToAdd)</li>
+<li>plusYears(long yearsToAdd)</li>
+<li>minus(TemporalAmount amountToSubtract)</li>
+<li>minusDays(long daysToSubtract)</li>
+<li>minusMonths(long monthsToSubtract)</li>
+<li>minusYears(long yearsToSubtract)</li>
+<li>multipliedBy(int scalar)</li>
+<li>negated()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Period.ofYears(<span class="number">1</span>).plus(Period.ofMonths(<span class="number">2</span>));</span><br><span class="line"><span class="comment">// ==&gt; P1Y2M</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Accessors"><a href="#Accessors" class="headerlink" title="Accessors"></a>Accessors</h3><ul>
+<li>get(TemporalUnit unit)</li>
+<li>getDays()</li>
+<li>getMonths()</li>
+<li>getYears()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Period.ofMonths(<span class="number">3</span>).get(ChronoUnit.MONTHS);</span><br><span class="line"><span class="comment">// ==&gt; 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Other-methods-6"><a href="#Other-methods-6" class="headerlink" title="Other methods"></a>Other methods</h3><p>normalized() - return a copy of normalized Period.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Period.ofWeeks(<span class="number">20</span>).normalized()</span><br><span class="line"><span class="comment">// ==&gt; P140D</span></span><br><span class="line">Period.ofMonths(<span class="number">30</span>).normalized()</span><br><span class="line"><span class="comment">// ==&gt; P2Y6M</span></span><br></pre></td></tr></table></figure>
+
+<p>isNegative() - Checks if any of the three units of this period are negative.</p>
+<p>isZero() - Checks if all three units of this period are zero.</p>
+<h2 id="Duration"><a href="#Duration" class="headerlink" title="Duration"></a>Duration</h2><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Duration.html">java.time.Duration</a> - A time-based amount of time</p>
+<h3 id="Create-Duration"><a href="#Create-Duration" class="headerlink" title="Create Duration"></a>Create Duration</h3><ul>
+<li>ofDays(long days)</li>
+<li>ofHours(long hours)</li>
+<li>ofMillis(long millis)</li>
+<li>ofMinutes(long minutes)</li>
+<li>ofNanos(long nanos)</li>
+<li>ofSeconds(long seconds)</li>
+<li>ofSeconds(long seconds, long nanoAdjustment)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Duration.ofDays(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// ==&gt; PT24H</span></span><br><span class="line">Duration.ofSeconds(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// ==&gt; PT2S</span></span><br></pre></td></tr></table></figure>
+
+<p>between(Temporal startInclusive, Temporal endExclusive) - calculate Duration by finding the Duration between two times.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Duration.between(LocalTime.parse(<span class="string">&quot;10:00:00&quot;</span>),LocalTime.parse(<span class="string">&quot;11:00:00&quot;</span>));</span><br><span class="line"><span class="comment">// ==&gt; PT1H</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Calculation-5"><a href="#Calculation-5" class="headerlink" title="Calculation"></a>Calculation</h3><ul>
+<li>plus (long amountToAdd, TemporalUnit unit)</li>
+<li>plus (Duration duration)</li>
+<li>plusDays (long daysToAdd)</li>
+<li>plusHours (long hoursToAdd)</li>
+<li>plusMillis(long millisToAdd)</li>
+<li>plusMinutes (long minutesToAdd)</li>
+<li>plusNanos (long nanosToAdd)</li>
+<li>plusSeconds (long secondsToAdd)</li>
+<li>minus (long amountToSubtract, TemporalUnit unit)</li>
+<li>minus (Duration duration)</li>
+<li>minusDays (long daysToSubtract)</li>
+<li>minusHours (long hoursToSubtract)</li>
+<li>minusMillis (long millisToSubtract)</li>
+<li>minusMinutes (long minutesToSubtract)</li>
+<li>minusNanos (long nanosToSubtract)</li>
+<li>minusSeconds (long secondsToSubtract)</li>
+<li>multipliedBy (long multiplicand)</li>
+<li>dividedBy(long divisor)</li>
+<li>dividedBy(Duration divisor)</li>
+<li>negated()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> Duration.ofSeconds(<span class="number">2</span>).plus(<span class="number">2</span>, ChronoUnit.SECONDS);</span><br><span class="line"><span class="comment">// ==&gt; PT4S</span></span><br><span class="line">Duration.ofSeconds(<span class="number">60</span>).multipliedBy(<span class="number">10</span>);</span><br><span class="line"><span class="comment">// ==&gt; PT10M</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="TemporalUnit-Interface"><a href="#TemporalUnit-Interface" class="headerlink" title="TemporalUnit Interface"></a>TemporalUnit Interface</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/TemporalUnit.html">java.time.temporal.TemporalUnit</a> Interface - A unit of date-time, such as Days or Hours.</p>
+<p>Implementations are ChronoUnit and Unit. Both are enum. The most commonly used units are defined in ChronoUnit.</p>
+<h2 id="ChronoUnit"><a href="#ChronoUnit" class="headerlink" title="ChronoUnit"></a>ChronoUnit</h2><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/ChronoUnit.html">java.time.temporal.ChronoUnit</a> -  an Enum that implements TemporalUnit Interface. Unites for date and time.</p>
+<p><strong>ChronoUnit Enum Constants</strong></p>
+<ul>
+<li>CENTURIES</li>
+<li>DAYS</li>
+<li>DECADES</li>
+<li>ERAS</li>
+<li>FOREVER</li>
+<li>HALF DAYS</li>
+<li>HOURS</li>
+<li>MICROS</li>
+<li>MILLENNIA</li>
+<li>MILLIS</li>
+<li>MINUTES</li>
+<li>MONTHS</li>
+<li>NANOS</li>
+<li>SECONDS</li>
+<li>WEEKS</li>
+<li>YEARS</li>
+</ul>
+<p>ChronoUnit.between() - To get the time between two temporal object</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ChronoUnit.MONTHS.between(ZonedDateTime.of(LocalDate.parse(<span class="string">&quot;2022-01-01&quot;</span>), LocalTime.parse(<span class="string">&quot;03:00&quot;</span>),</span><br><span class="line">  ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)), ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)));</span><br><span class="line"><span class="comment">// ==&gt; 5</span></span><br><span class="line"></span><br><span class="line">ChronoUnit.HOURS.between(LocalTime.parse(<span class="string">&quot;11:00&quot;</span>), LocalTime.parse(<span class="string">&quot;13:00&quot;</span>));</span><br><span class="line"><span class="comment">// ==&gt; 2</span></span><br></pre></td></tr></table></figure>
+
+<p>ChronoUnit.getDuration() - gets estimate duraration of this ChronoUnit.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ChronoUnit.HOURS.getDuration();</span><br><span class="line"><span class="comment">// ==&gt; PT1H</span></span><br></pre></td></tr></table></figure>
+
+<p>ChronoUnit is often used for Date-Time calculation.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDate</span> <span class="variable">threeDaysLater</span> <span class="operator">=</span> LocalDate.of(<span class="number">2022</span>, <span class="number">1</span>, <span class="number">1</span>).plus(<span class="number">3</span>, ChronoUnit.DAYS)</span><br><span class="line"></span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">oneHourEarlier</span> <span class="operator">=</span> LocalDateTime.now().minus(<span class="number">1</span>, ChronoUnit.HOURS);</span><br><span class="line"></span><br><span class="line"><span class="comment">// truncatedTo</span></span><br><span class="line"><span class="type">LocalTime</span> <span class="variable">time</span> <span class="operator">=</span> LocalTime.now().truncatedTo(ChronoUnit.SECONDS);</span><br></pre></td></tr></table></figure>
+
+<h1 id="TemporalField-Insterface"><a href="#TemporalField-Insterface" class="headerlink" title="TemporalField Insterface"></a>TemporalField Insterface</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/TemporalField.html">java.time.temporal.TemporalField</a> Interface is used to access a field of a Temporal. ChronoField is the most used implementation.</p>
+<blockquote>
+<p>A field of date-time, such as month-of-year or minute-of-hour.</p>
+</blockquote>
+<h2 id="ChronoField"><a href="#ChronoField" class="headerlink" title="ChronoField"></a>ChronoField</h2><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/ChronoField.html">java.time.temporal.ChronoField</a> - Enum that implements TemporalField insterface.</p>
+<blockquote>
+<p>This set of fields provide field-based access to manipulate a date, time or date-time.</p>
+</blockquote>
+<p>Enum Constants:</p>
+<ul>
+<li>ALIGNED_DAY_OF_WEEK_IN_MONTH</li>
+<li>ALIGNED_DAY_OF_WEEK_IN_YEAR</li>
+<li>ALIGNED_WEEK_OF_MONTH</li>
+<li>ALIGNED_WEEK_OF_YEAR</li>
+<li>AMPM_OF_DAY</li>
+<li>CLOCK_HOUR_OF_AMPM</li>
+<li>CLOCK_HOUR_OF_DAY</li>
+<li>DAY_OF_MONTH</li>
+<li>DAY_OF_WEEK</li>
+<li>DAY_OF_YEAR</li>
+<li>EPOCH_DAY</li>
+<li>ERA</li>
+<li>HOUR_OF_AMPM</li>
+<li>HOUR_OF_DAY</li>
+<li>INSTANT_SECONDS</li>
+<li>MICRO_OF_DAY</li>
+<li>MICRO_OF_SECOND</li>
+<li>MILLI_OF_DAY</li>
+<li>MILLI_OF_SECOND</li>
+<li>MINUTE_OF_DAY</li>
+<li>MINUTE_OF_HOUR</li>
+<li>MONTH_OF_YEAR</li>
+<li>NANO_OF_DAY</li>
+<li>NANO_OF_SECOND</li>
+<li>OFFSET_SECONDS</li>
+<li>PROLEPTIC_MONTH</li>
+<li>SECOND_OF_DAY</li>
+<li>SECOND_OF_MINUTE</li>
+<li>YEAR</li>
+<li>YEAR_OF_ERA</li>
+</ul>
+<p>Fields are how humans generally refer to time, which is in parts. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="keyword">if</span>(now.isSupported(ChronoField.MICRO_OF_SECOND)) &#123;</span><br><span class="line">    System.out.println(now.get(ChronoField.MICRO_OF_SECOND));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(now.get(ChronoField.MINUTE_OF_HOUR));</span><br><span class="line">System.out.println(now.get(ChronoField.DAY_OF_WEEK));</span><br><span class="line">System.out.println(now.get(ChronoField.DAY_OF_MONTH));</span><br><span class="line">System.out.println(now.get(ChronoField.MONTH_OF_YEAR));</span><br><span class="line">System.out.println(now.get(ChronoField.YEAR));</span><br><span class="line">System.out.println(now.get(ChronoField.YEAR_OF_ERA));</span><br></pre></td></tr></table></figure>
+
+<p>getDisplayName - Gets the display name for the field in the requested locale.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ChronoField.HOUR_OF_DAY.getDisplayName(Locale.US);</span><br><span class="line"><span class="comment">// ==&gt; &quot;hour&quot;</span></span><br><span class="line"></span><br><span class="line">ChronoField.DAY_OF_WEEK.getDisplayName(Locale.US);</span><br><span class="line"><span class="comment">// ==&gt; &quot;day of the week&quot;</span></span><br><span class="line"></span><br><span class="line">ChronoField.DAY_OF_WEEK.getDisplayName(Locale.CHINA);</span><br><span class="line"><span class="comment">// ==&gt; &quot;工作日&quot;</span></span><br><span class="line"></span><br><span class="line">ChronoField.HOUR_OF_DAY.getDisplayName(Locale.KOREA);</span><br><span class="line"><span class="comment">// ==&gt; &quot;시&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="ChronoUnit-VS-ChronoField"><a href="#ChronoUnit-VS-ChronoField" class="headerlink" title="ChronoUnit VS ChronoField"></a>ChronoUnit VS ChronoField</h1><p>Units are used to measure a quantity of time</p>
+<p>fields are how humans generally refer to time, which is in parts.</p>
+<p>To define a complete point on the time-line you have to have a set of linked fields, eg:</p>
+<ul>
+<li>second-of-minute</li>
+<li>minute-of-hour</li>
+<li>hour-of-day</li>
+<li>day-of-month</li>
+<li>month-of-year</li>
+<li>year (-of-forever)</li>
+</ul>
+<p>reference: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41571974/java-time-temporal-chronounit-vs-java-time-temporal-chronofield">Stackoverflow - java.time.temporal.ChronoUnit VS java.time.temporal.ChronoField</a></p>
+<h1 id="Temporal-Interface"><a href="#Temporal-Interface" class="headerlink" title="Temporal Interface"></a>Temporal Interface</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/Temporal.html">java.time.Temporal Interface</a> </p>
+<blockquote>
+<p>Framework-level interface defining read-write access to a temporal object, such as a date, time, offset or some combination of these.</p>
+</blockquote>
+<p>Temporal interface methods</p>
+<ul>
+<li>isSupported(TemporalUnit)</li>
+<li>with(TemporalAdjuster)</li>
+<li>with(TemporalField, long)</li>
+<li>plus(TemporalAmount)</li>
+<li>plus(long, TemporalUnit)</li>
+<li>minus(TemporalAmount)</li>
+<li>minus(long, TemporalUnit)</li>
+<li>until(Temporal, TemporalUnit)</li>
+</ul>
+<p>Known implementation classes</p>
+<ul>
+<li>LocalDate</li>
+<li>LocalDateTime</li>
+<li>LocalTime</li>
+<li>OffsetDateTime</li>
+<li>OffsetTime</li>
+<li>ZonedDateTime</li>
+</ul>
+<p>The following classes also implement Temporal interface but are less used</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Year.html">java.time.Year</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/YearMonth.html">java.time.YearMonth</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Month.html">java.time.month</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/MonthDay.html">java.time.MonthDay</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/DayOfWeek.html">java.time.DayOfWeek</a></li>
+</ul>
+<h1 id="TemporalAccessor-Interface"><a href="#TemporalAccessor-Interface" class="headerlink" title="TemporalAccessor Interface"></a>TemporalAccessor Interface</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/temporal/TemporalAccessor.html">java.time.temporal.TemporalAccessor</a> Interface</p>
+<blockquote>
+<p>Framework-level interface defining read-only access to a temporal object, such as a date, time, offset or some combination of these.</p>
+</blockquote>
+<p>Temporal Classes such as LocalDateTime, ZonedDateTime implements this Interface.</p>
+<p>TemporalAccessor interface methods:</p>
+<ul>
+<li>int get(TemporalField field)</li>
+<li>long getLong(TemporalField field)</li>
+<li>boolean isSupported(TemporalField field)</li>
+<li>default <R> R query(TemporalQuery<R> query)</li>
+<li>default ValueRange range(TemporalField field)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.now().isSupported(ChronoField.DAY_OF_YEAR);</span><br><span class="line"><span class="comment">// ==&gt; true</span></span><br><span class="line"></span><br><span class="line">LocalDate.now().get(ChronoField.DAY_OF_WEEK);</span><br><span class="line"><span class="comment">// ==&gt; 6</span></span><br><span class="line"></span><br><span class="line">LocalDateTime.now().getLong(ChronoField.NANO_OF_DAY);</span><br><span class="line"><span class="comment">// gets nano second of the day</span></span><br><span class="line"></span><br><span class="line">LocalDateTime.now().range(ChronoField.DAY_OF_YEAR);</span><br><span class="line"><span class="comment">// ==&gt; 1 - 365</span></span><br><span class="line"></span><br><span class="line"><span class="type">ZoneId</span> <span class="variable">zoneId</span> <span class="operator">=</span> ZonedDateTime.now().query(TemporalQueries.zone());</span><br><span class="line"><span class="comment">// gets ZoneId such as America/New_York</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/package-summary.html">java.time package</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.baeldung.com/java-8-date-time-intro">Java 8 date time intro</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Java8/" rel="tag"># Java8</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Others/MongoDB-Basics/" rel="prev" title="MongoDB Basics">
+                  <i class="fa fa-chevron-left"></i> MongoDB Basics
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -26,12 +26,12 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Lets learn how to use cookies for a Spring Boot application.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/Cookies.png">
+<meta property="og:image" content="http://example.com/SpringBoot/Spring-Boot-Cookies/Cookies.png">
 <meta property="article:published_time" content="2020-06-11T00:11:00.000Z">
 <meta property="article:modified_time" content="2020-06-11T00:11:00.000Z">
 <meta property="article:author" content="Xinghua Zhang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/Cookies.png">
+<meta name="twitter:image" content="http://example.com/SpringBoot/Spring-Boot-Cookies/Cookies.png">
 
 
 <link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-Cookies/">
@@ -281,7 +281,9 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.cookie = &quot;foo=bar&quot;</span><br></pre></td></tr></table></figure>
 
 <p>You can inspect a site’s cookie in the Application tab under storage&#x2F;Cookies session.</p>
-<p><img src="/Cookies.png"></p>
+<img src="Cookies.png" />
+
+
 <h1 id="Cookies-Operations"><a href="#Cookies-Operations" class="headerlink" title="Cookies Operations"></a>Cookies Operations</h1><h2 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set Cookie"></a>Set Cookie</h2><p>You can create a cookie instance and add the cookie to the Http response. There are a few properties you can set for a Cookie.</p>
 <p>The <code>MaxAge</code> attribute of the cookie sets the expiration of a cookie. default is <code>-1</code>. <code>-1</code> means it is a Session Cookie. Session cookie will be erased when the user closes the browser.</p>
 <p>A cookie with the <code>Secure</code> attribute is sent to the server only with an encrypted request over the HTTPS protocol. Set this attribute to be true to prevent man-in-the-middle attach.</p>

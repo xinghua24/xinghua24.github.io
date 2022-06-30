@@ -27,9 +27,9 @@
 <meta property="og:description" content="Spring Security Introduction">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Intro/login.png">
-<meta property="og:image" content="http://example.com/basic-auth.png">
-<meta property="og:image" content="http://example.com/filter-chain.png">
-<meta property="og:image" content="http://example.com/debug-FilterChainProxy.png">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Intro/basic-auth.png">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Intro/filter-chain.png">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Intro/debug-FilterChainProxy.png">
 <meta property="article:published_time" content="2020-04-25T22:37:00.000Z">
 <meta property="article:modified_time" content="2020-04-25T22:37:00.000Z">
 <meta property="article:author" content="Xinghua Zhang">
@@ -300,13 +300,15 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
 <p>Here is what a Spring Security configuration looks like:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfiguration</span> <span class="keyword">extends</span> <span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        http.authorizeRequests().anyRequest().authenticated().and().httpBasic();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In this example, we override <code>configure(HttpSecurity http)</code> method. The configuration  will secure all requests and use Basic authentication instead of form base authentication.</p>
-<p>With the above configuration we switch from form base authentication to basic authentication:<br><img src="/basic-auth.png"></p>
+<p>With the above configuration we switch from form base authentication to basic authentication:<br><img src="basic-auth.png" /></p>
 <h1 id="How-Spring-Security-Works"><a href="#How-Spring-Security-Works" class="headerlink" title="How Spring Security Works"></a>How Spring Security Works</h1><p>Spring Security maintains a filter chain. All the requests has to gone through the filter chain in order to visite the resource. Each filter has a specific responsbility. You can add, remove and replace filters in the filter chain. </p>
 <p>To learn more on filter chain, see <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture">Servlet Security Reference: The Big Picture</a></p>
-<p><img src="/filter-chain.png"></p>
+<img src="filter-chain.png" />
+
 <p>Here are some of the <strong>IMPORTANT</strong> Filters you need to understand: </p>
 <p><strong>FilterChainProxy</strong><br>Spring Security’s FilterChainProxy is the entry point for all web base security. You can put a breakpoint at FilterChainProxy’s <em>doFilterInternal</em> method to see all the Filters used.  </p>
-<p><img src="/debug-FilterChainProxy.png" alt="Debug FilterChianProxy class"></p>
+<img src="debug-FilterChainProxy.png" />
+
 <p><strong>SecurityContextPersistenceFilter</strong><br><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/context/SecurityContextPersistenceFilter.html">SecurityContextPersistenceFilter</a> populates the SecurityContextHolder with information obtained from the configured SecurityContextRepository prior to the request and stores it back in the repository once the request has completed and clearing the context holder. By default it uses an HttpSessionSecurityContextRepository. </p>
 <p><strong>Authentication processing filter</strong><br><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.html">UsernamePasswordAuthenticationFilter</a>, CasAuthenticationFilter, BasicAuthenticationFilter, OAuth2LoginAuthenticationFilter etc - Processes an authentication. Then putting the valid authentication token into the SecurityContextHolder.</p>
 <p><strong>ExceptionTranslationFilter</strong><br>The <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/web/access/ExceptionTranslationFilter.html">ExceptionTranslationFilter</a> allows translation of AccessDeniedException and AuthenticationException into HTTP responses.</p>

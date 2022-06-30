@@ -26,14 +26,14 @@
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Let us create an example Spring Security OAuth 2.0 application">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/OAuthApps.png">
-<meta property="og:image" content="http://example.com/RegisterApp.png">
-<meta property="og:image" content="http://example.com/login.png">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Github-Login/OAuthApps.png">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Github-Login/RegisterApp.png">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-Github-Login/login.png">
 <meta property="article:published_time" content="2020-06-21T00:37:44.000Z">
 <meta property="article:modified_time" content="2020-06-21T00:37:44.000Z">
 <meta property="article:author" content="Xinghua Zhang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/OAuthApps.png">
+<meta name="twitter:image" content="http://example.com/SpringSecurity/Spring-Security-Github-Login/OAuthApps.png">
 
 
 <link rel="canonical" href="http://example.com/SpringSecurity/Spring-Security-Github-Login/">
@@ -271,7 +271,8 @@
 
 <h1 id="Register-Client-App"><a href="#Register-Client-App" class="headerlink" title="Register Client App"></a>Register Client App</h1><p>You need to register your application with a OAuth 2.0 provider before you use OAuth 2.0 in your application. </p>
 <p>Login to github.com, then go to Settings &gt; Developer settings. Press <em>New Auth APP</em> to add a new OAuth App </p>
-<p><img src="/OAuthApps.png"></p>
+<img src="OAuthApps.png" />
+
 <p>Register a new OAuth application. Set <strong>Authorization callback URL</strong> to be <a target="_blank" rel="noopener" href="http://localhost:8080/login/oauth2/code/github">http://localhost:8080/login/oauth2/code/github</a></p>
 <p>Authorization callback URL is actually the redirect URL. This redirect URL is used for sending authorization code from Authorization Server to the Client. By default, Spring Boot configures this redirect URI as <em>&#x2F;login&#x2F;oauth2&#x2F;code&#x2F;{registrationId}</em>. Some examples are</p>
 <ul>
@@ -279,7 +280,8 @@
 <li><a target="_blank" rel="noopener" href="http://localhost:8080/login/oauth2/code/facebook">http://localhost:8080/login/oauth2/code/facebook</a></li>
 <li><a target="_blank" rel="noopener" href="http://localhost:8080/login/oauth2/code/github">http://localhost:8080/login/oauth2/code/github</a></li>
 </ul>
-<p><img src="/RegisterApp.png"></p>
+<img src="RegisterApp.png" />
+
 <p>After registration, you will get a client ID and client secret for the client app.</p>
 <h1 id="Maven-Dependency"><a href="#Maven-Dependency" class="headerlink" title="Maven Dependency"></a>Maven Dependency</h1><p>Add oauth2-client maven dependency to Spring Boot Application</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-oauth2-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -307,7 +309,7 @@
 <li>“&#x2F;getEmails” demonstrate how to get additional resource by attaching access token to the Http Request.</li>
 </ul>
 <p>Github API provides an endpoint(<a target="_blank" rel="noopener" href="https://api.github.com/user/emails">https://api.github.com/user/emails</a>) to get user’s emails. You need to have <em>user:email</em> scope to access the email information. see <a target="_blank" rel="noopener" href="https://developer.github.com/v3/users/emails/#list-email-addresses-for-the-authenticated-user">https://developer.github.com/v3/users/emails/#list-email-addresses-for-the-authenticated-user</a> for more information on this Github API endpoint</p>
-<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><p>Open <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a> and login with Github.<br><img src="/login.png"></p>
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><p>Open <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a> and login with Github.<br><img src="login.png" /></p>
 <p>You will receive index page that displays user name. open <a target="_blank" rel="noopener" href="http://localhost:8080/getEmails">http://localhost:8080/getEmails</a> to get defailed user emails from Github.</p>
 <p>Source Code for Github OAuth 2.0 login: <a target="_blank" rel="noopener" href="https://github.com/xinghua24/SpringBootExamples/tree/master/OAuth2Github">https://github.com/xinghua24/SpringBootExamples/tree/master/OAuth2Github</a></p>
 <p>Source Code for Google OAuth 2.0 login: <a target="_blank" rel="noopener" href="https://github.com/xinghua24/SpringBootExamples/tree/master/OAuth2Google">https://github.com/xinghua24/SpringBootExamples/tree/master/OAuth2Google</a></p>

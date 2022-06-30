@@ -309,13 +309,8 @@
 <h2 id="Insert-Image"><a href="#Insert-Image" class="headerlink" title="Insert Image"></a>Insert Image</h2><p>You can use the image path. path is relative to _posts directory. There are a couple of ways to do</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/image/path/image.jpg&quot;</span>  /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/image/path/image.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500px&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% img /image/path/image.png %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>markdown style</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/image/path/image.png)</span><br></pre></td></tr></table></figure>
-
-<p>if asseet folder is enabled. then you can use relative path</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img image.png %&#125;</span><br></pre></td></tr></table></figure>
+<p>you can create a directory with the same name as the post name without the extension, then insert the image into that directory. That way you don’t need to include the image path</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;image.jpg&quot;</span>  /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;image.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500px&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 <h2 id="Commenting-with-Disqus"><a href="#Commenting-with-Disqus" class="headerlink" title="Commenting with Disqus"></a>Commenting with Disqus</h2><p>First you need to sign up in Disqus and create a site for the blog. Then enable Disqus in themes&#x2F;next&#x2F;_config.yml. You can get the site’s short name from Disqus.</p>

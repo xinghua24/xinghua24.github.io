@@ -312,7 +312,7 @@
 <p>Spring data JPA will automatically generate schema for the entities. You can override this by turning off <code>ddl-auto</code> property and provide a customized <em>schema.sql</em> file.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.jpa.hibernate.ddl-auto=none</span><br></pre></td></tr></table></figure>
 
-
+<p>ddl-auto property can have one of the values: <code>create</code>, <code>create-drop</code>, <code>validate</code>, and <code>update</code></p>
 <h1 id="Log-SQL-Statement"><a href="#Log-SQL-Statement" class="headerlink" title="Log SQL Statement"></a>Log SQL Statement</h1><p>Add the following to application.properties file to log sql statement.  <code>format_sql</code> will format the sql. </p>
 <p>Only add <code>logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE</code> when you need to log bind values too.</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.jpa.properties.hibernate.show_sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.use_sql_comments</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.format_sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">logging.level.org.hibernate.type.descriptor.sql.BasicBinder</span>=<span class="string">TRACE</span></span><br></pre></td></tr></table></figure>

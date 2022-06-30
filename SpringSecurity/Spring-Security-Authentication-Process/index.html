@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Process-The-Big-Picture"><span class="nav-number">1.</span> <span class="nav-text">Authentication Process - The Big Picture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Filter"><span class="nav-number">2.</span> <span class="nav-text">Authentication Filter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManager"><span class="nav-number">3.</span> <span class="nav-text">AuthenticationManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationProvider"><span class="nav-number">4.</span> <span class="nav-text">AuthenticationProvider</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService"><span class="nav-number">5.</span> <span class="nav-text">UserDetailsService</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Process-Walkthrough"><span class="nav-number">6.</span> <span class="nav-text">Authentication Process Walkthrough</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Authentication-Filter-1"><span class="nav-number">6.1.</span> <span class="nav-text">Authentication Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ProviderManager"><span class="nav-number">6.2.</span> <span class="nav-text">ProviderManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaoAuthenticationProvider"><span class="nav-number">6.3.</span> <span class="nav-text">DaoAuthenticationProvider</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InMemoryUserDetailsManager"><span class="nav-number">6.4.</span> <span class="nav-text">InMemoryUserDetailsManager</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationException"><span class="nav-number">7.</span> <span class="nav-text">AuthenticationException</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Process-The-Big-Picture"><span class="nav-number">1.</span> <span class="nav-text">Authentication Process - The Big Picture</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Filter"><span class="nav-number">2.</span> <span class="nav-text">Authentication Filter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationManager"><span class="nav-number">3.</span> <span class="nav-text">AuthenticationManager</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ProviderManager"><span class="nav-number">3.1.</span> <span class="nav-text">ProviderManager</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationProvider"><span class="nav-number">4.</span> <span class="nav-text">AuthenticationProvider</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UserDetailsService"><span class="nav-number">5.</span> <span class="nav-text">UserDetailsService</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-Process-Walkthrough"><span class="nav-number">6.</span> <span class="nav-text">Authentication Process Walkthrough</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Authentication-Filter-1"><span class="nav-number">6.1.</span> <span class="nav-text">Authentication Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ProviderManager-1"><span class="nav-number">6.2.</span> <span class="nav-text">ProviderManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DaoAuthenticationProvider"><span class="nav-number">6.3.</span> <span class="nav-text">DaoAuthenticationProvider</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InMemoryUserDetailsManager"><span class="nav-number">6.4.</span> <span class="nav-text">InMemoryUserDetailsManager</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AuthenticationException"><span class="nav-number">7.</span> <span class="nav-text">AuthenticationException</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">202</span>
+          <span class="site-state-item-count">203</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -273,7 +273,7 @@
 <h1 id="Authentication-Filter"><a href="#Authentication-Filter" class="headerlink" title="Authentication Filter"></a>Authentication Filter</h1><p>Authentication filter usually extends  <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/authentication/AbstractAuthenticationProcessingFilter.html">AbstractAuthenticationProcessingFilter</a>  class.</p>
 <p>Example Authentication Filters are</p>
 <ul>
-<li>UsernamePasswordAuthenticationFilter</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.html">UsernamePasswordAuthenticationFilter</a></li>
 <li>CasAuthenticationFilter</li>
 <li>OAuth2LoginAuthenticationFilter</li>
 <li>OpenIDAuthenticationFilter</li>
@@ -303,6 +303,11 @@
 <li>if input request is not valid, throw AuthenticationException</li>
 <li>reutrns null if can’t decide</li>
 </ul>
+<h2 id="ProviderManager"><a href="#ProviderManager" class="headerlink" title="ProviderManager"></a>ProviderManager</h2><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-authentication-providermanager">ProviderManager</a></p>
+<blockquote>
+<p>Iterates an Authentication request through a list of <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/5.7.2/api/org/springframework/security/authentication/AuthenticationProvider.html">AuthenticationProviders</a>.<br>AuthenticationProviders are usually tried in order until one provides a non-null response. A non-null response indicates the provider had authority to decide on the authentication request and no further providers are tried. </p>
+</blockquote>
+<p>Like AuthenticationManager, you don’t work directly with ProviderManager. </p>
 <h1 id="AuthenticationProvider"><a href="#AuthenticationProvider" class="headerlink" title="AuthenticationProvider"></a>AuthenticationProvider</h1><ul>
 <li>It is the actual class that does the authentication.</li>
 <li>AuthenticationProvider has a supports method that tells AuthenticationManager what Authentication object it supports.</li>
@@ -315,8 +320,8 @@
 <p>There are manay providers implements AuthenticationProvider interface. Some of the most important ones are</p>
 <ul>
 <li>DaoAuthenticationProvider - this is the most common AuthenticationProvider you will see</li>
-<li>LdapAuthenticationProvider</li>
-<li>JwtAuthenticationProvider</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/ldap/authentication/LdapAuthenticationProvider.html">LdapAuthenticationProvider</a> - An AuthenticationProvider implementation that authenticates against an LDAP server.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/oauth2/server/resource/authentication/JwtAuthenticationProvider.html">JwtAuthenticationProvider</a> - Jwt-encoded Bearer Tokens for protecting OAuth 2.0 Resource Servers.</li>
 </ul>
 <h1 id="UserDetailsService"><a href="#UserDetailsService" class="headerlink" title="UserDetailsService"></a>UserDetailsService</h1><p>Core interface which loads user-specific data.</p>
 <p>It is used throughout the framework as a user DAO and is the strategy used by the DaoAuthenticationProvider.</p>
@@ -355,7 +360,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">unsuccessfulAuthentication</span><span class="params">(HttpServletRequest request,</span></span><br><span class="line"><span class="params">		HttpServletResponse response, AuthenticationException failed)</span></span><br><span class="line">		<span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">	SecurityContextHolder.clearContext();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">		logger.debug(<span class="string">&quot;Authentication request failed: &quot;</span> + failed.toString(), failed);</span><br><span class="line">		logger.debug(<span class="string">&quot;Updated SecurityContextHolder to contain null Authentication&quot;</span>);</span><br><span class="line">		logger.debug(<span class="string">&quot;Delegating to authentication failure handler &quot;</span> + failureHandler);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	rememberMeServices.loginFail(request, response);</span><br><span class="line"></span><br><span class="line">	failureHandler.onAuthenticationFailure(request, response, failed);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>If login attempt is unsuccessful, clear the SecurityContextHolder.</p>
 <p>Then call <code>failureHandler.onAuthenticationFailure</code>  to let the failureHandler handle the redirect</p>
-<h2 id="ProviderManager"><a href="#ProviderManager" class="headerlink" title="ProviderManager"></a>ProviderManager</h2><ul>
+<h2 id="ProviderManager-1"><a href="#ProviderManager-1" class="headerlink" title="ProviderManager"></a>ProviderManager</h2><ul>
 <li>ProviderManager is the most used AuthenticationManager. authenticate method is the most important method of ProviderManager</li>
 <li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html?org/springframework/security/authentication/ProviderManager.html">Javadoc</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/spring-projects/spring-security/blob/master/core/src/main/java/org/springframework/security/authentication/ProviderManager.java">source code</a></li>

@@ -19,28 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hostname - show or set the system’s host name or domain name">
+    <meta name="description" content="Filter chain is one of the most important concept in Spring Security. Most of the features provided are accomplish or related to one or more filter.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - hostname">
-<meta property="og:url" content="http://example.com/Linux/Linux-Command-hostname/index.html">
+<meta property="og:title" content="Spring Security - Filter Chain">
+<meta property="og:url" content="http://example.com/SpringSecurity/Spring-Security-filter-chain/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="hostname - show or set the system’s host name or domain name">
+<meta property="og:description" content="Filter chain is one of the most important concept in Spring Security. Most of the features provided are accomplish or related to one or more filter.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2018-12-28T16:35:45.000Z">
-<meta property="article:modified_time" content="2018-12-28T16:35:45.000Z">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-filter-chain/filter-chain.png">
+<meta property="og:image" content="http://example.com/SpringSecurity/Spring-Security-filter-chain/debug-FilterChainProxy.png">
+<meta property="article:published_time" content="2020-04-25T23:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-25T23:00:00.000Z">
 <meta property="article:author" content="Xinghua Zhang">
-<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/SpringSecurity/Spring-Security-filter-chain/filter-chain.png">
 
 
-<link rel="canonical" href="http://example.com/Linux/Linux-Command-hostname/">
+<link rel="canonical" href="http://example.com/SpringSecurity/Spring-Security-filter-chain/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Linux/Linux-Command-hostname/","path":"Linux/Linux-Command-hostname/","title":"Linux Command - hostname"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringSecurity/Spring-Security-filter-chain/","path":"SpringSecurity/Spring-Security-filter-chain/","title":"Spring Security - Filter Chain"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux Command - hostname | Xing's Blog</title>
+<title>Spring Security - Filter Chain | Xing's Blog</title>
   
 
 
@@ -144,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">1.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-host-name"><span class="nav-number">2.1.</span> <span class="nav-text">Show host name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-domain-name"><span class="nav-number">2.2.</span> <span class="nav-text">Show domain name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-FQDN"><span class="nav-number">2.3.</span> <span class="nav-text">Show FQDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-all-ip-address"><span class="nav-number">2.4.</span> <span class="nav-text">show all ip address</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-current-hostname"><span class="nav-number">3.</span> <span class="nav-text">Change current hostname</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Security-filter-chain"><span class="nav-number">1.</span> <span class="nav-text">Spring Security filter chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FilterChainProxy"><span class="nav-number">2.</span> <span class="nav-text">FilterChainProxy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SecurityContextPersistenceFilter"><span class="nav-number">3.</span> <span class="nav-text">SecurityContextPersistenceFilter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Authentication-processing-filter"><span class="nav-number">4.</span> <span class="nav-text">Authentication processing filter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ExceptionTranslationFilter"><span class="nav-number">5.</span> <span class="nav-text">ExceptionTranslationFilter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FilterSecurityInterceptor"><span class="nav-number">6.</span> <span class="nav-text">FilterSecurityInterceptor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,7 +214,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/Linux/Linux-Command-hostname/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringSecurity/Spring-Security-filter-chain/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -225,12 +227,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Linux Command - hostname | Xing's Blog">
+      <meta itemprop="name" content="Spring Security - Filter Chain | Xing's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux Command - hostname
+          Spring Security - Filter Chain
         </h1>
 
         <div class="post-meta-container">
@@ -241,7 +243,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2018-12-28 11:35:45" itemprop="dateCreated datePublished" datetime="2018-12-28T11:35:45-05:00">2018-12-28</time>
+      <time title="Created: 2020-04-25 19:00:00" itemprop="dateCreated datePublished" datetime="2020-04-25T19:00:00-04:00">2020-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,7 +251,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a>
+          <a href="/categories/Spring-Security/" itemprop="url" rel="index"><span itemprop="name">Spring Security</span></a>
         </span>
     </span>
 
@@ -263,55 +265,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><code>hostname</code> - show or set the system’s host name or domain name</p>
+        <p>Filter chain is one of the most important concept in Spring Security. Most of the features provided are accomplish or related to one or more filter.</p>
 <span id="more"></span>
 
-<h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-d</td>
-<td>display the name of the DNS domain</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>display FQDN(Fully Qualified Domain Name)</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>display IP address(es) of the host. This works only if the host name can be resolved. Avoid using this option.</td>
-</tr>
-<tr>
-<td>-I</td>
-<td>display all network addresses of the host. loopback interface and IPv6 link-local addresses are omitted. Do not make any assumptions about the order of the output.</td>
-</tr>
-</tbody></table>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Show-host-name"><a href="#Show-host-name" class="headerlink" title="Show host name"></a>Show host name</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname</span><br></pre></td></tr></table></figure>
+<h1 id="Spring-Security-filter-chain"><a href="#Spring-Security-filter-chain" class="headerlink" title="Spring Security filter chain"></a>Spring Security filter chain</h1><p>Spring Security maintains a filter chain. All the requests has to gone through the filter chain in order to visite the resource. Each filter has a specific responsbility. You can add, remove and replace filters in the filter chain. </p>
+<p>To learn more on filter chain, see <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/html5/#servlet-architecture">Servlet Security Reference: The Big Picture</a></p>
+<img src="filter-chain.png" />
 
-<h2 id="Show-domain-name"><a href="#Show-domain-name" class="headerlink" title="Show domain name"></a>Show domain name</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname -d</span><br></pre></td></tr></table></figure>
+<p>Here are some of the <strong>IMPORTANT</strong> Filters you need to understand: </p>
+<h1 id="FilterChainProxy"><a href="#FilterChainProxy" class="headerlink" title="FilterChainProxy"></a>FilterChainProxy</h1><p>Spring Security’s FilterChainProxy is the entry point for all web base security. You can put a breakpoint at FilterChainProxy’s <em>doFilterInternal</em> method to see all the Filters used.  </p>
+<img src="debug-FilterChainProxy.png" />
 
-<h2 id="Show-FQDN"><a href="#Show-FQDN" class="headerlink" title="Show FQDN"></a>Show FQDN</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname -f</span><br></pre></td></tr></table></figure>
-
-<h2 id="show-all-ip-address"><a href="#show-all-ip-address" class="headerlink" title="show all ip address"></a>show all ip address</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname -I</span><br></pre></td></tr></table></figure>
-
-<p>Sample output</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.208</span><br></pre></td></tr></table></figure>
-
-<p>To show the ip address, you can use <code>ifconfig</code> command. By default, it display the information for all network interfaces. </p>
-<p>You can also show the ip address using the <code>ip addr show</code> command.</p>
-<h1 id="Change-current-hostname"><a href="#Change-current-hostname" class="headerlink" title="Change current hostname"></a>Change current hostname</h1><p>Hostname can be changed using hostnamectl command in Ubuntu. </p>
-<p>To change hostname to <code>server0</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo hostnamectl set-hostname server0</span><br></pre></td></tr></table></figure>
-
-<p>To view current hostname</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl</span><br></pre></td></tr></table></figure>
-
+<h1 id="SecurityContextPersistenceFilter"><a href="#SecurityContextPersistenceFilter" class="headerlink" title="SecurityContextPersistenceFilter"></a>SecurityContextPersistenceFilter</h1><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/context/SecurityContextPersistenceFilter.html">SecurityContextPersistenceFilter</a> populates the SecurityContextHolder with information obtained from the configured SecurityContextRepository prior to the request and stores it back in the repository once the request has completed and clearing the context holder. By default it uses an HttpSessionSecurityContextRepository. </p>
+<p>Deprecated. Use <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/context/SecurityContextHolderFilter.html">SecurityContextHolderFilter</a></p>
+<h1 id="Authentication-processing-filter"><a href="#Authentication-processing-filter" class="headerlink" title="Authentication processing filter"></a>Authentication processing filter</h1><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/authentication/UsernamePasswordAuthenticationFilter.html">UsernamePasswordAuthenticationFilter</a>, CasAuthenticationFilter, BasicAuthenticationFilter, OAuth2LoginAuthenticationFilter etc - Processes an authentication. Then putting the valid authentication token into the SecurityContextHolder.</p>
+<h1 id="ExceptionTranslationFilter"><a href="#ExceptionTranslationFilter" class="headerlink" title="ExceptionTranslationFilter"></a>ExceptionTranslationFilter</h1><p>The <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/access/ExceptionTranslationFilter.html">ExceptionTranslationFilter</a> allows translation of AccessDeniedException and AuthenticationException into HTTP responses.</p>
+<h1 id="FilterSecurityInterceptor"><a href="#FilterSecurityInterceptor" class="headerlink" title="FilterSecurityInterceptor"></a>FilterSecurityInterceptor</h1><p>The <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.html">FilterSecurityInterceptor</a> provides authorization for HttpServletRequests. If access is denied, an AccessDeniedException is thrown. ExceptionTranslationFilter handles the AccessDeniedException.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/hostname">hostname online man page</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41480102/how-spring-security-filter-chain-works">Stackoverflow - How Spring Security Filter Chain works</a></li>
 </ul>
 
     </div>
@@ -321,21 +292,18 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Linux/Linux-Command-killall/" rel="prev" title="Linux Command - killall">
-                  <i class="fa fa-chevron-left"></i> Linux Command - killall
+                <a href="/SpringSecurity/Spring-Security-Intro/" rel="prev" title="Spring Security - Intro">
+                  <i class="fa fa-chevron-left"></i> Spring Security - Intro
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Linux/Linux-Command-type/" rel="next" title="Linux Command - type">
-                  Linux Command - type <i class="fa fa-chevron-right"></i>
+                <a href="/SpringSecurity/Spring-Security-Understanding-Security-Context/" rel="next" title="Spring Security - Understanding Security Context">
+                  Spring Security - Understanding Security Context <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

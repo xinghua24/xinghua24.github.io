@@ -287,8 +287,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Using generated security password: 74fbc0b8-c18e-49a0-9144-95cd019d8010</span><br></pre></td></tr></table></figure>
 
 <img src="login.png" />
-Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-9144-95cd019d8010**
 
+<p>Now you can login using <strong>user</strong> and generated random password <strong>74fbc0b8-c18e-49a0-9144-95cd019d8010</strong></p>
 <p>Go to <code>http://localhost:8080/logout</code> page to invalidate the session and logout of the application.</p>
 <p>You can set a custom user name and password in application.properties file. Spring Security will use in memory authentication with the provided username and password</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.security.user.name=user</span><br><span class="line">spring.security.user.password=password</span><br></pre></td></tr></table></figure>
@@ -297,8 +297,11 @@ Now you can login using **user** and generated password **74fbc0b8-c18e-49a0-914
 <p>We also need to add @EnableWebSecurity annotation to the configuration class.  @EnableWebSecurity enable Spring Security’s web security support and provide the Spring MVC integration. </p>
 <p>Here is what a Spring Security configuration looks like:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableWebSecurity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfiguration</span> <span class="keyword">extends</span> <span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        http.authorizeRequests().anyRequest().authenticated().and().httpBasic();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>In this example, we override <code>configure(HttpSecurity http)</code> method. The configuration  will secure all requests and use Basic authentication instead of form base authentication.</p>
-<p>With the above configuration we switch from form base authentication to basic authentication:<br><img src="basic-auth.png" /></p>
+<p>With the above configuration we switch from form base authentication to basic authentication:</p>
+<img src="basic-auth.png" />
+
 <h1 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/">Spring security Reference</a></li>
 <li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-security/site/docs/current/api/index.html">Spring Security Javadoc</a></li>

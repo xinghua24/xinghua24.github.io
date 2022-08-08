@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Admin-User"><span class="nav-number">2.</span> <span class="nav-text">Create Admin User</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Setup-Remote-access"><span class="nav-number">3.</span> <span class="nav-text">Setup Remote access</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Database-Commands"><span class="nav-number">4.</span> <span class="nav-text">Database Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-Commands"><span class="nav-number">5.</span> <span class="nav-text">Table Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Operations"><span class="nav-number">6.</span> <span class="nav-text">Basic Operations</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-Admin-User"><span class="nav-number">2.</span> <span class="nav-text">Create Admin User</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Setup-Remote-access"><span class="nav-number">3.</span> <span class="nav-text">Setup Remote access</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-setup"><span class="nav-number">4.</span> <span class="nav-text">Docker setup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Database-Commands"><span class="nav-number">5.</span> <span class="nav-text">Database Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Table-Commands"><span class="nav-number">6.</span> <span class="nav-text">Table Commands</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Operations"><span class="nav-number">7.</span> <span class="nav-text">Basic Operations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">204</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -294,6 +294,11 @@
 <p>set up remote access and bind to 0.0.0.0</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">skip-networking=0</span><br><span class="line">bind-address=0.0.0.0</span><br></pre></td></tr></table></figure>
 
+<h1 id="Docker-setup"><a href="#Docker-setup" class="headerlink" title="Docker setup"></a>Docker setup</h1><p>Start a mariadb server instance</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker network create some-network </span><br><span class="line">docker run --detach \</span><br><span class="line">  --network some-network \</span><br><span class="line">  --name some-mariadb \</span><br><span class="line">  --env MARIADB_USER=example-user \</span><br><span class="line">  --env MARIADB_PASSWORD=my_cool_secret \</span><br><span class="line">  --env MARIADB_ROOT_PASSWORD=my-secret-pw  \</span><br><span class="line">  mariadb:latest</span><br></pre></td></tr></table></figure>
+
+<p>Connect to MariaDB from the MySQL&#x2F;MariaDB command line client</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network some-network --rm mariadb mysql -hsome-mariadb -uexample-user -p</span><br></pre></td></tr></table></figure>
 
 <h1 id="Database-Commands"><a href="#Database-Commands" class="headerlink" title="Database Commands"></a>Database Commands</h1><p>Show list of databases</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> DATABASES;</span><br></pre></td></tr></table></figure>
@@ -332,6 +337,11 @@
 
 <p>Drop Table</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> customer;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/_/mariadb">Dockerhub mariadb</a></li>
+</ul>
+
     </div>
 
     

@@ -89,7 +89,6 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
-        <li class="menu-item menu-item-my-week"><a href="/weeklyReport/" rel="section"><i class="fa fa-calendar-week fa-fw"></i>My Week</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -443,7 +442,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime.now().atZone(ZoneOffset.UTC);</span><br></pre></td></tr></table></figure>
 
 <h1 id="ZonedDateTime"><a href="#ZonedDateTime" class="headerlink" title="ZonedDateTime"></a>ZonedDateTime</h1><p><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/ZonedDateTime.html">java.time.ZonedDateTime</a> - datetime with ZoneId. represent an instant in a Timezone. </p>
-<h2 id="Create-a-ZonedDateTime"><a href="#Create-a-ZonedDateTime" class="headerlink" title="Create a ZonedDateTime"></a>Create a ZonedDateTime</h2><p>create a ZonedDateTime using now() method:</p>
+<h2 id="Create-a-ZonedDateTime"><a href="#Create-a-ZonedDateTime" class="headerlink" title="Create a ZonedDateTime"></a>Create a ZonedDateTime</h2><p>create a ZonedDateTime using now() method. Returns the current date-time using the system clock in the default time-zone.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTimeNow</span> <span class="operator">=</span> ZonedDateTime.now();</span><br><span class="line"><span class="comment">// 2023-02-17T23:25:40.460698-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
+
+<p>create a ZonedDateTime using <code>now(ZoneId zone)</code> method. </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">utcNow</span> <span class="operator">=</span> ZonedDateTime.now(ZoneOffset.UTC); </span><br><span class="line"><span class="comment">// 2022-06-23T03:39:49.946535Z</span></span><br><span class="line"></span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">usEastNow</span> <span class="operator">=</span> ZonedDateTime.now(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); </span><br><span class="line"><span class="comment">// 2022-06-22T23:40:02.226819-04:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
 
 <p>create ZonedDateTime from a LocalDateTime and a ZoneId.</p>
@@ -456,10 +458,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.of(<span class="number">2022</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>)); <span class="comment">// 2022-01-01T03:00-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
 
 <p>create an instance of ZonedDateTime from an Instant.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.ofInstant(Instant.parse(<span class="string">&quot;2022-01-01T00:00:00Z&quot;</span>), ZoneId.of(<span class="string">&quot;Asia/Tokyo&quot;</span>)); <span class="comment">// 2022-01-01T09:00+09:00[Asia/Tokyo]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.ofInstant(Instant.parse(<span class="string">&quot;2023-01-01T00:00:00Z&quot;</span>), ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>))</span><br><span class="line"><span class="comment">// 2022-12-31T19:00-05:00[America/New_York]</span></span><br></pre></td></tr></table></figure>
 
 <p>create ZonedDateTime by parsing String</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.parse(<span class="string">&quot;2007-12-03T10:15:30+01:00[Europe/Paris]&quot;</span>);</span><br><span class="line">ZonedDateTime.parse(<span class="string">&quot;2007-12-03T10:15:30Z&quot;</span>, DateTimeFormatter.ISO_DATE_TIME);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZonedDateTime.parse(<span class="string">&quot;2023-01-01T00:00-05:00[America/New_York]&quot;</span>);</span><br><span class="line">ZonedDateTime.parse(<span class="string">&quot;2023-06-01T00:00-04:00[America/New_York]&quot;</span>)</span><br><span class="line">ZonedDateTime.parse(<span class="string">&quot;2007-12-03T10:15:30Z&quot;</span>, DateTimeFormatter.ISO_DATE_TIME);</span><br></pre></td></tr></table></figure>
 
 <h2 id="Accessing-Fields-1"><a href="#Accessing-Fields-1" class="headerlink" title="Accessing Fields"></a>Accessing Fields</h2><ul>
 <li>getYear()</li>

@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Config-a-DataSource"><span class="nav-number">1.</span> <span class="nav-text">Config a DataSource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#H2-Datasource"><span class="nav-number">2.</span> <span class="nav-text">H2 Datasource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DataSourceBuilder"><span class="nav-number">3.</span> <span class="nav-text">DataSourceBuilder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data-sql-and-schema-sql-File"><span class="nav-number">4.</span> <span class="nav-text">data.sql and schema.sql File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Log-SQL-Statement"><span class="nav-number">5.</span> <span class="nav-text">Log SQL Statement</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Config-a-DataSource"><span class="nav-number">1.</span> <span class="nav-text">Config a DataSource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#H2-Datasource"><span class="nav-number">2.</span> <span class="nav-text">H2 Datasource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DataSourceBuilder"><span class="nav-number">3.</span> <span class="nav-text">DataSourceBuilder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data-sql-and-schema-sql-File"><span class="nav-number">4.</span> <span class="nav-text">data.sql and schema.sql File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DDL-Generation"><span class="nav-number">5.</span> <span class="nav-text">DDL Generation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Log-SQL-Statement"><span class="nav-number">6.</span> <span class="nav-text">Log SQL Statement</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -309,10 +309,23 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomDataSourceConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="meta">@Bean(name=&quot;customDataSource&quot;)</span></span><br><span class="line">    <span class="meta">@Qualifier(&quot;customDataSource&quot;)</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource.customsource&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> DataSource <span class="title function_">CustomDataSource</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="data-sql-and-schema-sql-File"><a href="#data-sql-and-schema-sql-File" class="headerlink" title="data.sql and schema.sql File"></a>data.sql and schema.sql File</h1><p>You can load initial data in <em>data.sql</em> file. When this file is presented in the classpath, spring boot will pick it up and populate the tables in the database.</p>
-<p>Spring data JPA will automatically generate schema for the entities. You can override this by turning off <code>ddl-auto</code> property and provide a customized <em>schema.sql</em> file.</p>
+<p>If you want to use a customized schema, you can provide a customized <em>schema.sql</em> file under src&#x2F;main&#x2F;resources folder. If you do that, you need to disable JPA DDL generation.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.jpa.hibernate.ddl-auto=none</span><br></pre></td></tr></table></figure>
 
-<p>ddl-auto property can have one of the values: <code>create</code>, <code>create-drop</code>, <code>validate</code>, and <code>update</code></p>
+<h1 id="DDL-Generation"><a href="#DDL-Generation" class="headerlink" title="DDL Generation"></a>DDL Generation</h1><p>JPA has features for DDL(Data Definition Language) generation, and these can be set up to run on startup against the database. This is controlled through two external properties:</p>
+<p>There are two ways to set this configuration</p>
+<ul>
+<li><code>spring.jpa.generate-ddl</code> - (boolean) switches the feature on and off and is vendor independent.</li>
+<li><code>spring.jpa.hibernate.ddl-auto</code> (enum) is a Hibernate feature that controls the behavior in a more fine-grained way. See below for more detail.</li>
+</ul>
+<p>ddl-auto property can have one of the values: <code>create</code>, <code>create-drop</code>, <code>validate</code>, <code>update</code> and <code>none</code>.</p>
+<ul>
+<li>create – Hibernate first drops existing tables, then creates new tables</li>
+<li>update – Hibernate attempt to update schema</li>
+<li>create-drop – similar to create, with the addition that Hibernate will drop the database after all operations are completed. Typically used for unit testing</li>
+<li>validate – Hibernate only validates whether the tables and columns exist, otherwise it throws an exception</li>
+<li>none – turns off the DDL generation</li>
+</ul>
 <h1 id="Log-SQL-Statement"><a href="#Log-SQL-Statement" class="headerlink" title="Log SQL Statement"></a>Log SQL Statement</h1><p>Add the following to application.properties file to log sql statement.  <code>format_sql</code> will format the sql. </p>
 <p>Only add <code>logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE</code> when you need to log bind values too.</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.jpa.properties.hibernate.show_sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.use_sql_comments</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.format_sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">logging.level.org.hibernate.type.descriptor.sql.BasicBinder</span>=<span class="string">TRACE</span></span><br></pre></td></tr></table></figure>
@@ -327,6 +340,7 @@
 <li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-boot-h2-database">Spring Boot With H2 Database</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-boot-data-sql-and-schema-sql">Quick Guide on Loading Initial Data with Spring Boot by Baeldung</a></li>
 <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/30118683/how-to-log-sql-statements-in-spring-boot">Stackoverflow - How to log SQL statements in Spring Boot?</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/1.1.0.M1/reference/html/howto-database-initialization.html">Database Initialization</a></li>
 </ul>
 <p>Source code: <a target="_blank" rel="noopener" href="https://github.com/xinghua24/SpringBootExamples/tree/master/datasourcebuilder">SpringBootExamples - datasourcebuilder</a></p>
 

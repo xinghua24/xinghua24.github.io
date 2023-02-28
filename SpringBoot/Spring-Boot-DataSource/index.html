@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">206</span>
+          <span class="site-state-item-count">207</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -324,8 +324,10 @@
 <li>update – Hibernate attempt to update schema</li>
 <li>create-drop – similar to create, with the addition that Hibernate will drop the database after all operations are completed. Typically used for unit testing</li>
 <li>validate – Hibernate only validates whether the tables and columns exist, otherwise it throws an exception</li>
-<li>none – turns off the DDL generation</li>
+<li>none – turns off the DDL generation.</li>
 </ul>
+<p>In production environment, you usually use <code>none</code> so that schema is not accidentially dropped.</p>
+<p>generate-ddl will be ignored if ddl-auto is set because ddl-auto is more fine-grained.</p>
 <h1 id="Log-SQL-Statement"><a href="#Log-SQL-Statement" class="headerlink" title="Log SQL Statement"></a>Log SQL Statement</h1><p>Add the following to application.properties file to log sql statement.  <code>format_sql</code> will format the sql. </p>
 <p>Only add <code>logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE</code> when you need to log bind values too.</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.jpa.properties.hibernate.show_sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.use_sql_comments</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">spring.jpa.properties.hibernate.format_sql</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">logging.level.org.hibernate.type.descriptor.sql.BasicBinder</span>=<span class="string">TRACE</span></span><br></pre></td></tr></table></figure>

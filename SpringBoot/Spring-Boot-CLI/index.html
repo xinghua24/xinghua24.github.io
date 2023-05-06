@@ -277,11 +277,11 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring init</span><br></pre></td></tr></table></figure>
 
 <p>To create a project ‘myapp’ with web, devtools, lombok, jpa,h2 dependency and with artifactId myapp. Unpacked.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring init -d=web,devtools,lombok,jpa,h2 myapp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring init -j=17 -t=maven-project -d=web,devtools,lombok myapp</span><br></pre></td></tr></table></figure>
 
 <p>Also create a maven project. This time with group id, name, artifiactId and java version</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring init -d=web,devtools,lombok,jpa,h2 -j=17 -t=maven-project \</span><br><span class="line">-g=com.xinghua24 -n=myapp -a=myapp myapp</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring init -d=web,devtools,lombok,jpa,mysql -j=17 -t=maven-project \</span><br><span class="line">-g=com.xinghua24 -n=myapp -a=myapp myapp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring init -j=17 -t=maven-project -d=web,devtools,lombok,jpa,h2 \</span><br><span class="line">-g=com.xinghua24 -n=myapp -a=myapp myapp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring init -j=17 -t=maven-project -d=web,devtools,lombok,jpa,mysql \</span><br><span class="line">-g=com.xinghua24 -n=myapp -a=myapp myapp</span><br></pre></td></tr></table></figure>
     </div>
 
     

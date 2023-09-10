@@ -282,6 +282,9 @@
 <p>Under READ COMMITTED, a second SELECT in a transaction may return different data because a concurrent transaction may update, delete or insert new record.</p>
 <h2 id="REPEATABLE-READ"><a href="#REPEATABLE-READ" class="headerlink" title="REPEATABLE READ"></a>REPEATABLE READ</h2><p><a target="_blank" rel="noopener" href="https://mariadb.com/kb/en/set-transaction/#repeatable-read">REPEATABLE READ</a> is a higher isolation level. It guarantees to read committed data and guarantees any dataread <em>cannot change</em>. So if you read the data again, the data is unchanged.</p>
 <p>Under REPEATABLE READ,a second SELECT is guaranteed to display at least the rows that were returned from the first SELECT unchanged. New rows may be added by a concurrent transaction, but the existing rows cannot be deleted nor changed.</p>
+<blockquote>
+<p><strong>REPEATABLE READ</strong> is the default isolation level for MySQL and MariaDB.</p>
+</blockquote>
 <h2 id="SERIALIZABLE"><a href="#SERIALIZABLE" class="headerlink" title="SERIALIZABLE"></a>SERIALIZABLE</h2><p><a target="_blank" rel="noopener" href="https://mariadb.com/kb/en/set-transaction/#serializable">SERIALIZABLE</a> is higher isolation level than REPEATABLE READ.</p>
 <p>under SERIALIZABLE reads, the second select is guaranteed to see exactly the same rows as the first.</p>
 <h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Check Global Isolation Level</p>

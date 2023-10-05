@@ -378,7 +378,11 @@
 <li>nn - check if variable is not null. <code>if(expr != null) &#123;&#125;</code></li>
 </ul>
 <p>You can create your own template in Live Template tab. Example Template</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private void $METHOD_NAME$($ARGS$) &#123;</span><br><span class="line">  $END$</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> $METHOD_NAME$($ARGS$) &#123;</span><br><span class="line">  $END$</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Example</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> CommandLineRunner <span class="title function_">applicationRunner</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> args -&gt; &#123;</span><br><span class="line">        $END$</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>You need to set its context before you can use it. The above template’s context is “declaration”.</p>
 <h1 id="Run-Anything"><a href="#Run-Anything" class="headerlink" title="Run Anything"></a>Run Anything</h1><p>double-press Ctrl to bring up <strong>Run Anything</strong> window. You can use Run Anything for multiple actions:</p>
 <ul>

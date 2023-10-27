@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="The CSS display property.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Display Property">
+<meta property="og:url" content="http://example.com/Frontend/CSS-Display-Property/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="The CSS display property.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-26T22:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-26T22:00:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Frontend/CSS-Display-Property/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Frontend/CSS-Display-Property/","path":"Frontend/CSS-Display-Property/","title":"CSS Display Property"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS Display Property | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-display"><span class="nav-number">1.</span> <span class="nav-text">CSS display</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inline"><span class="nav-number">2.</span> <span class="nav-text">Inline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Block"><span class="nav-number">3.</span> <span class="nav-text">Block</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inline-Block"><span class="nav-number">4.</span> <span class="nav-text">Inline-Block</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#none"><span class="nav-number">5.</span> <span class="nav-text">none</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flex"><span class="nav-number">6.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grid"><span class="nav-number">7.</span> <span class="nav-text">grid</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">210</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Frontend/CSS-Display-Property/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CSS Display Property | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS Display Property
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-26 18:00:00" itemprop="dateCreated datePublished" datetime="2023-10-26T18:00:00-04:00">2023-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Frontend/" itemprop="url" rel="index"><span itemprop="name">Frontend</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>The CSS <code>display</code> property.</p>
+<span id="more"></span>
+
+<h1 id="CSS-display"><a href="#CSS-display" class="headerlink" title="CSS display"></a>CSS display</h1><p>The CSS <code>display</code> property is an important tool for controlling the layout behavior of an element. It offers several common values that can greatly impact the visual presentation of a webpage. </p>
+<p>Let’s take a closer look at some of the common values:</p>
+<h1 id="Inline"><a href="#Inline" class="headerlink" title="Inline"></a>Inline</h1><p>The <code>display: inline;</code> property value makes the element behave like an inline element. It allows other elements to be displayed on the same line. This is especially useful for creating text-like elements such as links or spans.</p>
+<p>For example, consider the following HTML code:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is an <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&quot;color: lightblue;&quot;</span>&gt;</span>inline element<span class="tag">&lt;/<span class="name">span</span>&gt;</span> of a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>In this example, the <code>&lt;span&gt;</code> element will be displayed inline with other elements, such as text or other inline elements.</p>
+<p>Any height and width CSS properties will have no effect on inline element.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is an <span class="tag">&lt;<span class="name">i</span> <span class="attr">style</span>=<span class="string">&quot;color: lightblue; width: 20px; height: 30px;&quot;</span>&gt;</span>inline element<span class="tag">&lt;/<span class="name">i</span>&gt;</span> of a paragraph.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>In this example, the width and height css property doesn’t change anything.</p>
+<p>Some of the HTML elements with default <code>inline</code> display property are <code>span</code>, <code>a</code>, <code>i</code>, <code>bold</code>, <code>img</code>.</p>
+<p>for <code>img</code>, you use attribute to set its width and height, not CSS property.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200px&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Block"><a href="#Block" class="headerlink" title="Block"></a>Block</h1><p>The <code>display: block;</code> property value makes the element behave like a block-level element. It takes up the entire width of its container and starts on a new line. This can be handy for creating large sections or containers within a webpage.</p>
+<p>For example, consider the following HTML code:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightgray; padding: 10px; width: 300px; height: 200px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is a block-level element<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>This element will take up the entire width of its container and start on a new line.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>In this example, the <code>&lt;div&gt;</code> element will be displayed as a block-level element, with its own separate line and full width within the container.</p>
+<p>You can change a block element’s width and height using CSS properties</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightgray; padding: 10px; width: 300px; height: 200px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is a block-level element<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>This element will take up the entire width of its container and start on a new line.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Some of the HTML elements with default <code>block</code> display property are <code>div</code>, <code>p</code>, <code>h1</code>, <code>ul</code>, <code>header</code>, <code>nav</code>, <code>main</code> , <code>section</code>,  <code>aside</code>, <code>footer</code>. </p>
+<h1 id="Inline-Block"><a href="#Inline-Block" class="headerlink" title="Inline-Block"></a>Inline-Block</h1><p>The <code>display: inline-block;</code> property value combines the characteristics of both <code>inline</code> and <code>block</code>. The element is displayed as an inline element, allowing other elements to be displayed on the same line. At the same time, it can have a width and height set, unlike traditional inline elements. This is useful for creating elements that need to flow with other elements on the same line but still have specific dimensions.</p>
+<p>For example, consider the following HTML code:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightblue; width: 100px; height: 50px; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line">  This is an inline-block element.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightgreen; width: 100px; height: 50px; display: inline-block;&quot;</span>&gt;</span></span><br><span class="line">  This is another inline-block element.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>In this example, the two <code>&lt;div&gt;</code> elements will be displayed in the same line, thanks to the <code>inline-block</code> display property. They can also have specific width and height values, allowing for more control over their dimensions.</p>
+<p>Some HTML elements with default <code>inline-block</code> display property are <code>input</code> and <code>button</code>.</p>
+<p>For instance, you can use the following code to create an input field and a button next to each other:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display: inline-block; width: 200px; height: 30px;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">style</span>=<span class="string">&quot;display: inline-block; width: 100px; height: 30px;&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="none"><a href="#none" class="headerlink" title="none"></a>none</h1><p>The <code>display: none;</code> property value allows you to hide an element and remove it from the document flow. It is useful for conditionally showing or hiding elements based on events or user interactions. When an element is set to <code>display: none;</code>, it is not rendered on the page and does not take up space. It can be toggled using JavaScript or CSS.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: none;&quot;</span>&gt;</span></span><br><span class="line">  This is an example of the <span class="tag">&lt;<span class="name">code</span>&gt;</span>display: none;<span class="tag">&lt;/<span class="name">code</span>&gt;</span> property value.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h1><p>The <code>flex</code> value of the <code>display</code> property is a powerful tool for creating flexible layouts in CSS. It enables a flexible box layout for the element and its children, allowing for easy manipulation of the layout in one dimension, either horizontally or vertically.</p>
+<p>With the <code>flex</code> value, you can create responsive designs and align elements within a container. It provides a flexible and dynamic way to distribute available space among child elements, making it easier to achieve desired layout behaviors.</p>
+<p>To use the <code>flex</code> value, you need to apply it to a container element by setting its <code>display</code> property to <code>flex</code>. Once the container becomes a flex container, its child elements become flex items, and you can control their layout and positioning using additional flex-related properties.</p>
+<p>Some of the commonly used flex-related properties include:</p>
+<ul>
+<li><code>flex-direction</code>: Specifies the direction of the flex container’s main axis.</li>
+<li><code>justify-content</code>: Aligns flex items along the main axis.</li>
+<li><code>align-items</code>: Aligns flex items along the cross axis.</li>
+<li><code>flex-wrap</code>: Specifies whether flex items should wrap to multiple lines if there is not enough space.</li>
+</ul>
+<p>Here is an example of using the <code>flex</code> value to create a simple flex container:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: flex; background-color: #eee; justify-content: center; align-items: center; height: 200px;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightblue; width: 100px; height: 100px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightgreen; width: 100px; height: 100px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightpink; width: 100px; height: 100px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>In this example, the outer <code>&lt;div&gt;</code> is set as a flex container using <code>display: flex;</code>. The <code>justify-content</code> property centers the flex items along the main axis (horizontally), and the <code>align-items</code> property centers them along the cross axis (vertically). The child <code>&lt;div&gt;</code> elements become flex items, and their dimensions can be controlled using CSS properties.</p>
+<p>By using the <code>flex</code> value and the accompanying flex-related properties, you can create flexible and responsive layouts that adapt to different screen sizes and devices.</p>
+<h1 id="grid"><a href="#grid" class="headerlink" title="grid"></a>grid</h1><p>The <code>grid</code> value of the <code>display</code> property is an incredibly powerful tool for creating grid layouts in CSS. It allows you to define a two-dimensional grid of columns and rows, and easily position and align elements within this grid.</p>
+<p>With the <code>grid</code> value, you can create complex and flexible layouts, with precise control over the placement and sizing of elements. It is particularly useful for creating responsive designs, where elements can automatically rearrange themselves based on the available space.</p>
+<p>To use the <code>grid</code> value, you need to apply it to a container element by setting its <code>display</code> property to <code>grid</code>. Once the container becomes a grid container, its child elements become grid items, and you can control their position and alignment using additional grid-related properties.</p>
+<p>Some of the commonly used grid-related properties include:</p>
+<ul>
+<li><code>grid-template-columns</code>: Specifies the size and number of columns in the grid.</li>
+<li><code>grid-template-rows</code>: Specifies the size and number of rows in the grid.</li>
+<li><code>grid-gap</code>: Specifies the size of the gap between grid items.</li>
+<li><code>grid-column</code>: Specifies the start and end positions of a grid item along the horizontal axis.</li>
+<li><code>grid-row</code>: Specifies the start and end positions of a grid item along the vertical axis.</li>
+<li><code>justify-items</code>: Aligns grid items along the horizontal axis.</li>
+<li><code>align-items</code>: Aligns grid items along the vertical axis.</li>
+</ul>
+<p>Here is an example of using the <code>grid</code> value to create a simple grid layout:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 10px;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightblue;&quot;</span>&gt;</span>Item 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightgreen;&quot;</span>&gt;</span>Item 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightpink;&quot;</span>&gt;</span>Item 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: red;&quot;</span>&gt;</span>Item 4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: lightgray;&quot;</span>&gt;</span>Item 5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;background-color: yellow;&quot;</span>&gt;</span>Item 6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>In this example, the outer <code>&lt;div&gt;</code> is set as a grid container using <code>display: grid;</code>. The <code>grid-template-columns</code> property specifies that the grid should have three columns of equal width (<code>1fr</code>), and the <code>grid-gap</code> property sets a gap of 10 pixels between grid items. The child <code>&lt;div&gt;</code> elements become grid items, and their position within the grid is determined by the order in which they appear in the HTML markup.</p>
+<p>By using the <code>grid</code> value and the accompanying grid-related properties, you can create versatile and dynamic grid layouts that adapt to different content and screen sizes.</p>
+<p>The <code>grid</code> value of the <code>display</code> property is widely supported in modern browsers, making it a powerful and reliable tool for creating complex layouts in CSS.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.w3schools.com/cssref/pr_class_display.php">CSS display Property</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Linux/Linux-Command-nc/" rel="prev" title="Linux Command - nc">
+                  <i class="fa fa-chevron-left"></i> Linux Command - nc
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

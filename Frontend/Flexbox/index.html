@@ -343,7 +343,8 @@
 
 
 <h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><p>The CSS <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">justify-content</a> property defines how the browser distributes space between and around content items along the main-axis of a flex container, and the inline axis of a grid container.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Default value is <code>normal</code>. It behaves as <code>start</code> when applied to a flexbox.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around | space-evenly;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Demo</p>
 <iframe src="https://codesandbox.io/embed/flexbox-justify-content-fdtbys?fontsize=14&hidenavigation=1&theme=dark&view=preview"
@@ -353,11 +354,11 @@
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 
-<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p><code>align-items</code> is similar to <code>justify-content</code> but along cross-axis.</p>
-<p>The CSS <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">align-items</a> property sets the align-self value on all direct children as a group. </p>
+<h2 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h2><p>The CSS <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">align-items</a> property sets the align-self value on all direct children as a group.  In Flexbox, it controls the alignment of items on the Cross Axis. </p>
+<p><code>align-items</code> is similar to <code>justify-content</code> but along cross-axis.</p>
 <p>values are</p>
 <ul>
-<li>normal</li>
+<li>normal(default)</li>
 <li>stretch</li>
 <li>start</li>
 <li>end</li>
@@ -463,6 +464,7 @@
 <h2 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h2><p>The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self">align-self</a> CSS property overrides a grid or flex item’s align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
 <p>Demo</p>
 <iframe src="https://codesandbox.io/embed/flexbox-align-self-hu39r2?fontsize=14&hidenavigation=1&theme=dark&view=preview"
      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
@@ -471,6 +473,9 @@
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 
+
+<p>It is useful when you don’t have control over the parent container’s align-items property. For example, to stretch the element to take all the length along the cross-axis, use <code>align-self:: &#39;stretch&#39;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">align-self: &#x27;stretch&#x27;</span><br></pre></td></tr></table></figure>
 
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><h2 id="Centering-content-using-css-box"><a href="#Centering-content-using-css-box" class="headerlink" title="Centering content using css box"></a>Centering content using css box</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid blueviolet;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 

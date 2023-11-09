@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sort-lines-in-a-file"><span class="nav-number">3.1.</span> <span class="nav-text">Sort lines in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sort-lines-in-a-file-desc"><span class="nav-number">3.2.</span> <span class="nav-text">Sort lines in a file desc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-processes-sorted-by-user-name"><span class="nav-number">3.3.</span> <span class="nav-text">Show processes sorted by user name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-processes-sorted-by-CPU-Usage-desc"><span class="nav-number">3.4.</span> <span class="nav-text">Show processes sorted by CPU Usage desc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sort-lines-in-a-file"><span class="nav-number">3.1.</span> <span class="nav-text">Sort lines in a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sort-lines-in-a-file-desc"><span class="nav-number">3.2.</span> <span class="nav-text">Sort lines in a file desc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-uniqe-words-and-sort"><span class="nav-number">3.3.</span> <span class="nav-text">find uniqe words and sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-processes-sorted-by-user-name"><span class="nav-number">3.4.</span> <span class="nav-text">Show processes sorted by user name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Show-processes-sorted-by-CPU-Usage-desc"><span class="nav-number">3.5.</span> <span class="nav-text">Show processes sorted by CPU Usage desc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -291,6 +291,10 @@
 <td>-k, –key&#x3D;KEYDEF</td>
 <td>sort via a key; KEYDEF gives location and type</td>
 </tr>
+<tr>
+<td>-u, –unique</td>
+<td>remove redundent</td>
+</tr>
 </tbody></table>
 <h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Sort-lines-in-a-file"><a href="#Sort-lines-in-a-file" class="headerlink" title="Sort lines in a file"></a>Sort lines in a file</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort file1</span><br></pre></td></tr></table></figure>
 
@@ -301,6 +305,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">abcd</span><br><span class="line">ttt</span><br><span class="line">xyz</span><br></pre></td></tr></table></figure>
 
 <h2 id="Sort-lines-in-a-file-desc"><a href="#Sort-lines-in-a-file-desc" class="headerlink" title="Sort lines in a file desc"></a>Sort lines in a file desc</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort -r file1</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-uniqe-words-and-sort"><a href="#find-uniqe-words-and-sort" class="headerlink" title="find uniqe words and sort"></a>find uniqe words and sort</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat words.txt | sort -u</span><br></pre></td></tr></table></figure>
 
 <h2 id="Show-processes-sorted-by-user-name"><a href="#Show-processes-sorted-by-user-name" class="headerlink" title="Show processes sorted by user name"></a>Show processes sorted by user name</h2><p>use <code>-k 1</code> to sort the processes by first field, which is the user name.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | sort -k 1 | head -n 10</span><br></pre></td></tr></table></figure>

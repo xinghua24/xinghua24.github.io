@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="grep command, which stands for “global regular expression print,” processes text line by lineand prints any lines which match a specified pattern.">
+    <meta name="description" content="grep command, which stands for “global regular expression print,” processes text line by lineand prints any lines which match a specified pattern. To print only the matched part, use -o option">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Command - grep">
 <meta property="og:url" content="http://example.com/Linux/Linux-Command-grep/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="grep command, which stands for “global regular expression print,” processes text line by lineand prints any lines which match a specified pattern.">
+<meta property="og:description" content="grep command, which stands for “global regular expression print,” processes text line by lineand prints any lines which match a specified pattern. To print only the matched part, use -o option">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-12-08T04:50:20.000Z">
 <meta property="article:modified_time" content="2018-12-08T04:50:20.000Z">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">1.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-directory-recursively"><span class="nav-number">2.1.</span> <span class="nav-text">Search directory recursively</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-with-context"><span class="nav-number">2.2.</span> <span class="nav-text">Output with context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-multiple-patterns"><span class="nav-number">2.3.</span> <span class="nav-text">Search multiple patterns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-pattern-starts-with-hyphen"><span class="nav-number">2.4.</span> <span class="nav-text">Search pattern starts with hyphen(-)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-directories-in-current-directory"><span class="nav-number">2.5.</span> <span class="nav-text">ls directories in current directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-non-directories-in-current-directory"><span class="nav-number">2.6.</span> <span class="nav-text">ls non-directories in current directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-directories-that-ends-with-%E2%80%98k%E2%80%99"><span class="nav-number">2.7.</span> <span class="nav-text">ls directories that ends with ‘k’</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">1.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#find-exact-match"><span class="nav-number">2.1.</span> <span class="nav-text">find exact match</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-the-words-that-starts-with-%E2%80%98con%E2%80%99"><span class="nav-number">2.2.</span> <span class="nav-text">Search the words that starts with ‘con’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-directory-recursively"><span class="nav-number">2.3.</span> <span class="nav-text">Search directory recursively</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-with-context"><span class="nav-number">2.4.</span> <span class="nav-text">Output with context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-multiple-patterns"><span class="nav-number">2.5.</span> <span class="nav-text">Search multiple patterns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Search-pattern-starts-with-hyphen"><span class="nav-number">2.6.</span> <span class="nav-text">Search pattern starts with hyphen(-)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-directories-in-current-directory"><span class="nav-number">2.7.</span> <span class="nav-text">ls directories in current directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-non-directories-in-current-directory"><span class="nav-number">2.8.</span> <span class="nav-text">ls non-directories in current directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-directories-that-ends-with-%E2%80%98k%E2%80%99"><span class="nav-number">2.9.</span> <span class="nav-text">ls directories that ends with ‘k’</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -264,6 +264,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p><code>grep</code> command, which stands for “global regular expression print,” processes text line by line<br>and prints any lines which match a specified pattern.</p>
+<p>To print only the matched part, use <code>-o</code> option</p>
 <span id="more"></span>
 
 <h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><p>command options</p>
@@ -276,7 +277,11 @@
 </thead>
 <tbody><tr>
 <td>-e <em>PATTERN</em></td>
-<td>use <em>PATTERN</em> as the pattern. This can be used to specify multiple search patterns, or to protect pattern beginning with a hyphen(-)</td>
+<td>use <em>PATTERN</em> as the pattern. This can be used to specify multiple search patterns</td>
+</tr>
+<tr>
+<td>-E, –Extended-regexp</td>
+<td>Interpret PATTERN as an extended regular expression</td>
 </tr>
 <tr>
 <td>-i, --ignore-case</td>
@@ -298,6 +303,10 @@
 <td>-v</td>
 <td>invert the matching</td>
 </tr>
+<tr>
+<td>-o, –only-matching</td>
+<td>-o print only the matched (non-Empty) parts of a matching line</td>
+</tr>
 </tbody></table>
 <p>for context control</p>
 <ul>
@@ -305,21 +314,36 @@
 <li>-B NUM –&gt; print NUM lines of leading output context</li>
 <li>-C NUM –&gt; print NUM lines of output context</li>
 </ul>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>find “foo” in files</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i <span class="string">&quot;foo&quot;</span> filename</span><br></pre></td></tr></table></figure>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><p>find “foo” in file and prints lines that contains “foo”. Note that “foo”, “food” and “ofoo” are all matches.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i <span class="string">&quot;foo&quot;</span> file1</span><br></pre></td></tr></table></figure>
 
-<p>find “foo” in files and print with filename and line number</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -inH &quot;foo&quot; filename</span><br></pre></td></tr></table></figure>
+<p>find “foo” in files and prefix lines with filename and line number</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -inH &quot;foo&quot; words.txt</span><br></pre></td></tr></table></figure>
 
+<p>sample output:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">words.txt:1:food</span><br><span class="line">words.txt:3:food</span><br><span class="line">words.txt:4:foo</span><br><span class="line">words.txt:7:ofoo</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="find-exact-match"><a href="#find-exact-match" class="headerlink" title="find exact match"></a>find exact match</h2><p>The line matches exactly “foo”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;^foo$&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Search-the-words-that-starts-with-‘con’"><a href="#Search-the-words-that-starts-with-‘con’" class="headerlink" title="Search the words that starts with ‘con’"></a>Search the words that starts with ‘con’</h2><p>search for words that start with <code>con</code>. examples are ‘contribution’, ‘control’. Only output the matched part</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat LICENSE-2.0.txts | grep -o &quot;con\w*&quot;</span><br></pre></td></tr></table></figure>
+
+<p>here <code>\w*</code> is used to match any number of characters</p>
+<p>Search the words that starts with ‘con’, then 3 characgers and ends with t. Here we need to use -E option to use extended regex.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat LICENSE-2.0.txt  | grep -o -E &quot;con\w&#123;3&#125;t&quot;</span><br></pre></td></tr></table></figure>
+
+<p>sample outputs are <code>content</code> and <code>consist</code></p>
 <h2 id="Search-directory-recursively"><a href="#Search-directory-recursively" class="headerlink" title="Search directory recursively"></a>Search directory recursively</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -inr <span class="string">&quot;foo&quot;</span> <span class="built_in">dir</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Output-with-context"><a href="#Output-with-context" class="headerlink" title="Output with context"></a>Output with context</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -in -C 3 &quot;foo&quot; filename</span><br></pre></td></tr></table></figure>
 
-<h2 id="Search-multiple-patterns"><a href="#Search-multiple-patterns" class="headerlink" title="Search multiple patterns"></a>Search multiple patterns</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -in -e firefox -e chromium filename</span><br></pre></td></tr></table></figure>
+<h2 id="Search-multiple-patterns"><a href="#Search-multiple-patterns" class="headerlink" title="Search multiple patterns"></a>Search multiple patterns</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -in -E firefox -E chromium filename</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="Search-pattern-starts-with-hyphen"><a href="#Search-pattern-starts-with-hyphen" class="headerlink" title="Search pattern starts with hyphen(-)"></a>Search pattern starts with hyphen(-)</h2><p>Need to use <strong>-e</strong> option for searching String “-notify”</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -in -e -notify filename</span><br></pre></td></tr></table></figure>
+<h2 id="Search-pattern-starts-with-hyphen"><a href="#Search-pattern-starts-with-hyphen" class="headerlink" title="Search pattern starts with hyphen(-)"></a>Search pattern starts with hyphen(-)</h2><p>Need to use <strong>-E</strong> option for searching String “-notify”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -in -E -notify filename</span><br></pre></td></tr></table></figure>
 
 <h2 id="ls-directories-in-current-directory"><a href="#ls-directories-in-current-directory" class="headerlink" title="ls directories in current directory"></a>ls directories in current directory</h2><p>use regular expression to match the directories</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^d&quot;</span><br></pre></td></tr></table></figure>

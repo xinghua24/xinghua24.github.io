@@ -319,7 +319,10 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`command`</span><br></pre></td></tr></table></figure>
 
 <p>example - create file with date postfix</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch file-$(date +%y-%m-%d).txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> file-$(<span class="built_in">date</span> +%y-%m-%d).txt</span><br></pre></td></tr></table></figure>
+
+<p>exmaple - generate uuid</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uuid=$(uuidgen)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;generated uuid: <span class="variable">$uuid</span>&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Pass-Arguments-to-Bash-Script"><a href="#Pass-Arguments-to-Bash-Script" class="headerlink" title="Pass Arguments to Bash Script"></a>Pass Arguments to Bash Script</h1><p>You can pass parameter to bash script. use <code>$1</code>, <code>$2</code> to access them. $0 is the name of the Bash script</p>

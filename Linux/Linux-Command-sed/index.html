@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-command"><span class="nav-number">3.</span> <span class="nav-text">s command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">4.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-Substitution"><span class="nav-number">4.1.</span> <span class="nav-text">String Substitution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-Substitution-for-a-file"><span class="nav-number">4.2.</span> <span class="nav-text">String Substitution for a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Print-lines-of-a-file"><span class="nav-number">4.3.</span> <span class="nav-text">Print lines of a file</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#s-command"><span class="nav-number">3.</span> <span class="nav-text">s command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">4.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#String-Substitution"><span class="nav-number">4.1.</span> <span class="nav-text">String Substitution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-Substitution-for-a-file"><span class="nav-number">4.2.</span> <span class="nav-text">String Substitution for a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Handling-Single-quote"><span class="nav-number">4.3.</span> <span class="nav-text">Handling Single quote</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-to-Replace-UUID"><span class="nav-number">4.4.</span> <span class="nav-text">Example to Replace UUID</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">214</span>
+          <span class="site-state-item-count">215</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -280,6 +280,10 @@
 <td>edit files in place</td>
 </tr>
 <tr>
+<td>-r, –regexp-extended</td>
+<td>use extended regular expressions in the script.</td>
+</tr>
+<tr>
 <td>-n, --quiet, --silent</td>
 <td>suppress automatic printing of pattern space</td>
 </tr>
@@ -302,20 +306,18 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;s/abc/ABC/g&#x27; file1 &gt; file2</span><br></pre></td></tr></table></figure>
 
 
-<p>To do in place replace <code>abc</code> with <code>def</code> in file1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/abc/def/g&#x27; file1</span><br></pre></td></tr></table></figure>
+<p>To do in place replace <code>abc</code> with <code>def</code> in inputfile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/abc/def/g&#x27; inputfile</span><br></pre></td></tr></table></figure>
 
+<h2 id="Handling-Single-quote"><a href="#Handling-Single-quote" class="headerlink" title="Handling Single quote"></a>Handling Single quote</h2><p>Substitube with single quote. To replace <code>&quot;uid&quot;</code> with <code>&#39;uid&#39;</code> in inputfile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed &quot;s|\&quot;uid\&quot;|&#x27;uid&#x27;|g&quot; inputfile</span><br></pre></td></tr></table></figure>
 
-<h2 id="Print-lines-of-a-file"><a href="#Print-lines-of-a-file" class="headerlink" title="Print lines of a file"></a>Print lines of a file</h2><p>Sed can be used to print lines of a file, although it is rarely used. </p>
-<p>use the <code>p</code> command to print the file. add <code>-n</code> option to suppress the automatic printing so that it prints once only.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n &#x27;p&#x27; file1</span><br></pre></td></tr></table></figure>
+<h2 id="Example-to-Replace-UUID"><a href="#Example-to-Replace-UUID" class="headerlink" title="Example to Replace UUID"></a>Example to Replace UUID</h2><p>To replace uuid in uuid.json file</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;uid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;9EF7229B-444E-4062-B843-97527E25660C&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>Print first line of a file</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n &#x27;1p&#x27; file1</span><br></pre></td></tr></table></figure>
-
-<p>Print first 3 lines of a file</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n &#x27;1,3p&#x27; file1</span><br></pre></td></tr></table></figure>
-
+<p>we need to use uuidgen command to generate a new uuid</p>
+<p>To replace UUID in this file. We need to use -r option to use extended regular expressions in the script. The complete script is:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">uuid=$(uuidgen)</span><br><span class="line">sed -r <span class="string">&quot;s|\&quot;uid\&quot;: \&quot;.&#123;36&#125;\&quot;|\&quot;uid\&quot;: \&quot;<span class="variable">$&#123;uuid&#125;</span>\&quot;|g&quot;</span> uuid.json</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>

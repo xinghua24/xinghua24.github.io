@@ -1,6 +1,6 @@
 @startuml
 autonumber
-title "Authorization Code Flow"
+title "Implicit Flow"
 
 participant "User Agent" as UserAgent
 participant "Client App" as Client

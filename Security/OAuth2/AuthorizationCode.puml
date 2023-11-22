@@ -2,7 +2,7 @@
 autonumber
 title "Authorization Code Flow"
 
-participant "User Agent" as UserAgent
+participant "User Agent(Browser)" as UserAgent
 participant "Client App" as Client
 participant "Authorization Server" as AuthServer
 participant "Resource Server" as ResourceServer

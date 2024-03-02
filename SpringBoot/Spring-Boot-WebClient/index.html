@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Spring Boot WebClient class is a non-blocking, reactive client to perform HTTP requests.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot - WebClient">
+<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-WebClient/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Spring Boot WebClient class is a non-blocking, reactive client to perform HTTP requests.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-03-02T17:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-02T17:00:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-WebClient/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-WebClient/","path":"SpringBoot/Spring-Boot-WebClient/","title":"Spring Boot - WebClient"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Boot - WebClient | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dependency"><span class="nav-number">1.</span> <span class="nav-text">Dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Create-WebClient-Bean"><span class="nav-number">2.</span> <span class="nav-text">Create WebClient Bean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sending-Request"><span class="nav-number">3.</span> <span class="nav-text">Sending Request</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Request-Header"><span class="nav-number">4.</span> <span class="nav-text">Request Header</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Request-Body"><span class="nav-number">5.</span> <span class="nav-text">Request Body</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Response"><span class="nav-number">6.</span> <span class="nav-text">Response</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Test"><span class="nav-number">7.</span> <span class="nav-text">Test</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">8.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">219</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-WebClient/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Boot - WebClient | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot - WebClient
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-03-02 12:00:00" itemprop="dateCreated datePublished" datetime="2024-03-02T12:00:00-05:00">2024-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Spring Boot WebClient class is a non-blocking, reactive client to perform HTTP requests. </p>
+<span id="more"></span>
+
+<p>The <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.html">WebClient</a> class is a core component in Spring Boot applications for making non-blocking and reactive HTTP requests. It’s designed as the successor to the older <code>RestTemplate</code> and offers several advantages:</p>
+<p>Reactive approach: WebClient leverages the reactive programming paradigm, making it efficient in handling asynchronous operations and working well with event-driven systems. This can significantly improve the performance of your application, especially under high load.</p>
+<p>Non-blocking: It avoids blocking the main thread while waiting for responses, allowing your application to remain responsive and handle other tasks concurrently.</p>
+<p>Flexibility: It supports both synchronous and asynchronous operations, catering to various application needs.<br>Builder pattern: It uses a fluent builder pattern for configuring requests, making the code more readable and maintainable.</p>
+<h1 id="Dependency"><a href="#Dependency" class="headerlink" title="Dependency"></a>Dependency</h1><p>To use WebClient in your Spring Boot application, you need to add the <code>spring-boot-starter-webflux</code> dependency to your <code>pom.xml</code> file:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-webflux<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Gradle Dependency</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">&#x27;org.springframework.boot:spring-boot-starter-webflux&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Create-WebClient-Bean"><a href="#Create-WebClient-Bean" class="headerlink" title="Create WebClient Bean"></a>Create WebClient Bean</h1><p>You can create a <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.html">WebClient</a> bean in your Spring Boot application by using the <code>WebClient.create()</code> method.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebClient.create();</span><br></pre></td></tr></table></figure>
+
+<p>You can also create WebClient with a base URL:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WebClient.create(<span class="string">&quot;https://jsonplaceholder.typicode.com&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>You can use <code>WebClient.builder()</code> to create a WebClient. You can set the baseUrl and configurations such as setting default headers, etc.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">WebClient</span> <span class="variable">webClient</span> <span class="operator">=</span> WebClient.builder()</span><br><span class="line">  .baseUrl(<span class="string">&quot;https://jsonplaceholder.typicode.com&quot;</span>)</span><br><span class="line">  .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)</span><br><span class="line">  .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)</span><br><span class="line">  .build();</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Sending-Request"><a href="#Sending-Request" class="headerlink" title="Sending Request"></a>Sending Request</h1><p>You can use <code>get()</code>, <code>post()</code>, <code>put()</code>, <code>delete()</code> methods to send requests.</p>
+<p>Use <code>uri()</code> method to set the request URI.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">responseBody</span> <span class="operator">=</span> webClient.get()</span><br><span class="line">  	.uri(<span class="string">&quot;/posts/1&quot;</span>)</span><br><span class="line">  	.retrieve()</span><br><span class="line">  	.bodyToMono(String.class)</span><br><span class="line">  	.block();</span><br></pre></td></tr></table></figure>
+
+<h1 id="Request-Header"><a href="#Request-Header" class="headerlink" title="Request Header"></a>Request Header</h1><p>You can use <code>header()</code> method to set headers for the request. WebClient also provides methods to set content type, accept, and accept charset headers.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">webClient</span><br><span class="line">    .post()</span><br><span class="line">    .uri(<span class="string">&quot;/posts&quot;</span>)</span><br><span class="line">    .contentType(MediaType.APPLICATION_JSON)</span><br><span class="line">    .accept(MediaType.APPLICATION_JSON)</span><br><span class="line">    .acceptCharset(StandardCharsets.UTF_8)</span><br><span class="line">    .header(HttpHeaders.AUTHORIZATION, <span class="string">&quot;Bearer &quot;</span> + <span class="string">&quot;token-here&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Request-Body"><a href="#Request-Body" class="headerlink" title="Request Body"></a>Request Body</h1><p>You can use <code>bodyValue()</code> method to set the request body. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Post</span> <span class="variable">post</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Post</span>()</span><br><span class="line">    .setUserId(<span class="number">1</span>)</span><br><span class="line">    .setTitle(<span class="string">&quot;My first post&quot;</span>)</span><br><span class="line">    .setBody(<span class="string">&quot;This is my first post&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Post</span> <span class="variable">response</span> <span class="operator">=</span> webClient.post()</span><br><span class="line">    .uri(<span class="string">&quot;/posts&quot;</span>)</span><br><span class="line">    .bodyValue(post)</span><br></pre></td></tr></table></figure>
+<p>Another option is to use BodyInserters to set the request body.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webClient</span><br><span class="line">    .post()</span><br><span class="line">    .uri(<span class="string">&quot;/posts&quot;</span>)</span><br><span class="line">    .contentType(MediaType.APPLICATION_JSON)</span><br><span class="line">    .body(BodyInserters.fromValue(post))</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h1><p>Use <code>retrieve()</code> method to declare how to extract the response body. <code>retrieve()</code> method returns <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/reactive/function/client/WebClient.ResponseSpec.html">ResponseSpec</a> which provides methods to extract the response body.</p>
+<p>use <code>toEntity()</code> method to get the response body and headers.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ResponseEntity&lt;Post&gt; postEntity = webClient.get()</span><br><span class="line">    .uri(<span class="string">&quot;/posts/1&quot;</span>)</span><br><span class="line">    .retrieve()</span><br><span class="line">    .toEntity(Post.class)</span><br><span class="line">    .block();</span><br><span class="line">System.out.println(postEntity.getStatusCode().value());</span><br><span class="line">System.out.println(postEntity.getBody());</span><br></pre></td></tr></table></figure>
+
+<p>If interested only the response body, you can use <code>bodyToMono()</code> or <code>bodytoFlux()</code> method.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Post</span> <span class="variable">firstPost</span> <span class="operator">=</span> webClient.get()</span><br><span class="line">    .uri(<span class="string">&quot;/posts/1&quot;</span>)</span><br><span class="line">    .retrieve()</span><br><span class="line">    .bodyToMono(Post.class)</span><br><span class="line">    .block();</span><br></pre></td></tr></table></figure>
+
+<p>use <code>bodyToFlux()</code> method to get a list of response body.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">webClient.get()</span><br><span class="line">  .uri(<span class="string">&quot;/posts&quot;</span>)</span><br><span class="line">  .retrieve()</span><br><span class="line">  .bodyToFlux(Post.class)</span><br><span class="line">  .collectList()</span><br><span class="line">  .block();</span><br></pre></td></tr></table></figure>
+
+<h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><p>We can use <code>MockWebServer</code> to test WebClient. For more info on <code>MockWebServer</code>, please refer to <a target="_blank" rel="noopener" href="https://github.com/square/okhttp/tree/master/mockwebserver">MockWebServer</a>.</p>
+<p>Maven Dependency</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.squareup.okhttp3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>okhttp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.squareup.okhttp3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mockwebserver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Sample test case:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create a MockWebServer.</span></span><br><span class="line"> <span class="type">MockWebServer</span> <span class="variable">mockBackEnd</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MockWebServer</span>();</span><br><span class="line"></span><br><span class="line"> <span class="type">Post</span> <span class="variable">post</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Post</span>()</span><br><span class="line">     .setUserId(<span class="number">1</span>)</span><br><span class="line">     .setTitle(<span class="string">&quot;My first post&quot;</span>)</span><br><span class="line">     .setBody(<span class="string">&quot;Mock Post Body&quot;</span>);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// stub some responses.</span></span><br><span class="line"> mockBackEnd.enqueue(<span class="keyword">new</span> <span class="title class_">MockResponse</span>()</span><br><span class="line">     .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)</span><br><span class="line">     .setBody(<span class="keyword">new</span> <span class="title class_">ObjectMapper</span>().writeValueAsString(post)));</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Start the mockBackEnd.</span></span><br><span class="line"> mockBackEnd.start();</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Create a WebClient that uses the MockWebServer.</span></span><br><span class="line"> <span class="type">WebClient</span> <span class="variable">webClient</span> <span class="operator">=</span> WebClient.builder()</span><br><span class="line">     .baseUrl(mockBackEnd.url(<span class="string">&quot;/&quot;</span>).toString())</span><br><span class="line">     .build();</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Create a DemoService that uses the WebClient.</span></span><br><span class="line"> <span class="type">DemoService</span> <span class="variable">demoService</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DemoService</span>(webClient);</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Call the method.</span></span><br><span class="line"> <span class="type">Post</span> <span class="variable">result</span> <span class="operator">=</span> demoService.getPost(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"> assertEquals(post.getBody(), result.getBody());</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Optional - verify the requests.</span></span><br><span class="line"> <span class="type">RecordedRequest</span> <span class="variable">recordedRequest</span> <span class="operator">=</span> mockBackEnd.takeRequest();</span><br><span class="line"> assertEquals(<span class="string">&quot;GET&quot;</span>, recordedRequest.getMethod());</span><br><span class="line"> assertEquals(<span class="string">&quot;/posts/1&quot;</span>, recordedRequest.getPath());</span><br><span class="line"></span><br><span class="line"> <span class="comment">// Shut down the mockBackEnd.</span></span><br><span class="line"> mockBackEnd.shutdown();</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/spring-5-webclient#1-creating-a-webclient-instance">Spring 5 WebClient</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-Auto-Configuration/" rel="prev" title="Spring Boot - auto-configuration">
+                  <i class="fa fa-chevron-left"></i> Spring Boot - auto-configuration
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

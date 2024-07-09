@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="LocalStack is a cloud service emulator that runs in a single container on your laptop or in your CI environment.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LocalStack">
+<meta property="og:url" content="http://example.com/AWS/LocalStack/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="LocalStack is a cloud service emulator that runs in a single container on your laptop or in your CI environment.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-08T22:29:55.000Z">
+<meta property="article:modified_time" content="2024-07-08T22:29:55.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="AWS">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/AWS/LocalStack/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/AWS/LocalStack/","path":"AWS/LocalStack/","title":"LocalStack"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LocalStack | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#localstack-cli-Brew-Installation"><span class="nav-number">1.</span> <span class="nav-text">localstack-cli Brew Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Running-LocalStack-using-CLI"><span class="nav-number">2.</span> <span class="nav-text">Running LocalStack using CLI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Running-LocalStack-using-Docker-Compose"><span class="nav-number">3.</span> <span class="nav-text">Running LocalStack using Docker Compose</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-connect-with-AWS-SDKs"><span class="nav-number">4.</span> <span class="nav-text">How to connect with AWS SDKs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Connect-to-LocalStack-using-Java-SDK"><span class="nav-number">5.</span> <span class="nav-text">Connect to LocalStack using Java SDK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/AWS/LocalStack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LocalStack | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LocalStack
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-07-08 18:29:55" itemprop="dateCreated datePublished" datetime="2024-07-08T18:29:55-04:00">2024-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AWS/" itemprop="url" rel="index"><span itemprop="name">AWS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>LocalStack is a cloud service emulator that runs in a single container on your laptop or in your CI environment.</p>
+<span id="more"></span>
+
+<h1 id="localstack-cli-Brew-Installation"><a href="#localstack-cli-Brew-Installation" class="headerlink" title="localstack-cli Brew Installation"></a>localstack-cli Brew Installation</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install localstack/tap/localstack-cli</span><br></pre></td></tr></table></figure>
+
+<h1 id="Running-LocalStack-using-CLI"><a href="#Running-LocalStack-using-CLI" class="headerlink" title="Running LocalStack using CLI"></a>Running LocalStack using CLI</h1><p>You can run LocalStack using LocalStack CLI or Docker Compose</p>
+<ul>
+<li>LocalStack CLI</li>
+<li>Docker Compose</li>
+</ul>
+<p>start LocalStack using CLI</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localstack start -d</span><br></pre></td></tr></table></figure>
+
+<p>Query the status of services.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localstack status services</span><br></pre></td></tr></table></figure>
+
+<p>stop LocalStack</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localstack stop</span><br></pre></td></tr></table></figure>
+
+<h1 id="Running-LocalStack-using-Docker-Compose"><a href="#Running-LocalStack-using-Docker-Compose" class="headerlink" title="Running LocalStack using Docker Compose"></a>Running LocalStack using Docker Compose</h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.8&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">localstack:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">&quot;$&#123;LOCALSTACK_DOCKER_NAME:-localstack-main&#125;&quot;</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">localstack/localstack</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:4566:4566&quot;</span>            <span class="comment"># LocalStack Gateway</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:4510-4559:4510-4559&quot;</span>  <span class="comment"># external services port range</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="comment"># LocalStack configuration: https://docs.localstack.cloud/references/configuration/</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DEBUG=$&#123;DEBUG:-0&#125;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;$&#123;LOCALSTACK_VOLUME_DIR:-./volume&#125;:/var/lib/localstack&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="How-to-connect-with-AWS-SDKs"><a href="#How-to-connect-with-AWS-SDKs" class="headerlink" title="How to connect with AWS SDKs"></a>How to connect with AWS SDKs</h1><p>Manual configuration: Manually configure the SDK to connect to LocalStack services by setting the endpoint URL to <a target="_blank" rel="noopener" href="http://localhost:4566/">http://localhost:4566</a> or <a target="_blank" rel="noopener" href="http://localhost.localstack.cloud:4566/">http://localhost.localstack.cloud:4566</a>. This can also be specified using a profile or an environment variable.</p>
+<p>create a queue in LocalStack using AWS CLI</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws sqs create-queue --queue-name MyQueue --endpoint-url http://localhost:4566</span><br></pre></td></tr></table></figure>
+
+<p>Get queue url</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws sqs get-queue-url --queue-name MyQueue --endpoint-url http://localhost:4566</span><br></pre></td></tr></table></figure>
+
+<p>Delete queue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws sqs delete-queue --queue-url http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/MyQueue --endpoint-url http://localhost:4566</span><br></pre></td></tr></table></figure>
+
+<p>List queues</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws sqs list-queues --endpoint-url http://localhost.localstack.cloud:4566</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Connect-to-LocalStack-using-Java-SDK"><a href="#Connect-to-LocalStack-using-Java-SDK" class="headerlink" title="Connect to LocalStack using Java SDK"></a>Connect to LocalStack using Java SDK</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Credentials that can be replaced with real AWS values. (To be handled properly and not hardcoded.)</span></span><br><span class="line">    <span class="comment">// These can be skipped altogether for LocalStack, but we generally want to avoid discrepancies with production code.</span></span><br><span class="line"><span class="keyword">final</span> <span class="type">String</span> <span class="variable">ACCESS_KEY</span> <span class="operator">=</span> <span class="string">&quot;test&quot;</span>;</span><br><span class="line"><span class="keyword">final</span> <span class="type">String</span> <span class="variable">SECRET_KEY</span> <span class="operator">=</span> <span class="string">&quot;test&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Desired region.</span></span><br><span class="line"><span class="type">Region</span> <span class="variable">region</span> <span class="operator">=</span> Region.US_EAST_1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// S3 Client with configured credentials, endpoint directing to LocalStack and desired region.</span></span><br><span class="line"><span class="type">S3Client</span> <span class="variable">s3Client</span> <span class="operator">=</span> S3Client.builder()</span><br><span class="line">    .endpointOverride(URI.create(<span class="string">&quot;http://s3.localhost.localstack.cloud:4566&quot;</span>))</span><br><span class="line">    .credentialsProvider(StaticCredentialsProvider.create(</span><br><span class="line">    AwsBasicCredentials.create(ACCESS_KEY, SECRET_KEY)))</span><br><span class="line">    .region(region)</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/localstack/localstack">LocalStack Github Repository</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cli/v1/userguide/cli_sqs_code_examples.html">aws-cli SQS commands</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AWS/" rel="tag"># AWS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/HashMap/" rel="prev" title="HashMap">
+                  <i class="fa fa-chevron-left"></i> HashMap
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

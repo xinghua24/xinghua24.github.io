@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">228</span>
+          <span class="site-state-item-count">229</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -274,6 +274,9 @@
 
 <p>You can now use adminer to connect to the MySQL server by visiting <a target="_blank" rel="noopener" href="http://localhost:8000/">http://localhost:8000</a>.</p>
 <p><code>lower-case-table-names=1</code> is used to make table names case-insensitive. This is useful when you are running MySQL on a case-insensitive file system, such as Windows or macOS. see <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.3/en/identifier-case-sensitivity.html">https://dev.mysql.com/doc/refman/8.3/en/identifier-case-sensitivity.html</a> for more information.</p>
+<p>You can use a sample table to test the MySQL server. Here is an example of a <code>user</code> table:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` (</span><br><span class="line">`id` <span class="type">bigint</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">`username` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`password` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`enabled` <span class="type">boolean</span>,</span><br><span class="line">`created` <span class="type">date</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
 <h1 id="Volume"><a href="#Volume" class="headerlink" title="Volume"></a>Volume</h1><p>To add a volume to the MySQL container, you can add the following lines to the <code>docker-compose.yml</code> file:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">./data:/var/lib/mysql</span></span><br></pre></td></tr></table></figure>
 

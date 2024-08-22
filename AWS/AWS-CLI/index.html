@@ -19,28 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="wget - download files from the web. It supports HTTP , HTTPS , and FTP protocols, as well as retrieval through HTTP proxies. It is non-interactive.">
+    <meta name="description" content="Explain how to use the AWS Command Line Interface (CLI) to interact with AWS services.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux Command - wget">
-<meta property="og:url" content="http://example.com/Linux/Linux-Command-wget/index.html">
+<meta property="og:title" content="AWS CLI">
+<meta property="og:url" content="http://example.com/AWS/AWS-CLI/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="wget - download files from the web. It supports HTTP , HTTPS , and FTP protocols, as well as retrieval through HTTP proxies. It is non-interactive.">
+<meta property="og:description" content="Explain how to use the AWS Command Line Interface (CLI) to interact with AWS services.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-01-10T04:51:05.000Z">
-<meta property="article:modified_time" content="2019-01-10T04:51:05.000Z">
+<meta property="article:published_time" content="2024-08-21T22:29:55.000Z">
+<meta property="article:modified_time" content="2024-08-21T22:29:55.000Z">
 <meta property="article:author" content="Xinghua Zhang">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/Linux/Linux-Command-wget/">
+<link rel="canonical" href="http://example.com/AWS/AWS-CLI/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Linux/Linux-Command-wget/","path":"Linux/Linux-Command-wget/","title":"Linux Command - wget"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/AWS/AWS-CLI/","path":"AWS/AWS-CLI/","title":"AWS CLI"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux Command - wget | Xing's Blog</title>
+<title>AWS CLI | Xing's Blog</title>
   
 
 
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Options"><span class="nav-number">2.</span> <span class="nav-text">Options</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Examples"><span class="nav-number">3.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-a-file"><span class="nav-number">3.1.</span> <span class="nav-text">Download a file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Download-a-file-to-a-specific-directory"><span class="nav-number">3.2.</span> <span class="nav-text">Download a file to a specific directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Display-only"><span class="nav-number">3.3.</span> <span class="nav-text">Display only</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specify-file-name"><span class="nav-number">3.4.</span> <span class="nav-text">Specify file name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resume-a-partially-downloaded-file"><span class="nav-number">3.5.</span> <span class="nav-text">Resume a partially downloaded file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-timeout"><span class="nav-number">3.6.</span> <span class="nav-text">Set timeout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Configuration"><span class="nav-number">2.</span> <span class="nav-text">Configuration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-the-AWS-CLI"><span class="nav-number">3.</span> <span class="nav-text">Using the AWS CLI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,7 +212,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/Linux/Linux-Command-wget/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/AWS/AWS-CLI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -225,12 +225,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Linux Command - wget | Xing's Blog">
+      <meta itemprop="name" content="AWS CLI | Xing's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux Command - wget
+          AWS CLI
         </h1>
 
         <div class="post-meta-container">
@@ -241,7 +241,7 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2019-01-09 23:51:05" itemprop="dateCreated datePublished" datetime="2019-01-09T23:51:05-05:00">2019-01-09</time>
+      <time title="Created: 2024-08-21 18:29:55" itemprop="dateCreated datePublished" datetime="2024-08-21T18:29:55-04:00">2024-08-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,7 +249,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux-Command/" itemprop="url" rel="index"><span itemprop="name">Linux-Command</span></a>
+          <a href="/categories/AWS/" itemprop="url" rel="index"><span itemprop="name">AWS</span></a>
         </span>
     </span>
 
@@ -263,67 +263,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><code>wget</code> - download files from the web. It supports HTTP , HTTPS , and FTP protocols, as well as retrieval through HTTP proxies. It is non-interactive.</p>
+        <p>Explain how to use the AWS Command Line Interface (CLI) to interact with AWS services.</p>
 <span id="more"></span>
 
-<h1 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget [options] [URL]</span><br></pre></td></tr></table></figure>
-
-<h1 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h1><table>
-<thead>
-<tr>
-<th>Common Option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-O,  --output-document&#x3D;FILE</td>
-<td>write documents to FILE</td>
-</tr>
-<tr>
-<td>-c,  --continue</td>
-<td>resume getting a partially-downloaded file</td>
-</tr>
-<tr>
-<td>-T,  --timeout&#x3D;SECONDS</td>
-<td>set all timeout values to SECONDS</td>
-</tr>
-<tr>
-<td>-b,  --background</td>
-<td>go to background after startup</td>
-</tr>
-<tr>
-<td>-q,  --quiet</td>
-<td>turn off wget’s output</td>
-</tr>
-<tr>
-<td>-P prefix</td>
-<td>sets directory. default is <strong>.</strong></td>
-</tr>
-<tr>
-<td>–help</td>
-<td>display help info</td>
-</tr>
-</tbody></table>
-<h1 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h1><h2 id="Download-a-file"><a href="#Download-a-file" class="headerlink" title="Download a file"></a>Download a file</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
-<p>This will download Octocats.zip</p>
-<h2 id="Download-a-file-to-a-specific-directory"><a href="#Download-a-file-to-a-specific-directory" class="headerlink" title="Download a file to a specific directory"></a>Download a file to a specific directory</h2><p>Download maven to &#x2F;tmp directory</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.reverse.net/pub/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz -P /tmp</span><br></pre></td></tr></table></figure>
-
-<h2 id="Display-only"><a href="#Display-only" class="headerlink" title="Display only"></a>Display only</h2><p>use <code>-qO-</code> or <code>-qO -</code> to print the result in standard output only</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://jsonplaceholder.typicode.com/users</span><br></pre></td></tr></table></figure>
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>see <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a></p>
+<h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><p>Depending on the file, profile section names use the following format:</p>
+<p>Config file: [default] [profile user1]<br>Credentials file: [default] [user1]</p>
+<p>Do not use the word profile when creating an entry in the credentials file.</p>
+<p>The following examples show a credentials and config file with two profiles, region, and output specified. The first [default] is used when you run a AWS CLI command with no profile specified. The second is used when you run a AWS CLI command with the <code>--profile</code> user1 parameter.</p>
+<p>~&#x2F;.aws&#x2F;credentials</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[default]</span><br><span class="line">aws_access_key_id=AKIAIOSFODNN7EXAMPLE</span><br><span class="line">aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</span><br><span class="line"></span><br><span class="line">[user1]</span><br><span class="line">aws_access_key_id=AKIAI44QH8DHBEXAMPLE</span><br><span class="line">aws_secret_access_key=je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="Specify-file-name"><a href="#Specify-file-name" class="headerlink" title="Specify file name"></a>Specify file name</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O github-octcats.zip https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
-<p>This will download file and rename file to be github-octcats.zip</p>
-<h2 id="Resume-a-partially-downloaded-file"><a href="#Resume-a-partially-downloaded-file" class="headerlink" title="Resume a partially downloaded file"></a>Resume a partially downloaded file</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
-<p>This will resume a partially downloaded file</p>
-<h2 id="Set-timeout"><a href="#Set-timeout" class="headerlink" title="Set timeout"></a>Set timeout</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -T 2 https://github-media-downloads.s3.amazonaws.com/Octocats.zip</span><br></pre></td></tr></table></figure>
+<p>~&#x2F;.aws&#x2F;config</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[default]</span><br><span class="line">region=us-west-2</span><br><span class="line">output=json</span><br><span class="line"></span><br><span class="line">[profile user1]</span><br><span class="line">region=us-east-1</span><br><span class="line">output=text</span><br></pre></td></tr></table></figure>
 
+<h1 id="Using-the-AWS-CLI"><a href="#Using-the-AWS-CLI" class="headerlink" title="Using the AWS CLI"></a>Using the AWS CLI</h1><p>Command Structure</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws &lt;command&gt; &lt;subcommand&gt; [options and parameters]</span><br></pre></td></tr></table></figure>
 
+<p>Basic Usage</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws s3 ls --profile dev</span><br></pre></td></tr></table></figure>
+
+<p>Auto Prompt mode</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aws --cli-auto-prompt</span><br></pre></td></tr></table></figure>
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://linux.die.net/man/1/wget">wget online man page</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.gnu.org/software/wget/manual/wget.html">GNU Wget Manual</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS CLI User Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cli/latest/index.html">AWS CLI Command Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cli/latest/reference/s3/index.html">AWS CLI Command Reference - s3</a></li>
 </ul>
 
     </div>
@@ -334,21 +301,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/AWS/" rel="tag"># AWS</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/Linux/Linux-Command-diff/" rel="prev" title="Linux Command - diff">
-                  <i class="fa fa-chevron-left"></i> Linux Command - diff
+                <a href="/AWS/AWS-Policy-Evaluation-Logic/" rel="prev" title="AWS Policy Evaluation Logic">
+                  <i class="fa fa-chevron-left"></i> AWS Policy Evaluation Logic
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/Linux/Linux-Command-curl/" rel="next" title="Linux Command - curl">
-                  Linux Command - curl <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

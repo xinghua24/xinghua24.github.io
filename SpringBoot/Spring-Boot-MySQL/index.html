@@ -275,10 +275,10 @@
 
 <p>ddl-auto is used to automatically create the schema (DDL) based on the Entity classes. The possible values are:</p>
 <ul>
-<li>create: create the schema, destroying previous data</li>
-<li>update: update the schema</li>
-<li>create-drop: create the schema and drop it when the SessionFactory is closed explicitly</li>
-<li>validate: validate the schema, make no changes to the database</li>
+<li>update: update the schema, preserving previous data</li>
+<li>create: This option will drop the existing schema and create a new one every time the application starts. It does not drop the schema when the application stops.</li>
+<li>create-drop: This option will drop the existing schema and create a new one every time the application starts, just like create. However, it will also drop the schema when the application stops.</li>
+<li>validate: validate the schema, make no changes to the database, if schema is not valid, SchemaManagementException will be thrown at runtime and the application will not start</li>
 <li>none: do nothing with the schema, make no changes to the database</li>
 </ul>
 <p>for production, it is recommended to use <code>validate</code> or <code>none</code></p>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Lets learn how to use Spring Boot JPA to implement One to Many relationship.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot JPA One to Many">
+<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-JPA-One-ToMany/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Lets learn how to use Spring Boot JPA to implement One to Many relationship.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-09-19T22:39:00.000Z">
+<meta property="article:modified_time" content="2024-09-19T22:39:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-JPA-One-ToMany/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-JPA-One-ToMany/","path":"SpringBoot/Spring-Boot-JPA-One-ToMany/","title":"Spring Boot JPA One to Many"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring Boot JPA One to Many | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bidirectional"><span class="nav-number">1.</span> <span class="nav-text">Bidirectional</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unidirectional-with-ManyToOne"><span class="nav-number">2.</span> <span class="nav-text">Unidirectional with @ManyToOne</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cascade-Types"><span class="nav-number">3.</span> <span class="nav-text">Cascade Types</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FetchType"><span class="nav-number">4.</span> <span class="nav-text">FetchType</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">236</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-JPA-One-ToMany/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring Boot JPA One to Many | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot JPA One to Many
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-19 18:39:00" itemprop="dateCreated datePublished" datetime="2024-09-19T18:39:00-04:00">2024-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Lets learn how to use Spring Boot JPA to implement One to Many relationship.</p>
+<span id="more"></span>
+
+<p>you can model Many-to-One and One-to-Many relationships between entities using the @ManyToOne and @OneToMany annotations. </p>
+<h1 id="Bidirectional"><a href="#Bidirectional" class="headerlink" title="Bidirectional"></a>Bidirectional</h1><p>We can have two entities <code>Post</code> and <code>Comment</code>. A post can have multiple comments and a comment belongs to a post.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Comment</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToOne</span></span><br><span class="line">    <span class="meta">@JoinColumn(name = &quot;post_id&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Post post;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// getters and setters</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The <code>@ManyToOne</code> annotation is used to create a many-to-one relationship between the <code>Comment</code> and <code>Post</code> entities. The <code>@JoinColumn</code> annotation is used to specify the foreign key column in the <code>Comment</code> entity that refers to the primary key column in the <code>Post</code> entity.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Post</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OneToMany(cascade = CascadeType.ALL, mappedBy = &quot;post&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Comment&gt; comments;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// getters and setters</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A post can have multiple comments. The <code>mappedBy</code> attribute is used to specify the property in the <code>Comment</code> entity that owns the relationship.</p>
+<h1 id="Unidirectional-with-ManyToOne"><a href="#Unidirectional-with-ManyToOne" class="headerlink" title="Unidirectional with @ManyToOne"></a>Unidirectional with @ManyToOne</h1><p>Bidirectional One-to-Many relationship is the most common way to map a one-to-many relationship. It is possible to create a unidirectional One-to-Many&#x2F;Many-To-One relationship as well.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Comment</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ManyToOne</span></span><br><span class="line">    <span class="meta">@JoinColumn(name = &quot;post_id&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Post post;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// getters and setters</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Post</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// getters and setters</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>@ManyToOne</code> annotation is used to create a many-to-one relationship between the <code>Comment</code> and <code>Post</code> entities. The <code>@JoinColumn</code> annotation is used to specify the foreign key column in the <code>Comment</code> entity that refers to the primary key column in the <code>Post</code> entity.</p>
+<p>Post doesn’t have a reference to Comment.</p>
+<p>Use case: If you ONLY need to navigate from the owning entity to the owned entity, you can use a unidirectional relationship.</p>
+<h1 id="Cascade-Types"><a href="#Cascade-Types" class="headerlink" title="Cascade Types"></a>Cascade Types</h1><p>The <code>cascade</code> attribute is used to specify the operations that should be cascaded to the target of the association. The <code>cascade</code> attribute can be specified on the <code>@OneToOne</code>, <code>@OneToMany</code>, and <code>@ManyToMany</code> annotations.</p>
+<p>Optionas are:</p>
+<ul>
+<li><code>CascadeType.ALL</code>: All operations are cascaded.</li>
+<li><code>CascadeType.PERSIST</code>: Only persist operation is cascaded.</li>
+<li><code>CascadeType.MERGE</code>: Only merge operation is cascaded.</li>
+<li><code>CascadeType.REMOVE</code>: Only remove operation is cascaded.</li>
+<li><code>CascadeType.REFRESH</code>: Only refresh operation is cascaded.</li>
+<li><code>CascadeType.DETACH</code>: Only detach operation is cascaded.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@OneToMany(cascade = CascadeType.ALL, mappedBy = &quot;post&quot;)</span></span><br><span class="line"><span class="keyword">private</span> List&lt;Comment&gt; comments;</span><br></pre></td></tr></table></figure>
+<p>Here we are using <code>CascadeType.ALL</code> to cascade all operations to Comment entity. If we save a Post entity, all associated Comment entities will be saved automatically. If we delete a Post entity, all associated Comment entities will be deleted automatically.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@OneToMany(cascade = CascadeType.PERSIST, mappedBy = &quot;post&quot;)</span></span><br><span class="line"><span class="keyword">private</span> List&lt;Comment&gt; comments;</span><br></pre></td></tr></table></figure>
+<p>Here we are using <code>CascadeType.PERSIST</code> to cascade only persist operation to Comment entity. If we save a Post entity, all associated Comment entities will be saved automatically. If we delete a Post entity, associated Comment entities will not be deleted automatically.</p>
+<p>It is common to use <code>CascadeType.ALL</code> or <code>CascadeType.PERSIST</code> when you have a bidirectional relationship. Otherwise, you may end up with orphaned entities in the database.</p>
+<h1 id="FetchType"><a href="#FetchType" class="headerlink" title="FetchType"></a>FetchType</h1><p>The <code>fetch</code> attribute is used to specify the fetch type for the association. The <code>fetch</code> attribute can be specified on the <code>@OneToOne</code>, <code>@OneToMany</code>, and <code>@ManyToMany</code> annotations. Default fetch type is <code>FetchType.LAZY</code>.</p>
+<p>Options are:</p>
+<ul>
+<li><code>FetchType.EAGER</code>: The associated entity is loaded eagerly when the owning entity is loaded.</li>
+<li><code>FetchType.LAZY</code>: The associated entity is loaded lazily when the association is accessed.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@OneToMany(cascade = CascadeType.ALL, mappedBy = &quot;post&quot;, fetch = FetchType.EAGER)</span></span><br><span class="line"><span class="keyword">private</span> List&lt;Comment&gt; comments;</span><br></pre></td></tr></table></figure>
+<p>Here we are using <code>FetchType.EAGER</code> to load all associated Comment entities when a Post entity is loaded.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Post <span class="title function_">getPostById</span><span class="params">(Long id)</span> &#123;</span><br><span class="line">    <span class="type">Post</span> <span class="variable">post</span> <span class="operator">=</span> postRepository.findById(id).orElseThrow(() -&gt; <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Post not found&quot;</span>));</span><br><span class="line">    System.out.println(<span class="string">&quot;Post Title: &quot;</span> + post.getTitle());</span><br><span class="line">    List&lt;Comment&gt; comments = post.getComments();</span><br><span class="line">    System.out.println(<span class="string">&quot;Comments: &quot;</span> + comments);</span><br><span class="line">    <span class="keyword">return</span> post;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here comments associated with the post will be loaded eagerly when the post is loaded.</p>
+<p>If you use <code>FetchType.LAZY</code>, comments will be loaded lazily when you access them(calling <code>post.getComments()</code>).</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.jboss.org/hibernate/annotations/3.5/reference/en/html_single/">Hibernate Annotations</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/jpa-cascade-types">Hibernate Cascade Types</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/Exception/" rel="prev" title="Exception Hanlding in Java">
+                  <i class="fa fa-chevron-left"></i> Exception Hanlding in Java
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

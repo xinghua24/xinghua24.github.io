@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven-Dependency"><span class="nav-number">1.</span> <span class="nav-text">Maven Dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Usage"><span class="nav-number">2.</span> <span class="nav-text">Basic Usage:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Advanced-Features"><span class="nav-number">3.</span> <span class="nav-text">Advanced Features:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion:</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven-Dependency"><span class="nav-number">1.</span> <span class="nav-text">Maven Dependency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Usage"><span class="nav-number">2.</span> <span class="nav-text">Basic Usage:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Advanced-Features"><span class="nav-number">3.</span> <span class="nav-text">Advanced Features:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Suppressing-Exceptions"><span class="nav-number">4.</span> <span class="nav-text">Suppressing Exceptions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">5.</span> <span class="nav-text">Conclusion:</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -271,34 +271,38 @@
 
 <h1 id="Basic-Usage"><a href="#Basic-Usage" class="headerlink" title="Basic Usage:"></a>Basic Usage:</h1><p>Let’s explore some fundamental features of Jayway JsonPath:</p>
 <ol>
-<li><p><strong>Parsing JSON:</strong></p>
+<li><strong>Parsing JSON:</strong></li>
+</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">jsonString</span> <span class="operator">=</span> <span class="string">&quot;&#123; \&quot;name\&quot;: \&quot;John Doe\&quot;, \&quot;age\&quot;: 30, \&quot;city\&quot;: \&quot;New York\&quot; &#125;&quot;</span>;</span><br><span class="line"><span class="type">DocumentContext</span> <span class="variable">jsonContext</span> <span class="operator">=</span> JsonPath.parse(jsonString);</span><br></pre></td></tr></table></figure>
 
 <p>The <code>DocumentContext</code> provides a handle to the parsed JSON, enabling seamless navigation and manipulation.</p>
-</li>
-<li><p><strong>Simple Queries:</strong></p>
+<ol start="2">
+<li><strong>Simple Queries:</strong></li>
+</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> jsonContext.read(<span class="string">&quot;$.name&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">age</span> <span class="operator">=</span> jsonContext.read(<span class="string">&quot;$.age&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>With Jayway JsonPath, extracting specific data points becomes straightforward using the familiar JSON Path syntax.</p>
-</li>
-<li><p><strong>Filtering Arrays:</strong></p>
+<ol start="3">
+<li><strong>Filtering Arrays:</strong></li>
+</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; cities = jsonContext.read(<span class="string">&quot;$.cities[?(@.population &gt; 1000000)].name&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>Jayway JsonPath supports advanced filtering, allowing you to extract data from arrays based on specific criteria.</p>
-</li>
-</ol>
 <h1 id="Advanced-Features"><a href="#Advanced-Features" class="headerlink" title="Advanced Features:"></a>Advanced Features:</h1><ol>
-<li><p><strong>Recursive Descent:</strong></p>
+<li><strong>Recursive Descent:</strong></li>
+</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; allAges = jsonContext.read(<span class="string">&quot;$..age&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>The library supports recursive descent, making it easy to navigate through nested structures with minimal effort.</p>
-</li>
-<li><p><strong>Using Predicates:</strong></p>
+<ol start="2">
+<li><strong>Using Predicates:</strong></li>
+</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">bookTitle</span> <span class="operator">=</span> jsonContext.read(<span class="string">&quot;$.books[?(@.category == &#x27;Sci-Fi&#x27; &amp;&amp; @.year &gt; 2020)].title&quot;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>Jayway JsonPath enables the use of powerful predicates for filtering data based on multiple conditions.</p>
-</li>
-</ol>
+<h1 id="Suppressing-Exceptions"><a href="#Suppressing-Exceptions" class="headerlink" title="Suppressing Exceptions"></a>Suppressing Exceptions</h1><p>By default, Jayway JsonPath throws exception when an error occurs during parsing or evaluation. If path is not found, a <code>PathNotFoundException</code> will be thrown. However, you can suppress these exceptions by setting the <code>SUPPRESS_EXCEPTIONS</code> option:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> Configuration.defaultConfiguration()</span><br><span class="line">			.setOptions(Option.SUPPRESS_EXCEPTIONS);</span><br><span class="line"><span class="type">DocumentContext</span> <span class="variable">ctx2</span> <span class="operator">=</span> JsonPath.using(conf).parse(json);</span><br><span class="line"><span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> ctx2.read(<span class="string">&quot;$.wrong.path&quot;</span>); <span class="comment">// &lt;-- value is null here instead of throwing an exception</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion:"></a>Conclusion:</h1><p>In the realm of Java development, where handling JSON data is a common task, Jayway JsonPath emerges as a powerful ally. Its intuitive syntax, extensive features, and seamless integration make it a go-to library for developers dealing with complex JSON structures. By incorporating Jayway JsonPath into your projects, you empower yourself to navigate and extract data effortlessly, paving the way for more robust and efficient Java applications.</p>
 <p>Reference:</p>
 <ul>

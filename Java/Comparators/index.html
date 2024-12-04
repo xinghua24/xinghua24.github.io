@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">239</span>
+          <span class="site-state-item-count">240</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -268,7 +268,7 @@
 
 <h1 id="Comparator-Interface"><a href="#Comparator-Interface" class="headerlink" title="Comparator Interface"></a>Comparator Interface</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Comparator</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="type">int</span> <span class="title function_">compare</span><span class="params">(T o1, T o2)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Comparator is a <strong>functional interface</strong>. Functional interface is an interface that has exactly one abstract method. A functional interface can have any number of default methods, static methods, and abstract methods from the Object class. </p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html">java.util.Comparator</a> is a <strong>functional interface</strong>. Functional interface is an interface that has exactly one abstract method. A functional interface can have any number of default methods, static methods, and abstract methods from the Object class. </p>
 <p>The Comparator interface has only one abstract method, <em>compare</em>. The <em>compare</em> method compares its two arguments for order. It returns a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second.</p>
 <p>Comparator interface has multiple default and static methods to help us create comparators easily.</p>
 <h1 id="Sorting-Using-Lambda-Expressions"><a href="#Sorting-Using-Lambda-Expressions" class="headerlink" title="Sorting Using Lambda Expressions"></a>Sorting Using Lambda Expressions</h1><p>sort method takes a comparator as an argument. We can use lambda expressions to create comparators.</p>
@@ -339,6 +339,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Java/Regular-Expressions/" rel="next" title="Java Regular Expressions">
+                  Java Regular Expressions <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

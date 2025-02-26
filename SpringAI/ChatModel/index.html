@@ -156,18 +156,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">243</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -280,12 +280,15 @@
 <p>At run-time, you can override the default options by adding request-specific options to the Prompt call.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getResponse</span><span class="params">(String prompt)</span> &#123;</span><br><span class="line">    <span class="type">ChatResponse</span> <span class="variable">response</span> <span class="operator">=</span> chatModel.call(<span class="keyword">new</span> <span class="title class_">Prompt</span>(</span><br><span class="line">        prompt,</span><br><span class="line">        OpenAiChatOptions.builder()</span><br><span class="line">            .withModel(<span class="string">&quot;gpt-4o&quot;</span>)</span><br><span class="line">            .withTemperature(<span class="number">0.4d</span>)</span><br><span class="line">            .build()));</span><br><span class="line">    <span class="keyword">return</span> response.getResult().getOutput().getContent();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>see <a target="_blank" rel="noopener" href="https://docs.spring.io/spring-ai/docs/1.0.0-M4/api/org/springframework/ai/openai/OpenAiChatOptions.html">OpenAiChatOptions</a> for all the options you can set.</p>
+<p>see <a target="_blank" rel="noopener" href="https://platform.openai.com/docs/api-reference/chat/create">https://platform.openai.com/docs/api-reference/chat/create</a> for more information on the OpenAI API.</p>
 <h1 id="PromptTemplate"><a href="#PromptTemplate" class="headerlink" title="PromptTemplate"></a>PromptTemplate</h1><p>You can use PromptTemplate to define a template for prompts. The template can include placeholders that will be replaced with values at run-time. This can be useful for generating prompts that are based on dynamic data.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getNovelsToRead</span><span class="params">(String genre)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">promptString</span> <span class="operator">=</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        generate a list of 5 novels to read in the &#123;genre&#125; genre.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span>;</span><br><span class="line">    <span class="type">PromptTemplate</span> <span class="variable">promptTemplate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PromptTemplate</span>(promptString);</span><br><span class="line">    promptTemplate.add(<span class="string">&quot;genre&quot;</span>, genre);</span><br><span class="line">    <span class="keyword">return</span> chatModel.call(promptTemplate.create()).getResult().getOutput().getContent();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-ai/reference/1.0/api/chat/openai-chat.html">Spring AI OpenAI Chat</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-ai/reference/1.0/api/chat/openai-chat.html">Spring AI OpenAI Chat Reference</a></li>
+<li><a target="_blank" rel="noopener" href="https://platform.openai.com/docs/api-reference/chat">OpenAI chat api reference</a></li>
 </ul>
 
     </div>
@@ -305,6 +308,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Others/GithubActions/" rel="next" title="Github Actions">
+                  Github Actions <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -325,7 +331,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-coffee"></i>
   </span>

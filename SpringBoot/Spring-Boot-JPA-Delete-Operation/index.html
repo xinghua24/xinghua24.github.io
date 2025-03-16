@@ -22,7 +22,7 @@
     <meta name="description" content="Persist&#x2F;Merge&#x2F;Delete Operation needs to be done in a transaction. This article shows how to use @Transactional annotation in Spring Boot to delete records from a database table.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot - Delete Operation and Transactional Annotation">
-<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-JPA-Operation-and-Annotation/index.html">
+<meta property="og:url" content="http://example.com/SpringBoot/Spring-Boot-JPA-Delete-Operation/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Persist&#x2F;Merge&#x2F;Delete Operation needs to be done in a transaction. This article shows how to use @Transactional annotation in Spring Boot to delete records from a database table.">
 <meta property="og:locale" content="en_US">
@@ -33,11 +33,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-JPA-Operation-and-Annotation/">
+<link rel="canonical" href="http://example.com/SpringBoot/Spring-Boot-JPA-Delete-Operation/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-JPA-Operation-and-Annotation/","path":"SpringBoot/Spring-Boot-JPA-Operation-and-Annotation/","title":"Spring Boot - Delete Operation and Transactional Annotation"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringBoot/Spring-Boot-JPA-Delete-Operation/","path":"SpringBoot/Spring-Boot-JPA-Delete-Operation/","title":"Spring Boot - Delete Operation and Transactional Annotation"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Spring Boot - Delete Operation and Transactional Annotation | Xing's Blog</title>
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JPA-Operations-Require-a-Transaction"><span class="nav-number">1.</span> <span class="nav-text">1. JPA Operations Require a Transaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Delete-Needs-to-be-Committed"><span class="nav-number">2.</span> <span class="nav-text">2. Delete Needs to be Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Spring-Data-JPA-Defaults"><span class="nav-number">3.</span> <span class="nav-text">3. Spring Data JPA Defaults</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Avoid-LazyInitializationException"><span class="nav-number">4.</span> <span class="nav-text">4. Avoid LazyInitializationException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Cascading-amp-Orphan-Removal"><span class="nav-number">5.</span> <span class="nav-text">5. Cascading &amp; Orphan Removal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Without-Transactional-Possible-Issues"><span class="nav-number">6.</span> <span class="nav-text">Example: Without @Transactional (Possible Issues)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-With-Transactional-Recommended"><span class="nav-number">7.</span> <span class="nav-text">Example: With @Transactional (Recommended)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data-JPA"><span class="nav-number">8.</span> <span class="nav-text">Spring Data JPA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">9.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JPA-Operations-Require-a-Transaction"><span class="nav-number">1.</span> <span class="nav-text">1. JPA Operations Require a Transaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Delete-Needs-to-be-Committed"><span class="nav-number">2.</span> <span class="nav-text">2. Delete Needs to be Committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Spring-Data-JPA-Defaults"><span class="nav-number">3.</span> <span class="nav-text">3. Spring Data JPA Defaults</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Avoid-LazyInitializationException"><span class="nav-number">4.</span> <span class="nav-text">4. Avoid LazyInitializationException</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Cascading-amp-Orphan-Removal"><span class="nav-number">5.</span> <span class="nav-text">5. Cascading &amp; Orphan Removal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Without-Transactional-Possible-Issues"><span class="nav-number">6.</span> <span class="nav-text">Example: Without @Transactional (Possible Issues)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-With-Transactional-Recommended"><span class="nav-number">7.</span> <span class="nav-text">Example: With @Transactional (Recommended)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Data-JPA-Example"><span class="nav-number">8.</span> <span class="nav-text">Spring Data JPA Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">9.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,7 +212,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-JPA-Operation-and-Annotation/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringBoot/Spring-Boot-JPA-Delete-Operation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -297,11 +297,15 @@
 <li>The <code>@Transactional</code> ensures that all operations are executed within the same database transaction.</li>
 </ul>
 <hr>
-<h3 id="Spring-Data-JPA"><a href="#Spring-Data-JPA" class="headerlink" title="Spring Data JPA"></a><strong>Spring Data JPA</strong></h3><p>If you’re using <strong>Spring Data JPA</strong>, the default <code>CrudRepository</code> methods (like <code>deleteById</code>) already run inside transactions:</p>
+<h3 id="Spring-Data-JPA-Example"><a href="#Spring-Data-JPA-Example" class="headerlink" title="Spring Data JPA Example"></a><strong>Spring Data JPA Example</strong></h3><p>If you’re using <strong>Spring Data JPA</strong>, the default <code>CrudRepository</code> methods (like <code>deleteById</code>) already run inside transactions:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;User, Long&gt; &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">deleteById</span><span class="params">(Long id)</span>;  <span class="comment">// Already transactional in JpaRepository</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>But if you write <strong>custom delete methods</strong>, make sure to annotate them with <code>@Transactional</code>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="meta">@Modifying</span></span><br><span class="line"><span class="meta">@Query(&quot;DELETE FROM User u WHERE u.id = :id&quot;)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">deleteUserById</span><span class="params">(<span class="meta">@Param(&quot;id&quot;)</span> Long id)</span>;</span><br></pre></td></tr></table></figure>
-
+<p>Spring Data JPA automatically wraps these methods in a transaction, so you don’t need to add <code>@Transactional</code>.</p>
+<p>But if you write <strong>custom updaate&#x2F;delete methods</strong>, make sure to annotate them with <code>@Transactional</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;User, Long&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="meta">@Modifying</span></span><br><span class="line">    <span class="meta">@Query(&quot;DELETE FROM User u WHERE u.id = :id&quot;)</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">deleteUserById</span><span class="params">(<span class="meta">@Param(&quot;id&quot;)</span> Long id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here @Transactional is needed because this query is not a read-only operation. Need to have a transaction to execute this update&#x2F;delete query. If you don’t add @Transactional, you may encounter an exception like <code>No EntityManager with actual transaction available for current thread</code>.</p>
+<p>Here we use the @Transaction annotation with default propagation level <code>REQUIRED</code>. This means that if there is an existing transaction, the method will execute within that transaction. If there is no transaction, a new transaction will be created.</p>
+<p>@Modifying is needed to tell Spring Data JPA that this query is an update&#x2F;delete query, not a select query.</p>
+<p>@Query is needed to specify the JPQL query to execute.</p>
 <hr>
 <h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a><strong>Conclusion</strong></h3><p>In JPA, the <code>@Transactional</code> annotation is required for delete operations because JPA needs a transactional context to synchronize entity state with the database. Without it, delete operations might not be executed properly, especially when dealing with cascading relationships or lazy-loaded entities.</p>
 

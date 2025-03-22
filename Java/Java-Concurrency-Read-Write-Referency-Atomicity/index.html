@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Volatile variables usage">
+    <meta name="description" content="Can a reference half written to the memory? Can a reference half read from the memory?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Concurrency - Volatile">
-<meta property="og:url" content="http://example.com/Java/Java-Concurrency-Atomic-Variable%20copy/index.html">
+<meta property="og:title" content="Java Concurrency - Write and Read Reference Atomicity">
+<meta property="og:url" content="http://example.com/Java/Java-Concurrency-Read-Write-Referency-Atomicity/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
-<meta property="og:description" content="Volatile variables usage">
+<meta property="og:description" content="Can a reference half written to the memory? Can a reference half read from the memory?">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-08T06:00:00.000Z">
 <meta property="article:modified_time" content="2025-03-08T06:00:00.000Z">
@@ -34,14 +34,14 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/Java/Java-Concurrency-Atomic-Variable%20copy/">
+<link rel="canonical" href="http://example.com/Java/Java-Concurrency-Read-Write-Referency-Atomicity/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Java/Java-Concurrency-Atomic-Variable%20copy/","path":"Java/Java-Concurrency-Atomic-Variable copy/","title":"Java Concurrency - Volatile"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Java/Java-Concurrency-Read-Write-Referency-Atomicity/","path":"Java/Java-Concurrency-Read-Write-Referency-Atomicity/","title":"Java Concurrency - Write and Read Reference Atomicity"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Java Concurrency - Volatile | Xing's Blog</title>
+<title>Java Concurrency - Write and Read Reference Atomicity | Xing's Blog</title>
   
 
 
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Volatile-Variables"><span class="nav-number">1.</span> <span class="nav-text">Volatile Variables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Use-Cases"><span class="nav-number">2.</span> <span class="nav-text">Use Cases</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Write-and-Read-Reference-Atomicity"><span class="nav-number">1.</span> <span class="nav-text">Write and Read Reference Atomicity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#non-volatile-long-and-double"><span class="nav-number">2.</span> <span class="nav-text">non-volatile long and double</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">247</span>
+          <span class="site-state-item-count">250</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -213,7 +213,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/Java/Java-Concurrency-Atomic-Variable%20copy/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Java/Java-Concurrency-Read-Write-Referency-Atomicity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -226,12 +226,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Java Concurrency - Volatile | Xing's Blog">
+      <meta itemprop="name" content="Java Concurrency - Write and Read Reference Atomicity | Xing's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java Concurrency - Volatile
+          Java Concurrency - Write and Read Reference Atomicity
         </h1>
 
         <div class="post-meta-container">
@@ -264,27 +264,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Volatile variables usage</p>
+        <p>Can a reference half written to the memory? Can a reference half read from the memory?</p>
 <span id="more"></span>
 
-<h1 id="Volatile-Variables"><a href="#Volatile-Variables" class="headerlink" title="Volatile Variables"></a>Volatile Variables</h1><p>Volatile variables in Java are used to ensure visibility of changes to variables across multiple threads. When a variable is declared as volatile, it guarantees that any thread reading the variable will see the most recent write to the variable. This ensures that changes made by one thread are visible to other threads immediately.</p>
-<p>Most of the time, volatile is used to ensure visibility of changes to a variable across threads, rather than atomicity of operations. Common use cases are boolean flags that are shared between threads, such as signaling the termination of a thread or a loop.</p>
-<h1 id="Use-Cases"><a href="#Use-Cases" class="headerlink" title="Use Cases"></a>Use Cases</h1><p>Volatile variables are suitable for scenarios where <strong>one thread writes to a variable, and multiple threads read from it</strong>. They provide a lightweight synchronization mechanism to ensure visibility of changes without the overhead of locks or synchronized blocks.</p>
-<p>When to use volatile variables:</p>
-<p>• <strong>Flag variables</strong>: Volatile variables are commonly used for boolean flags that are shared between threads. For example, a flag to signal the termination of a thread or a loop.</p>
-<p>• <strong>Simple state variables</strong>: When a single thread writes to a variable, and multiple threads read from it, volatile variables can ensure that changes are visible across threads.</p>
-<p>• <strong>Non-blocking algorithms</strong>: Volatile variables are essential in building non-blocking algorithms, where threads don’t have to wait for locks, preventing deadlocks.</p>
-<p>• <strong>High contention scenarios</strong>: In scenarios where contention is high, volatile variables can be more efficient than locks because they avoid the overhead of context switching.</p>
-<p>• <strong>Read-mostly scenarios</strong>: In scenarios where a variable is mostly read and infrequently updated, volatile variables can provide better performance than locks.</p>
-<p>When not to use volatile variables:</p>
-<p>• <strong>Complex state management</strong>: If the state management involves complex operations or multiple variables that need to be updated atomically, volatile variables are insufficient. Use locks or synchronized blocks instead.</p>
-<p>• <strong>Mutual exclusion</strong>: Volatile variables do not provide mutual exclusion, so they are not suitable for scenarios where multiple threads need to update a shared variable atomically.</p>
-<p>• <strong>Performance is critical</strong>: If performance is critical and contention is low, using volatile variables might introduce unnecessary overhead compared to other synchronization mechanisms.</p>
-<p>• <strong>When atomicity is required</strong>: Volatile variables do not provide atomicity for compound operations. If atomicity is required, consider using atomic variables or locks.</p>
-<p>• <strong>When ordering is important</strong>: Volatile variables ensure visibility of changes but do not guarantee ordering of operations. If ordering is important, use other synchronization mechanisms.</p>
-<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VolatileExample</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="type">boolean</span> <span class="variable">running</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">worker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">while</span> (running) &#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;Worker thread is running...&quot;</span>);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        Thread.currentThread().interrupt();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">&quot;Worker thread has stopped.&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        worker.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Let the worker thread run for 5 seconds</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Stop the worker thread</span></span><br><span class="line">        running = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Wait for the worker thread to finish</span></span><br><span class="line">        worker.join();</span><br><span class="line">        System.out.println(<span class="string">&quot;Main thread has finished.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Volatile lacks the atomicity guarantees of synchronized blocks or locks. It only ensures visibility of changes across threads. Volatile variables are suitable for simple flag variables and scenarios where one thread writes to a variable, and multiple threads read from it. However, for more complex state management or atomic operations, consider using locks or atomic variables.</p>
+<h1 id="Write-and-Read-Reference-Atomicity"><a href="#Write-and-Read-Reference-Atomicity" class="headerlink" title="Write and Read Reference Atomicity"></a>Write and Read Reference Atomicity</h1><p>In Java, writing a reference to memory is indeed atomic. This means that the operation of assigning a new value to a reference variable happens as a single, indivisible action. It is guaranteed that no thread can observe a partially written reference. </p>
+<p>A reference write will either store the complete new address or retain the old one; there’s no intermediate state where the reference holds a corrupted or half-written address. This atomicity applies regardless of whether the reference is 32-bit or 64-bit. </p>
+<p>However, it’s crucial to distinguish this from the atomicity of operations on the object being referenced. While the reference write itself is atomic, modifications to the object’s state through that reference may not be, requiring proper synchronization mechanisms like locks or volatile variables to ensure thread safety. </p>
+<h1 id="non-volatile-long-and-double"><a href="#non-volatile-long-and-double" class="headerlink" title="non-volatile long and double"></a>non-volatile long and double</h1><p>For non-volatile long and double, the JVM may split the write into two 32-bit writes. This means that another thread could see a half-written long or double value.</p>
+<p>For Example, a non-volatile long has initial value <code>V1</code>. Thread <code>T1</code> writes a new value <code>V2</code> to the long. The JVM may split the write into two 32-bit writes, writing the lower 32 bits first and then the upper 32 bits. If another thread <code>T2</code> reads the long value during the write operation, it may see  value <code>V1</code> or <code>V2</code> or a corrupted value - a mix of <code>V1</code> and <code>V2</code>.</p>
+<p>volatile long and double are always atomic. The JVM guarantees that writes to volatile long and double are always atomic, regardless of the underlying hardware architecture.</p>
+<p>On the other hand, Primitive types like int, short, byte, char, float, boolean, and references are always atomic, regardless of whether they are volatile or not.</p>
+<p>Reference</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/70992522/atomicity-writes-to-and-reads-of-references-are-always-atomic">Atomicity: Writes to and reads of references are always atomic</a></li>
+</ul>
 
     </div>
 
@@ -307,6 +300,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Java/Java-Concurrency-Volatile/" rel="next" title="Java Concurrency - Volatile">
+                  Java Concurrency - Volatile <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

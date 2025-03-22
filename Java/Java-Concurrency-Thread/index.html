@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">247</span>
+          <span class="site-state-item-count">250</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -169,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -272,7 +272,7 @@
 <p>An application can be concurrent but not parallel - application is running two tasks in overlapping time periods but not at the same time.</p>
 <h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><p>In an Operating system, a process can hold one or more <strong>threads</strong>. Threads exists within a process. Threads belonging to a process share memory and resources within the process. Threads are sometimes called <strong>light weight process</strong>. </p>
 <p>For more information on Threads, see <a target="_blank" rel="noopener" href="https://www.internalpointers.com/post/gentle-introduction-multithreading">A gentle introduction to multithreading</a></p>
-<h1 id="MultiThreading-Benefits"><a href="#MultiThreading-Benefits" class="headerlink" title="MultiThreading Benefits"></a>MultiThreading Benefits</h1><p><strong>Increase Responsiveness</strong> - When one thread is blocked or stucked in a slow operation, Operating system can switch to execute another thread. For example, UI thread can continue execution while IO thread is working on the background to save documents.</p>
+<h1 id="MultiThreading-Benefits"><a href="#MultiThreading-Benefits" class="headerlink" title="MultiThreading Benefits"></a>MultiThreading Benefits</h1><p><strong>Better Performance</strong> - Multiple threads can run concurrently. For example, when one thread is blocked, another thread can continue execution.<br><strong>Increase Responsiveness</strong> - When one thread is blocked or stucked in a slow operation, Operating system can switch to execute another thread. For example, UI thread can continue execution while IO thread is working on the background to save documents.</p>
 <p><strong>Economy</strong> - Threads are much cheaper to create than process.</p>
 <p><strong>Scalability</strong> - Some tasks can be divided into subtasks and be executed by threads. This increase the efficiency of the application.</p>
 <h1 id="Creating-a-Thread"><a href="#Creating-a-Thread" class="headerlink" title="Creating a Thread"></a>Creating a Thread</h1><p>You can create a thread by creating <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a>  Interface or extending <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html">Thread</a> class. It is perferred to create a <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html">Thread</a> from a <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html">Runnable</a> Interface.</p>

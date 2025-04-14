@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chakra UI Intro">
+<meta property="og:url" content="http://example.com/Frontend/Chakra-UI/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-05T06:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-05T06:00:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Frontend/Chakra-UI/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Frontend/Chakra-UI/","path":"Frontend/Chakra-UI/","title":"Chakra UI Intro"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Chakra UI Intro | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box-Component"><span class="nav-number">2.</span> <span class="nav-text">Box Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Container-Component"><span class="nav-number">3.</span> <span class="nav-text">Container Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Flex-Component"><span class="nav-number">4.</span> <span class="nav-text">Flex Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Grid-x2F-SimpleGrid-Component"><span class="nav-number">5.</span> <span class="nav-text">Grid&#x2F;SimpleGrid Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stack-Component"><span class="nav-number">6.</span> <span class="nav-text">Stack Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Text-Component"><span class="nav-number">7.</span> <span class="nav-text">Text Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Button-Component"><span class="nav-number">8.</span> <span class="nav-text">Button Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Card-Component"><span class="nav-number">9.</span> <span class="nav-text">Card Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Icons-Component"><span class="nav-number">10.</span> <span class="nav-text">Icons Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Responsive-Design"><span class="nav-number">11.</span> <span class="nav-text">Responsive Design</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Padding-and-Margin"><span class="nav-number">12.</span> <span class="nav-text">Padding and Margin</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sizing"><span class="nav-number">13.</span> <span class="nav-text">Sizing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">14.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Virtual-Color"><span class="nav-number">15.</span> <span class="nav-text">Virtual Color</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Design-Token"><span class="nav-number">16.</span> <span class="nav-text">Design Token</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Theme"><span class="nav-number">17.</span> <span class="nav-text">Theme</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dark-Mode"><span class="nav-number">17.1.</span> <span class="nav-text">Dark Mode</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Add-Sematic-Tokens"><span class="nav-number">18.</span> <span class="nav-text">Add Sematic Tokens</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">256</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Frontend/Chakra-UI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Chakra UI Intro | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Chakra UI Intro
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-04-05 02:00:00" itemprop="dateCreated datePublished" datetime="2025-04-05T02:00:00-04:00">2025-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications.</p>
+<span id="more"></span>
+
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>For Vite Project, refer to <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/get-started/frameworks/vite">Chakra UI Vite</a> for installtion instructions. You need to install the ncecessary dependencies, add snippets, and also update vite.config.js.</p>
+<p>Remember to add Provider at the root of your app. It can be added in main.jsx.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Provider</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/provider&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">createRoot</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)).<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">React.StrictMode</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">React.StrictMode</span>&gt;</span></span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>after that you can use Chakra components in your app.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span>, <span class="title class_">HStack</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Demo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">HStack</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Button</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Button</span>&gt;</span>Click me<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">HStack</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Box-Component"><a href="#Box-Component" class="headerlink" title="Box Component"></a>Box Component</h1><p>The most abstract styling component in Chakra UI on top of which all other Chakra UI components are built.  see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/box">Box Component</a> for more details.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Box</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Box</span> p=&#123;<span class="number">4</span>&#125; m=&#123;<span class="number">4</span>&#125; bg=<span class="string">&quot;gray.100&quot;</span> borderRadius=<span class="string">&quot;md&quot;</span> borderColor=<span class="string">&quot;blue.200&quot;</span> borderWidth=<span class="string">&quot;2px&quot;</span>&gt;</span><br><span class="line">        <span class="title class_">This</span> is a box</span><br><span class="line">&lt;/<span class="title class_">Box</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Container-Component"><a href="#Container-Component" class="headerlink" title="Container Component"></a>Container Component</h1><p>Used to constrain a content’s width to the current breakpoint, while keeping it fluid. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/container">Container Component</a> for more details. </p>
+<p>The default maxWidth is 8xl which maps to 90rem (1440px). You can change the maxWidth by using the <code>maxWidth</code> prop. The default maxWidth is 8xl which maps to 90rem (1440px). You can change the maxWidth by using the <code>maxWidth</code> prop.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Container</span>  maxW=<span class="string">&quot;8xl&quot;</span> bgColor=<span class="string">&quot;blue.200&quot;</span> p=<span class="string">&quot;1em&quot;</span> borderRadius=<span class="string">&quot;md&quot;</span> &gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Text</span>&gt;</span>Some Text<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Container</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Use the <code>fluid</code> prop to make the container stretch to fill the width of its parent.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Container</span>  maxW=<span class="string">&quot;8xl&quot;</span> bgColor=<span class="string">&quot;blue.200&quot;</span> p=<span class="string">&quot;1em&quot;</span> borderRadius=<span class="string">&quot;md&quot;</span> fluid&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Text</span>&gt;</span>Some Text<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Container</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Flex-Component"><a href="#Flex-Component" class="headerlink" title="Flex Component"></a>Flex Component</h1><p>Flex is a layout component that allows you to create flexible and responsive layouts using CSS flexbox. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/flex">Flex Component</a> for more details.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Flex</span> direction=<span class="string">&quot;row&quot;</span> align=<span class="string">&quot;baseline&quot;</span> justify=<span class="string">&quot;center&quot;</span> gap=<span class="string">&quot;4&quot;</span> &gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;red&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box1<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;blue&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box2<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;green&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box3<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Flex</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Grid-x2F-SimpleGrid-Component"><a href="#Grid-x2F-SimpleGrid-Component" class="headerlink" title="Grid&#x2F;SimpleGrid Component"></a>Grid&#x2F;SimpleGrid Component</h1><p>Grid is a layout component that allows you to create flexible and responsive layouts using CSS grid. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/grid">Grid Component</a> for more details.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Grid</span> templateColumns=<span class="string">&quot;repeat(3, 1fr)&quot;</span> gap=&#123;<span class="number">4</span>&#125;&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;red&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box1<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;blue&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box2<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;green&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box3<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Grid</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p><a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/simple-grid">SimpleGrid</a> provides a friendly interface to create responsive grid layouts with ease.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">SimpleGrid</span> m=<span class="string">&quot;1em&quot;</span> columns=<span class="string">&quot;3&quot;</span> gap=<span class="string">&quot;4px&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;red&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box1 in SimpleGrid<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;blue&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box2 in SimpleGrid<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">SimpleGrid</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Stack-Component"><a href="#Stack-Component" class="headerlink" title="Stack Component"></a>Stack Component</h1><p>Stack is a layout component that allows you to create flexible and responsive layouts using CSS flexbox. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/stack">Stack Component</a> for more details. You can use <code>HStack</code> for horizontal stack. You can use  <code>VStack</code> for vertical stacks.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Stack</span> spacing=&#123;<span class="number">4</span>&#125; direction=<span class="string">&quot;row&quot;</span> align=<span class="string">&quot;baseline&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;red&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box1<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;blue&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box2<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;green&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">Text</span>&gt;</span>This is box3<span class="tag">&lt;/<span class="name">Text</span>&gt;</span><span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Stack</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Text-Component"><a href="#Text-Component" class="headerlink" title="Text Component"></a>Text Component</h1><p>The Text component is used to display text in your application. It is a simple component that allows you to style text using props. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/text">Text Component</a> for more details.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Text</span> fontSize=<span class="string">&quot;2xl&quot;</span> fontWeight=<span class="string">&quot;bold&quot;</span> color=<span class="string">&quot;blue.500&quot;</span>&gt;</span><br><span class="line">        <span class="title class_">This</span> is a text</span><br><span class="line">&lt;/<span class="title class_">Text</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Button-Component"><a href="#Button-Component" class="headerlink" title="Button Component"></a>Button Component</h1><p>The Button component is used to display a button in your application. It is a simple component that allows you to style buttons using props. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/button">Button Component</a> for more details.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Button</span> colorScheme=<span class="string">&quot;blue&quot;</span> size=<span class="string">&quot;lg&quot;</span> variant=<span class="string">&quot;solid&quot;</span>&gt;</span><br><span class="line">  <span class="title class_">Click</span> me</span><br><span class="line">&lt;/<span class="title class_">Button</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Card-Component"><a href="#Card-Component" class="headerlink" title="Card Component"></a>Card Component</h1><p>The Card component is used to display a card in your application. It is a simple component that allows you to style cards using props. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/card">Card Component</a> for more details.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Card</span>, <span class="title class_">CardHeader</span>, <span class="title class_">CardBody</span>, <span class="title class_">CardFooter</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Card</span>.<span class="property">Root</span> maxW=&#123;<span class="string">&quot;sm&quot;</span>&#125;&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Card.Header</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">Card.Header</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Card.Body</span>&gt;</span>Description<span class="tag">&lt;/<span class="name">Card.Body</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Card.Footer</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">HStack</span> <span class="attr">spacing</span>=<span class="string">&quot;4&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Button</span> <span class="attr">colorPalette</span>=<span class="string">&quot;blue&quot;</span>&gt;</span>Button 1<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Button</span> <span class="attr">colorPalette</span>=<span class="string">&quot;red&quot;</span>&gt;</span>Button 2<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">HStack</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">Card.Footer</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Card</span>.<span class="property">Root</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Icons-Component"><a href="#Icons-Component" class="headerlink" title="Icons Component"></a>Icons Component</h1><p>Used to display an svg icon. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/icon">Icons</a> for more details.<br>Chakra doesn’t provide any icons out of the box. Use popular icon libraries like <a target="_blank" rel="noopener" href="https://react-icons.github.io/react-icons/">react-icons</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Icon</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FaApple</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react-icons/fa&quot;</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">Icon</span> size=<span class="string">&quot;lg&quot;</span> color=<span class="string">&quot;pink.700&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">FaApple</span> /&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Icon</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Responsive-Design"><a href="#Responsive-Design" class="headerlink" title="Responsive Design"></a>Responsive Design</h1><p>See <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/styling/responsive-design">Responsive Design</a> for more details on responsive design.</p>
+<p>Chakra defines 5 breakpoints</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> breakpoints = &#123;</span><br><span class="line">  <span class="attr">base</span>: <span class="string">&quot;0em&quot;</span>, <span class="comment">// 0px</span></span><br><span class="line">  <span class="attr">sm</span>: <span class="string">&quot;30em&quot;</span>, <span class="comment">// ~480px</span></span><br><span class="line">  <span class="attr">md</span>: <span class="string">&quot;48em&quot;</span>, <span class="comment">// ~768px</span></span><br><span class="line">  <span class="attr">lg</span>: <span class="string">&quot;62em&quot;</span>, <span class="comment">// ~992px</span></span><br><span class="line">  <span class="attr">xl</span>: <span class="string">&quot;80em&quot;</span>, <span class="comment">// ~1280px</span></span><br><span class="line">  <span class="string">&quot;2xl&quot;</span>: <span class="string">&quot;96em&quot;</span>, <span class="comment">// ~1536px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Text</span> fontSize=<span class="string">&quot;2em&quot;</span> fontWeight=&#123;&#123; <span class="attr">base</span>: <span class="string">&quot;medium&quot;</span>, <span class="attr">lg</span>: <span class="string">&quot;bold&quot;</span> &#125;&#125;&gt;<span class="title class_">Responsive</span> <span class="title class_">Text</span>&lt;/<span class="title class_">Text</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>A responsive text that is 2em on all screen sizes, and bold on large screens.</p>
+<h1 id="Padding-and-Margin"><a href="#Padding-and-Margin" class="headerlink" title="Padding and Margin"></a>Padding and Margin</h1><p>Chakra use properties to style components.</p>
+<p>See <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/styling/style-props/spacing">Spacing</a> for more details on padding and margin.</p>
+<p>use <code>p</code> or <code>padding</code> for padding. <code>px</code> or <code>paddingX</code> for horizontal padding. <code>py</code> or <code>paddingY</code> for vertical padding. </p>
+<p><code>m</code> or <code>margin</code> for margin. <code>mx</code> or <code>marginX</code> for horizontal margin. <code>my</code> or <code>marginY</code> for vertical margin.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Box</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Demo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">p</span>=<span class="string">&#123;4&#125;</span> <span class="attr">m</span>=<span class="string">&#123;4&#125;</span> <span class="attr">bg</span>=<span class="string">&quot;gray.100&quot;</span> <span class="attr">borderRadius</span>=<span class="string">&quot;md&quot;</span> <span class="attr">borderColor</span>=<span class="string">&quot;blue.200&quot;</span> <span class="attr">borderWidth</span>=<span class="string">&quot;2px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        This is a box with padding and margin</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">    &lt;/<span class="title class_">Container</span>&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sizing"><a href="#Sizing" class="headerlink" title="Sizing"></a>Sizing</h1><p>see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/styling/style-props/sizing">Sizing</a> for more details on sizing.</p>
+<p>use <code>w</code> or <code>width</code> for width. <code>h</code> or <code>height</code> for height. <code>minW</code> or <code>minWidth</code> for minimum width. <code>maxW</code> or <code>maxWidth</code> for maximum width. <code>minH</code> or <code>minHeight</code> for minimum height. <code>maxH</code> or <code>maxHeight</code> for maximum height.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Box</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Demo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">w</span>=<span class="string">&quot;100px&quot;</span> <span class="attr">h</span>=<span class="string">&quot;100px&quot;</span> <span class="attr">bg</span>=<span class="string">&quot;gray.100&quot;</span> <span class="attr">m</span>=<span class="string">&quot;1em&quot;</span> <span class="attr">borderRadius</span>=<span class="string">&quot;md&quot;</span> <span class="attr">borderColor</span>=<span class="string">&quot;blue.200&quot;</span> <span class="attr">borderWidth</span>=<span class="string">&quot;2px&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        This is a box with width and height</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>See <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/styling/style-props/background">Background</a> for more details on background.<br>use <code>bg</code> or <code>background</code> for background color. <code>bgImage</code> for background image. <code>bgSize</code> for background size. <code>bgPosition</code> for background position. <code>bgRepeat</code> for background repeat.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Box</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Demo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">bg</span>=<span class="string">&quot;blue.500&quot;</span> <span class="attr">color</span>=<span class="string">&quot;white&quot;</span> <span class="attr">p</span>=<span class="string">&#123;4&#125;</span> <span class="attr">borderRadius</span>=<span class="string">&quot;md&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        This is a box with a blue background</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">    &lt;/<span class="title class_">Container</span>&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Virtual-Color"><a href="#Virtual-Color" class="headerlink" title="Virtual Color"></a>Virtual Color</h1><p>Create color placeholders for better theming and customization. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/styling/virtual-color">Virtual Color</a> for more details.</p>
+<p>The <code>colorPalette</code> property is how you create virtual color.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Button</span> colorPalette=<span class="string">&quot;blue&quot;</span>&gt;</span><br><span class="line">    <span class="title class_">Click</span> me</span><br><span class="line">&lt;/<span class="title class_">Button</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>You can also use bg to set the background color of the button. The colorPalette property will be used as the default color for the button, and the bg property will override it.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Button</span> colorPalette=<span class="string">&quot;blue&quot;</span> bg=&#123;&#123; <span class="attr">base</span>: <span class="string">&quot;colorPalette.500&quot;</span>, <span class="attr">_hover</span>: <span class="string">&quot;colorPalette.800&quot;</span> &#125;&#125;&gt;</span><br><span class="line">    <span class="title class_">Click</span> me</span><br><span class="line">&lt;/<span class="title class_">Button</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Design-Token"><a href="#Design-Token" class="headerlink" title="Design Token"></a>Design Token</h1><p>Design tokens are the platform-agnostic way to manage design decisions in your application or website. It is a collection of attributes that describe any fundamental&#x2F;atomic visual style. Each attribute is a key-value pair.</p>
+<p>Chakra UI provides a set of color tokens that can be used to style your components. The color tokens are defined in the theme file. You can use the color tokens to style your components using the <code>color</code> prop. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/theming/colors">Color Token</a> for more details.</p>
+<p>Color token - here “blue.500” and “gray.100” are color tokens. “md” is a design token that is used to set the border radius of the box. </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Box</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Demo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">Box</span> <span class="attr">color</span>=<span class="string">&quot;blue.500&quot;</span> <span class="attr">bg</span>=<span class="string">&quot;gray.100&quot;</span> <span class="attr">p</span>=<span class="string">&#123;4&#125;</span> <span class="attr">borderRadius</span>=<span class="string">&quot;2&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        This is a box with a blue text color</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Box</span>&gt;</span></span></span><br><span class="line">    &lt;/<span class="title class_">Container</span>&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Semantic token - there are many semantic tokens. It is recommended to use semantic tokens for styling the components.</p>
+<p>For color semantic tokens. see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/theming/colors#semantic-tokens">Color Semantic Tokens</a> for more details.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Container</span> color=<span class="string">&quot;fg&quot;</span> bg=<span class="string">&quot;bg.muted&quot;</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span> <span class="attr">color</span>=<span class="string">&quot;fg.info&quot;</span> <span class="attr">bg</span>=<span class="string">&quot;bg.info&quot;</span> <span class="attr">borderColor</span>=<span class="string">&quot;border.info&quot;</span>&gt;</span>Info Button<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span> <span class="attr">color</span>=<span class="string">&quot;fg.error&quot;</span> <span class="attr">bg</span>=<span class="string">&quot;bg.error&quot;</span> <span class="attr">borderColor</span>=<span class="string">&quot;border.error&quot;</span>&gt;</span>Error Button<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Container</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Theme"><a href="#Theme" class="headerlink" title="Theme"></a>Theme</h1><h2 id="Dark-Mode"><a href="#Dark-Mode" class="headerlink" title="Dark Mode"></a>Dark Mode</h2><p>see <a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/styling/dark-mode">dark mode</a></p>
+<p>run the following command to add the dark mode snippet to your project. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx @chakra-ui/cli snippet add color-mode</span><br></pre></td></tr></table></figure>
+
+<p>main.tsx</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ColorModeProvider</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./components/ui/color-mode&#x27;</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="title class_">ColorModeProvider</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">ColorModeProvider</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Adding darkmode toggle</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ColorModeButton</span> &#125; <span class="keyword">from</span> <span class="string">&quot;@/components/ui/color-mode&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Page</span>(<span class="params">&#123; children &#125;: &#123; children: React.ReactNode &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ColorModeButton</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Add-Sematic-Tokens"><a href="#Add-Sematic-Tokens" class="headerlink" title="Add Sematic Tokens"></a>Add Sematic Tokens</h1><p>src&#x2F;theme.ts</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createSystem, defaultConfig, defineConfig &#125; <span class="keyword">from</span> <span class="string">&quot;@chakra-ui/react&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">    <span class="attr">theme</span>: &#123;</span><br><span class="line">        <span class="attr">tokens</span>: &#123;</span><br><span class="line">            <span class="attr">colors</span>: &#123;</span><br><span class="line">                <span class="attr">lightRed</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;#f87171&quot;</span> &#125;,</span><br><span class="line">                <span class="attr">darkRed</span>: &#123; <span class="attr">value</span>: <span class="string">&quot;#991919&quot;</span> &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">semanticTokens</span>: &#123;</span><br><span class="line">            <span class="attr">colors</span>: &#123;</span><br><span class="line">                <span class="attr">primary</span>: &#123;</span><br><span class="line">                    <span class="attr">value</span>: &#123; <span class="attr">base</span>: <span class="string">&quot;#2563eb&quot;</span>, <span class="attr">_dark</span>: <span class="string">&quot;#a3cfff&quot;</span> &#125;,</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="attr">danger</span>: &#123;</span><br><span class="line">                    <span class="attr">value</span>: &#123; <span class="attr">base</span>: <span class="string">&quot;&#123;colors.lightRed&#125;&quot;</span>, <span class="attr">_dark</span>: <span class="string">&quot;&#123;colors.darkRed&#125;&quot;</span> &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">createSystem</span>(defaultConfig, config)</span><br></pre></td></tr></table></figure>
+
+<p>After defining semantic tokens, use the Chakra CLI to generate theme typings for your tokens.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx @chakra-ui/cli typegen ./src/theme.ts</span><br></pre></td></tr></table></figure>
+
+<p>To use the theme in main.jsx</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> theme <span class="keyword">from</span> <span class="string">&#x27;./theme.ts&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">createRoot</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>)).<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">StrictMode</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">ChakraProvider</span> <span class="attr">value</span>=<span class="string">&#123;theme&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ColorModeProvider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">App</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">ColorModeProvider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">ChakraProvider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">StrictMode</span>&gt;</span></span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Frontend/Two-Column-Layout/" rel="prev" title="CSS Two Column Layout">
+                  <i class="fa fa-chevron-left"></i> CSS Two Column Layout
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

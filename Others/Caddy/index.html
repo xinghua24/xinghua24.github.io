@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Serving-a-Static-Website"><span class="nav-number">2.</span> <span class="nav-text">Serving a Static Website</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reverse-Proxy"><span class="nav-number">3.</span> <span class="nav-text">Reverse Proxy</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Serving-a-Static-Website"><span class="nav-number">2.</span> <span class="nav-text">Serving a Static Website</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Caddyfile"><span class="nav-number">3.</span> <span class="nav-text">Caddyfile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reverse-Proxy"><span class="nav-number">4.</span> <span class="nav-text">Reverse Proxy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">261</span>
+          <span class="site-state-item-count">262</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -289,16 +289,23 @@
 <li>Reload the configuration: <code>systemctl reload caddy</code></li>
 <li>Visit your site!</li>
 </ol>
-<p>Here is default content of Caddyfile at <code>/etc/caddy/Caddyfile</code> that you can modify to serve a static website:</p>
+<p>Here is default content of <a target="_blank" rel="noopener" href="https://caddyserver.com/docs/caddyfile">Caddyfile</a> at <code>/etc/caddy/Caddyfile</code> that you can modify to serve a static website:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">:80 &#123;</span><br><span class="line">	# Set this path to your site&#x27;s directory.</span><br><span class="line">	root * /usr/share/caddy</span><br><span class="line"></span><br><span class="line">	# Enable the static file server.</span><br><span class="line">	file_server</span><br><span class="line"></span><br><span class="line">	# Another common task is to set up a reverse proxy:</span><br><span class="line">	# reverse_proxy localhost:8080</span><br><span class="line"></span><br><span class="line">	# Or serve a PHP site through php-fpm:</span><br><span class="line">	# php_fastcgi localhost:9000</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Refer to the Caddy docs for more information:</span><br><span class="line"># https://caddyserver.com/docs/caddyfile</span><br></pre></td></tr></table></figure>
 
-
+<h1 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h1><p>The Caddyfile is the configuration file for Caddy. It is a simple text file that defines how Caddy should serve your site. The Caddyfile is located at <code>/etc/caddy/Caddyfile</code> on Ubuntu.</p>
+<p>You can have multiple sites in a single Caddyfile. Each site is defined by a block that starts with the site’s domain name or IP address, followed by the configuration for that site.</p>
+<p>Example of a Caddyfile serving two static websites:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">example.com &#123;</span><br><span class="line">	root * /var/www/html</span><br><span class="line">	file_server</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">example.org &#123;</span><br><span class="line">	root * /var/www/another-site</span><br><span class="line">	file_server</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="Reverse-Proxy"><a href="#Reverse-Proxy" class="headerlink" title="Reverse Proxy"></a>Reverse Proxy</h1><p>Caddy can also be used as a reverse proxy. This is useful if you want to serve multiple applications on the same domain or if you want to proxy requests to another server.</p>
-<p>Update Caddyfile to include a reverse proxy configuration. For example, to proxy requests to a Node.js application running on port 3000, you can add the following to your Caddyfile:</p>
+<p>Update <a target="_blank" rel="noopener" href="https://caddyserver.com/docs/caddyfile">Caddyfile</a> to include a reverse proxy configuration. For example, to proxy requests to a Node.js application running on port 3000, you can add the following to your Caddyfile:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">example.com &#123;</span><br><span class="line">    reverse_proxy localhost:3000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>run <code>systemctl reload caddy</code> to apply the changes.</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://caddyserver.com/docs/caddyfile/concepts">Caddyfile Concepts</a></li>
+<li></li>
+</ul>
 
     </div>
 
@@ -317,6 +324,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Frontend/Tailwind/" rel="next" title="Tailwind">
+                  Tailwind <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bidirectional-One-to-One-Relationship"><span class="nav-number">1.</span> <span class="nav-text">Bidirectional One-to-One Relationship</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unidirectional-One-to-One-Relationship"><span class="nav-number">2.</span> <span class="nav-text">Unidirectional One-to-One Relationship</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bidirectional-One-to-One-Relationship"><span class="nav-number">1.</span> <span class="nav-text">Bidirectional One-to-One Relationship</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unidirectional-One-to-One-Relationship"><span class="nav-number">2.</span> <span class="nav-text">Unidirectional One-to-One Relationship</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MapsId-Example"><span class="nav-number">3.</span> <span class="nav-text">@MapsId Example</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -290,6 +290,19 @@
 <p>Test:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">person.setName(<span class="string">&quot;Alice&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Address</span> <span class="variable">address</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Address</span>();</span><br><span class="line">address.setStreet(<span class="string">&quot;123 Main St&quot;</span>);</span><br><span class="line">address.setCity(<span class="string">&quot;Springfield&quot;</span>);</span><br><span class="line"></span><br><span class="line">address.setPerson(person);</span><br><span class="line"></span><br><span class="line">addressRepository.save(address);</span><br></pre></td></tr></table></figure>
 
+<h1 id="MapsId-Example"><a href="#MapsId-Example" class="headerlink" title="@MapsId Example"></a>@MapsId Example</h1><p>In some cases, you may want the primary key of the child entity to be the same as the primary key of the parent entity. You can achieve this using the <code>@MapsId</code> annotation. <code>@MapsId</code> can be used in a One-to-One relationship or a Many-to-One relationship.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OneToOne(mappedBy = &quot;person&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Address address;</span><br><span class="line">    <span class="comment">// getters and setters</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&#96;&#96;&#96;java<br>@Entity<br>public class Address {<br>    @Id<br>    private Long id;</p>
+<pre><code>private String street;
+
+@OneToOne
+@MapsId
+@JoinColumn(name = &quot;person_id&quot;)
+private Person person;
+// getters and setters
+</code></pre>
+<p>}</p>
 
     </div>
 

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Swift is a modern, open source programming language.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift Basics">
+<meta property="og:url" content="http://example.com/Others/Swift/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Swift is a modern, open source programming language.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-12-15T04:48:00.000Z">
+<meta property="article:modified_time" content="2025-12-15T04:48:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Swift">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Others/Swift/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Others/Swift/","path":"Others/Swift/","title":"Swift Basics"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Swift Basics | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Types"><span class="nav-number">2.</span> <span class="nav-text">Data Types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">2.1.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">2.2.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dictionary"><span class="nav-number">2.3.</span> <span class="nav-text">Dictionary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variables-and-Constants"><span class="nav-number">3.</span> <span class="nav-text">Variables and Constants</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Enum"><span class="nav-number">4.</span> <span class="nav-text">Enum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#If-Statement"><span class="nav-number">5.</span> <span class="nav-text">If Statement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Switch-Statement"><span class="nav-number">6.</span> <span class="nav-text">Switch Statement</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loops"><span class="nav-number">7.</span> <span class="nav-text">Loops</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">8.</span> <span class="nav-text">Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Struct"><span class="nav-number">9.</span> <span class="nav-text">Struct</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class"><span class="nav-number">10.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Protocol"><span class="nav-number">11.</span> <span class="nav-text">Protocol</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Extension"><span class="nav-number">12.</span> <span class="nav-text">Extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Optional"><span class="nav-number">13.</span> <span class="nav-text">Optional</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">264</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Others/Swift/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Swift Basics | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Swift Basics
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-12-14 23:48:00" itemprop="dateCreated datePublished" datetime="2025-12-14T23:48:00-05:00">2025-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Swift is a modern, open source programming language. </p>
+<span id="more"></span>
+
+<h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>You can install Swift by downloading Xcode from the Mac App Store.</p>
+<p>To verify the installation, run the following command in the terminal:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift --version</span><br></pre></td></tr></table></figure>
+
+<p>You can create swift file with .swift extension. To run a Swift file, use the following command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swift &lt;filename&gt;.swift</span><br></pre></td></tr></table></figure>
+
+<p>Hello World</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, World!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h1><p>Swift basic data types are Int, Double, String, Bool, Array, Dictionary, Set, Tuple, Optional, and more.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> b <span class="operator">=</span> <span class="number">10.0</span>;</span><br><span class="line"><span class="keyword">let</span> d <span class="operator">=</span> <span class="string">&quot;Hello, World!&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> e <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> f <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> g <span class="operator">=</span> [<span class="string">&quot;a&quot;</span>: <span class="number">1</span>, <span class="string">&quot;b&quot;</span>: <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> h <span class="operator">=</span> <span class="type">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> i <span class="operator">=</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">let</span> j <span class="operator">=</span> <span class="type">Optional</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><p>Arrays are declared with []. Array is a collection of elements of the same type. Common operations include append, remove, insert, and count.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">array.append(<span class="number">4</span>);</span><br><span class="line">array.remove(at: <span class="number">0</span>);</span><br><span class="line">array.insert(<span class="number">1</span>, at: <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(array);</span><br><span class="line"><span class="built_in">print</span>(array.count);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">set</span> <span class="operator">=</span> <span class="type">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// set operations</span></span><br><span class="line"><span class="keyword">set</span>.insert(<span class="number">6</span>)</span><br><span class="line"><span class="keyword">set</span>.remove(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">set</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">set</span>.contains(<span class="number">2</span>)) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dictionary</span></span><br><span class="line"><span class="keyword">var</span> dict <span class="operator">=</span> [<span class="string">&quot;a&quot;</span>: <span class="number">1</span>, <span class="string">&quot;b&quot;</span>: <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">dict[<span class="string">&quot;c&quot;</span>] <span class="operator">=</span> <span class="number">3</span></span><br><span class="line">dict.removeValue(forKey: <span class="string">&quot;a&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dict)</span><br><span class="line"><span class="built_in">print</span>(dict[<span class="string">&quot;b&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+<h1 id="Variables-and-Constants"><a href="#Variables-and-Constants" class="headerlink" title="Variables and Constants"></a>Variables and Constants</h1><p>variables are declared with var, constants are declared with let. You can also declare variables with type annotation.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> b <span class="operator">=</span> <span class="number">10.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> names: [<span class="type">String</span>] <span class="operator">=</span> [<span class="string">&quot;John&quot;</span>, <span class="string">&quot;Jane&quot;</span>, <span class="string">&quot;Jack&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Enum"><a href="#Enum" class="headerlink" title="Enum"></a>Enum</h1><p>Enum is a collection of related constants.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Direction</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> north</span><br><span class="line">    <span class="keyword">case</span> south</span><br><span class="line">    <span class="keyword">case</span> east</span><br><span class="line">    <span class="keyword">case</span> west</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> direction <span class="operator">=</span> <span class="type">Direction</span>.north</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(direction)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="If-Statement"><a href="#If-Statement" class="headerlink" title="If Statement"></a>If Statement</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> a <span class="operator">&gt;</span> b &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;a is greater than b&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> a <span class="operator">&lt;</span> b &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;a is less than b&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;a is equal to b&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Switch-Statement"><a href="#Switch-Statement" class="headerlink" title="Switch Statement"></a>Switch Statement</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> a &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;a is 1&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;a is 2&quot;</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;a is not 1 or 2&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Loops"><a href="#Loops" class="headerlink" title="Loops"></a>Loops</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span><span class="operator">...</span><span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> a <span class="operator">&gt;</span> <span class="number">0</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">    a <span class="operator">-=</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><p>A function is a block of code that performs a specific task. Functions can take parameters and return values.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names: [<span class="type">String</span>] <span class="operator">=</span> [<span class="string">&quot;John&quot;</span>, <span class="string">&quot;Jane&quot;</span>, <span class="string">&quot;Jack&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">printArray</span>(<span class="params">arr</span>: [<span class="type">String</span>]) &#123;</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> arr &#123;</span><br><span class="line">        <span class="built_in">print</span>(name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printArray(arr: names)</span><br></pre></td></tr></table></figure>
+
+<p>Function with return value</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">isPalindrome</span>(<span class="params">s</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> str <span class="operator">=</span> s.lowercased()</span><br><span class="line">    <span class="keyword">let</span> reversedStr <span class="operator">=</span> <span class="type">String</span>(str.reversed())</span><br><span class="line">    <span class="keyword">return</span> str <span class="operator">==</span> reversedStr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(isPalindrome(s: <span class="string">&quot;Catac&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>Function with multiple parameters</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">add</span>(<span class="params">a</span>: <span class="type">Int</span>, <span class="params">b</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a <span class="operator">+</span> b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(add(a: <span class="number">1</span>, b: <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p>Function with multiple return values</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">getMinAndMax</span>(<span class="params">arr</span>: [<span class="type">Int</span>]) -&gt; (<span class="type">Int</span>, <span class="type">Int</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> min <span class="operator">=</span> arr[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">var</span> max <span class="operator">=</span> arr[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> arr &#123;</span><br><span class="line">        <span class="keyword">if</span> num <span class="operator">&lt;</span> min &#123;</span><br><span class="line">            min <span class="operator">=</span> num</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> num <span class="operator">&gt;</span> max &#123;</span><br><span class="line">            max <span class="operator">=</span> num</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (min, max)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> (min, max) <span class="operator">=</span> getMinAndMax(arr: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Min: <span class="subst">\(min)</span>, Max: <span class="subst">\(max)</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>To skip parameters, use underscore (_).</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">isPalindrome</span>(<span class="keyword">_</span> <span class="params">s</span>: <span class="type">String</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> str <span class="operator">=</span> s.lowercased()</span><br><span class="line">    <span class="keyword">let</span> reversedStr <span class="operator">=</span> <span class="type">String</span>(str.reversed())</span><br><span class="line">    <span class="keyword">return</span> str <span class="operator">==</span> reversedStr</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(isPalindrome(<span class="string">&quot;Catac&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>Default parameters</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">add</span>(<span class="params">a</span>: <span class="type">Int</span>, <span class="params">b</span>: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a <span class="operator">+</span> b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(add(a: <span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(add(a: <span class="number">1</span>, b: <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<p>Closure - anonymous function. It is a self-contained block of code that can be passed around. Syntax: </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; (parameters) -&gt; <span class="keyword">return</span> type <span class="keyword">in</span></span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Example:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> evenNumbers <span class="operator">=</span> numbers.filter(&#123; (num) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> num <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">print</span>(evenNumbers)</span><br></pre></td></tr></table></figure>
+
+<p>You can simplify the closure by using the shorthand syntax.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> evenNumbers <span class="operator">=</span> numbers.filter(&#123; num <span class="keyword">in</span> num <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span> &#125;)</span><br><span class="line"><span class="built_in">print</span>(evenNumbers)</span><br></pre></td></tr></table></figure>
+
+<p>You can also use $0, $1, $2, … to represent the parameters.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers <span class="operator">=</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> evenNumbers <span class="operator">=</span> numbers.filter(&#123; <span class="variable">$0</span> <span class="operator">%</span> <span class="number">2</span> <span class="operator">==</span> <span class="number">0</span> &#125;)</span><br><span class="line"><span class="built_in">print</span>(evenNumbers)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Struct"><a href="#Struct" class="headerlink" title="Struct"></a>Struct</h1><p>Struct is a custom data type. It is a collection of properties and methods. It is similar to a class, but it is value type.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> y: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printPoint</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;x: <span class="subst">\(x)</span>, y: <span class="subst">\(y)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">2</span>, y: <span class="number">3</span>)</span><br><span class="line">p.printPoint()</span><br><span class="line"><span class="built_in">print</span>(p.x)</span><br><span class="line"><span class="built_in">print</span>(p.y)</span><br></pre></td></tr></table></figure>
+
+<p>init method</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> y: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">x</span>: <span class="type">Int</span>, <span class="params">y</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.x <span class="operator">=</span> x</span><br><span class="line">        <span class="keyword">self</span>.y <span class="operator">=</span> y</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Point initialized&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">2</span>, y: <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>mutating method - can modify the struct. Without this, the struct is immutable. assignment to property ‘self’ is not allowed in a non-mutating method.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> y: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">moveBy</span>(<span class="params">x</span>: <span class="type">Int</span>, <span class="params">y</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.x <span class="operator">+=</span> x</span><br><span class="line">        <span class="keyword">self</span>.y <span class="operator">+=</span> y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">2</span>, y: <span class="number">3</span>)</span><br><span class="line">p.moveBy(x: <span class="number">1</span>, y: <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(p.x)</span><br><span class="line"><span class="built_in">print</span>(p.y)</span><br></pre></td></tr></table></figure>
+
+<p>Computed property - property that is calculated on the fly.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> y: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> distanceFromOrigin: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Int</span>(sqrt(<span class="type">Double</span>(x <span class="operator">*</span> x <span class="operator">+</span> y <span class="operator">*</span> y)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">3</span>, y: <span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(p.distanceFromOrigin)</span><br></pre></td></tr></table></figure>
+
+
+<p>static variable - shared by all instances of the struct</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> origin <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">0</span>, y: <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">let</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> y: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">x</span>: <span class="type">Int</span>, <span class="params">y</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.x <span class="operator">=</span> x</span><br><span class="line">        <span class="keyword">self</span>.y <span class="operator">=</span> y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Point</span>.origin)</span><br></pre></td></tr></table></figure>
+
+<p>static method - can be called on the struct itself</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> origin <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">0</span>, y: <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">let</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> y: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">x</span>: <span class="type">Int</span>, <span class="params">y</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.x <span class="operator">=</span> x</span><br><span class="line">        <span class="keyword">self</span>.y <span class="operator">=</span> y</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">printOrigin</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="type">Point</span>.origin)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Point</span>.printOrigin()</span><br></pre></td></tr></table></figure>
+
+<p>private variable - can only be accessed within the struct</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">    <span class="keyword">private(set)</span> <span class="keyword">let</span> x: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">private(set)</span> <span class="keyword">let</span> y: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">x</span>: <span class="type">Int</span>, <span class="params">y</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.x <span class="operator">=</span> x</span><br><span class="line">        <span class="keyword">self</span>.y <span class="operator">=</span> y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p <span class="operator">=</span> <span class="type">Point</span>(x: <span class="number">2</span>, y: <span class="number">3</span>)</span><br><span class="line">p.x <span class="comment">// error</span></span><br><span class="line">p.y <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><p>Class is similar to struct, but it is reference type. You can create subclass and override methods.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> numberOfWheels: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> numberOfSeats: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">numberOfWheels</span>: <span class="type">Int</span>, <span class="params">numberOfSeats</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.numberOfWheels <span class="operator">=</span> numberOfWheels</span><br><span class="line">        <span class="keyword">self</span>.numberOfSeats <span class="operator">=</span> numberOfSeats</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printDescription</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Number of wheels: <span class="subst">\(numberOfWheels)</span>&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Number of seats: <span class="subst">\(numberOfSeats)</span>&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span>: <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(numberOfWheels: <span class="number">4</span>, numberOfSeats: <span class="number">5</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">func</span> <span class="title function_">printDescription</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;This is a car&quot;</span>)</span><br><span class="line">        <span class="keyword">super</span>.printDescription()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> car <span class="operator">=</span> <span class="type">Car</span>()</span><br><span class="line">car.printDescription()</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h1><p>Protocol is a blueprint of methods, properties, and other requirements that a class, struct, or enum must implement.</p>
+<p>Example: protocol Vehicle with required properties and methods. numberOfWheels is a read-only property, numberOfSeats is a read-write property, and printDescription is a method.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> numberOfWheels: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">var</span> numberOfSeats: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printDescription</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Car</span>: <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> numberOfWheels: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> numberOfSeats: <span class="type">Int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(<span class="params">numberOfWheels</span>: <span class="type">Int</span>, <span class="params">numberOfSeats</span>: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.numberOfWheels <span class="operator">=</span> numberOfWheels</span><br><span class="line">        <span class="keyword">self</span>.numberOfSeats <span class="operator">=</span> numberOfSeats</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">printDescription</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;This is a car&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car: <span class="type">Vehicle</span> <span class="operator">=</span> <span class="type">Car</span>(numberOfWheels: <span class="number">4</span>, numberOfSeats: <span class="number">5</span>)</span><br><span class="line">car.printDescription()</span><br><span class="line"><span class="comment">// car.numberOfWheels = 6 // error: number of wheels is a get-only property</span></span><br><span class="line">car.numberOfSeats <span class="operator">=</span> <span class="number">7</span>   </span><br><span class="line"><span class="built_in">print</span>(car.numberOfWheels)</span><br><span class="line"><span class="built_in">print</span>(car.numberOfSeats)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h1><p>Extension is a way to add new functionality to a class, struct, or enum.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extension</span> <span class="title class_">String</span> &#123;</span><br><span class="line">    <span class="comment">// function</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">isPalindrome</span>() -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> str <span class="operator">=</span> <span class="keyword">self</span>.lowercased()</span><br><span class="line">        <span class="keyword">let</span> reversedStr <span class="operator">=</span> <span class="type">String</span>(str.reversed())</span><br><span class="line">        <span class="keyword">return</span> str <span class="operator">==</span> reversedStr</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// computed property</span></span><br><span class="line">    <span class="keyword">var</span> reversed: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">String</span>(<span class="keyword">self</span>.reversed())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> lines: [<span class="type">String</span>] &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.split(separator: <span class="string">&quot;<span class="subst">\n</span>&quot;</span>).map &#123; <span class="type">String</span>(<span class="variable">$0</span>) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;racecar&quot;</span>.isPalindrome())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;racecar&quot;</span>.reversed)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;line1<span class="subst">\n</span>line2<span class="subst">\n</span>line3&quot;</span>.lines)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h1><p>Optional is a type that can be either a value or nil. It is used to handle the case where a value may not exist.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> optionalInt: <span class="type">Int</span>? <span class="operator">=</span> <span class="literal">nil</span></span><br></pre></td></tr></table></figure>
+
+<p>optional can be used to handle the case where a value may not exist.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cart: [<span class="type">String</span>: <span class="type">Int</span>] <span class="operator">=</span> [<span class="string">&quot;apple&quot;</span>: <span class="number">2</span>, <span class="string">&quot;banana&quot;</span>: <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> pearCount <span class="operator">=</span> cart[<span class="string">&quot;pear&quot;</span>] &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Pear count: <span class="subst">\(pearCount)</span>&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Pear not found in cart&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>guard let - used to unwrap an optional value and provide a default value if the optional is nil.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cart: [<span class="type">String</span>: <span class="type">Int</span>] <span class="operator">=</span> [<span class="string">&quot;apple&quot;</span>: <span class="number">2</span>, <span class="string">&quot;banana&quot;</span>: <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">printPearCount</span>() &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> pearCount <span class="operator">=</span> cart[<span class="string">&quot;pear&quot;</span>] <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Pear not found in cart&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Pear count: <span class="subst">\(pearCount)</span>&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printPearCount()</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringBoot/Spring-Boot-JPA-Cascade/" rel="prev" title="Spring Boot JPA Cascade">
+                  <i class="fa fa-chevron-left"></i> Spring Boot JPA Cascade
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

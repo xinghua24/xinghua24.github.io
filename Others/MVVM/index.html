@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MVVM in SwiftUI What is MVVM?MVVM stands for Model-View-ViewModel. It is a design pattern used in software development to separate the user interface (View) from the business logic and data (Model) th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVVM in SwiftUI">
+<meta property="og:url" content="http://example.com/Others/MVVM/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="MVVM in SwiftUI What is MVVM?MVVM stands for Model-View-ViewModel. It is a design pattern used in software development to separate the user interface (View) from the business logic and data (Model) th">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-12-16T04:48:00.000Z">
+<meta property="article:modified_time" content="2025-12-16T04:48:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta property="article:tag" content="Swift">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Others/MVVM/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Others/MVVM/","path":"Others/MVVM/","title":"MVVM in SwiftUI"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MVVM in SwiftUI | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-MVVM"><span class="nav-number">1.</span> <span class="nav-text">What is MVVM?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model"><span class="nav-number">2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ViewModel"><span class="nav-number">3.</span> <span class="nav-text">ViewModel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#View"><span class="nav-number">4.</span> <span class="nav-text">View</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#StateObject-vs-ObservedObject"><span class="nav-number">4.1.</span> <span class="nav-text">@StateObject vs @ObservedObject</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">267</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Others/MVVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MVVM in SwiftUI | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MVVM in SwiftUI
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-12-15 23:48:00" itemprop="dateCreated datePublished" datetime="2025-12-15T23:48:00-05:00">2025-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>MVVM in SwiftUI</p>
+<h1 id="What-is-MVVM"><a href="#What-is-MVVM" class="headerlink" title="What is MVVM?"></a>What is MVVM?</h1><p>MVVM stands for Model-View-ViewModel. It is a design pattern used in software development to separate the user interface (View) from the business logic and data (Model) through an intermediary (ViewModel). This separation helps in managing complex applications, improving testability, and enhancing maintainability.</p>
+<h1 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h1><p>The Model represents the data and business logic of the application. It is responsible for managing the data, whether it comes from a database, a web service, or any other source.</p>
+<p>TodoItgem.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TodoItem</span> : <span class="title class_">Identifiable</span>, <span class="title class_">Codable</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> id: <span class="type">UUID</span></span><br><span class="line">    <span class="keyword">var</span> title: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> isCompleted: <span class="type">Bool</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(<span class="params">id</span>: <span class="type">UUID</span> <span class="operator">=</span> <span class="type">UUID</span>(), <span class="params">title</span>: <span class="type">String</span>, <span class="params">isCompleted</span>: <span class="type">Bool</span> <span class="operator">=</span> <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.id <span class="operator">=</span> id</span><br><span class="line">        <span class="keyword">self</span>.title <span class="operator">=</span> title</span><br><span class="line">        <span class="keyword">self</span>.isCompleted <span class="operator">=</span> isCompleted</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h1><p>The ViewModel acts as a bridge between the Model and the View. It retrieves data from the Model, processes it if necessary, and exposes it in a way that the View can easily consume.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"><span class="keyword">import</span> Combine</span><br><span class="line"></span><br><span class="line"><span class="keyword">extension</span> <span class="title class_">ContentView</span> &#123;</span><br><span class="line">    <span class="meta">@MainActor</span> <span class="keyword">class</span> <span class="title class_">ViewModel</span>: <span class="title class_">ObservableObject</span> &#123;</span><br><span class="line">        <span class="meta">@Published</span> <span class="keyword">var</span> itemList: [<span class="type">TodoItem</span>] <span class="operator">=</span> []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">func</span> <span class="title function_">addItem</span>() &#123;</span><br><span class="line">            <span class="keyword">let</span> todo <span class="operator">=</span> <span class="type">TodoItem</span>(id: <span class="type">UUID</span>(), title: <span class="string">&quot;Do something!&quot;</span>)</span><br><span class="line">            withAnimation &#123;</span><br><span class="line">                itemList.insert( todo, at: <span class="number">0</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here we define a <code>ViewModel</code> class that conforms to <code>ObservableObject</code>. It has a published property <code>itemList</code> that holds an array of <code>TodoItem</code>. The <code>addItem</code> method adds a new item to the list.</p>
+<p>@Published is a property wrapper that allows SwiftUI views to automatically update when the property changes.</p>
+<p>ContentView has addItem method to add new items to the list.</p>
+<h1 id="View"><a href="#View" class="headerlink" title="View"></a>View</h1><p>The View is responsible for displaying the user interface. It observes the ViewModel and updates the UI when the data changes.</p>
+<p>Content-ContentView.swift</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> SwiftUI</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ContentView</span>: <span class="title class_">View</span> &#123;</span><br><span class="line">    <span class="meta">@StateObject</span> <span class="keyword">private</span> <span class="keyword">var</span> vm <span class="operator">=</span> <span class="type">ViewModel</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> &#123;</span><br><span class="line">        <span class="type">VStack</span> &#123;</span><br><span class="line">            <span class="type">List</span>(vm.itemList, id: \.id) &#123; item <span class="keyword">in</span></span><br><span class="line">                <span class="type">HStack</span> &#123;</span><br><span class="line">                    <span class="type">Text</span>(item.title)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            .listStyle(.plain)</span><br><span class="line">            .background( .thinMaterial)</span><br><span class="line">            </span><br><span class="line">            <span class="type">Button</span>(<span class="string">&quot;Add Item&quot;</span>) &#123;</span><br><span class="line">                vm.addItem()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="type">Preview</span> &#123;</span><br><span class="line">    <span class="type">ContentView</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In the view, we create a ViewModel with @StateObject. ViewModel is observed by the view, and when the <code>itemList</code> changes, the List will automatically update to reflect the new data. The Button calls the <code>addItem</code> method in the ViewModel to add a new item to the list.</p>
+<h2 id="StateObject-vs-ObservedObject"><a href="#StateObject-vs-ObservedObject" class="headerlink" title="@StateObject vs @ObservedObject"></a>@StateObject vs @ObservedObject</h2><p><code>@StateObject</code> is used to create a single instance of a ViewModel that is owned by the View. It is initialized only once during the lifecycle of the View.</p>
+<p><code>@ObservedObject</code> is used to observe an existing instance of a ViewModel that is owned by another View. It does not create a new instance but rather listens for changes in the existing one.</p>
+<p>Difference:</p>
+<ul>
+<li>Use <code>@StateObject</code> when the View is responsible for creating and owning the ViewModel</li>
+<li>Use <code>@ObservedObject</code> when the View is receiving the ViewModel from another source, such as a parent View.</li>
+<li>In this example, we use <code>@StateObject</code> because the <code>ContentView</code> is responsible for creating and owning the <code>ViewModel</code>.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Swift/" rel="tag"># Swift</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Others/Swift-UI-1/" rel="prev" title="Swift UI Basics 1">
+                  <i class="fa fa-chevron-left"></i> Swift UI Basics 1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Others/Swift-UI-2/" rel="next" title="Swift UI Basics 2">
+                  Swift UI Basics 2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

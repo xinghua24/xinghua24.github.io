@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Tool calling (also known as function calling) is a common pattern in AI applications, allowing a model to interact with a set of APIs, or tools, augmenting its capabilities.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring AI - Tool Calling">
+<meta property="og:url" content="http://example.com/SpringAI/Tool-Calling/index.html">
+<meta property="og:site_name" content="Xing&#39;s Blog">
+<meta property="og:description" content="Tool calling (also known as function calling) is a common pattern in AI applications, allowing a model to interact with a set of APIs, or tools, augmenting its capabilities.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-15T17:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-15T17:00:00.000Z">
+<meta property="article:author" content="Xinghua Zhang">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/SpringAI/Tool-Calling/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/SpringAI/Tool-Calling/","path":"SpringAI/Tool-Calling/","title":"Spring AI - Tool Calling"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Spring AI - Tool Calling | Xing's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Xing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Configuration"><span class="nav-number">1.</span> <span class="nav-text">Configuration</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tool-Calling"><span class="nav-number">2.</span> <span class="nav-text">Tool Calling</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xinghua Zhang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">269</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xinghua24" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xinghua24" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/SpringAI/Tool-Calling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xinghua Zhang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Spring AI - Tool Calling | Xing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring AI - Tool Calling
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-02-15 12:00:00" itemprop="dateCreated datePublished" datetime="2026-02-15T12:00:00-05:00">2026-02-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-AI/" itemprop="url" rel="index"><span itemprop="name">Spring AI</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Spring-AI/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Tool calling (also known as function calling) is a common pattern in AI applications, allowing a model to interact with a set of APIs, or tools, augmenting its capabilities.</p>
+<span id="more"></span>
+
+<p>Tools are mainly used for:</p>
+<ul>
+<li>Information retrieval - Tools in this category can be used to retrieve information from external sources, such as a database, a web service, a file system, or a web search engine. </li>
+<li>Taking Action - Tools in this category can be used to take action in a software system, such as sending an email, creating a new record in a database, submitting a form, or triggering a workflow.</li>
+</ul>
+<h1 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h1><p>pom.xml file add Google Gemini dependency:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.ai<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-ai-starter-model-google-genai<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>application.properties file add Google Gemini API key. Assuming you have the API key stored in an environment variable named GEMINI_API_KEY, you can reference it in your application.properties file like this:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.ai.google.genai.api-key=$&#123;GEMINI_API_KEY&#125;</span><br><span class="line">spring.ai.google.genai.chat.options.model=gemini-2.5-flash</span><br></pre></td></tr></table></figure>
+<p>Models are listed in the <a target="_blank" rel="noopener" href="https://ai.google.dev/gemini-api/docs/models">Google Gemini documentation</a>.</p>
+<h1 id="Tool-Calling"><a href="#Tool-Calling" class="headerlink" title="Tool Calling"></a>Tool Calling</h1><p>LLMs can’t return real-time data, but they can call tools to get real-time data.</p>
+<p>If you ask for today’s date, the model can’t give you the answer directly. An example response would be “I do not have access to real-time information, including the current date. My knowledge cutoff is <strong>June 2024</strong>. Therefore, I cannot tell you what today’s date is.”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">response</span> <span class="operator">=</span> chatModel.call(<span class="string">&quot;What date is it today?&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>But if you have a tool that can return the current date, the model can call the tool to get the answer. An example response would be “Today’s date is 2026-02-15.”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">response</span> <span class="operator">=</span>  ChatClient.create(chatModel)</span><br><span class="line">    .prompt(<span class="string">&quot;What date is it today?&quot;</span>)</span><br><span class="line">    .tools(<span class="keyword">new</span> <span class="title class_">DateTimeTool</span>())</span><br><span class="line">    .call().content();</span><br></pre></td></tr></table></figure>
+
+<p>DateTimeTool - use @Tool annotation to mark the method as a tool that can be called by the model. The description attribute provides a brief description of what the tool does, which can help the model understand when to use it.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DateTimeTool</span> &#123;</span><br><span class="line">    <span class="meta">@Tool(description = &quot;Get the current date and time in the user&#x27;s timezone&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getCurrentDate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> LocalDateTime.now().atZone(LocaleContextHolder.getTimeZone().toZoneId()).toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>You can also ask the model to take action. For example, you can ask the model to set an alarm for you. The model can call the setAlarm tool to set the alarm for you.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">response</span> <span class="operator">=</span> ChatClient.create(chatModel)</span><br><span class="line">            .prompt(<span class="string">&quot;set an alarm 1 hour from now&quot;</span> )</span><br><span class="line">            .tools(<span class="keyword">new</span> <span class="title class_">DateTimeTool</span>())</span><br><span class="line">            .call().content();</span><br></pre></td></tr></table></figure>
+
+<p>DateTimeTool with setAlarm method - use @ToolParam annotation to mark the parameter as a tool parameter that can be passed by the model. The description attribute provides a brief description of what the parameter is, which can help the model understand how to use it.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DateTimeTool</span> &#123;</span><br><span class="line">    <span class="meta">@Tool(description = &quot;Get the current date and time in the user&#x27;s timezone&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getCurrentDate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> LocalDateTime.now().atZone(LocaleContextHolder.getTimeZone().toZoneId()).toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Tool(description = &quot;Set a user alarm for the given time&quot;)</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">setAlarm</span><span class="params">(<span class="meta">@ToolParam(description = &quot;Time in ISO-8601 format&quot;)</span> String time)</span> &#123;</span><br><span class="line">        <span class="type">LocalDateTime</span> <span class="variable">alarmTime</span> <span class="operator">=</span> LocalDateTime.parse(time, DateTimeFormatter.ISO_DATE_TIME);</span><br><span class="line">        System.out.println(<span class="string">&quot;Alarm set for &quot;</span> + alarmTime);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-ai/reference/api/tools.html">Spring AI Tools Documentation</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/SpringAI/Generate-Image/" rel="prev" title="Spring AI - Generate Image">
+                  <i class="fa fa-chevron-left"></i> Spring AI - Generate Image
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-coffee"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xinghua Zhang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

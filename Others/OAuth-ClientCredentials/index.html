@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flow-Overview"><span class="nav-number">1.</span> <span class="nav-text">Flow Overview</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Flow-Overview"><span class="nav-number">1.</span> <span class="nav-text">Flow Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Getting-an-Access-Token"><span class="nav-number">1.1.</span> <span class="nav-text">Getting an Access Token</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-Protected-Resources"><span class="nav-number">1.2.</span> <span class="nav-text">Accessing Protected Resources</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -265,11 +265,11 @@
         <p>OAuth 2.0 Client Credentials Grant Flow is a protocol that allows applications to obtain an access token to access protected resources on behalf of themselves, rather than on behalf of a user. This flow is typically used for server-to-server communication, where the application needs to authenticate itself to access resources.</p>
 <span id="more"></span>
 
-<h1 id="Flow-Overview"><a href="#Flow-Overview" class="headerlink" title="Flow Overview"></a>Flow Overview</h1><p>Actors: </p>
+<h1 id="Flow-Overview"><a href="#Flow-Overview" class="headerlink" title="Flow Overview"></a>Flow Overview</h1><p>Roles: </p>
 <ul>
 <li>Client: The application that wants to access the protected resource.</li>
-<li>Authorization Server: The server that issues access tokens to the client after successfully authenticating it.</li>
-<li>Resource Server: The server that hosts the protected resources and validates the access token.</li>
+<li>Authorization Server: The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.</li>
+<li>Resource Server: The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.</li>
 </ul>
 <p>OAuth Flow:</p>
 <ol>
@@ -278,14 +278,29 @@
 <li>The client uses the access token to access the protected resource on the resource server.</li>
 <li>The resource server validates the access token and, if valid, allows the client to access the requested resource.</li>
 </ol>
+<h2 id="Getting-an-Access-Token"><a href="#Getting-an-Access-Token" class="headerlink" title="Getting an Access Token"></a>Getting an Access Token</h2><p>To obtain an access token, the client sends a POST request to the authorization server’s token endpoint<br>with the following parameters:</p>
+<ul>
+<li><code>client_id</code>: The client ID issued to the client during the registration process.</li>
+<li><code>client_secret</code>: The client secret issued to the client during the registration process.</li>
+<li><code>scope</code>: (Optional) A space-separated list of scopes that the client is requesting access to.</li>
+<li><code>grant_type</code>: Must be set to <code>client_credentials</code> to indicate that the client is</li>
+<li>requesting an access token using the client credentials grant type.</li>
+</ul>
 <p>Example Authentication Request from client to authorization server:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /token HTTP/1.1</span><br><span class="line">Host: authorization-server.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">grant_type=client_credentials&amp;client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET&amp;scope=app.read</span><br></pre></td></tr></table></figure>
+
+<p>Curl Command to obtain an access token:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST <span class="string">&quot;https://authorization-server.com/token&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> \</span><br><span class="line">     -d <span class="string">&quot;grant_type=client_credentials&amp;client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_CLIENT_SECRET&amp;scope=app.read&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>Example Response from authorization server to client:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;access_token&quot;: &quot;ACCESS_TOKEN_VALUE&quot;,</span><br><span class="line">  &quot;token_type&quot;: &quot;Bearer&quot;,</span><br><span class="line">  &quot;expires_in&quot;: 3600,</span><br><span class="line">  &quot;scope&quot;: &quot;app.read&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="Accessing-Protected-Resources"><a href="#Accessing-Protected-Resources" class="headerlink" title="Accessing Protected Resources"></a>Accessing Protected Resources</h2><p>Once the client has obtained an access token, it can use it to access protected resources on the resource server. The client includes the access token in the Authorization header of the HTTP request to the resource server.</p>
 <p>Example Resource Request from client to resource server:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /path/to/protected-resource HTTP/1.1</span><br><span class="line">Host: resource-server.com</span><br><span class="line">Authorization: Bearer ACCESS_TOKEN_VALUE</span><br></pre></td></tr></table></figure>
+
+<p>Curl Command to access protected resource:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET <span class="string">&quot;https://resource-server.com/path/to/protected-resource&quot;</span> \</span><br><span class="line">     -H <span class="string">&quot;Authorization: Bearer ACCESS_TOKEN_VALUE&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>Example Response from resource server to client:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: application/json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;data&quot;: &quot;Protected resource data&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

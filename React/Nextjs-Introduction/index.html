@@ -156,13 +156,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">276</span>
+          <span class="site-state-item-count">279</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -325,6 +325,7 @@
 <h1 id="Key-Concepts"><a href="#Key-Concepts" class="headerlink" title="Key Concepts"></a>Key Concepts</h1><h2 id="The-Core-Philosophy"><a href="#The-Core-Philosophy" class="headerlink" title="The Core Philosophy"></a>The Core Philosophy</h2><p>In a standard React app (Vite&#x2F;CRA), you ship an empty HTML file and a giant JavaScript bundle. The browser downloads the JS, runs it, and <em>then</em> the user sees the UI.</p>
 <p>In <strong>Next.js</strong>, the server pre-renders the HTML. The user sees the content instantly, and then React “hydrates” it to make it interactive. This is why Next.js is the king of SEO and performance.</p>
 <h2 id="Routing-No-More-react-router-dom"><a href="#Routing-No-More-react-router-dom" class="headerlink" title="Routing: No More react-router-dom"></a>Routing: No More <code>react-router-dom</code></h2><p>Next.js uses <strong>File-Based Routing</strong>. You don’t write a <code>&lt;Routes&gt;</code> component. Instead, your file structure <em>is</em> your URL structure.</p>
+<p>Next.js supports dynamic routes with square brackets. see <a target="_blank" rel="noopener" href="https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes">Dynamic Routes</a> for more details.</p>
 <ul>
 <li><strong>App Router (Modern Standard):</strong> Uses the <code>app/</code> directory.</li>
 <li><code>app/page.tsx</code> → <code>/</code></li>

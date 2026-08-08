@@ -22,7 +22,7 @@
     <meta name="description" content="Agent Skills are a practical way to package instructions, scripts, and supporting files into a reusable capability. In this post, we use a Copilot agent skill as an example and walk through the file s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Understanding Agent Skills">
-<meta property="og:url" content="http://example.com/AI/Copilot-Agent-Skills/index.html">
+<meta property="og:url" content="http://example.com/AI/Agent-Skills/index.html">
 <meta property="og:site_name" content="Xing&#39;s Blog">
 <meta property="og:description" content="Agent Skills are a practical way to package instructions, scripts, and supporting files into a reusable capability. In this post, we use a Copilot agent skill as an example and walk through the file s">
 <meta property="og:locale" content="en_US">
@@ -32,11 +32,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/AI/Copilot-Agent-Skills/">
+<link rel="canonical" href="http://example.com/AI/Agent-Skills/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/AI/Copilot-Agent-Skills/","path":"AI/Copilot-Agent-Skills/","title":"Understanding Agent Skills"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/AI/Agent-Skills/","path":"AI/Agent-Skills/","title":"Understanding Agent Skills"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Understanding Agent Skills | Xing's Blog</title>
@@ -211,7 +211,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/AI/Copilot-Agent-Skills/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/AI/Agent-Skills/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -308,6 +308,7 @@
 <li><code>disable-model-invocation</code> - whether the model can load it automatically</li>
 <li><code>context</code> - whether the skill runs inline or in a forked context</li>
 </ul>
+<p><code>disable-model-invocation</code> - whether the model can load it automatically. default is <code>false</code>. The skill can be automatically loaded by default. To prevent automatic loading, set this field to <code>true</code>.</p>
 <p>The body of the file should describe the workflow clearly and specifically. A good skill usually includes:</p>
 <ul>
 <li>What the skill helps accomplish</li>
@@ -327,6 +328,7 @@
 <h1 id="Recommended-Skills"><a href="#Recommended-Skills" class="headerlink" title="Recommended Skills"></a>Recommended Skills</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/mattpocock/skills">Skills For Real Engineers by mattpocock</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/VoltAgent/awesome-agent-skills">Awesome Agent Skills by VoltAgent</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mattpocock/skills">Skills Repository by Matt Pocock</a></li>
 </ul>
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Agent skills are a clean way to turn repeated AI workflows into reusable capabilities. For Copilot agent skill work, the key pieces are the directory structure, the <code>SKILL.md</code> frontmatter, and clear instructions in the body. Once those are in place, the same skill can be reused across tasks without repeating the setup every time.</p>
 
